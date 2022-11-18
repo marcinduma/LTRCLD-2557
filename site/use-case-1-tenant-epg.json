@@ -1,0 +1,43 @@
+{
+	"fvTenant": {
+		"attributes": {
+			"dn": "uni/tn-{{tenantname}}",
+			"name": "{{tenantname}}"
+		},
+		"children": [
+			{
+				"fvAp": {
+					"attributes": {
+						"name": "{{ap}}"
+					},
+					"children": [
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "{{epgname}}"
+								},
+								"children": [
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-{{domain}}"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "{{bdname}}"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,1120 @@
+{
+	"info": {
+		"_postman_id": "52034c66-0c43-4d05-ba3f-a58ead02da7b",
+		"name": "ACI dCloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USE-CASES",
+			"item": [
+				{
+					"name": "Use-Case-1-tenant-add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}\",\r\n\t\t\t\"name\": \"{{tenantname}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{ap}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"{{epgname}}\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsDomAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/phys-{{domain}}\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsBd\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tnFvBDName\": \"{{bdname}}\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Use-Case-1-static-binding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}\",\r\n\t\t\t\"name\": \"{{tenantname}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{ap}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"{{epgname}}\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsPathAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"encap\": \"vlan-{{vlan}}\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"instrImedcy\": \"lazy\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"mode\": \"{{mode}}\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"primaryEncap\": \"unknown\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"topology/pod-{{pod}}/paths-{{leaf}}/pathep-[eth{{interface}}]\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Use-Case-2-tenant-add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"{{tenantname-ep}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvCtx\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{vrfname}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvBD\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{bdname}}\",\r\n\t\t\t\t\t\t\"type\": \"regular\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvSubnet\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"ip\": \"{{ipaddress}}\",\r\n\t\t\t\t\t\t\t\t\t\"ipDPLearning\": \"enabled\",\r\n\t\t\t\t\t\t\t\t\t\"scope\": \"private\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvRsCtx\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"tnFvCtxName\": \"{{vrfname}}\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{ap}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"{{epgname}}\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsDomAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/phys-{{domain}}\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsBd\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tnFvBDName\": \"{{bdname}}\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Use-Case-2-static-binding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}\",\r\n\t\t\t\"name\": \"{{tenantname}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{ap}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"{{epgname}}\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsPathAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"encap\": \"vlan-{{vlan}}\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"instrImedcy\": \"lazy\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"mode\": \"{{mode}}\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"primaryEncap\": \"unknown\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"topology/pod-{{pod}}/paths-{{leaf}}/pathep-[eth{{interface}}]\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET requests",
+			"item": [
+				{
+					"name": "Get Fabric topologies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/class/fabricTopology.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"class",
+								"fabricTopology.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fabric pods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/class/fabricPod.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"class",
+								"fabricPod.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fabric node",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/mo/topology/pod-1/node-101/sys.json?rsp-subtree=full",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"mo",
+								"topology",
+								"pod-1",
+								"node-101",
+								"sys.json"
+							],
+							"query": [
+								{
+									"key": "rsp-subtree",
+									"value": "full"
+								},
+								{
+									"key": "rsp-subtree",
+									"value": "children",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Class Form template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/class/fvBD.json?query-target-filter=and(wcard(fvBD.dn,\"tenant-1\"))&rsp-subtree=full",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"class",
+								"fvBD.json"
+							],
+							"query": [
+								{
+									"key": "query-target",
+									"value": "self",
+									"description": "{{ self | children | subtree }}",
+									"disabled": true
+								},
+								{
+									"key": "target-subtree-class",
+									"value": "",
+									"description": "{{ class-name }}",
+									"disabled": true
+								},
+								{
+									"key": "query-target-filter",
+									"value": "and(wcard(fvBD.dn,\"tenant-1\"))",
+									"description": "{{filer expression}} eg. and(wcard(class.attribude,\"object\"))"
+								},
+								{
+									"key": "rsp-subtree",
+									"value": "full",
+									"description": "{{ no | children | full }}"
+								},
+								{
+									"key": "rsp-subtree-class",
+									"value": "",
+									"description": "{{ class-name }}",
+									"disabled": true
+								},
+								{
+									"key": "rsp-subtree-filter",
+									"value": "",
+									"description": "{{ filter-expression }}",
+									"disabled": true
+								},
+								{
+									"key": "rsp-subtree-include",
+									"value": "",
+									"description": "{{ faults | health | etc }}",
+									"disabled": true
+								},
+								{
+									"key": "order-by",
+									"value": "",
+									"description": "classname.property {{ asc | desc }}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Node-101-topsystem check",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/mo/topology/pod-1/node-{{nodeid}}/sys.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"mo",
+								"topology",
+								"pod-1",
+								"node-{{nodeid}}",
+								"sys.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Running Firmware",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/mo/topology/pod-1/node-{{apicid}}/sys/ctrlrfwstatuscont.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"mo",
+								"topology",
+								"pod-1",
+								"node-{{apicid}}",
+								"sys",
+								"ctrlrfwstatuscont.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-interface-leaf-profiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json?query-target=subtree&target-subtree-class=infraAccPortP&query-target-filter=not(wcard(infraAccPortP.dn,\"__ui_\"))&query-target=children&target-subtree-class=infraAccPortP&rsp-subtree=full&rsp-subtree-class=infraHPortS,infraPortBlk,infraSubPortBlk,infraRsAccBaseGrp",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							],
+							"query": [
+								{
+									"key": "query-target",
+									"value": "subtree"
+								},
+								{
+									"key": "target-subtree-class",
+									"value": "infraAccPortP"
+								},
+								{
+									"key": "query-target-filter",
+									"value": "not(wcard(infraAccPortP.dn,\"__ui_\"))"
+								},
+								{
+									"key": "query-target",
+									"value": "children"
+								},
+								{
+									"key": "target-subtree-class",
+									"value": "infraAccPortP"
+								},
+								{
+									"key": "rsp-subtree",
+									"value": "full"
+								},
+								{
+									"key": "rsp-subtree-class",
+									"value": "infraHPortS,infraPortBlk,infraSubPortBlk,infraRsAccBaseGrp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Switch-LeafProfiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apic}}/api/node/class/infraNodeP.json?query-target=subtree&target-subtree-class=infraNodeP&query-target-filter=not(wcard(infraNodeP.dn,%22__ui_%22))&rsp-subtree=full",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"class",
+								"infraNodeP.json"
+							],
+							"query": [
+								{
+									"key": "query-target",
+									"value": "subtree"
+								},
+								{
+									"key": "target-subtree-class",
+									"value": "infraNodeP"
+								},
+								{
+									"key": "query-target-filter",
+									"value": "not(wcard(infraNodeP.dn,%22__ui_%22))"
+								},
+								{
+									"key": "rsp-subtree",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST-AccessPolices",
+			"item": [
+				{
+					"name": "ADD-Switches",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fabricNodeIdentP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/controller/nodeidentpol/nodep-TEP-1-102\",\r\n\t\t\t\"fabricId\": \"1\",\r\n\t\t\t\"name\": \"Leaf-102\",\r\n\t\t\t\"nodeId\": \"102\",\r\n\t\t\t\"podId\": \"1\",\r\n\t\t\t\"role\": \"leaf\",\r\n\t\t\t\"serial\": \"TEP-1-102\"\r\n\t\t}\r\n\t}\r\n},\r\n{\r\n\t\"fabricNodeIdentP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/controller/nodeidentpol/nodep-TEP-1-104\",\r\n\t\t\t\"fabricId\": \"1\",\r\n\t\t\t\"name\": \"Spine-2\",\r\n\t\t\t\"nodeId\": \"104\",\r\n\t\t\t\"podId\": \"1\",\r\n\t\t\t\"role\": \"spine\",\r\n\t\t\t\"serial\": \"TEP-1-104\"\r\n\t\t}\r\n\t}\r\n},\r\n{\r\n\t\"fabricNodeIdentP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/controller/nodeidentpol/nodep-TEP-1-101\",\r\n\t\t\t\"fabricId\": \"1\",\r\n\t\t\t\"name\": \"Leaf-101\",\r\n\t\t\t\"nodeId\": \"101\",\r\n\t\t\t\"podId\": \"1\",\r\n\t\t\t\"role\": \"leaf\",\r\n\t\t\t\"serial\": \"TEP-1-101\"\r\n\t\t}\r\n\t}\r\n},\r\n{\r\n\t\"fabricNodeIdentP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/controller/nodeidentpol/nodep-TEP-1-103\",\r\n\t\t\t\"fabricId\": \"1\",\r\n\t\t\t\"name\": \"Spine-1\",\r\n\t\t\t\"nodeId\": \"103\",\r\n\t\t\t\"podId\": \"1\",\r\n\t\t\t\"role\": \"spine\",\r\n\t\t\t\"serial\": \"TEP-1-103\"\r\n\t\t}\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LACP Policy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lacpLagPol\": {\r\n    \"attributes\": {\r\n      \"dn\": \"uni/infra/lacplagp-LACP_ACTIVE\",\r\n      \"ctrl\": \"fast-sel-hot-stdby,graceful-conv,susp-individual\",\r\n      \"name\": \"LACP_ACTIVE\",\r\n      \"mode\": \"active\",\r\n      \"rn\": \"lacplagp-LACP_ACTIVE\",\r\n      \"status\": \"created\"\r\n    },\r\n    \"children\": []\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LLDP-off",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lldpIfPol\": {\r\n    \"attributes\": {\r\n      \"dn\": \"uni/infra/lldpIfP-LLDP_OFF\",\r\n      \"name\": \"LLDP_OFF\",\r\n      \"adminRxSt\": \"disabled\",\r\n      \"adminTxSt\": \"disabled\",\r\n      \"rn\": \"lldpIfP-LLDP_OFF\",\r\n      \"status\": \"created\"\r\n    },\r\n    \"children\": []\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LLDP-on",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lldpIfPol\": {\r\n    \"attributes\": {\r\n      \"dn\": \"uni/infra/lldpIfP-LLDP_ON\",\r\n      \"name\": \"LLDP_ON\",\r\n      \"rn\": \"lldpIfP-LLDP_ON\",\r\n      \"status\": \"created\"\r\n    },\r\n    \"children\": []\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SPEED-Link",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fabricHIfPol\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/infra/hintfpol-LINK-10G\",\r\n\t\t\t\"name\": \"LINK-10G\",\r\n\t\t\t\"speed\": \"10G\",\r\n\t\t\t\"rn\": \"hintfpol-LINK-10G\",\r\n\t\t\t\"status\": \"created\"\r\n\t\t},\r\n\t\t\"children\": []\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VLANpool",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvnsVlanInstP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/infra/vlanns-[{{vlanpoolname}}]-static\",\r\n\t\t\t\"name\": \"{{vlanpoolname}}\",\r\n\t\t\t\"allocMode\": \"static\",\r\n\t\t\t\"rn\": \"vlanns-[{{vlanpoolname}}]-static\",\r\n\t\t\t\"status\": \"created\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvnsEncapBlk\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"dn\": \"uni/infra/vlanns-[{{vlanpoolname}}]-static/from-[vlan-{{vlanstart}}]-to-[vlan-{{vlanend}}]\",\r\n\t\t\t\t\t\t\"from\": \"vlan-{{vlanstart}}\",\r\n\t\t\t\t\t\t\"to\": \"vlan-{{vlanend}}\",\r\n\t\t\t\t\t\t\"rn\": \"from-[vlan-{{vlanstart}}]-to-[vlan-{{vlanend}}]\",\r\n\t\t\t\t\t\t\"status\": \"created\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra/vlanns-[{{vlanpoolname}}]-static.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra",
+								"vlanns-[{{vlanpoolname}}]-static.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AAEP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"infraInfra\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/infra\",\r\n\t\t\t\"status\": \"modified\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"infraAttEntityP\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"dn\": \"uni/infra/attentp-{{aaep}}\",\r\n\t\t\t\t\t\t\"name\": \"{{aaep}}\",\r\n\t\t\t\t\t\t\"rn\": \"attentp-{{aaep}}\",\r\n\t\t\t\t\t\t\"status\": \"created\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"infraFuncP\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"dn\": \"uni/infra/funcprof\",\r\n\t\t\t\t\t\t\"status\": \"modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Domain",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"physDomP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/phys-{{domain}}\",\r\n\t\t\t\"name\": \"{{domain}}\",\r\n\t\t\t\"rn\": \"phys-{{domain}}\",\r\n\t\t\t\"status\": \"created\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"infraRsVlanNs\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tDn\": \"uni/infra/vlanns-[{{vlanpoolname}}]-static\",\r\n\t\t\t\t\t\t\"status\": \"created\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/phys-{{domain}}.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"phys-{{domain}}.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Domain to AAEP association",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"infraAttEntityP\": {\r\n                \"attributes\": {\r\n                    \"annotation\": \"\",\r\n                    \"descr\": \"\",\r\n                    \"dn\": \"uni/infra/attentp-{{aaep}}\",\r\n                    \"name\": \"{{aaep}}\",\r\n                    \"nameAlias\": \"\",\r\n                    \"ownerKey\": \"\",\r\n                    \"ownerTag\": \"\",\r\n                    \"userdom\": \":all:\"\r\n                },\r\n                \"children\": [\r\n                    {\r\n                        \"infraRsDomP\": {\r\n                            \"attributes\": {\r\n                                \"annotation\": \"\",\r\n                                \"tDn\": \"uni/phys-{{domain}}\",\r\n                                \"userdom\": \":all:\"\r\n                            }\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Interface-VPC-policygroup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"infraAccBndlGrp\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"dn\": \"uni/infra/funcprof/accbundle-intpolgrp-vpc-server1\",\r\n\t\t\t\"lagT\": \"node\",\r\n\t\t\t\"name\": \"intpolgrp-vpc-server1\",\r\n\t\t\t\"rn\": \"accbundle-intpolgrp-vpc-server1\",\r\n\t\t\t\"status\": \"created\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"infraRsAttEntP\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tDn\": \"uni/infra/attentp-dcloud-AAEP\",\r\n\t\t\t\t\t\t\"status\": \"created,modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"infraRsHIfPol\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tnFabricHIfPolName\": \"LINK-10G\",\r\n\t\t\t\t\t\t\"status\": \"created,modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"infraRsLldpIfPol\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tnLldpIfPolName\": \"LLDP_ON\",\r\n\t\t\t\t\t\t\"status\": \"created,modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"infraRsLacpPol\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tnLacpLagPolName\": \"LACP_ACTIVE\",\r\n\t\t\t\t\t\t\"status\": \"created,modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VPC Policy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fabricProtPol\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"annotation\": \"\",\r\n\t\t\t\"descr\": \"\",\r\n\t\t\t\"dn\": \"uni/fabric/protpol\",\r\n\t\t\t\"name\": \"default\",\r\n\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\"pairT\": \"explicit\",\r\n\t\t\t\"userdom\": \"all\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fabricExplicitGEp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\"id\": \"12\",\r\n\t\t\t\t\t\t\"name\": \"vpc\",\r\n\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fabricRsVpcInstPol\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"tnVpcInstPolName\": \"default\",\r\n\t\t\t\t\t\t\t\t\t\"userdom\": \"all\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fabricNodePEp\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"id\": \"102\",\r\n\t\t\t\t\t\t\t\t\t\"name\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"podId\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fabricNodePEp\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"id\": \"101\",\r\n\t\t\t\t\t\t\t\t\t\"name\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"podId\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "interface leaf profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\t\t{\r\n\t\t\t\"infraAccPortP\": {\r\n\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\"dn\": \"uni/infra/accportprof-Leaf101-102\",\r\n\t\t\t\t\t\"name\": \"Leaf101-102\",\r\n\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t},\r\n\t\t\t\t\"children\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"infraHPortS\": {\r\n\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\"name\": \"1-10\",\r\n\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\t\t\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\t\t\t\t\t\"type\": \"range\",\r\n\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\"infraRsAccBaseGrp\": {\r\n\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fexId\": \"101\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/infra/funcprof/accbundle-intpolgrp-vpc-server1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\"infraPortBlk\": {\r\n\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fromCard\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fromPort\": \"10\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"block2\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"toCard\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"toPort\": \"10\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t},\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"infraHPortS\": {\r\n\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\"name\": \"1-20\",\r\n\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\t\t\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\t\t\t\t\t\"type\": \"range\",\r\n\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\"infraRsAccBaseGrp\": {\r\n\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fexId\": \"101\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/infra/funcprof/accbundle-intpolgrp-vpc-server2\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\"infraPortBlk\": {\r\n\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fromCard\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"fromPort\": \"20\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"name\": \"block2\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"toCard\": \"1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"toPort\": \"20\",\r\n\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Switch leaf profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"infraNodeP\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"annotation\": \"\",\r\n\t\t\t\"childAction\": \"\",\r\n\t\t\t\"descr\": \"\",\r\n\t\t\t\"dn\": \"uni/infra/nprof-leaf101-102\",\r\n\t\t\t\"name\": \"leaf101-102\",\r\n\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\"status\": \"created\",\r\n\t\t\t\"userdom\": \":all:\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"infraLeafS\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\"childAction\": \"\",\r\n\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\"name\": \"101-102\",\r\n\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\"ownerKey\": \"\",\r\n\t\t\t\t\t\t\"ownerTag\": \"\",\r\n\t\t\t\t\t\t\"rn\": \"leaves-101-102-typ-range\",\r\n\t\t\t\t\t\t\"status\": \"created\",\r\n\t\t\t\t\t\t\"type\": \"range\",\r\n\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"infraNodeBlk\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"childAction\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"descr\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"from_\": \"101\",\r\n\t\t\t\t\t\t\t\t\t\"name\": \"d997ad7b74fd6231\",\r\n\t\t\t\t\t\t\t\t\t\"nameAlias\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"rn\": \"nodeblk-d997ad7b74fd6231\",\r\n\t\t\t\t\t\t\t\t\t\"status\": \"created\",\r\n\t\t\t\t\t\t\t\t\t\"to_\": \"102\",\r\n\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni/infra.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni",
+								"infra.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST Tenant COLLECTION",
+			"item": [
+				{
+					"name": "Tenant and VRF from CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"annotation\": \"\",\r\n\t\t\t\"descr\": \"\",\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}\",\r\n\t\t\t\"name\": \"{{tenantname}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvCtx\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{vrfname}}\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplicationProfile from CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n                        \"dn\": \"uni/tn-{{tenantname}}/ap-{{ap}}\",\r\n                        \"name\": \"{{ap}}\",\r\n                        \"rn\": \"ap-{{ap}}\"\r\n\t\t\t\t\t}\r\n                }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bridge-domain L2 from CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fvTenant\": {\r\n        \"attributes\": {\r\n            \"dn\": \"uni/tn-{{tenantname}}\",\r\n            \"status\": \"modified\"\r\n        },\r\n        \"children\": [\r\n            {\r\n                \"fvBD\": {\r\n                    \"attributes\": {\r\n                        \"dn\": \"uni/tn-{{tenantname}}/BD-{{bdname}}\",\r\n                        \"mac\": \"00:22:BD:F8:19:FF\",\r\n                        \"name\": \"{{bdname}}\",\r\n                        \"rn\": \"BD-{{bdname}}\",\r\n                        \"arpFlood\": \"yes\",\r\n                        \"ipLearning\": \"no\",\r\n                        \"unicastRoute\": \"no\",\r\n                        \"unkMacUcastAct\": \"flood\",\r\n                        \"type\": \"regular\",\r\n                        \"unkMcastAct\": \"flood\",\r\n                        \"status\": \"created\"\r\n                    },\r\n                    \"children\": [\r\n                        {\r\n                            \"fvRsCtx\": {\r\n                                \"attributes\": {\r\n                                    \"tnFvCtxName\": \"{{vrfname}}\",\r\n                                    \"status\": \"created,modified\"\r\n                                },\r\n                                \"children\": []\r\n                            }\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bridge-domain L3 from CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvBD\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"{{bdname}}\",\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}/BD-{{bdname}}\",\r\n\t\t\t\"rn\": \"BD-{{bdname}}\",\r\n\t\t\t\"type\": \"regular\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvSubnet\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"ip\": \"{{ipaddress}}\",\r\n\t\t\t\t\t\t\"ipDPLearning\": \"enabled\",\r\n\t\t\t\t\t\t\"scope\": \"private\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvRsCtx\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"tnFvCtxName\": \"{{vrfname}}\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create EPG under existing application profile from CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fvAEPg\": {\r\n    \"attributes\": {\r\n      \"dn\": \"uni/tn-{{tenantname}}/ap-{{ap}}/epg-{{epgname}}\",\r\n      \"name\": \"{{epgname}}\",\r\n      \"rn\": \"epg-{{epgname}}\",\r\n      \"status\": \"created\"\r\n    },\r\n    \"children\": [\r\n      {\r\n        \"fvRsBd\": {\r\n          \"attributes\": {\r\n            \"tnFvBDName\": \"{{bdname}}\",\r\n            \"status\": \"created,modified\"\r\n          },\r\n          \"children\": []\r\n        }\r\n      },\r\n      {\r\n        \"fvRsDomAtt\": {\r\n          \"attributes\": {\r\n            \"tDn\": \"uni/phys-{{domain}}\",\r\n            \"status\": \"created\"\r\n          },\r\n          \"children\": []\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE EPG under new Application profile from CSV",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"annotation\": \"\",\r\n\t\t\t\"descr\": \"\",\r\n\t\t\t\"dn\": \"uni/tn-{{tenantname}}\",\r\n\t\t\t\"name\": \"{{tenantname}}\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"{{ap}}\",\r\n\t\t\t\t\t\t\"status\": \"created,modified\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"{{epgname}}\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsDomAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/phys-{{domain}}\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsBd\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tnFvBDName\": \"{{bdname}}\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \"all\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apic}}/api/node/mo/uni.json",
+							"protocol": "https",
+							"host": [
+								"{{apic}}"
+							],
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"uni.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACI Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aaaUser\": {\r\n        \"attributes\": {\r\n            \"name\": \"{{user}}\",\r\n            \"pwd\": \"{{password}}\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apic}}/api/aaaLogin.json",
+					"protocol": "https",
+					"host": [
+						"{{apic}}"
+					],
+					"path": [
+						"api",
+						"aaaLogin.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE TENANT-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"fvTenant\": {\r\n\t\t\"attributes\": {\r\n\t\t\t\"annotation\": \"\",\r\n\t\t\t\"descr\": \"\",\r\n\t\t\t\"dn\": \"uni/tn-dcloud-tenant-1\",\r\n\t\t\t\"name\": \"dcloud-tenant-1\"\r\n\t\t},\r\n\t\t\"children\": [\r\n\t\t\t{\r\n\t\t\t\t\"fvCtx\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"VRF1\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": []\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvBD\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"network-2\",\r\n\t\t\t\t\t\t\"type\": \"regular\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvSubnet\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"ip\": \"2.2.2.1/24\",\r\n\t\t\t\t\t\t\t\t\t\"ipDPLearning\": \"enabled\",\r\n\t\t\t\t\t\t\t\t\t\"scope\": \"private\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvRsCtx\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"tnFvCtxName\": \"VRF1\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvBD\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"network-1\",\r\n\t\t\t\t\t\t\"type\": \"regular\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvSubnet\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"ip\": \"1.1.1.1/24\",\r\n\t\t\t\t\t\t\t\t\t\"scope\": \"private\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvRsCtx\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\"tnFvCtxName\": \"VRF1\",\r\n\t\t\t\t\t\t\t\t\t\"userdom\": \"all\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"fvAp\": {\r\n\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\"name\": \"application-profile-01\"\r\n\t\t\t\t\t},\r\n\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"EPG2\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsPathAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"encap\": \"vlan-102\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"instrImedcy\": \"lazy\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"mode\": \"regular\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"primaryEncap\": \"unknown\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"topology/pod-1/protpaths-101-102/pathep-[intpolgrp-vpc-server2]\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsDomAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/phys-PHY-DOM\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsBd\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tnFvBDName\": \"network-2\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \"all\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\"fvAEPg\": {\r\n\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\"name\": \"EPG1\"\r\n\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\"children\": [\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsPathAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"encap\": \"vlan-101\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"instrImedcy\": \"lazy\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"mode\": \"regular\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"primaryEncap\": \"unknown\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"topology/pod-1/protpaths-101-102/pathep-[intpolgrp-vpc-server1]\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \":all:\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsDomAtt\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tDn\": \"uni/phys-PHY-DOM\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\t\t\"fvRsBd\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\"attributes\": {\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"annotation\": \"\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"tnFvBDName\": \"network-1\",\r\n\t\t\t\t\t\t\t\t\t\t\t\t\"userdom\": \"all\"\r\n\t\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apic}}/api/node/mo/uni.json",
+					"protocol": "https",
+					"host": [
+						"{{apic}}"
+					],
+					"path": [
+						"api",
+						"node",
+						"mo",
+						"uni.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

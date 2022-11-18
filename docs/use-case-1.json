@@ -1,0 +1,93 @@
+{
+	"fvTenant": {
+		"attributes": {
+			"dn": "uni/tn-{{tenantname}}",
+			"name": "{{tenantname}}"
+		},
+		"children": [
+			{
+				"fvAp": {
+					"attributes": {
+						"name": "AP-01"
+					},
+					"children": [
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "EPG_Shared"
+								},
+								"children": [
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-PHY-DOM"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "BD_APP_Shared"
+											}
+										}
+									},
+									{
+										"fvRsPathAtt": {
+											"attributes": {
+												"encap": "vlan-{{vlan}}",
+												"instrImedcy": "lazy",
+												"mode": "{{mode}}",
+												"type": "{{type}}",
+												"primaryEncap": "unknown",
+												"tDn": "topology/pod-{{pod}}/paths-{{leaf}}/pathep-[eth{{interface}}]",
+												"userdom": ":all:"
+											}
+										}
+									}
+								]
+							}
+						},
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "EPG_VOICE"
+								},
+								"children": [
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-PHY-DOM"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "BD_VOICE"
+											}
+										}
+									},
+									{
+										"fvRsPathAtt": {
+											"attributes": {
+												"encap": "vlan-{{vlan}}",
+												"instrImedcy": "lazy",
+												"mode": "{{mode}}",
+												"type": "{{type}}",
+												"primaryEncap": "unknown",
+												"tDn": "tDn": "topology/pod-{{pod}}/paths-{{leaf}}/pathep-[eth{{interface}}]",
+												"userdom": ":all:"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

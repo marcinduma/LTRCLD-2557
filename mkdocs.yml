@@ -1,1 +1,51 @@
-site_name: My Docs
+site_name: CiscoLive EMEA 2023 --- LTRCLD-2557
+site_description: Explore Simplicity of Public Cloud Network Configuration with Cloud Network Controller (formerly cAPIC) and Nexus Dashboard Orchestrator (NDO)
+site_author: Marcin Duma & Karol Okraska
+
+nav:
+  - Home: index.md
+  - Lab Access:
+    - Accessing the Lab Environment: LAB_access.md
+  - First LAB sections:
+    - Install and operate Postman: postman.md
+    - Automation basis with restAPI: restAPI.md
+    - Create customer use-cases with Postman: use-cases-postman.md
+    - How to pull informations using restAPI: monitor-aci.md
+  - Second LAB sections:
+    - Terraform setup: terraform-installation.md
+    - Terraform basic deployment: terraform-basis.md
+    - Terraform variables: terraform-vars.md
+    - Terraform state: terraform-state.md
+    - Terraform use-cases: terraform-custom.md
+    - Terraform modules: terraform-modules.md
+  - Appendixes:
+    - dCloudGuacamole: guacamole.md
+    - Resources: resources.md
+    - Collection of RestAPI: URL-restAPI.md
+    - PRINT version: print_page/
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+plugins:
+  - search
+  - print-site:
+      add_cover_page: true
+      cover_page_template: "docs/assets/templates/custom_cover_page.tpl"
+      add_print_site_banner: true
+      print_site_banner_template: "docs/assets/templates/custom_banner.tpl"
+      exclude:
+        - guacamole.md
+        - resources.md
+        - URL-restAPI.md

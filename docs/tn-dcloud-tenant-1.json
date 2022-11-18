@@ -1,0 +1,156 @@
+{
+	"fvTenant": {
+		"attributes": {
+			"annotation": "",
+			"descr": "",
+			"dn": "uni/tn-dcloud-tenant-1",
+			"name": "dcloud-tenant-1"
+		},
+		"children": [
+			{
+				"fvCtx": {
+					"attributes": {
+						"name": "VRF1"
+					},
+					"children": []
+				}
+			},
+			{
+				"fvBD": {
+					"attributes": {
+						"name": "network-2",
+						"type": "regular"
+					},
+					"children": [
+						{
+							"fvSubnet": {
+								"attributes": {
+									"ip": "2.2.2.1/24",
+									"ipDPLearning": "enabled",
+									"scope": "private"
+								}
+							}
+						},
+						{
+							"fvRsCtx": {
+								"attributes": {
+									"tnFvCtxName": "VRF1"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"fvBD": {
+					"attributes": {
+						"name": "network-1",
+						"type": "regular"
+					},
+					"children": [
+						{
+							"fvSubnet": {
+								"attributes": {
+									"ip": "1.1.1.1/24",
+									"scope": "private"
+								}
+							}
+						},
+						{
+							"fvRsCtx": {
+								"attributes": {
+									"annotation": "",
+									"tnFvCtxName": "VRF1",
+									"userdom": "all"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"fvAp": {
+					"attributes": {
+						"name": "application-profile-01"
+					},
+					"children": [
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "EPG2"
+								},
+								"children": [
+									{
+										"fvRsPathAtt": {
+											"attributes": {
+												"encap": "vlan-102",
+												"instrImedcy": "lazy",
+												"mode": "regular",
+												"primaryEncap": "unknown",
+												"tDn": "topology/pod-1/protpaths-101-102/pathep-[intpolgrp-vpc-server2]",
+												"userdom": ":all:"
+											}
+										}
+									},
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-PHY-DOM"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "network-2",
+												"userdom": "all"
+											}
+										}
+									}
+								]
+							}
+						},
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "EPG1"
+								},
+								"children": [
+									{
+										"fvRsPathAtt": {
+											"attributes": {
+												"encap": "vlan-101",
+												"instrImedcy": "lazy",
+												"mode": "regular",
+												"primaryEncap": "unknown",
+												"tDn": "topology/pod-1/protpaths-101-102/pathep-[intpolgrp-vpc-server1]",
+												"userdom": ":all:"
+											}
+										}
+									},
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-PHY-DOM"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "network-1",
+												"userdom": "all"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

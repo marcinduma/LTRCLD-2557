@@ -1,0 +1,3 @@
+tenantname,ap,epgname,bdname,ipaddress,vrfname,domain
+common,APPLICATION-PROFILE-1,EPG_Shared,BD_APP_Shared,,VRF_Shared,PHY-Shared
+common,APPLICATION-PROFILE-1,,BD_VOICE,,VRFINSIDE,

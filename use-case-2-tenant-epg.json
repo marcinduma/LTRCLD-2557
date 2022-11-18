@@ -1,0 +1,76 @@
+{
+	"fvTenant": {
+		"attributes": {
+			"name": "{{tenantname}}"
+		},
+		"children": [
+			{
+				"fvCtx": {
+					"attributes": {
+						"name": "{{vrfname}}"
+					},
+					"children": []
+				}
+			},
+			{
+				"fvBD": {
+					"attributes": {
+						"name": "{{bdname}}",
+						"type": "regular"
+					},
+					"children": [
+						{
+							"fvSubnet": {
+								"attributes": {
+									"ip": "{{ipaddress}}",
+									"ipDPLearning": "enabled",
+									"scope": "private"
+								}
+							}
+						},
+						{
+							"fvRsCtx": {
+								"attributes": {
+									"tnFvCtxName": "{{vrfname}}"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"fvAp": {
+					"attributes": {
+						"name": "{{ap}}"
+					},
+					"children": [
+						{
+							"fvAEPg": {
+								"attributes": {
+									"name": "{{epgname}}"
+								},
+								"children": [
+									{
+										"fvRsDomAtt": {
+											"attributes": {
+												"tDn": "uni/phys-{{domain}}"
+											}
+										}
+									},
+									{
+										"fvRsBd": {
+											"attributes": {
+												"annotation": "",
+												"tnFvBDName": "{{bdname}}"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

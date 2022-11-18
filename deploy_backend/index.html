@@ -1,0 +1,1178 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explore Simplicity of Public Cloud Network Configuration with Cloud Network Controller (formerly cAPIC) and Nexus Dashboard Orchestrator (NDO)">
+      
+      
+        <meta name="author" content="Marcin Duma & Karol Okraska">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+    
+    
+      
+        <title>Deploy the Backend Application Components on IKS Kubernetes Cluster (IKS Tenant Cluster) - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1c3799f8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploy-the-backend-application-components-on-iks-kubernetes-cluster-iks-tenant-cluster" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CiscoLive EMEA 2023 --- LTRCLD-2557" class="md-header__button md-logo" aria-label="CiscoLive EMEA 2023 --- LTRCLD-2557" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CiscoLive EMEA 2023 --- LTRCLD-2557
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deploy the Backend Application Components on IKS Kubernetes Cluster (IKS Tenant Cluster)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CiscoLive EMEA 2023 --- LTRCLD-2557" class="md-nav__button md-logo" aria-label="CiscoLive EMEA 2023 --- LTRCLD-2557" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CiscoLive EMEA 2023 --- LTRCLD-2557
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Lab Access
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab Access" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lab Access
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_access/" class="md-nav__link">
+        Accessing the Lab Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          First LAB sections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="First LAB sections" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          First LAB sections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postman/" class="md-nav__link">
+        Install and operate Postman
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../restAPI/" class="md-nav__link">
+        Automation basis with restAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases-postman/" class="md-nav__link">
+        Create customer use-cases with Postman
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-aci/" class="md-nav__link">
+        How to pull informations using restAPI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Second LAB sections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Second LAB sections" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Second LAB sections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-installation/" class="md-nav__link">
+        Terraform setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-basis/" class="md-nav__link">
+        Terraform basic deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-vars/" class="md-nav__link">
+        Terraform variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-state/" class="md-nav__link">
+        Terraform state
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-custom/" class="md-nav__link">
+        Terraform use-cases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-modules/" class="md-nav__link">
+        Terraform modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Appendixes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guacamole/" class="md-nav__link">
+        dCloudGuacamole
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../URL-restAPI/" class="md-nav__link">
+        Collection of RestAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print_page/" class="md-nav__link">
+        PRINT version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-kubernetes-master-cli-shell" class="md-nav__link">
+    Login to Kubernetes Master CLI Shell:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-deploy-mariadb-databse" class="md-nav__link">
+    1. Deploy MariaDB Databse:
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Deploy MariaDB Databse:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-create-kubernetes-secret-for-mariadb" class="md-nav__link">
+    1.1 Create Kubernetes Secret for MariaDB:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-create-kubernetes-persistent-volume-claim-for-mariadb" class="md-nav__link">
+    1.2 Create Kubernetes Persistent Volume Claim for MariaDB:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-deploy-mariadb-on-kubernetes" class="md-nav__link">
+    1.3 Deploy MariaDB on Kubernetes:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-create-kubernetes-loadbalancer-service-for-mariadb" class="md-nav__link">
+    1.4 Create Kubernetes LoadBalancer Service for MariaDB:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deploy-rest-api-agent-on-kubernetes" class="md-nav__link">
+    2. Deploy REST API Agent on Kubernetes:
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Deploy REST API Agent on Kubernetes:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-deploy-rest-api-agent" class="md-nav__link">
+    2.1 Deploy REST API Agent:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-create-kubernetes-nodeport-service-for-rest-api-agent" class="md-nav__link">
+    2.2 Create Kubernetes NodePort Service for REST API Agent:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-locate-the-ip-and-port-to-access-node-port-service-for-rest-api-agent" class="md-nav__link">
+    2.3 Locate the IP and Port to Access Node-Port Service for REST API Agent:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deploy-mqtt-to-db-agent-on-kubernetes" class="md-nav__link">
+    3. Deploy MQTT to DB Agent on Kubernetes:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-the-rest-apis-exposed-by-rest-api-agent-service" class="md-nav__link">
+    4 Test the REST APIs Exposed by REST API Agent Service:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="deploy-the-backend-application-components-on-iks-kubernetes-cluster-iks-tenant-cluster">Deploy the Backend Application Components on IKS Kubernetes Cluster (IKS Tenant Cluster)</h1>
+<p>In this section you would deploy the backend components of the IoT Application on the Kubernetes cluster deployed on-prem using Intesight. Following diagram shows the high-level architecture of these backend application containers</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-backend-all.png" /></p>
+<h2 id="login-to-kubernetes-master-cli-shell">Login to Kubernetes Master CLI Shell:</h2>
+<p>SSH into Linux Jumphost using Putty, use predefined session named "ubuntu-terminal" (198.18.133.11) - use password C1sco12345. From here you will deploy two microservices in on-premise Kubernetes Cluster and one microservice in AWS EKS Kubernetes cluster. You will see how microservices talks to each other and how to establish necessary communication.</p>
+<h2 id="1-deploy-mariadb-databse">1. Deploy MariaDB Databse:</h2>
+<p>MariaDB will be used in the backend to save the sensor data received from AWS IoT platform over MQTT protocol. For this we would create following objects -</p>
+<ol>
+<li>Secret</li>
+<li>Persistent Volume Claim (PVC)</li>
+<li>MariaDB Deployment</li>
+<li>ClusterIP Service (Headless Service)</li>
+</ol>
+<p>Following diagram shows the relationship between these objects -</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb_kubernetes_deployment.png" /></p>
+<h3 id="11-create-kubernetes-secret-for-mariadb">1.1 Create Kubernetes Secret for MariaDB:</h3>
+<p>A <strong>Secret</strong> is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in an image; putting it in a Secret object allows for more control over how it is used, and reduces the risk of accidental exposure.</p>
+<p>The MariaDB container image uses an environment variable named as 'MYSQL_ROOT_PASSWORD', it hold the root password required to access the database. So you would create a new secret with 'password' key (value as 'cisco123') which would later be used in mariaDB deployment yaml file.</p>
+<ul>
+<li><strong>1.1.1: Switch context to on-premise Kubernetes Cluster -</strong> Change context of <code>kubectl</code> command to access on-premise Kubernetes Cluster.<div class="highlight"><pre><span></span><code>kubectl config use-context admin@CLUS-IKS-1
+kubectl config get-contexts
+</code></pre></div>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/kubectl-use-on-prem.png"></p>
+<ul>
+<li>
+<p><strong>1.1.2: Create DB Password Secret -</strong> Use the following command to create a new secret on your kubernetes cluster -</p>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic mariadb-root-pass --from-literal=password=cisco123
+</code></pre></div>
+</li>
+<li>
+<p><strong>1.1.3: Verify DB Password Secret -</strong> Check if the secret was created successfully or not -</p>
+<div class="highlight"><pre><span></span><code>kubectl get secret mariadb-root-pass
+</code></pre></div>
+<p>You should have the output similar to the following screenshot -</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-secret-onprem.png" /></p>
+</li>
+</ul>
+<h3 id="12-create-kubernetes-persistent-volume-claim-for-mariadb">1.2 Create Kubernetes Persistent Volume Claim for MariaDB:</h3>
+<p>A <strong>Persistent Volume Claim (PVC)</strong> is a request for storage by a user. It is similar to a pod. Pods consume node resources and PVCs consume Persistent Volume (PV) resources. Pods can request specific levels of resources (CPU and Memory). Claims can request specific size and access modes (e.g., can be mounted once read/write or many times read-only).</p>
+<p>To keep the sensor data safe during Pod restarts, you would create a new Persistent Volume Claim. </p>
+<p>The following yaml definition would be used to create the 'PersistentVolumeClaim' - </p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-pv-claim</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span><span class="w"></span>
+</code></pre></div>
+* <strong>1.2.1: Create Persistent Volume Claim -</strong> Use the following command to create a new Persistent Volume Claim for MariaDB Pod -</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/Mariadb/mariadb_persistent_volume.yaml
+</code></pre></div>
+<ul>
+<li>
+<p><strong>1.2.2: Verify Persistent Volume Claim -</strong> Check if the PVC was created successfully or not -</p>
+<div class="highlight"><pre><span></span><code>kubectl get pvc mariadb-pv-claim
+</code></pre></div>
+<p>You should have the output similar to the following screenshot -</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/pvc-on-prem.png" /></p>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It can take up to a few minutes for the PVs to be provisioned. DO NOT procced futher till the PVC deployment gets completed.</p>
+</div>
+<h3 id="13-deploy-mariadb-on-kubernetes">1.3 Deploy MariaDB on Kubernetes:</h3>
+<p><strong>MariaDB</strong> is a community-developed fork of the MySQL relational database management system intended to remain free under the GNU GPL. Development is led by some of the original developers of MySQL, who forked it due to concerns over its acquisition by Oracle Corporation. MariaDB intends to maintain high compatibility with MySQL, ensuring a drop-in replacement capability with library binary parity and exact matching with MySQL APIs and commands.</p>
+<p>The following yaml definition will be used to deploy MariaDB pod -</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-mariadb</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recreate</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span><span class="w"></span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb:10.3</span><span class="w"></span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span><span class="w"></span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD</span><span class="w"></span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-root-pass</span><span class="w"></span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span><span class="w"></span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-persistent-storage</span><span class="w"></span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/mysql</span><span class="w"></span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-persistent-storage</span><span class="w"></span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">        </span><span class="nt">persistentVolumeClaim</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">          </span><span class="nt">claimName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-pv-claim</span><span class="w"></span>
+</code></pre></div>
+* <strong>1.3.1: Deploy MariaDB -</strong> Use the following command to create a MariaDB kubernetes deployment</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/Mariadb/mariadb_deployment.yaml
+</code></pre></div>
+<ul>
+<li>
+<p><strong>1.3.2: Check Deployment Status -</strong> Use the following command to check if the kubernetes deployment was successfully created or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get deployment iot-backend-mariadb
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-deployment-status.png" /></p>
+</li>
+<li>
+<p><strong>1.3.3: Check Pod Status -</strong> Use the following command to check if the 'iot-backend-mariadb' pod is in '<strong>Running</strong>' state</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods
+</code></pre></div>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Kubernetes may take some time to deploy the MariaDB. <strong>DO NOT</strong> proceed further till the time DB Pod is up. </p>
+</div>
+<h3 id="14-create-kubernetes-loadbalancer-service-for-mariadb">1.4 Create Kubernetes LoadBalancer Service for MariaDB:</h3>
+<p>Since the MariaDB will be accessed by other services like 'MQTT to DB Agent' and 'REST API Agent'; you need to expose it externally, since 'MQTT to DB Agent' will be running on another Kubernetes Cluster</p>
+<p>A <strong>LoadBalancer Service</strong> provides external access to your application from systems outside of Kubernetes. LoadBalancer service is exposed under dedicated VIP address, routable in external network. Traffic directed to this IP address is load balanced by Kubernetes across Kubernetes nodes.</p>
+<p>Following yaml definition would be used to create the LoadBalancer Service for MariaDB</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-service</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LoadBalancer&quot;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>1.4.1: Expose MariaDB to other Pods -</strong> Create a new kubernetes service using the following command</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/Mariadb/mariadb_service.yaml
+</code></pre></div>
+</li>
+<li>
+<p><strong>1.4.2: Verify Service Status -</strong> Use the following command to check if the kubernetes service was deployed successfully or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get service mariadb-service
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+</li>
+</ul>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-service-lb.png" /></p>
+<h2 id="2-deploy-rest-api-agent-on-kubernetes">2. Deploy REST API Agent on Kubernetes:</h2>
+<p>The 'REST API Agent' would act as the gateway to the backend application. It will listen to the incoming HTTP requests from the frontend application that you will deploy on AWS.</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-restapi.png" /></p>
+<h3 id="21-deploy-rest-api-agent">2.1 Deploy REST API Agent:</h3>
+<p>The following yaml definition will be used to create REST API Agent pods</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recreate</span><span class="w"></span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pradeesi/rest_api_agent:v1</span><span class="w"></span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span><span class="w"></span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-root-pass</span><span class="w"></span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>2.1.1: Deploy REST API Agent -</strong> Use the following command to create the rest-api-agent kubernetes deployment</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/REST_API_Agent/rest_api_agent.yaml
+</code></pre></div>
+</li>
+<li>
+<p><strong>2.1.2: Check Deployment Status -</strong> Use the following command to check if the kubernetes deployment was created successfully or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get deployment iot-backend-rest-api-agent
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-deployment.png" /></p>
+</li>
+<li>
+<p><strong>2.1.3: Check Pod Status -</strong> Use the following command to check if the 'iot-backend-rest-api-agent' pod is in '<strong>Running</strong>' state</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may check the Pod <strong>Logs</strong> using the command '<strong>kubectl logs &lt;pod_name></strong>' </p>
+</div>
+</li>
+</ul>
+<h3 id="22-create-kubernetes-nodeport-service-for-rest-api-agent">2.2 Create Kubernetes NodePort Service for REST API Agent:</h3>
+<p>Since the frontend app from AWS would access the REST APIs exposed by the 'REST API Agent', you need to create a new kubernetes service for it.</p>
+<p>The following yaml definition would be used for to create a NodePort Service for the REST API Agent -</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest-api-agent-service</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span><span class="w"></span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5050</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest-api-agent</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NodePort&quot;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>2.2.1: Create REST API Agent NodePort Service -</strong> You can create a new kubernetes service using the following command</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/REST_API_Agent/rest_api_agent_service_node_port.yaml
+</code></pre></div>
+</li>
+<li>
+<p><strong>2.2.2: Check REST API Agent Service Status -</strong> You can use the following command to check if the kubernetes service was created successfully or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get service rest-api-agent-service
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service.png" /></p>
+</li>
+</ul>
+<h3 id="23-locate-the-ip-and-port-to-access-node-port-service-for-rest-api-agent">2.3 Locate the IP and Port to Access Node-Port Service for REST API Agent:</h3>
+<p>You need to find the NodePort and Kubernetes Node external IP to access the 'rest-api-agent.</p>
+<ul>
+<li>
+<p>Use the following command to display the port exposed by 'rest-api-agent-service'</p>
+<div class="highlight"><pre><span></span><code>kubectl get service rest-api-agent-service
+</code></pre></div>
+</li>
+<li>
+<p>Use the following command to display the 'External-IP' of you kubernetes nodes</p>
+<div class="highlight"><pre><span></span><code>kubectl get nodes -o wide
+</code></pre></div>
+<p>Following screenshot highlights the Port and Node IPs in the command outputs</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service-ip.png" /></p>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note down the Node External IP Address and NodePort Service Port Number. These values will be used in next section for deploying the frontend app as the environment variables values ('<strong>BACKEND_HOST</strong>' and '<strong>BACKEND_PORT</strong>').</p>
+</div>
+<h2 id="3-deploy-mqtt-to-db-agent-on-kubernetes">3. Deploy MQTT to DB Agent on Kubernetes:</h2>
+<p>This part of deployment will be done in Public Cloud (AWS) K8s tenant.</p>
+<p>'MQTT to DB Agent' will subscribe to the MQTT Topic and listen to the incoming sensor data from AWS IoT platform. It will then parse the sensor data and insert it into the MariaDB.</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-mqtt.png" /></p>
+<p>The following yaml definition will be used to create the MQTT to DB Agent pods</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-mqtt-db-agent</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt-db-agent</span><span class="w"></span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-mqtt-db-agent</span><span class="w"></span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recreate</span><span class="w"></span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iot-backend-mqtt-db-agent</span><span class="w"></span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eu.gcr.io/fwardz001-poc-ci1s/mqtt_db_plugin:v9</span><span class="w"></span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mqtt-db-agent</span><span class="w"></span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span><span class="w"></span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-root-pass</span><span class="w"></span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+</code></pre></div>
+* <strong>3.1: Switch context to AWS EKS Kubernetes Cluster -</strong> Change context of <code>kubectl</code> command to access AWS Kubernetes Cluster.</p>
+<div class="highlight"><pre><span></span><code>kubectl config get-contexts
+kubectl config use-context &lt;AWS context-name from previous command output&gt;
+kubectl config get-contexts
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/kubectl-use-aws.png"></p>
+<ul>
+<li>
+<p><strong>3.2: Create DB Password Secret -</strong> Use the following command to create a new secret on your kubernetes cluster</p>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic mariadb-root-pass --from-literal=password=cisco123
+</code></pre></div>
+</li>
+<li>
+<p><strong>3.3: Verify DB Password Secret -</strong> Check if the secret was created successfully or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get secret mariadb-root-pass
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-secret-aws.png" /></p>
+</li>
+<li>
+<p><strong>3.4: Create external service</strong></p>
+<p>MQTT needs to send data to database that is deployed in IKS on-prem Kubernetes Cluster. MQTT application is configured to contact with MariaDB using following internal DNS name: <code>mariadb-service</code>. We need to configure Kubernetes to resolve this name to a particular LoadBalancer IP that has been allocated to your <code>mariadb-service</code> in IKS on-premise Kubernetes Cluster. For this we will define service and manually add endpoint IP that this service will resolve to. In the Endpoint definition you have to specify your LoadBalancer IP address from on-premise Kubernetes Cluster allocated to <code>mariadb-service</code>.</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-service</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nn">---</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Endpoints</span><span class="w"></span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb-service</span><span class="w"></span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="nt">subsets</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">addresses</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancerIP</span><span class="w"> </span><span class="c1">## Specify mariadb-service LoadBalancer IP from step 1.4</span><span class="w"></span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql</span><span class="w"></span>
+</code></pre></div>
+Download following definition file:</p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/MQTT_DB_Agent/mariadb-ext-service-eks.yaml
+</code></pre></div>
+<p>Check string to be replaced by LoadBalancerIP allocated to mariadb-service from Step 1.4.2</p>
+<div class="highlight"><pre><span></span><code>cat mariadb-ext-service-eks.yaml
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/cat-mariadb-template.png"></p>
+<p>Change <code>&lt;mariadb-service_LoadBalancer_IP&gt;</code> with IP address of your load balancer IP, replace <strong>198.18.134.XXX</strong> in <em>sed</em> command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Copy following command to notepad FIRST, change IP address and then paste it to Terminal.</p>
+</div>
+<p>Command to edit:</p>
+<div class="highlight"><pre><span></span><code>sed -i &#39;s/&lt;mariadb-service_LoadBalancer_IP&gt;/198.18.134.XXX/g&#39; mariadb-ext-service-eks.yaml
+</code></pre></div>
+<p>Check the manifest file after change of IP:</p>
+<div class="highlight"><pre><span></span><code>cat mariadb-ext-service-eks.yaml
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-change-ip.png"></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure that the IP address of mariadb-service you specified is correct.</p>
+</div>
+<p>Apply updated manifest to create external service access:</p>
+<div class="highlight"><pre><span></span><code>kubectl apply -f mariadb-ext-service-eks.yaml
+</code></pre></div>
+<p>Check services and associated endpoints:</p>
+<div class="highlight"><pre><span></span><code>kubectl get svc,endpoints
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/eks-get-svc-endpoints.png"></p>
+<ul>
+<li>
+<p><strong>3.5: Deploy MQTT to DB Agent -</strong> Use the following command to create mqtt-to-db-agent kubernetes deployment</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f https://raw.githubusercontent.com/marcinduma/WILCLD-2611/main/Kubernetes/Backend/MQTT_DB_Agent/mqtt_db_agent_deployment.yaml
+</code></pre></div>
+</li>
+<li>
+<p><strong>3.6: Check Deployment Status -</strong> Use the following command to check if the kubernetes deployment was created successfully or not</p>
+<div class="highlight"><pre><span></span><code>kubectl get deployment iot-backend-mqtt-db-agent
+</code></pre></div>
+<p>You should have the output similar to the following screenshot</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mqtt-deployment.png" /></p>
+</li>
+<li>
+<p><strong>3.5: Check Pod Status -</strong> Use the following command to check if the 'iot-backend-mqtt-db-agent' pod is in '<strong>Running</strong>' state</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods
+</code></pre></div>
+</li>
+</ul>
+<h2 id="4-test-the-rest-apis-exposed-by-rest-api-agent-service">4 Test the REST APIs Exposed by REST API Agent Service:</h2>
+<p>To test the REST API service try to access following url from your web browser (use the node's external ip and service port from the previous section # 2.3) -
+If you haven't note the IP and port information earlier, please follow those steps:</p>
+<p>Change <code>kubectl</code> context to <code>CLUS-IKS-1</code></p>
+<div class="highlight"><pre><span></span><code>kubectl config use-context admin@CLUS-IKS-1
+kubectl config get-contexts
+</code></pre></div>
+<ul>
+<li>
+<p>Use the following command to display the port exposed by 'rest-api-agent-service'</p>
+<div class="highlight"><pre><span></span><code>kubectl get service rest-api-agent-service
+</code></pre></div>
+</li>
+<li>
+<p>Use the following command to display the 'External-IP' of you kubernetes nodes</p>
+<div class="highlight"><pre><span></span><code>kubectl get nodes -o wide
+</code></pre></div>
+<p>Following screenshot highlights the Port and Node IPs in the command outputs</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service-ip.png" /></p>
+</li>
+</ul>
+<p>Now you have to open Chrome browser and specify URL based on pattern - </p>
+<div class="highlight"><pre><span></span><code>http://&lt;kubernetes node&#39;s external ip&gt;:&lt;nodePort&gt;
+</code></pre></div>
+<p>i.e. http://198.18.134.103:30276</p>
+<p>If your REST API Agent is working properly, you should see 'Welcome to the API Service...!' message on your browser as shown in the following screenshot -</p>
+<p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/rest_api_url_test.png" /></p>
+<p>Following are the other urls that you could test -</p>
+<div class="highlight"><pre><span></span><code>http://&lt;kubernetes node&#39;s external ip&gt;:&lt;nodePort&gt;/cities
+
+http://&lt;kubernetes node&#39;s external ip&gt;:&lt;nodePort&gt;/temperature
+
+http://&lt;kubernetes node&#39;s external ip&gt;:&lt;nodePort&gt;/humidity
+
+http://&lt;kubernetes node&#39;s external ip&gt;:&lt;nodePort&gt;/sensor_data/city
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

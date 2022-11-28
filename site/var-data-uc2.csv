@@ -1,7 +1,0 @@
-vlan,ap,epgname,type,interface,mode,pod,leaf,tenantname,vrfname,bdname,ipaddress,domain
-350,AP-01,EPG_DMZ,switch_port,1/15,regular,1,101,tenant-uc2,VRF_INSIDE,BD_DMZ,169.254.255.1/24,PHY-DOM
-360,AP-01,EPG_UC,switch_port,1/26,regular,1,102,tenant-uc2,VRF_INSIDE,BD_UC,192.168.1.1/24,PHY-DOM
-350,AP-01,EPG_DMZ,switch_port,1/15,regular,1,101,tenant-uc2,VRF_INSIDE,BD_DMZ,169.254.255.1/24,PHY-DOM
-360,AP-01,EPG_UC,switch_port,1/26,regular,1,102,tenant-uc2,VRF_INSIDE,BD_UC,192.168.1.1/24,PHY-DOM
-350,AP-01,EPG_DMZ,switch_port,1/15,regular,1,101,tenant-uc2,VRF_INSIDE,BD_DMZ,169.254.255.1/24,PHY-DOM
-360,AP-01,EPG_UC,switch_port,1/26,regular,1,102,tenant-uc2,VRF_INSIDE,BD_UC,192.168.1.1/24,PHY-DOM

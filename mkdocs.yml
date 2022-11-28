@@ -3,21 +3,18 @@ site_description: Explore Simplicity of Public Cloud Network Configuration with 
 site_author: Marcin Duma & Karol Okraska
 
 nav:
-  - Home: index.md
+  - Home: index.md #opis laba z HLD - obrazkiem
   - Lab Access:
     - Accessing the Lab Environment: LAB_access.md
-  - First LAB sections:
-    - Install and operate Postman: postman.md
-    - Automation basis with restAPI: restAPI.md
-    - Create customer use-cases with Postman: use-cases-postman.md
-    - How to pull informations using restAPI: monitor-aci.md
-  - Second LAB sections:
+    - NDO/cAPIC access: user-access.md
+  - INFRA Configuration:
+    - NDO and cAPIC review: postman.md
+  - User Tenant AWS:
     - Terraform setup: terraform-installation.md
-    - Terraform basic deployment: terraform-basis.md
-    - Terraform variables: terraform-vars.md
-    - Terraform state: terraform-state.md
-    - Terraform use-cases: terraform-custom.md
-    - Terraform modules: terraform-modules.md
+  - User Tenant Azure:
+    - Terraform setup: terraform-installation.md
+  - Use-cases:
+    - Terraform setup: terraform-installation.md
   - Appendixes:
     - dCloudGuacamole: guacamole.md
     - Resources: resources.md

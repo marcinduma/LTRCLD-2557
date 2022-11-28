@@ -23,9 +23,7 @@ During this ACI Automation practice training you will have a chance to explore A
 
 ACI Automation Lab is based on dCloud session publicly available. Session name *Started with Cisco ACI 5.2 v1* can be found in Session catalog at *https://dcloud2-lon.cisco.com/*.
 
-Below is the physical setup of our Virtual lab.
 
-<img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/Overal-ACI-Automation.PNG">
 
 
 **<p style="text-align: center;">Enjoy!</p>**

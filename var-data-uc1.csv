@@ -1,7 +1,0 @@
-vlan,epgname,type,interface,mode,pod,leaf,tenantname,ap,bdname,domain
-150,EPG_Shared,switch_port,1/1,regular,1,101,custom-tenant-1,AP-01,BD_APP_Shared,PHY-DOM
-160,EPG_VOICE,switch_port,1/1,regular,1,102,custom-tenant-1,AP-01,BD_VOICE,PHY-DOM
-150,EPG_Shared,switch_port,1/2,regular,1,101,custom-tenant-1,AP-01,BD_APP_Shared,PHY-DOM
-160,EPG_VOICE,switch_port,1/2,regular,1,102,custom-tenant-1,AP-01,BD_VOICE,PHY-DOM
-150,EPG_Shared,switch_port,1/3,regular,1,101,custom-tenant-1,AP-01,BD_APP_Shared,PHY-DOM
-160,EPG_VOICE,switch_port,1/3,regular,1,102,custom-tenant-1,AP-01,BD_VOICE,PHY-DOM

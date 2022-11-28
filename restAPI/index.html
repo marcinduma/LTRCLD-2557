@@ -17,7 +17,7 @@
     
     
       
-        <title>Automation basis with restAPI - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
+        <title>Cisco ACI rest API - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
       
     
     
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Automation basis with restAPI
+              Cisco ACI rest API
             
           </span>
         </div>
@@ -247,6 +247,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-access.md" class="md-nav__link">
+        NDO/cAPIC access
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -259,27 +273,25 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
       
         <label class="md-nav__link" for="__nav_3">
-          First LAB sections
+          INFRA Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="First LAB sections" data-md-level="1">
+      <nav class="md-nav" aria-label="INFRA Configuration" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          First LAB sections
+          INFRA Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -290,226 +302,7 @@
   
     <li class="md-nav__item">
       <a href="../postman/" class="md-nav__link">
-        Install and operate Postman
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Automation basis with restAPI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Automation basis with restAPI
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-define-restapi-calls-under-collection" class="md-nav__link">
-    1 Define restAPI calls under Collection
-  </a>
-  
-    <nav class="md-nav" aria-label="1 Define restAPI calls under Collection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-create-aci-login-request" class="md-nav__link">
-    1.1 Create ACI login request
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#register-your-aci-fabric-switches-in-apic" class="md-nav__link">
-    Register your ACI Fabric Switches in APIC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-get-information-about-a-node" class="md-nav__link">
-    1.2 Get Information About a Node
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-aci-access-polices" class="md-nav__link">
-    2  ACI Access Polices
-  </a>
-  
-    <nav class="md-nav" aria-label="2  ACI Access Polices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-interface-policies" class="md-nav__link">
-    2.1 Interface Policies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-vlans-domains-and-aaeps" class="md-nav__link">
-    2.2 VLANs, Domains and AAEPs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-interface-policy-group" class="md-nav__link">
-    2.3 Interface Policy Group
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-aci-tenant" class="md-nav__link">
-    3  ACI Tenant
-  </a>
-  
-    <nav class="md-nav" aria-label="3  ACI Tenant">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-tenant-components" class="md-nav__link">
-    3.1 Tenant components
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1 Tenant components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#311-tenant-and-vrf" class="md-nav__link">
-    3.1.1 Tenant and VRF
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#312-bd-in-existing-tenant" class="md-nav__link">
-    3.1.2 BD in existing tenant
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#313-application-profile" class="md-nav__link">
-    3.1.3 Application Profile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#314-epgs-in-existing-tenantappprofiles-and-associated-with-domain" class="md-nav__link">
-    3.1.4 EPGs in existing tenant/appprofiles and associated with domain
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-use-csv-file-for-input-data" class="md-nav__link">
-    4 Use CSV file for input data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#41-run-collection-requests" class="md-nav__link">
-    4.1 Run Collection requests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#42-verification-after-runing-the-collection" class="md-nav__link">
-    4.2 Verification after runing the collection
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use-cases-postman/" class="md-nav__link">
-        Create customer use-cases with Postman
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../monitor-aci/" class="md-nav__link">
-        How to pull informations using restAPI
+        NDO and cAPIC review
       </a>
     </li>
   
@@ -539,14 +332,14 @@
       
       
         <label class="md-nav__link" for="__nav_4">
-          Second LAB sections
+          User Tenant AWS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Second LAB sections" data-md-level="1">
+      <nav class="md-nav" aria-label="User Tenant AWS" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Second LAB sections
+          User Tenant AWS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -558,76 +351,6 @@
     <li class="md-nav__item">
       <a href="../terraform-installation/" class="md-nav__link">
         Terraform setup
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../terraform-basis/" class="md-nav__link">
-        Terraform basic deployment
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../terraform-vars/" class="md-nav__link">
-        Terraform variables
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../terraform-state/" class="md-nav__link">
-        Terraform state
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../terraform-custom/" class="md-nav__link">
-        Terraform use-cases
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../terraform-modules/" class="md-nav__link">
-        Terraform modules
       </a>
     </li>
   
@@ -657,12 +380,108 @@
       
       
         <label class="md-nav__link" for="__nav_5">
+          User Tenant Azure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Tenant Azure" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          User Tenant Azure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-installation/" class="md-nav__link">
+        Terraform setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Use-cases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use-cases" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Use-cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-installation/" class="md-nav__link">
+        Terraform setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
           Appendixes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Appendixes
         </label>
@@ -1487,41 +1306,6 @@ NAME:</p>
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../postman/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install and operate Postman" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Install and operate Postman
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../use-cases-postman/" class="md-footer__link md-footer__link--next" aria-label="Next: Create customer use-cases with Postman" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Create customer use-cases with Postman
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

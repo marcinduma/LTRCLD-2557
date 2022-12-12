@@ -1,4 +1,4 @@
-# Welcome to CiscoLive Instructor Lab about ACI Multicloud
+# Welcome to CiscoLive 2023 - Instructor Lab about ACI Multicloud
 
 Speakers:
 
@@ -6,18 +6,56 @@ Speakers:
 
 *Marcin Duma*, CX Delivery Architect, Cisco Systems, Inc.
 
-## Cisco support of Public Cloud infrastructure
+## Cisco ACI support of Public Cloud infrastructure
+Cisco Cloud Network Controller (formerly Cloud APIC) provides enterprises with networking tools necessary to accelerate their hybrid-cloud and/or multicloud journey.
 
-Cisco Application Centric Infrastructure (ACI) is a software-defined networking (SDN) solution designed for data centers. Cisco ACI allows network infrastructure to be defined based upon network policies – simplifying, optimizing, and accelerating the application deployment lifecycle. Network Controllers provide more than just a centralized management for networks today. They can also provide a place in the network to deploy network applications to add new capabilities.
+Utilizing cloud-native constructs, the solution enables automation that accelerates infrastructure deployment and governance and simplifies management to easily connect workloads across multicloud environments. The Cisco Cloud Network Controller vision is to support enhanced observability, operations, and troubleshooting across the entire environment.
 
-The Cisco ACI programmability model provides complete programmatic access. You can integrate network deployment with management and monitoring tools and programmatically deploy new workloads.
+Cisco Cloud Network Controller enables:
 
-Networks have traditionally been built with devices that are designed to be configured and maintained on a per device basis. To make changes or troubleshoot, a network engineer must connect to multiple devices individually and enter commands on the CLI. This solution works fine for mostly static environments, but does not scale and is prone to human error as changes are made more frequently and repetitively. Since the CLI was built for humans, it is less than ideal interface for programmability and automation.
-This is the core problem ACI solves for data center operations. ACI's programmability options are made possible through the ACI Object Model.
+●      Seamless connectivity for any workload at scale across any location
 
-ACI was built with programmability in mind and designed to be configured and maintained through a central controller via a REST API. This API is how admins interact with the object-model allowing them to create, make changes, gather stats, and troubleshoot the ACI fabric.
+●      Operational simplicity and visibility across a vast multisite, multicloud
 
-During this ACI Automation practice training you will have a chance to explore ACI Object Model and learn how to leverage it for automation in daily operations.
+●      data-center network
+
+●      Easy L4-7 services integration
+
+●      Consistent security and segmentation
+
+●      Business continuity and disaster recovery
+
+## Cloud Network Controller components: 
+
+Cisco Cloud Network Controller is the main architectural component of this multicloud solution. It is the unified point of automation and management for the solution fabric including network and security policy, health monitoring, and optimizes performance and agility. The complete solution includes:
+
+●      Cisco Cloud Network Controller(deployed in each Public Cloud which is to be managed) 
+
+●      Cisco Nexus Dashboard (in our lab deployed in AWS Cloud) - Multicloud networking orchestration and policy management, disaster recovery, and high availability, as well as provisioning and health monitoring.
+
+●      Cisco Catalyst® 8000V - deployed in Public Clouds, allowing for communication with other Clouds or on-premises datacenter. Responsible for traffic secuirty and end to end policy enforcement. 
+
+## Topology
+
+In this lab we will be using two(2) Public Cloud Provders: 
+
+●      Microsoft Azure
+
+●      Amazon AWS 
+
+However Cloud Network Controller (CNC) is also supported on Google Cloud. 
+
+In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will be run on Nexus Dashboard appliance deployed in AWS cloud. 
+
+Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. 
+
+Intial lab diagram is as follows: 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800>
+
+## Lab agenda 
+
+
 
 ## High Level Design of Lab scenario.
 

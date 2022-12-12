@@ -6,16 +6,17 @@ nav:
   - Home: index.md #opis laba z HLD - obrazkiem
   - Lab Access:
     - Accessing the Lab Environment: LAB_access.md
-    - NDO/cAPIC access: user-access.md
-  - INFRA Configuration:
-    - NDO and cAPIC review: postman.md
-  - User Tenant AWS:
-    - Terraform setup: terraform-installation.md
-  - User Tenant Azure:
-    - Terraform setup: terraform-installation.md
+    - Infastructure veryfication: lab-check.md
+  - INFRA Configuration: infra-config.md
+  - Tenant configuration:
+    - NDO Tenant configuration: ndo-tenant.md
+    - AWS Trust: aws-trust.md
   - Use-cases:
-    - Terraform setup: terraform-installation.md
+    - Stretched VRF: terraform-installation.md
+    - Internet Gateway: terraform-installation.md
+    - Inter-Tenant routing: terraform-installation.md
   - Appendixes:
+    - ACI to Public Cloud Object mapping: object-map.md
     - dCloudGuacamole: guacamole.md
     - Resources: resources.md
     - Collection of RestAPI: URL-restAPI.md

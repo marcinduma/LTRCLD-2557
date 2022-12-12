@@ -55,13 +55,18 @@ Intial lab diagram is as follows:
 
 ## Lab agenda 
 
+### 1. Infrastructure veryfication - login and access 
+### 2. Site onboarding in Nexus Dashboard   
+### 3. Multisite infrastructure configuration
+### 4. Multisite configuration check 
+### 5. Tenant creation and Public Cloud Trust configuration 
+### 6. Three(3) common use-cases configuration and veryfcation
+####  - Stretched VRF across Public Clouds with Cloud-local EPGs 
+####  - Internet Gateway configuration in AWS 
+####  - Inter-Tenant routing 
 
+Step by step configuration will guide you towards final topology as indicated in the picture below: 
 
-## High Level Design of Lab scenario.
-
-ACI Automation Lab is based on dCloud session publicly available. Session name *Started with Cisco ACI 5.2 v1* can be found in Session catalog at *https://dcloud2-lon.cisco.com/*.
-
-
-
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image2.png" width = 800>
 
 **<p style="text-align: center;">Enjoy!</p>**

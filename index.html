@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -21,12 +21,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.1c3799f8.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -55,10 +57,11 @@
     
       <link rel="stylesheet" href="css/print-site-material.css">
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -69,7 +72,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
   
     
     
@@ -79,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-ciscolive-instructor-lab-about-aci-multicloud" class="md-skip">
+        <a href="#welcome-to-ciscolive-2023-instructor-lab-about-aci-multicloud" class="md-skip">
           Skip to content
         </a>
       
@@ -135,7 +138,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -232,16 +235,105 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cisco-support-of-public-cloud-infrastructure" class="md-nav__link">
-    Cisco support of Public Cloud infrastructure
+  <a href="#cisco-aci-support-of-public-cloud-infrastructure" class="md-nav__link">
+    Cisco ACI support of Public Cloud infrastructure
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-level-design-of-lab-scenario" class="md-nav__link">
-    High Level Design of Lab scenario.
+  <a href="#cloud-network-controller-components" class="md-nav__link">
+    Cloud Network Controller components:
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topology" class="md-nav__link">
+    Topology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-agenda" class="md-nav__link">
+    Lab agenda
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab agenda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-infrastructure-veryfication-login-and-access" class="md-nav__link">
+    1. Infrastructure veryfication - login and access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-site-onboarding-in-nexus-dashboard" class="md-nav__link">
+    2. Site onboarding in Nexus Dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multisite-infrastructure-configuration" class="md-nav__link">
+    3. Multisite infrastructure configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multisite-configuration-check" class="md-nav__link">
+    4. Multisite configuration check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tenant-creation-and-public-cloud-trust-configuration" class="md-nav__link">
+    5. Tenant creation and Public Cloud Trust configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-three3-common-use-cases-configuration-and-veryfcation" class="md-nav__link">
+    6. Three(3) common use-cases configuration and veryfcation
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Three(3) common use-cases configuration and veryfcation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-stretched-vrf-across-public-clouds-with-cloud-local-epgs" class="md-nav__link">
+    - Stretched VRF across Public Clouds with Cloud-local EPGs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-internet-gateway-configuration-in-aws" class="md-nav__link">
+    - Internet Gateway configuration in AWS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-inter-tenant-routing" class="md-nav__link">
+    - Inter-Tenant routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -301,8 +393,8 @@
   
   
     <li class="md-nav__item">
-      <a href="user-access.md" class="md-nav__link">
-        NDO/cAPIC access
+      <a href="lab-check/" class="md-nav__link">
+        Infastructure veryfication
       </a>
     </li>
   
@@ -319,46 +411,13 @@
       
       
 
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          INFRA Configuration
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="INFRA Configuration" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          INFRA Configuration
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
   
   
   
     <li class="md-nav__item">
-      <a href="postman/" class="md-nav__link">
-        NDO and cAPIC review
+      <a href="infra-config/" class="md-nav__link">
+        INFRA Configuration
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -380,14 +439,14 @@
       
       
         <label class="md-nav__link" for="__nav_4">
-          User Tenant AWS
+          Tenant configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="User Tenant AWS" data-md-level="1">
+      <nav class="md-nav" aria-label="Tenant configuration" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          User Tenant AWS
+          Tenant configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -397,8 +456,22 @@
   
   
     <li class="md-nav__item">
-      <a href="terraform-installation/" class="md-nav__link">
-        Terraform setup
+      <a href="ndo-tenant/" class="md-nav__link">
+        NDO Tenant configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-trust/" class="md-nav__link">
+        AWS Trust
       </a>
     </li>
   
@@ -428,14 +501,14 @@
       
       
         <label class="md-nav__link" for="__nav_5">
-          User Tenant Azure
+          Use-cases
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="User Tenant Azure" data-md-level="1">
+      <nav class="md-nav" aria-label="Use-cases" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          User Tenant Azure
+          Use-cases
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -446,7 +519,35 @@
   
     <li class="md-nav__item">
       <a href="terraform-installation/" class="md-nav__link">
-        Terraform setup
+        Stretched VRF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terraform-installation/" class="md-nav__link">
+        Internet Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terraform-installation/" class="md-nav__link">
+        Inter-Tenant routing
       </a>
     </li>
   
@@ -476,14 +577,14 @@
       
       
         <label class="md-nav__link" for="__nav_6">
-          Use-cases
+          Appendixes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Use-cases" data-md-level="1">
+      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Use-cases
+          Appendixes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -493,47 +594,13 @@
   
   
     <li class="md-nav__item">
-      <a href="terraform-installation/" class="md-nav__link">
-        Terraform setup
+      <a href="object-map/" class="md-nav__link">
+        ACI to Public Cloud Object mapping
       </a>
     </li>
   
 
             
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Appendixes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Appendixes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -624,16 +691,105 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cisco-support-of-public-cloud-infrastructure" class="md-nav__link">
-    Cisco support of Public Cloud infrastructure
+  <a href="#cisco-aci-support-of-public-cloud-infrastructure" class="md-nav__link">
+    Cisco ACI support of Public Cloud infrastructure
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-level-design-of-lab-scenario" class="md-nav__link">
-    High Level Design of Lab scenario.
+  <a href="#cloud-network-controller-components" class="md-nav__link">
+    Cloud Network Controller components:
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topology" class="md-nav__link">
+    Topology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-agenda" class="md-nav__link">
+    Lab agenda
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab agenda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-infrastructure-veryfication-login-and-access" class="md-nav__link">
+    1. Infrastructure veryfication - login and access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-site-onboarding-in-nexus-dashboard" class="md-nav__link">
+    2. Site onboarding in Nexus Dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multisite-infrastructure-configuration" class="md-nav__link">
+    3. Multisite infrastructure configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-multisite-configuration-check" class="md-nav__link">
+    4. Multisite configuration check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tenant-creation-and-public-cloud-trust-configuration" class="md-nav__link">
+    5. Tenant creation and Public Cloud Trust configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-three3-common-use-cases-configuration-and-veryfcation" class="md-nav__link">
+    6. Three(3) common use-cases configuration and veryfcation
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Three(3) common use-cases configuration and veryfcation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-stretched-vrf-across-public-clouds-with-cloud-local-epgs" class="md-nav__link">
+    - Stretched VRF across Public Clouds with Cloud-local EPGs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-internet-gateway-configuration-in-aws" class="md-nav__link">
+    - Internet Gateway configuration in AWS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-inter-tenant-routing" class="md-nav__link">
+    - Inter-Tenant routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -645,37 +801,72 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
-<h1 id="welcome-to-ciscolive-instructor-lab-about-aci-multicloud">Welcome to CiscoLive Instructor Lab about ACI Multicloud</h1>
+<h1 id="welcome-to-ciscolive-2023-instructor-lab-about-aci-multicloud">Welcome to CiscoLive 2023 - Instructor Lab about ACI Multicloud</h1>
 <p>Speakers:</p>
 <p><em>Karol Okraska</em>, CX Delivery Architect, Cisco Systems, Inc.</p>
 <p><em>Marcin Duma</em>, CX Delivery Architect, Cisco Systems, Inc.</p>
-<h2 id="cisco-support-of-public-cloud-infrastructure">Cisco support of Public Cloud infrastructure</h2>
-<p>Cisco Application Centric Infrastructure (ACI) is a software-defined networking (SDN) solution designed for data centers. Cisco ACI allows network infrastructure to be defined based upon network policies – simplifying, optimizing, and accelerating the application deployment lifecycle. Network Controllers provide more than just a centralized management for networks today. They can also provide a place in the network to deploy network applications to add new capabilities.</p>
-<p>The Cisco ACI programmability model provides complete programmatic access. You can integrate network deployment with management and monitoring tools and programmatically deploy new workloads.</p>
-<p>Networks have traditionally been built with devices that are designed to be configured and maintained on a per device basis. To make changes or troubleshoot, a network engineer must connect to multiple devices individually and enter commands on the CLI. This solution works fine for mostly static environments, but does not scale and is prone to human error as changes are made more frequently and repetitively. Since the CLI was built for humans, it is less than ideal interface for programmability and automation.
-This is the core problem ACI solves for data center operations. ACI's programmability options are made possible through the ACI Object Model.</p>
-<p>ACI was built with programmability in mind and designed to be configured and maintained through a central controller via a REST API. This API is how admins interact with the object-model allowing them to create, make changes, gather stats, and troubleshoot the ACI fabric.</p>
-<p>During this ACI Automation practice training you will have a chance to explore ACI Object Model and learn how to leverage it for automation in daily operations.</p>
-<h2 id="high-level-design-of-lab-scenario">High Level Design of Lab scenario.</h2>
-<p>ACI Automation Lab is based on dCloud session publicly available. Session name <em>Started with Cisco ACI 5.2 v1</em> can be found in Session catalog at <em>https://dcloud2-lon.cisco.com/</em>.</p>
+<h2 id="cisco-aci-support-of-public-cloud-infrastructure">Cisco ACI support of Public Cloud infrastructure</h2>
+<p>Cisco Cloud Network Controller (formerly Cloud APIC) provides enterprises with networking tools necessary to accelerate their hybrid-cloud and/or multicloud journey.</p>
+<p>Utilizing cloud-native constructs, the solution enables automation that accelerates infrastructure deployment and governance and simplifies management to easily connect workloads across multicloud environments. The Cisco Cloud Network Controller vision is to support enhanced observability, operations, and troubleshooting across the entire environment.</p>
+<p>Cisco Cloud Network Controller enables:</p>
+<p>●      Seamless connectivity for any workload at scale across any location</p>
+<p>●      Operational simplicity and visibility across a vast multisite, multicloud</p>
+<p>●      data-center network</p>
+<p>●      Easy L4-7 services integration</p>
+<p>●      Consistent security and segmentation</p>
+<p>●      Business continuity and disaster recovery</p>
+<h2 id="cloud-network-controller-components">Cloud Network Controller components:</h2>
+<p>Cisco Cloud Network Controller is the main architectural component of this multicloud solution. It is the unified point of automation and management for the solution fabric including network and security policy, health monitoring, and optimizes performance and agility. The complete solution includes:</p>
+<p>●      Cisco Cloud Network Controller(deployed in each Public Cloud which is to be managed) </p>
+<p>●      Cisco Nexus Dashboard (in our lab deployed in AWS Cloud) - Multicloud networking orchestration and policy management, disaster recovery, and high availability, as well as provisioning and health monitoring.</p>
+<p>●      Cisco Catalyst® 8000V - deployed in Public Clouds, allowing for communication with other Clouds or on-premises datacenter. Responsible for traffic secuirty and end to end policy enforcement. </p>
+<h2 id="topology">Topology</h2>
+<p>In this lab we will be using two(2) Public Cloud Provders: </p>
+<p>●      Microsoft Azure</p>
+<p>●      Amazon AWS </p>
+<p>However Cloud Network Controller (CNC) is also supported on Google Cloud. </p>
+<p>In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will be run on Nexus Dashboard appliance deployed in AWS cloud. </p>
+<p>Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. </p>
+<p>Intial lab diagram is as follows: </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800></p>
+<h2 id="lab-agenda">Lab agenda</h2>
+<h3 id="1-infrastructure-veryfication-login-and-access">1. Infrastructure veryfication - login and access</h3>
+<h3 id="2-site-onboarding-in-nexus-dashboard">2. Site onboarding in Nexus Dashboard</h3>
+<h3 id="3-multisite-infrastructure-configuration">3. Multisite infrastructure configuration</h3>
+<h3 id="4-multisite-configuration-check">4. Multisite configuration check</h3>
+<h3 id="5-tenant-creation-and-public-cloud-trust-configuration">5. Tenant creation and Public Cloud Trust configuration</h3>
+<h3 id="6-three3-common-use-cases-configuration-and-veryfcation">6. Three(3) common use-cases configuration and veryfcation</h3>
+<h4 id="-stretched-vrf-across-public-clouds-with-cloud-local-epgs">- Stretched VRF across Public Clouds with Cloud-local EPGs</h4>
+<h4 id="-internet-gateway-configuration-in-aws">- Internet Gateway configuration in AWS</h4>
+<h4 id="-inter-tenant-routing">- Inter-Tenant routing</h4>
+<p>Step by step configuration will guide you towards final topology as indicated in the picture below: </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image2.png" width = 800></p>
 <p><strong><p style="text-align: center;">Enjoy!</p></strong></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
       
         
@@ -715,13 +906,15 @@ This is the core problem ACI solves for data center operations. ACI's programmab
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
+    
     
   </body>
 </html>

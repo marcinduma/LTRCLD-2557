@@ -928,16 +928,60 @@
 <p>Hit <strong>"Open"</strong> button in order to login </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p>
 <p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
-<h3 id="infra-config-msite-2-ndo-infrastrucure-configuration">2. NDO Infrastrucure Configuration</h3>
+<h3 id="infra-config-msite-2-ndo-sites-onboarding">2. NDO Sites Onboarding</h3>
 <p>To be able to used AWS and Azure sited we added on <strong>Nexus Dashboard</strong> we need to make them <strong>Maneged</strong> and assign <strong>Site ID</strong> </p>
 <p>Navigate to <strong>Sites</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image30.png" width = 800></p>
 <p>Click on <strong>"Unmanaged"</strong> box under <strong>State</strong> Column for each site and assign <strong>Site ID</strong></p>
-<p>For AWS Site - set ID <strong>10</strong></p>
-<p>For Azure Site - set ID <strong>20</strong></p>
+<div class="highlight"><pre><span></span><code>For AWS Site - set ID **10**
+
+For Azure Site - set ID **20**
+</code></pre></div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image31.png" width = 800></p>
 <p>After this operation - both sites should be visable as <strong>Managed</strong></p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image32.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image32.png" width = 800></p>
+<h3 id="infra-config-msite-2-site-connectivity-configuration">2. Site Connectivity Configuration</h3>
+<p>In Next Step we would configure Infrastructure to connect 2 Cloud ACI Sites togehter.</p>
+<p>Navigate to <strong>Infrastructure</strong> -&gt; <strong>Site Connectivity</strong> -&gt; <strong>Configure</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image33.png" width = 800></p>
+<p>On the <strong>General Settings</strong> Page, scroll down to OSPF Configuration and fill in OSPF Area ID to value <strong>0.0.0.0</strong>, leave other setting as default. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image34.png" width = 800></p>
+<p>Go to tab <strong>"IPSec Tunnel Subnet Pools"</strong>, click <strong>Add IP address</strong> button and add subnet</p>
+<div class="highlight"><pre><span></span><code>**Subnet: 192.168.255.0/24**
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image40.png" width = 800></p>
+<p>Confirm with checkbox button.</p>
+<p>In the left navigation bar, under the Sites bar, click on first site <strong>CNC-AWS-01</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 800></p>
+<p>Enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> </p>
+<div class="highlight"><pre><span></span><code>Settings:
+- ACI Multisite - checked 
+- Contract Based Routing - checked
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image36.png" width = 800></p>
+<p>Click the "Add Site" button to cross-connect 2 sites. Under <strong>Connected to Site</strong> select <strong>Select a Site</strong> </p>
+<p>Select Azure fabric and hit <strong>Select</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image37.png" width = 800></p>
+<p>For the <strong>Connection Type</strong> select <strong>Public Internet</strong> and hit <strong>Ok</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image38.png" width = 800></p>
+<p>Move to CNC-Azure-01 Site and also enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> </p>
+<div class="highlight"><pre><span></span><code>Settings:
+- ACI Multisite - checked 
+- Contract Based Routing - checked
+</code></pre></div>
+<p>Note that second site is already selected for Inter-Site Connectivity</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image39.png" width = 800></p>
+<p>Once this is done, locate the <strong>Deploy</strong> button, click it and Select <strong>"Deploy Only"</strong>, hit <strong>Yes</strong> for confirmation. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image41.png" width = 800></p>
+<p>As you hit <strong>Deploy</strong> button, NDO will now connect to Catalyst-8kV routers over CNC and configure on them:</p>
+<div class="highlight"><pre><span></span><code>- IPSec tunnels, full mesh between all 4 routers (2 per Cloud)
+- OSPF routing 
+- BGP EVPN peering for prefixes exchange
+</code></pre></div>
+<h2 id="infra-config-msite-veryfication">Veryfication</h2>
+<p><strong>It may take 5-10 minutes for configuration to be pushed and Tunnel to be established.</strong></p>
+<p>At this point we configured this part of our topology diagram: </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>

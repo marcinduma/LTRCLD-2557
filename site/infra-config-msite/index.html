@@ -17,7 +17,7 @@
     
     
       
-        <title>How to pull informations using REST API - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
+        <title>Multisite configuration - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-pull-informations-using-rest-api" class="md-skip">
+        <a href="#infrastructure-configuration-multi-site-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to pull informations using REST API
+              Multisite configuration
             
           </span>
         </div>
@@ -276,12 +276,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -316,11 +318,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../infra-config-msite/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Multisite configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Multisite configuration
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nexus-dashboard-orchestratorndo-login" class="md-nav__link">
+    Nexus Dashboard Orchestrator(NDO) login
+  </a>
+  
+    <nav class="md-nav" aria-label="Nexus Dashboard Orchestrator(NDO) login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-finishing-intial-setup" class="md-nav__link">
+    1. Finishing Intial Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ndo-login" class="md-nav__link">
+    2. NDO login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -573,63 +636,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-creating-the-api-command" class="md-nav__link">
-    1. Creating the API Command
+  <a href="#nexus-dashboard-orchestratorndo-login" class="md-nav__link">
+    Nexus Dashboard Orchestrator(NDO) login
   </a>
   
-    <nav class="md-nav" aria-label="1. Creating the API Command">
+    <nav class="md-nav" aria-label="Nexus Dashboard Orchestrator(NDO) login">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-the-uri-for-an-api-operation-on-an-mo" class="md-nav__link">
-    1.1 The URI for an API Operation on an MO
+  <a href="#1-finishing-intial-setup" class="md-nav__link">
+    1. Finishing Intial Setup
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-the-uri-for-an-api-operation-on-an-node-mo" class="md-nav__link">
-    1.2 The URI for an API Operation on an Node MO
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-the-uri-for-an-api-operation-on-a-class" class="md-nav__link">
-    1.3. The URI for an API Operation on a Class
+  <a href="#2-ndo-login" class="md-nav__link">
+    2. NDO login
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-pulling-data-from-created-tenant" class="md-nav__link">
-    2. Pulling data from created Tenant
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Pulling data from created Tenant">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#congratulations-you-found-correct-epg-epg-59" class="md-nav__link">
-     CONGRATULATIONS, you found correct EPG:  EPG-59 
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#please-see-the-collection-of-rest-api-urls-for-further-details" class="md-nav__link">
-     Please see the Collection of REST API URLs for further details. 
-  </a>
   
 </li>
       
@@ -648,78 +677,25 @@
                   
 
 
-<h1 id="how-to-pull-informations-using-rest-api">How to pull informations using REST API</h1>
-<p>The REST API is the interface into the management information tree (MIT) and allows manipulation of the object model state. The same REST interface is used by the APIC CLI, GUI, and SDK, so that whenever information is displayed, it is read through the REST API, and when configuration changes are made, they are written through the REST API. The REST API also provides an interface through which other information can be retrieved, including statistics, faults, and audit events. It even provides a means of subscribing to push-based event notification, so that when a change occurs in the MIT, an event can be sent through a web socket.</p>
-<p>Standard REST methods are supported on the API, which includes POST, GET, and DELETE operations through HTTP. The GET method is nullipotent, meaning that it can be called zero or more times without making any changes (or that it is a read-only operation).</p>
-<h2 id="1-creating-the-api-command">1. Creating the API Command</h2>
-<p>You can invoke an API command or query by sending an HTTP or HTTPS message to the APIC with a URI of this form for an operation on a managed object (MO):</p>
-<p>{http | https}://host [:port] /api/mo/dn. {json | xml} [?options]</p>
-<p>Use this form for an operation on an object class:</p>
-<p>{http | https}://host [:port] /api/class/className. {json | xml} [?options]</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>While the preceding examples use <strong>/api/mo</strong> and <strong>/api/class</strong> in the URI string, the APIC UI and Visore also use the <strong>/api/node/mo</strong> and <strong>/api/node/class</strong> syntax in the URI string. Both formats are valid and are used interchangeably in this document.</p>
-</div>
-<p>This example shows a URI for an API operation that involves an MO of class fv:Tenant:</p>
-<p>https://apic-ip-address/api/mo/uni/tn-ExampleCorp.xml</p>
-<h3 id="11-the-uri-for-an-api-operation-on-an-mo">1.1 The URI for an API Operation on an MO</h3>
-<p>https://apic-ip-address/api/mo/uni/tn-ExampleCorp.xml</p>
-<h3 id="12-the-uri-for-an-api-operation-on-an-node-mo">1.2 The URI for an API Operation on an Node MO</h3>
-<p>In an API operation to access an MO on a specific node device in the fabric, the resource path consists of <mark><strong>/mo/topology/pod-number/node-number/sys/</strong></mark> followed by the node component. For example, to access a board sensor in chassis slot b of node-1 in pod-1, use this URI:</p>
-<p>GET https://apic-ip-address/api/mo/topology/pod-1/node-1/sys/ch/bslot/board/sensor-3.json</p>
-<h3 id="13-the-uri-for-an-api-operation-on-a-class">1.3. The URI for an API Operation on a Class</h3>
-<p>In an API operation to get information about a class, the resource path consists of <strong>/class/</strong> followed by the name of the class as described in the Cisco APIC Management Information Model Reference. In the URI, the colon in the class name is removed. For example, this URI specifies a query on the class aaa:User:</p>
-<p>GET https://apic-ip-address/api/class/aaaUser.json</p>
-<h2 id="2-pulling-data-from-created-tenant">2. Pulling data from created Tenant</h2>
-<p>In the restAPI section you created tenant called <strong>"Postman-collection-1"</strong>. That tenant have 22 EPGs and BDs and now you would like to pull data about one of them.</p>
-<p><strong>POTENTIAL EXCERCISE:</strong></p>
-<p>Server Team asked you to add new static binding for server addressed in subnet 172.16.59.0/24. You don't know what is name of EPG and now you have to do reverse engineering to find correct EPG.</p>
-<p>You know that GW IP address of BD is 172.16.59.1/24. Your task is to find BD name using GET API query and by having BD, find name of EPG associated to it.</p>
-<p><em>Where to start?</em></p>
-<p>Think about how to find class-name of Bridge Domain. During the day you used few methods - "Save As" object, "Show Debug Info" in APIC, "API Inspector", "Open in Object Store Browser".
-Choice method you prefer and find class-name for BD.</p>
-<p>Once you have it, compose URL, Answer below:</p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvBD.json
-</code></pre></div>
-<p>Create Postman Request to GET information from class-name you specify above.</p>
-<p>Result should shows you "totalCount": "28" meaning you found 28 bridge domains and you listed their attributes. Still you are not able to find out the correct one.</p>
-<p>Now list all sub-tree of object fvBD. Do it with adding KEY parameter to your GET query:</p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvBD.json?query-target=subtree
-</code></pre></div>
-<p>You listed all Bridge Domains with all MIT for them, now results with more than 200 items in APIC response.</p>
-<p>Having information about IP address of GW, you can narrow it to one, having that specific IP. Let's try:</p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvBD.json?query-target=subtree&amp;query-target-filter=and(wcard(fvSubnet.ip,&quot;172.16.59.1/24&quot;))
-</code></pre></div>
-<p>Function which contain IP addresses under BD is fvSubnet. The attribute of the function is <mark><strong>ip</strong></mark>. By using filter <strong>query-target-filter=and(wcard(fvSubnet.ip,"172.16.59.1/24"))</strong> you get information about DN of function. The DN contains Bridge-Domain name.</p>
-<p>Results on the figure below:</p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/get-bd-ipaddress.png" width = 800></p>
-<p>Please list informations about Bridge Domain you found: <strong>BD-59</strong>.</p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvBD.json?query-target=subtree&amp;query-target-filter=and(eq(fvBD.name,&quot;BD-59&quot;))
-</code></pre></div>
-<p>Still you don't have EPG name. Why you don't see sub-tree of the fvBD in your GET response??</p>
-<p>You need to specify RSP-SUBTREE in your GET. </p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvBD.json?query-target=subtree&amp;rsp-subtree=full&amp;query-target-filter=and(eq(fvBD.name,&quot;BD-59&quot;))
-</code></pre></div>
-<p>In the output you should look for <strong>fvRtBd</strong> class-name. It contains information about EPG to BD relation. Now try yourself to narrow down the output.</p>
-<div class="highlight"><pre><span></span><code>    https://{{apic}}/api/class/fvRtBd.json?query-target=subtree&amp;query-target-filter=and(wcard(fvRtBd.dn,&quot;BD-59&quot;))
-</code></pre></div>
-<p>Using URL above you are able to filter response from APIC for class-name fvRtBd and DN path which contain BD-59 in.</p>
-<div class="highlight"><span class="filename">fvRtBd.dn</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&quot;fvRtBd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">&quot;childAction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="hll"><span class="nt">&quot;dn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uni/tn-Postman-collection-1/BD-BD-59/rtbd-[uni/tn-Postman-collection-1/ap-APPLICATION-PROFILE-1/epg-EPG-59]&quot;</span><span class="p">,</span><span class="w"></span>
-</span><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">&quot;lcOwn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">&quot;modTs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-11-04T18:22:39.217+00:00&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">&quot;tCl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fvAEPg&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">&quot;tDn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uni/tn-Postman-collection-1/ap-APPLICATION-PROFILE-1/epg-EPG-59&quot;</span><span class="w"></span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<h3 id="congratulations-you-found-correct-epg-epg-59"><p style="text-align: center;"> <ins>CONGRATULATIONS</ins>, you found correct EPG:  <strong>EPG-59</strong> </p></h3>
-<h2 id="please-see-the-collection-of-rest-api-urls-for-further-details"><p style="text-align: center;"> Please see the <mark><a href="../URL-restAPI/">Collection of REST API URLs</a></mark> for further details. </p></h2>
+<h1 id="infrastructure-configuration-multi-site-configuration">Infrastructure configuration - Multi-Site configuration</h1>
+<p>In this lab section we wil Use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
+<h2 id="nexus-dashboard-orchestratorndo-login">Nexus Dashboard Orchestrator(NDO) login</h2>
+<h3 id="1-finishing-intial-setup">1. Finishing Intial Setup</h3>
+<p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup. </p>
+<p>Hit <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
+<h3 id="2-ndo-login">2. NDO login</h3>
+<p>In the navigation menu on the left  go to <strong>"Admin Console"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
+<p>You will be moved to <strong>Admin Console</strong> page, where you can see <strong>Health</strong> of your Nexus Dashboard and status of sites and services. </p>
+<p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you site is <strong>"Up"</strong></p>
+<p>&lt;img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image26.png"</p>
+<p>Navigate to <strong>"Sevices"</strong> tab </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image25.png" width = 400></p>
+<p><strong>Nexus Dashboard Orchestrator</strong> is already installed and enabled under <strong>"Service Catalog"</strong> inside <strong>"Installed Service"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 400></p>
+<p>Hit <strong>""</strong> button in order to login </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p>
 
 
 
@@ -735,6 +711,42 @@ Choice method you prefer and find class-name for BD.</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../infra-config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sites onboarding" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Sites onboarding
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ndo-tenant/" class="md-footer__link md-footer__link--next" aria-label="Next: NDO Tenant configuration" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              NDO Tenant configuration
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

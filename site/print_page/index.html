@@ -912,22 +912,32 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image22.png" width = 800></p></section><section class="print-page" id="infra-config-msite"><h1 id="infra-config-msite-infrastructure-configuration-multi-site-configuration">Infrastructure configuration - Multi-Site configuration</h1>
 <p>In this lab section we wil Use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
 <h2 id="infra-config-msite-nexus-dashboard-orchestratorndo-login">Nexus Dashboard Orchestrator(NDO) login</h2>
-<h3 id="infra-config-msite-1-finishing-intial-setup">1. Finishing Intial Setup</h3>
+<h3 id="infra-config-msite-1">1.</h3>
 <p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup. </p>
 <p>Hit <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
-<h3 id="infra-config-msite-2-ndo-login">2. NDO login</h3>
 <p>In the navigation menu on the left  go to <strong>"Admin Console"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
 <p>You will be moved to <strong>Admin Console</strong> page, where you can see <strong>Health</strong> of your Nexus Dashboard and status of sites and services. </p>
-<p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you site is <strong>"Up"</strong></p>
-<p>&lt;img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image26.png"</p>
-<p>Navigate to <strong>"Sevices"</strong> tab </p>
+<p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you sites is <strong>"Up"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image26.png" width = 800></p>
+<p>Navigate to <strong>"Sevices"</strong> tab to see what applicationa are installed on this Nexus Dashboard</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image25.png" width = 400></p>
 <p><strong>Nexus Dashboard Orchestrator</strong> is already installed and enabled under <strong>"Service Catalog"</strong> inside <strong>"Installed Service"</strong> </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 400></p>
-<p>Hit <strong>""</strong> button in order to login </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 800></p>
+<p>Hit <strong>"Open"</strong> button in order to login </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p>
+<p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
+<h3 id="infra-config-msite-2-ndo-infrastrucure-configuration">2. NDO Infrastrucure Configuration</h3>
+<p>To be able to used AWS and Azure sited we added on <strong>Nexus Dashboard</strong> we need to make them <strong>Maneged</strong> and assign <strong>Site ID</strong> </p>
+<p>Navigate to <strong>Sites</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image30.png" width = 800></p>
+<p>Click on <strong>"Unmanaged"</strong> box under <strong>State</strong> Column for each site and assign <strong>Site ID</strong></p>
+<p>For AWS Site - set ID <strong>10</strong></p>
+<p>For Azure Site - set ID <strong>20</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image31.png" width = 800></p>
+<p>After this operation - both sites should be visable as <strong>Managed</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image32.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>

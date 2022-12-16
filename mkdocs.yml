@@ -7,7 +7,9 @@ nav:
   - Lab Access:
     - Accessing the Lab Environment: LAB_access.md
     - Infastructure veryfication: lab-check.md
-  - INFRA Configuration: infra-config.md
+  - INFRA Configuration: 
+    - Sites onboarding: infra-config.md
+    - Multisite configuration: infra-config-msite.md
   - Tenant configuration:
     - NDO Tenant configuration: ndo-tenant.md
     - AWS Trust: aws-trust.md
@@ -17,9 +19,7 @@ nav:
     - Inter-Tenant routing: terraform-installation.md
   - Appendixes:
     - ACI to Public Cloud Object mapping: object-map.md
-    - dCloudGuacamole: guacamole.md
     - Resources: resources.md
-    - Collection of RestAPI: URL-restAPI.md
     - PRINT version: print_page/
 theme:
   name: material

@@ -46,9 +46,9 @@ Navigate to **Sites**
 
 Click on **"Unmanaged"** box under **State** Column for each site and assign **Site ID**
 
-For AWS Site - set ID **10**
+    For AWS Site - set ID **10**
 
-For Azure Site - set ID **20**
+    For Azure Site - set ID **20**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image31.png" width = 800>
 
@@ -69,7 +69,8 @@ On the **General Settings** Page, scroll down to OSPF Configuration and fill in 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image34.png" width = 800>
 
 Go to tab **"IPSec Tunnel Subnet Pools"**, click **Add IP address** button and add subnet
-    - **Subnet: 192.168.255.0/24 
+
+    **Subnet: 192.168.255.0/24**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image40.png" width = 800>
 
@@ -80,6 +81,7 @@ In the left navigation bar, under the Sites bar, click on first site **CNC-AWS-0
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 800>
 
 Enable the site for MultiSite by checking the checkbox **"ACI Multisite"** 
+    
     Settings:
     - ACI Multisite - checked 
     - Contract Based Routing - checked
@@ -97,6 +99,7 @@ For the **Connection Type** select **Public Internet** and hit **Ok**
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image38.png" width = 800>
 
 Move to CNC-Azure-01 Site and also enable the site for MultiSite by checking the checkbox **"ACI Multisite"** 
+    
     Settings:
     - ACI Multisite - checked 
     - Contract Based Routing - checked
@@ -108,3 +111,17 @@ Note that second site is already selected for Inter-Site Connectivity
 Once this is done, locate the **Deploy** button, click it and Select **"Deploy Only"**, hit **Yes** for confirmation. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image41.png" width = 800>
+
+As you hit **Deploy** button, NDO will now connect to Catalyst-8kV routers over CNC and configure on them:
+
+    - IPSec tunnels, full mesh between all 4 routers (2 per Cloud)
+    - OSPF routing 
+    - BGP EVPN peering for prefixes exchange
+
+## Veryfication 
+
+**It may take 5-10 minutes for configuration to be pushed and Tunnel to be established.**
+
+At this point we configured this part of our topology diagram: 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800>

@@ -283,10 +283,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          INFRA Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="INFRA Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          INFRA Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../infra-config/" class="md-nav__link">
-        INFRA Configuration
+        Sites onboarding
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra-config-msite/" class="md-nav__link">
+        Multisite configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -477,36 +524,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../guacamole/" class="md-nav__link">
-        dCloudGuacamole
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../resources/" class="md-nav__link">
         Resources
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../URL-restAPI/" class="md-nav__link">
-        Collection of RestAPI
       </a>
     </li>
   
@@ -592,30 +611,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#infra-config" class="md-nav__link">
-    4. INFRA Configuration
+  <a href="#section-infra-configuration" class="md-nav__link">
+    II. INFRA Configuration
   </a>
+  
+    <nav class="md-nav" aria-label="II. INFRA Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infra-config" class="md-nav__link">
+    4. Sites onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infra-config-msite" class="md-nav__link">
+    5. Multisite configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#section-tenant-configuration" class="md-nav__link">
-    II. Tenant configuration
+    III. Tenant configuration
   </a>
   
-    <nav class="md-nav" aria-label="II. Tenant configuration">
+    <nav class="md-nav" aria-label="III. Tenant configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ndo-tenant" class="md-nav__link">
-    5. NDO Tenant configuration
+    6. NDO Tenant configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#aws-trust" class="md-nav__link">
-    6. AWS Trust
+    7. AWS Trust
   </a>
   
 </li>
@@ -627,29 +666,29 @@
       
         <li class="md-nav__item">
   <a href="#section-use-cases" class="md-nav__link">
-    III. Use-cases
+    IV. Use-cases
   </a>
   
-    <nav class="md-nav" aria-label="III. Use-cases">
+    <nav class="md-nav" aria-label="IV. Use-cases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#terraform-installation" class="md-nav__link">
-    7. Stretched VRF
+    8. Stretched VRF
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#terraform-installation" class="md-nav__link">
-    8. Internet Gateway
+    9. Internet Gateway
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#terraform-installation" class="md-nav__link">
-    9. Inter-Tenant routing
+    10. Inter-Tenant routing
   </a>
   
 </li>
@@ -661,22 +700,15 @@
       
         <li class="md-nav__item">
   <a href="#section-appendixes" class="md-nav__link">
-    IV. Appendixes
+    V. Appendixes
   </a>
   
-    <nav class="md-nav" aria-label="IV. Appendixes">
+    <nav class="md-nav" aria-label="V. Appendixes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#object-map" class="md-nav__link">
-    10. ACI to Public Cloud Object mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#guacamole" class="md-nav__link">
-    11. dCloudGuacamole
+    11. ACI to Public Cloud Object mapping
   </a>
   
 </li>
@@ -684,13 +716,6 @@
           <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     12. Resources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url-restapi" class="md-nav__link">
-    13. Collection of RestAPI
   </a>
   
 </li>
@@ -793,7 +818,7 @@
 <p>Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. </p>
 <p>Intial lab diagram is as follows: </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800></p>
-<h2 id="index-lab-agenda">Lab agenda</h2>
+<h2 id="index-lab-agenda"><strong>Lab agenda</strong></h2>
 <h3 id="index-1-infrastructure-veryfication-login-and-access">1. Infrastructure veryfication - login and access</h3>
 <h3 id="index-2-site-onboarding-in-nexus-dashboard">2. Site onboarding in Nexus Dashboard</h3>
 <h3 id="index-3-multisite-infrastructure-configuration">3. Multisite infrastructure configuration</h3>
@@ -817,8 +842,12 @@
 <p>Login link for AWS console: https://console.aws.amazon.com</p>
 <p>Login link for Azure portal: https://portal.azure.com </p>
 <h2 id="lab_access-3-accessing-cloud-network-controller-and-nexus-dashboard">3. Accessing Cloud Network Controller and Nexus Dashboard.</h2>
-<p>All appliances are addressed with Public IP address, hence it can be accessed from local browser without any additional settings or VPN connections. </p></section><h1 class='nav-section-title-end'>Ended: Lab Access</h1><section class="print-page" id="infra-config"><h1 id="infra-config-infrastructure-configuration">Infrastructure configuration</h1>
-<h2 id="infra-config-find-public-ip-address-of-nexus-dashboard-and-cisco-cloud-network-controller">Find Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller</h2>
+<p>All appliances are addressed with Public IP address, hence it can be accessed from local browser without any additional settings or VPN connections. </p></section><h1 class='nav-section-title-end'>Ended: Lab Access</h1>
+                        <h1 class='nav-section-title' id='section-infra-configuration'>
+                            INFRA Configuration <a class='headerlink' href='#section-infra-configuration' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="infra-config"><h1 id="infra-config-infrastructure-configuration">Infrastructure configuration</h1>
+<h2 id="infra-config-find-public-ip-address-of-nexus-dashboard-and-cisco-cloud-network-controller-in-aws">Find Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS</h2>
 <h3 id="infra-config-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
 <h3 id="infra-config-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user,  provide Account ID and hit "Next"</h3>
@@ -829,8 +858,21 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image6.png" width = 800></p>
 <h3 id="infra-config-5-from-resources-select-instances-running">5. From "Resources" select "Instances (Running)"</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800></p>
-<h3 id="infra-config-5-on-the-instances-list-scroll-to-the-right-and-note-down-public-ipv4-address">5. On the Instances List scroll to the right and note down "Public IPv4 address"</h3>
+<h3 id="infra-config-6-on-the-instances-list-scroll-to-the-right-and-note-down-public-ipv4-address">6. On the Instances List scroll to the right and note down "Public IPv4 address"</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image8.png" width = 800></p>
+<h2 id="infra-config-find-public-ip-address-of-cisco-cloud-network-controller-in-azure">Find Public IP Address of Cisco Cloud Network Controller in Azure</h2>
+<h3 id="infra-config-1-open-azure-portal-via-browser">1. Open Azure portal via browser</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image14.png" width = 400></p>
+<h3 id="infra-config-2-enter-your-username-along-with-domain-and-hit-next">2. Enter your username along with domain and hit "Next"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image15.png" width = 400></p>
+<h3 id="infra-config-3-provide-password-and-hit-sign-in">3. Provide password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image16.png" width = 400></p>
+<h3 id="infra-config-4-use-skip-for-now-option-for-account-protection">4. Use "Skip for now" option for Account Protection</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 800></p>
+<h3 id="infra-config-5-in-search-bar-look-for-virtual-machines-and-select-from-services">5. In Search bar look for "virtual machines" and select from services</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 800></p>
+<h3 id="infra-config-6-on-the-virtual-machines-list-scroll-to-the-right-and-note-down-public-ip-address">6. On the Virtual Machines list scroll to the right and note down "Public IP address"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image19.png" width = 800></p>
 <h2 id="infra-config-nexus-dashboard-site-onboarding">Nexus Dashboard site onboarding</h2>
 <h3 id="infra-config-1-login-to-nexus-dasboard-using-ip-collected-above-and-login-with-provided-credentials">1. Login to Nexus Dasboard using IP collected above and login with provided credentials</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9.png" width = 800></p>
@@ -844,13 +886,48 @@
 <ul>
 <li>Site Type: <strong>"Cloud Network Controller"</strong></li>
 <li>Name: <strong>"CNC-AWS-01"</strong></li>
-<li>Hostname/IP Address: <strong>"Public IP o Cloud Network Controller of AWS collected above"</strong></li>
+<li>Hostname/IP Address: <strong>"Public IP of Cloud Network Controller for AWS collected above"</strong></li>
 <li>Username: <strong>admin</strong></li>
 <li>Password: <strong>CiscoLive2023!</strong></li>
 <li>Login Domain: empty</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image13.png" width = 800></p>
-<h3 id="infra-config-6-hit-save">6. Hit <strong>"Save"</strong></h3></section>
+<h3 id="infra-config-6-hit-save">6. Hit <strong>"Save"</strong></h3>
+<p><strong>"AWS site should be added now, stay on the same page! "</strong></p>
+<h3 id="infra-config-7-hit-add-site-button-one-more-time-to-add-azure-site">7. Hit "Add site button one more time to add Azure site</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image20.png" width = 800></p>
+<h3 id="infra-config-8-add-azure-site-details">8. Add Azure site details</h3>
+<ul>
+<li>Site Type: <strong>"Cloud Network Controller"</strong></li>
+<li>Name: <strong>"CNC-Azure-01"</strong></li>
+<li>Hostname/IP Address: <strong>"Public IP of Cloud Network Controller from Azure collected above"</strong></li>
+<li>Username: <strong>admin</strong></li>
+<li>Password: <strong>CiscoLive2023!</strong></li>
+<li>Login Domain: empty</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image21.png" width = 800></p>
+<h3 id="infra-config-6-hit-save_1">6. Hit <strong>"Save"</strong></h3>
+<h2 id="infra-config-check-the-site-list">Check the site list</h2>
+<p>You should see both sites added under the site list. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image22.png" width = 800></p></section><section class="print-page" id="infra-config-msite"><h1 id="infra-config-msite-infrastructure-configuration-multi-site-configuration">Infrastructure configuration - Multi-Site configuration</h1>
+<p>In this lab section we wil Use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
+<h2 id="infra-config-msite-nexus-dashboard-orchestratorndo-login">Nexus Dashboard Orchestrator(NDO) login</h2>
+<h3 id="infra-config-msite-1-finishing-intial-setup">1. Finishing Intial Setup</h3>
+<p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup. </p>
+<p>Hit <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
+<h3 id="infra-config-msite-2-ndo-login">2. NDO login</h3>
+<p>In the navigation menu on the left  go to <strong>"Admin Console"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
+<p>You will be moved to <strong>Admin Console</strong> page, where you can see <strong>Health</strong> of your Nexus Dashboard and status of sites and services. </p>
+<p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you site is <strong>"Up"</strong></p>
+<p>&lt;img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image26.png"</p>
+<p>Navigate to <strong>"Sevices"</strong> tab </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image25.png" width = 400></p>
+<p><strong>Nexus Dashboard Orchestrator</strong> is already installed and enabled under <strong>"Service Catalog"</strong> inside <strong>"Installed Service"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 400></p>
+<p>Hit <strong>""</strong> button in order to login </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>

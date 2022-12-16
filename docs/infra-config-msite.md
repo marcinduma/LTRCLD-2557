@@ -4,7 +4,7 @@ In this lab section we wil Use Nexus Dashboard orchestrator to connect 2 ACI Fab
 
 ## Nexus Dashboard Orchestrator(NDO) login
 
-### 1.  
+### 1.  NDO Introduction
 
 On the Site list hit "Continue" and then "Done" button to finish Initial Setup. 
 
@@ -38,7 +38,7 @@ You will be now redirected to **Nexus Dashboard Orchestrator** Dashboard.
 
 ### 2. NDO Sites Onboarding
 
-To be able to used AWS and Azure sited we added on **Nexus Dashboard** we need to make them **Maneged** and assign **Site ID** 
+To be able to use AWS and Azure sites, onboarded on **Nexus Dashboard**, we need to make them **Maneged** and assign **Site ID** 
 
 Navigate to **Sites** 
 
@@ -78,7 +78,7 @@ Confirm with checkbox button.
 
 In the left navigation bar, under the Sites bar, click on first site **CNC-AWS-01**
 
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 800>
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 200>
 
 Enable the site for MultiSite by checking the checkbox **"ACI Multisite"** 
     

@@ -49,7 +49,7 @@ In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator wi
 
 Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. 
 
-Intial lab diagram is as follows: 
+**Intial lab diagram:**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800>
 

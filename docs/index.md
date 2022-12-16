@@ -53,7 +53,7 @@ Intial lab diagram is as follows:
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800>
 
-## Lab agenda 
+## **Lab agenda**
 
 ### 1. Infrastructure veryfication - login and access 
 ### 2. Site onboarding in Nexus Dashboard   

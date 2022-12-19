@@ -1052,29 +1052,7 @@ ct_routerp_eu-central-1_0_0#
 <p>Now configuration can be saved, leave assocaited user list empty as there are no additional users and hit <strong>Save</strong>.</p>
 <p>On the Tenant list you should see <strong>Tenant-01</strong> created an assigned to 2 Sites. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image54.png" width = 800></p></section><section class="print-page" id="aws-trust"><h1 id="aws-trust-nexus-dasboard-orchestrator-tenant-aws-trust-configuration">Nexus Dasboard Orchestrator Tenant AWS Trust Configuration</h1>
-<p>In previus step we select Tenant configuration as Trusted, trust need to be made to allow for configuration. </p>
-<h2 id="aws-trust-aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
-<p>Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width = 300></p>
-<p>Provide Credentials and hit <strong>Login</strong></p>
-<ul>
-<li>Username: admin </li>
-<li>Password: CiscoLive2023! </li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
-<p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
-<p>Look on the <strong>Dashboard -&gt; System -&gt; Fault Summary</strong> We can see Major Fault higher that <strong>"0"</strong> Click on <strong>Major</strong> button to view details. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
-<p>List of all Major faults will pop-up. </p>
-<p>One particular fault, with Code <strong>F3526</strong> is related to AccessDenied for User Account configuration. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800></p>
-<p>Double-Click on any column for that fault to open details. Inside <strong>Fault Description</strong> there is information about <strong>CFT Script</strong> which has to be executed on <strong>User Tenant in AWS</strong> for Trust configuration. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width = 800></p>
-<p>Extract the CFT URL link for that message - it will be different that one in the screenshot as ID is generated dynamically. </p>
-<div class="highlight"><pre><span></span><code>https://capic-common-XXXXXXXXXX-data.s3.amazonaws.com/tenant-cft.json
-</code></pre></div>
-<p>Note it down, will be used in a moment. </p>
+<p>In previus step we select Tenant configuration Mode as Trusted, hence trust need to be made to allow for configuration. </p>
 <h2 id="aws-trust-aws-user-account-login">AWS User Account Login</h2>
 <p>Each User POD has two(2) AWS Accounts. </p>
 <ul>
@@ -1084,7 +1062,7 @@ ct_routerp_eu-central-1_0_0#
 <h3 id="aws-trust-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As you are already logged into AWS for Infrastructure Account, you can logout or user Incognito Mode, or different browser. </p>
+<p>As you are already logged into AWS for Infrastructure Account, you can logout or use Incognito Mode (preferably), or different browser. </p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
 <h3 id="aws-trust-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user, provide Account ID and hit "Next"</h3>
@@ -1095,10 +1073,41 @@ ct_routerp_eu-central-1_0_0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
 <h3 id="aws-trust-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
-<h3 id="aws-trust-3-trust-script-execution">3. Trust script execution</h3>
-<p>In the same browser you logged into User Account, open New Tab and paste CFT link collected above. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width = 300></p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width = 300></p></section><h1 class='nav-section-title-end'>Ended: Tenant configuration</h1>
+<p>You will land on the welcome page of AWS cloud console. </p>
+<h2 id="aws-trust-aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
+<p>Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. Make sure to use the same incognito mode as for AWS User tenant. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The trust configuration CloudFormation script needs to be executed on AWS User Account! </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width = 300></p>
+<p>Provide Credentials and hit <strong>Login</strong></p>
+<ul>
+<li>Username: admin </li>
+<li>Password: CiscoLive2023! </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
+<p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
+<p>Look on the <strong>Dashboard -&gt; Application Management -&gt; Tenants</strong> We can see newly create tenant in the list. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
+<p>Double-click on the tenant name <strong>"Tenant-01"</strong> to open it. </p>
+<p>Under the AWS Account section there is warning related to our Trust configuration, along with the <strong>"Run the CloudFormation Template"</strong> hyperlink.  </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800></p>
+<p>Click on the hyperlink to run CloudFormation Script. You will be then redirected to AWS console CloudFormation Stack configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width = 800></p>
+<p>All the parameters are already filled in, hit <strong>"Next"</strong> to continue. </p>
+<p>In <strong>Specify stack details</strong> step - fill in stack name and hit <strong>"Next"</strong></p>
+<ul>
+<li>Stack Name: <strong>CNC-AWS-Trust</strong></li>
+<li>Parameters: none</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width = 800></p>
+<p>In <strong>Configure stack options</strong> step - leave all options as default and hit <strong>"Next"</strong></p>
+<p>In <strong>Review CNC-AWS-Trust</strong> step - leave all options as default, scroll down to <strong>"Capabilities"</strong> section and check the checkbox for resource creation and hit <strong>"Submit"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width = 800></p>
+<p>After couple of seconds(use refresh button) - stack will be completed and we are good to go. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: Tenant configuration</h1>
                         <h1 class='nav-section-title' id='section-use-cases'>
                             Use-cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>

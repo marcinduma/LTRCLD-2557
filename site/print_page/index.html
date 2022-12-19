@@ -910,18 +910,18 @@
 <h2 id="infra-config-check-the-site-list">Check the site list</h2>
 <p>You should see both sites added under the site list. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image22.png" width = 800></p></section><section class="print-page" id="infra-config-msite"><h1 id="infra-config-msite-infrastructure-configuration-multi-site-configuration">Infrastructure configuration - Multi-Site configuration</h1>
-<p>In this lab section we wil Use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
-<h2 id="infra-config-msite-nexus-dashboard-orchestratorndo-login">Nexus Dashboard Orchestrator(NDO) login</h2>
-<h3 id="infra-config-msite-1-ndo-introduction">1.  NDO Introduction</h3>
-<p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup. </p>
-<p>Hit <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
+<p>In this lab section we will use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
+<h2 id="infra-config-msite-nexus-dashboard-orchestratorndo">Nexus Dashboard Orchestrator(NDO)</h2>
+<h3 id="infra-config-msite-1-ndo-introduction">1. NDO Introduction</h3>
+<p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup from previous chapter. </p>
+<p>Click <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
 <p>In the navigation menu on the left  go to <strong>"Admin Console"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
 <p>You will be moved to <strong>Admin Console</strong> page, where you can see <strong>Health</strong> of your Nexus Dashboard and status of sites and services. </p>
 <p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you sites is <strong>"Up"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image26.png" width = 800></p>
-<p>Navigate to <strong>"Sevices"</strong> tab to see what applicationa are installed on this Nexus Dashboard</p>
+<p>Navigate to <strong>"Sevices"</strong> tab to see what applications are installed on this Nexus Dashboard</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image25.png" width = 400></p>
 <p><strong>Nexus Dashboard Orchestrator</strong> is already installed and enabled under <strong>"Service Catalog"</strong> inside <strong>"Installed Service"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 800></p>
@@ -929,10 +929,10 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p>
 <p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
 <h3 id="infra-config-msite-2-ndo-sites-onboarding">2. NDO Sites Onboarding</h3>
-<p>To be able to use AWS and Azure sites, onboarded on <strong>Nexus Dashboard</strong>, we need to make them <strong>Maneged</strong> and assign <strong>Site ID</strong> </p>
-<p>Navigate to <strong>Sites</strong> </p>
+<p>In order to configure AWS and Azure sites from NDO, added previously on <strong>Nexus Dashboard</strong>, sites have to be <strong>Maneged</strong> and have <strong>Site ID</strong> assigned. </p>
+<p>Navigate to <strong>Sites</strong>: </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image30.png" width = 800></p>
-<p>Click on <strong>"Unmanaged"</strong> box under <strong>State</strong> Column for each site and assign <strong>Site ID</strong></p>
+<p>Click on <strong>"Unmanaged"</strong> box under <strong>State</strong> Column for each site and assign <strong>Site ID</strong>, confirming with <strong>"Add"</strong> button. </p>
 <div class="highlight"><pre><span></span><code>For AWS Site - set ID **10**
 
 For Azure Site - set ID **20**
@@ -940,52 +940,186 @@ For Azure Site - set ID **20**
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image31.png" width = 800></p>
 <p>After this operation - both sites should be visable as <strong>Managed</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image32.png" width = 800></p>
-<h3 id="infra-config-msite-2-site-connectivity-configuration">2. Site Connectivity Configuration</h3>
+<h3 id="infra-config-msite-3-site-connectivity-configuration">3. Site Connectivity Configuration</h3>
 <p>In Next Step we would configure Infrastructure to connect 2 Cloud ACI Sites togehter.</p>
 <p>Navigate to <strong>Infrastructure</strong> -&gt; <strong>Site Connectivity</strong> -&gt; <strong>Configure</strong> button</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image33.png" width = 800></p>
 <p>On the <strong>General Settings</strong> Page, scroll down to OSPF Configuration and fill in OSPF Area ID to value <strong>0.0.0.0</strong>, leave other setting as default. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image34.png" width = 800></p>
 <p>Go to tab <strong>"IPSec Tunnel Subnet Pools"</strong>, click <strong>Add IP address</strong> button and add subnet</p>
-<div class="highlight"><pre><span></span><code>**Subnet: 192.168.255.0/24**
+<div class="highlight"><pre><span></span><code>Subnet: 192.168.255.0/24
 </code></pre></div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image40.png" width = 800></p>
 <p>Confirm with checkbox button.</p>
 <p>In the left navigation bar, under the Sites bar, click on first site <strong>CNC-AWS-01</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 200></p>
-<p>Enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> </p>
+<p>Enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> also enable <strong>"Contract Based Routing"</strong></p>
 <div class="highlight"><pre><span></span><code>Settings:
 - ACI Multisite - checked 
 - Contract Based Routing - checked
 </code></pre></div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image36.png" width = 800></p>
-<p>Click the "Add Site" button to cross-connect 2 sites. Under <strong>Connected to Site</strong> select <strong>Select a Site</strong> </p>
+<p>Click the "Add Site" button to cross-connect 2 sites. Under <strong>Connected to Site</strong> select <strong>Select a Site</strong> hyperlink. </p>
 <p>Select Azure fabric and hit <strong>Select</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image37.png" width = 800></p>
-<p>For the <strong>Connection Type</strong> select <strong>Public Internet</strong> and hit <strong>Ok</strong> </p>
+<p>For the <strong>Connection Type</strong> select <strong>Public Internet</strong> and hit <strong>Ok</strong>. Leave rest of the setting as default, you can review them. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image38.png" width = 800></p>
-<p>Move to CNC-Azure-01 Site and also enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> </p>
+<p>Move to <strong>CNC-Azure-01</strong> Site and also enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> - simiar as in previous point. </p>
 <div class="highlight"><pre><span></span><code>Settings:
 - ACI Multisite - checked 
 - Contract Based Routing - checked
 </code></pre></div>
 <p>Note that second site is already selected for Inter-Site Connectivity</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image39.png" width = 800></p>
-<p>Once this is done, locate the <strong>Deploy</strong> button, click it and Select <strong>"Deploy Only"</strong>, hit <strong>Yes</strong> for confirmation. </p>
+<p>Once done, locate the <strong>Deploy</strong> button on top the screen, click it and Select <strong>"Deploy Only"</strong>, hit <strong>Yes</strong> for confirmation. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image41.png" width = 800></p>
-<p>As you hit <strong>Deploy</strong> button, NDO will now connect to Catalyst-8kV routers over CNC and configure on them:</p>
+<p>As you hit <strong>Deploy</strong> button, NDO will now configure CNC and Cloud Routes. </p>
 <div class="highlight"><pre><span></span><code>- IPSec tunnels, full mesh between all 4 routers (2 per Cloud)
-- OSPF routing 
+- OSPF routing over IPSec
 - BGP EVPN peering for prefixes exchange
 </code></pre></div>
-<h2 id="infra-config-msite-veryfication">Veryfication</h2>
-<p><strong>It may take 5-10 minutes for configuration to be pushed and Tunnel to be established.</strong></p>
+<h2 id="infra-config-msite-inter-site-connectivity-veryfication">Inter-site connectivity veryfication</h2>
+<p><strong>It may take 5-10 minutes for configuration to be pushed and Tunnels to be established.</strong></p>
 <p>At this point we configured this part of our topology diagram: </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800></p>
+<h3 id="infra-config-msite-1-nexush-dashboard-view">1. Nexush Dashboard view</h3>
+<p>Nexus Dashboard allows for monitoring of Inter-Site connectivity. </p>
+<p>On the Left navigation page click <strong>"Dashboard"</strong> to go back to main Connectivity View. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image43.png" width = 800></p>
+<p>Take a look into green line between AWS and Azure site(you can use use magnifying tool for better view). Green line indicated that all is fine with connectivity. </p>
+<p>On the Left navigation page click <strong>"Infrastructure"</strong> -&gt; <strong>"Site Connectivity"</strong> and scroll down on a page. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image44.png" width = 300></p>
+<p>Under the site list, locate "Show Connectivity Status" and click on it. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image45.png" width = 800></p>
+<p>Check the connectivity status for both <strong>BGP EVPN</strong> as well as <strong>Tunnel Status.</strong> There should be 4 UP BGP sessions, as well as 4 Tunnels which are <strong>UP</strong> between Sites.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image46.png" width = 800></p>
+<h2 id="infra-config-msite-inter-site-connectivity-veryfication-cloud-routers">Inter-site connectivity veryfication  (Cloud Routers)</h2>
+<h3 id="infra-config-msite-1-ipsec-tunnel-veryfication">1. IPSec tunnel veryfication</h3>
+<p>Open Putty client from desktop and put IP address of Cloud router. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Cloud Routers IP address are avaibale in POD details IP address schema.</p>
+<p>Login with username <strong>"csradmin"</strong> and password <strong>"CiscoLive2023!"</strong></p>
+<p>Execute command <strong>"show ip int brief | include Tunnel"</strong></p>
+<div class="highlight"><pre><span></span><code>show ip int brief | include Tunnel
+</code></pre></div>
+<p>Expected output: </p>
+<div class="highlight"><pre><span></span><code>ct_routerp_eu-central-1_0_0#show ip int brief | include Tunnel
+Tunnel0                10.10.0.52      YES unset  up                    up      
+Tunnel1                169.254.112.1   YES NVRAM  up                    up      
+Tunnel6                192.168.255.4   YES NVRAM  up                    up      
+Tunnel7                192.168.255.2   YES NVRAM  up                    up      
+ct_routerp_eu-central-1_0_0#
+</code></pre></div>
+<p>Verify that all 4 tunnels are up/up. </p>
+<p>Note also that Tunnel6 and Tunnel7 are addressed from subnet which was specified in the beginning of Multiste Configuration. Those 2 tunnel are configured towards two (2) Catalyst 8000V Routers in another site! </p>
+<h3 id="infra-config-msite-2-ospf-adjacency-veryfication">2. OSPF adjacency veryfication</h3>
+<p>Execute command <strong>"show ip ospf neighbor"</strong></p>
+<div class="highlight"><pre><span></span><code>show ip ospf neighbor
+</code></pre></div>
+<p>Expected output: </p>
+<div class="highlight"><pre><span></span><code>ct_routerp_eu-central-1_0_0#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.20.0.20        0   FULL/  -        00:00:33    192.168.255.3   Tunnel7
+10.20.0.68        0   FULL/  -        00:00:38    192.168.255.5   Tunnel6
+ct_routerp_eu-central-1_0_0#
+</code></pre></div>
+<p>Verify that both sessions are in <strong>FULL</strong> State. </p>
+<h3 id="infra-config-msite-2-bgp-evpn-veryfication">2. BGP EVPN veryfication</h3>
+<p>Execute command <strong>"show bgp l2vpn evpn summary"</strong></p>
+<div class="highlight"><pre><span></span><code>show bgp l2vpn evpn summary
+</code></pre></div>
+<p>Expected output: </p>
+<div class="highlight"><pre><span></span><code>ct_routerp_eu-central-1_0_0#show bgp l2vpn evpn summary 
+BGP router identifier 10.10.0.20, local AS number 65110
+BGP table version is 1, main routing table version 1
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.20.0.52      4        65200      96      94        1    0    0 01:22:47        0
+10.20.0.116     4        65200      95      94        1    0    0 01:22:52        0
+ct_routerp_eu-central-1_0_0#
+</code></pre></div>
+<p>Verify that both sessions are Up (O in "State/PfxRcd" column)</p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>
-                        <h1 class='nav-section-title-end'>Ended: Tenant configuration</h1>
+                        <section class="print-page" id="ndo-tenant"><h1 id="ndo-tenant-nexus-dasboard-orchestrator-tenant-configuration">Nexus Dasboard Orchestrator Tenant configuration</h1>
+<p>In this section we will configure our first Tenant, streteched between Azure and AWS. As Cloud Network Controller will be used for configuration, we need to make sure that CNC has privillages to do so. Will learn how to do it. </p>
+<h2 id="ndo-tenant-tenant-creation-on-ndo">Tenant Creation on NDO</h2>
+<p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image50.png" width = 800></p>
+<p>Fill in Tenant details for name and description </p>
+<ul>
+<li>Display Name: Tenant-01</li>
+<li>Descrption: Cisco Live 2023 AMS Tenant</li>
+</ul>
+<p>Associate Tenant to both Site by checking the checkbox next to it. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image51.png" width = 800></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For now you are not able to <strong>Save</strong> this configuration with red marking on both Sites. Click the <strong>Pencil</strong> button at the end of each site line to finish configuration. </p>
+<p>Additional setting are needed for CNC, so it knows which subscribtion to use on Azure and which Tenant ID on AWS. </p>
+</div>
+<p><strong>CNC-Azure-01 site configuration</strong></p>
+<p>For Azure site, we will be using the same <strong>Subscription</strong> as the one used for CNC deployment - select <strong>Mode</strong> as <strong>"Select Shared"</strong> and use existing subscription from drop-down. Leave security domains empty. Hit <strong>Save</strong>. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800></p>
+<p><strong>CNC-AWS-01 site configuration</strong></p>
+<p>For AWS site we have 2 options - <strong>Untrusted</strong> with Cloud Access key and Secret or <strong>Trusted</strong>. In our case we would be using Trusted configuration. </p>
+<p>Each Tenant create on NDO with AWS Site association required sepearete Account ID on AWS site. You can find your in POD Details. </p>
+<p>Fill in with your POD <strong> AWS User-Account ID</strong> and select <strong>Access Type</strong> as <strong>Trusted</strong>, hit <strong>Save</strong>. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image53.png" width = 800></p>
+<p>Now configuration can be saved, leave assocaited user list empty as there are no additional users and hit <strong>Save</strong>.</p>
+<p>On the Tenant list you should see <strong>Tenant-01</strong> created an assigned to 2 Sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image54.png" width = 800></p></section><section class="print-page" id="aws-trust"><h1 id="aws-trust-nexus-dasboard-orchestrator-tenant-aws-trust-configuration">Nexus Dasboard Orchestrator Tenant AWS Trust Configuration</h1>
+<p>In previus step we select Tenant configuration as Trusted, trust need to be made to allow for configuration. </p>
+<h2 id="aws-trust-aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
+<p>Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width = 300></p>
+<p>Provide Credentials and hit <strong>Login</strong></p>
+<ul>
+<li>Username: admin </li>
+<li>Password: CiscoLive2023! </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
+<p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
+<p>Look on the <strong>Dashboard -&gt; System -&gt; Fault Summary</strong> We can see Major Fault higher that <strong>"0"</strong> Click on <strong>Major</strong> button to view details. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
+<p>List of all Major faults will pop-up. </p>
+<p>One particular fault, with Code <strong>F3526</strong> is related to AccessDenied for User Account configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800></p>
+<p>Double-Click on any column for that fault to open details. Inside <strong>Fault Description</strong> there is information about <strong>CFT Script</strong> which has to be executed on <strong>User Tenant in AWS</strong> for Trust configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width = 800></p>
+<p>Extract the CFT URL link for that message - it will be different that one in the screenshot as ID is generated dynamically. </p>
+<div class="highlight"><pre><span></span><code>https://capic-common-XXXXXXXXXX-data.s3.amazonaws.com/tenant-cft.json
+</code></pre></div>
+<p>Note it down, will be used in a moment. </p>
+<h2 id="aws-trust-aws-user-account-login">AWS User Account Login</h2>
+<p>Each User POD has two(2) AWS Accounts. </p>
+<ul>
+<li>1st for Infrastrucre Configuration </li>
+<li>2nd for Tenant Configuration </li>
+</ul>
+<h3 id="aws-trust-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As you are already logged into AWS for Infrastructure Account, you can logout or user Incognito Mode, or different browser. </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
+<h3 id="aws-trust-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user, provide Account ID and hit "Next"</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this login please use AWS User Account ID </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
+<h3 id="aws-trust-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
+<h3 id="aws-trust-3-trust-script-execution">3. Trust script execution</h3>
+<p>In the same browser you logged into User Account, open New Tab and paste CFT link collected above. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width = 300></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width = 300></p></section><h1 class='nav-section-title-end'>Ended: Tenant configuration</h1>
                         <h1 class='nav-section-title' id='section-use-cases'>
                             Use-cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>

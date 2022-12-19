@@ -6,7 +6,6 @@ nav:
   - Home: index.md #opis laba z HLD - obrazkiem
   - Lab Access:
     - Accessing the Lab Environment: LAB_access.md
-    - Infastructure veryfication: lab-check.md
   - INFRA Configuration: 
     - Sites onboarding: infra-config.md
     - Multisite configuration: infra-config-msite.md

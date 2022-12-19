@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#nexus-dasboard-orchestrator-tenant-aws-trust-configuration" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -383,10 +388,84 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AWS Trust
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         AWS Trust
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-network-controller-login" class="md-nav__link">
+    AWS Cloud Network Controller Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-user-account-login" class="md-nav__link">
+    AWS User Account Login
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS User Account Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-aws-console-via-browser" class="md-nav__link">
+    1. Open AWS console via browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-select-iam-user-provide-account-id-and-hit-next" class="md-nav__link">
+    2. Select IAM user, provide Account ID and hit "Next"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-provide-username-and-password-and-hit-sign-in" class="md-nav__link">
+    3. Provide Username and password and hit "Sign In"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trust-script-execution" class="md-nav__link">
+    3. Trust script execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -568,6 +647,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-network-controller-login" class="md-nav__link">
+    AWS Cloud Network Controller Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-user-account-login" class="md-nav__link">
+    AWS User Account Login
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS User Account Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-aws-console-via-browser" class="md-nav__link">
+    1. Open AWS console via browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-select-iam-user-provide-account-id-and-hit-next" class="md-nav__link">
+    2. Select IAM user, provide Account ID and hit "Next"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-provide-username-and-password-and-hit-sign-in" class="md-nav__link">
+    3. Provide Username and password and hit "Sign In"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trust-script-execution" class="md-nav__link">
+    3. Trust script execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -582,9 +719,54 @@
                   
 
 
-  <h1>AWS Trust</h1>
-
-
+<h1 id="nexus-dasboard-orchestrator-tenant-aws-trust-configuration">Nexus Dasboard Orchestrator Tenant AWS Trust Configuration</h1>
+<p>In previus step we select Tenant configuration as Trusted, trust need to be made to allow for configuration. </p>
+<h2 id="aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
+<p>Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width = 300></p>
+<p>Provide Credentials and hit <strong>Login</strong></p>
+<ul>
+<li>Username: admin </li>
+<li>Password: CiscoLive2023! </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
+<p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
+<p>Look on the <strong>Dashboard -&gt; System -&gt; Fault Summary</strong> We can see Major Fault higher that <strong>"0"</strong> Click on <strong>Major</strong> button to view details. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
+<p>List of all Major faults will pop-up. </p>
+<p>One particular fault, with Code <strong>F3526</strong> is related to AccessDenied for User Account configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800></p>
+<p>Double-Click on any column for that fault to open details. Inside <strong>Fault Description</strong> there is information about <strong>CFT Script</strong> which has to be executed on <strong>User Tenant in AWS</strong> for Trust configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width = 800></p>
+<p>Extract the CFT URL link for that message - it will be different that one in the screenshot as ID is generated dynamically. </p>
+<div class="highlight"><pre><span></span><code>https://capic-common-XXXXXXXXXX-data.s3.amazonaws.com/tenant-cft.json
+</code></pre></div>
+<p>Note it down, will be used in a moment. </p>
+<h2 id="aws-user-account-login">AWS User Account Login</h2>
+<p>Each User POD has two(2) AWS Accounts. </p>
+<ul>
+<li>1st for Infrastrucre Configuration </li>
+<li>2nd for Tenant Configuration </li>
+</ul>
+<h3 id="1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As you are already logged into AWS for Infrastructure Account, you can logout or user Incognito Mode, or different browser. </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
+<h3 id="2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user, provide Account ID and hit "Next"</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this login please use AWS User Account ID </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
+<h3 id="3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
+<h3 id="3-trust-script-execution">3. Trust script execution</h3>
+<p>In the same browser you logged into User Account, open New Tab and paste CFT link collected above. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width = 300></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width = 300></p>
 
 
 

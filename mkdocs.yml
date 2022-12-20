@@ -13,9 +13,9 @@ nav:
     - NDO Tenant configuration: ndo-tenant.md
     - AWS Trust: aws-trust.md
   - Use-cases:
-    - Stretched VRF: terraform-installation.md
-    - Internet Gateway: terraform-installation.md
-    - Inter-Tenant routing: terraform-installation.md
+    - Use-case 01 - Stretched VRF: use-case1.md
+    - Use-case 02 - Internet Gateway: use-case2.md
+    - Use-case 03 - Inter-Tenant routing: use-case3.md
   - Appendixes:
     - ACI to Public Cloud Object mapping: object-map.md
     - Resources: resources.md

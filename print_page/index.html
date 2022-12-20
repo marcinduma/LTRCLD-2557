@@ -420,8 +420,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform-installation/" class="md-nav__link">
-        Stretched VRF
+      <a href="../use-case1/" class="md-nav__link">
+        Use-case 01 - Stretched VRF
       </a>
     </li>
   
@@ -434,8 +434,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform-installation/" class="md-nav__link">
-        Internet Gateway
+      <a href="../use-case2/" class="md-nav__link">
+        Use-case 02 - Internet Gateway
       </a>
     </li>
   
@@ -448,8 +448,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform-installation/" class="md-nav__link">
-        Inter-Tenant routing
+      <a href="../use-case3/" class="md-nav__link">
+        Use-case 03 - Inter-Tenant routing
       </a>
     </li>
   
@@ -652,22 +652,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#terraform-installation" class="md-nav__link">
-    7. Stretched VRF
+  <a href="#use-case1" class="md-nav__link">
+    7. Use-case 01 - Stretched VRF
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#terraform-installation" class="md-nav__link">
-    8. Internet Gateway
+  <a href="#use-case2" class="md-nav__link">
+    8. Use-case 02 - Internet Gateway
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#terraform-installation" class="md-nav__link">
-    9. Inter-Tenant routing
+  <a href="#use-case3" class="md-nav__link">
+    9. Use-case 03 - Inter-Tenant routing
   </a>
   
 </li>
@@ -1059,19 +1059,19 @@ ct_routerp_eu-central-1_0_0#
 <li>1st for Infrastrucre Configuration </li>
 <li>2nd for Tenant Configuration </li>
 </ul>
-<h3 id="aws-trust-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
+<p>Open AWS console via browser </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As you are already logged into AWS for Infrastructure Account, you can logout or use Incognito Mode (preferably), or different browser. </p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
-<h3 id="aws-trust-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user, provide Account ID and hit "Next"</h3>
+<p>Select IAM user, provide Account ID and hit "Next" </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For this login please use AWS User Account ID </p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
-<h3 id="aws-trust-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
+<p>Provide Username and password and hit "Sign In" </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
 <p>You will land on the welcome page of AWS cloud console. </p>
 <h2 id="aws-trust-aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
@@ -1111,71 +1111,113 @@ ct_routerp_eu-central-1_0_0#
                         <h1 class='nav-section-title' id='section-use-cases'>
                             Use-cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>
-                        <section class="print-page" id="terraform-installation"><h1 id="terraform-installation-terraform-setup">Terraform setup</h1>
-<p>HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle. Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.</p>
-<h2 id="terraform-installation-1-install-teraform-in-your-workstation">1. Install Teraform in your workstation</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Participants can use virtual machine with Windows or work on personal laptop. Please follow installation instructions for the OS on your laptops.</p>
-</div>
-<p>To use Terraform you will need to install it. HashiCorp distributes Terraform as a binary package. You can also install Terraform using popular package managers.</p>
-<h3 id="terraform-installation-11-for-centosrhel-distribution">1.1 For CentOS/RHEL distribution:</h3>
-<p>Install <code>yum-config-manager</code> to manage your repositories.</p>
-<div class="highlight"><pre><span></span><code>sudo yum install -y yum-utils
-</code></pre></div>
-<p>Use <code>yum-config-manager</code> to add the official HashiCorp Linux repository.</p>
-<div class="highlight"><pre><span></span><code>sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-</code></pre></div>
-<p>Install Terraform from the new repository.</p>
-<div class="highlight"><pre><span></span><code>sudo yum -y install terraform
-</code></pre></div>
-<h3 id="terraform-installation-12-for-windows-os">1.2. For Windows OS:</h3>
-<p>To install Terraform, find the appropriate package for your system and download it as a zip archive:</p>
-<div class="highlight"><pre><span></span><code>https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_windows_amd64.zip
-</code></pre></div>
-<p><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/terraform-download.png" width = 800></p>
-<p>After downloading Terraform, unzip the package. Terraform runs as a single binary named terraform. Any other files in the package can be safely removed and Terraform will still function.</p>
-<p>Copy the terraform.bin to C:\Windows folder.</p>
-<p>Finally, make sure that the terraform binary is available on your PATH. The path can be edited through:
-1) Find <code>Advanced system settings</code> -&gt; <code>Advanced</code> -&gt; <code>Environment Variables</code>
-2) Find PATH variable and click edit to change
-3) Verify if C:\Windows exists in the path and if not add it to the list</p>
-<h3 id="terraform-installation-13-for-macbook-with-os-x">1.3 For Macbook with OS X:</h3>
-<p>Homebrew is a free and open-source package management system for Mac OS X. Install the official Terraform formula from the terminal.
-First, install the HashiCorp tap, a repository of all our Homebrew packages.</p>
-<div class="highlight"><pre><span></span><code>brew tap hashicorp/tap
-</code></pre></div>
-<p>Now, install Terraform with hashicorp/tap/terraform.</p>
-<div class="highlight"><pre><span></span><code>brew install hashicorp/tap/terraform
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This installs a signed binary and is automatically updated with every new official release.</p>
-</div>
-<p>To update to the latest version of Terraform, first update Homebrew.</p>
-<div class="highlight"><pre><span></span><code>brew update
-</code></pre></div>
-<p>Then, run the upgrade command to download and use the latest Terraform version.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#terraform-installation-__codelineno-0-1"></a>  brew upgrade hashicorp/tap/terraform
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#terraform-installation-__codelineno-0-2"></a>  ==&gt; Upgrading 1 outdated package:
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#terraform-installation-__codelineno-0-3"></a>  hashicorp/tap/terraform 0.15.3 -&gt; 1.0.0
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#terraform-installation-__codelineno-0-4"></a>  ==&gt; Upgrading hashicorp/tap/terraform 0.15.3 -&gt; 1.0.0
-</code></pre></div></p>
-<h3 id="terraform-installation-13-verify-the-installation">1.3 Verify the installation</h3>
-<p>Verify that the installation worked by opening a new terminal session and listing Terraform's available subcommands.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#terraform-installation-__codelineno-1-1"></a>terraform -help
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#terraform-installation-__codelineno-1-2"></a>Usage: terraform [-version] [-help] &lt;command&gt; [args]
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#terraform-installation-__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#terraform-installation-__codelineno-1-4"></a>The available commands for execution are listed below.
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#terraform-installation-__codelineno-1-5"></a>The most common, useful commands are shown first, followed by
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#terraform-installation-__codelineno-1-6"></a>less common or more advanced commands. If you&#39;re just getting
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#terraform-installation-__codelineno-1-7"></a>started with Terraform, stick with the common commands. For the
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#terraform-installation-__codelineno-1-8"></a>other commands, please read the help and docs before usage.
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#terraform-installation-__codelineno-1-9"></a>#...
-</code></pre></div>
-<p>Add any subcommand to terraform -help to learn more about what it does and available options.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#terraform-installation-__codelineno-2-1"></a> terraform -help plan
-</code></pre></div></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
+                        <section class="print-page" id="use-case1"><h1 id="use-case1-use-case-01-stretched-vrf">Use-case 01 - Stretched VRF</h1>
+<p><strong>Previous tasks were focusing on infrastructure configuration, from now on, infrastructure is ready and will be working on logical topology.</strong></p>
+<p>First use-case task will focus on:</p>
+<ul>
+<li>Configuration of stretch VRF inside Tenant-01</li>
+<li>VPC CIDR, VNET configuration in respective clouds</li>
+<li>EPG configuration in both clouds </li>
+<li>EC2/Virutal Machine creation for communication testing </li>
+<li>Contract configuration to allow traffic flow </li>
+<li>Communication testing </li>
+</ul>
+<h2 id="use-case1-schema-template-configuration">Schema, Template configuration</h2>
+<p>All logical polices and configuration is done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will also define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. </p>
+<h3 id="use-case1-1-schema-creation">1. Schema creation</h3>
+<p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image70.png" width = 800></p>
+<p>Add Schema name and Description and hit <strong>"Add"</strong> button</p>
+<ul>
+<li>Name: <strong>Schema-T01</strong> </li>
+<li>Description: <strong>Schema for Tenant-01</strong></li>
+</ul>
+<h3 id="use-case1-2-template-creation">2. Template creation</h3>
+<p>Under the Schema-T01, let's create first Template with <strong>"Add New Template"</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image71.png" width = 800></p>
+<p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
+<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<ul>
+<li>Display Name: <strong>temp-stretch-01</strong></li>
+<li>Tenant setting: <strong>Tenant-01</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image73.png" width = 800></p>
+<h3 id="use-case1-3-template-to-site-association">3. Template to site association</h3>
+<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
+<p>For <strong>stretch template</strong>, we want to add both Azure and AWS sites. </p>
+<p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image76.png" width = 800></p>
+<p>Select both site <strong>CNC-AWS-01</strong> and <strong>CNC-Azure-01</strong> and hit <strong>Ok</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800></p>
+<h3 id="use-case1-4-vrf-configuration">4. VRF Configuration</h3>
+<p>Inside <strong>Schema-T01</strong>, inside <strong>temp-stretch-01</strong> add the VRF with <strong>"Add VRF"</strong> button under <strong>VRFs</strong> box</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image74.png" width = 800></p>
+<p>Add VRF Common Properties </p>
+<ul>
+<li>Display Name: <strong>VRF-01</strong> </li>
+<li>Description: <strong>CL2023 Stretch VRF</strong></li>
+</ul>
+<p>Leave other as default. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image75.png" width = 800></p>
+<p>As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-AWS-1"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image78.png" width = 800></p>
+<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-AWS-01 Site</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image79.png" width = 800></p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<ul>
+<li><strong>Region:</strong> eu-central-1</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image80.png" width = 800></p>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC</p>
+<ul>
+<li>CIDR: <strong>10.0.0.0/23</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image81.png" width = 800></p>
+<p>Our CIDR also needs to be divided into subnets for respetive Availability zone - hit <strong>"Add Subnet"</strong> to configure it. </p>
+<p>We have to add subnet for a,b,c (number of AZ depends on the region), each subet need to be confirmed with click on <strong>checkbox</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image82.png" width = 800></p>
+<p>Create subnet for all 3 AZ in our Region, use non-virutal zone. </p>
+<ul>
+<li><strong>Subnet:</strong> 10.0.0.0/25      <strong>Name:</strong> az-1a-subnet <strong>AZ:</strong> eu-central-1a</li>
+<li><strong>Subnet:</strong> 10.0.0.128/25    <strong>Name:</strong> az-1b-subnet <strong>AZ:</strong> eu-central-1b</li>
+<li><strong>Subnet:</strong> 10.0.1.0/25      <strong>Name:</strong> az-1c-subnet <strong>AZ:</strong> eu-central-1c</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image83.png" width = 800></p>
+<p>When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p>We also want to connect our subnets to Catalys8000V routers, what is done ia Hub Network (Transit Gateway) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also <strong>Subnets</strong></p>
+<ul>
+<li>Hub Network: <strong>TGW-HUB</strong></li>
+<li>Subnets: <strong>10.0.0.0/2, 10.0.0.128/25, 10.0.1.0/25</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image84.png" width = 800></p>
+<p>Hit ok to finish configuration for <strong>CNC-AWS-01</strong> fabric.</p>
+<p>Similar configuration has to be done for <strong>CNC-Azure-01</strong></p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-1"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image85.png" width = 800></p>
+<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<ul>
+<li><strong>Region:</strong> francecentral</li>
+</ul>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC.</p>
+<ul>
+<li>CIDR: <strong>10.0.0.0/23</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image86.png" width = 800></p>
+<p>Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select <strong>Availability Zones.</strong> We can add whole CIDR as subnet. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image87.png" width = 800></p>
+<p>In case of Azure cloud, connection to CNC VNET is done via <strong>"VNET Peering"</strong> feature - enable it and select <strong>Default</strong> Hub Network</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image88.png" width = 800></p>
+<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"Tempalate Properties"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image89.png" width = 800></p>
+<p>When done <strong>"Deploy to sites"</strong> button will become active - click to deploy VRF to respective sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image90.png" width = 800></p>
+<p>Nexus Dashboard will also show you want changes will be made. Hit <strong>Deploy</strong> button to push configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image91.png" width = 800></p>
+<p>If all goes well, confirmation pop-up will get displayed on the screen. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image92.png" width = 800></p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
                         <h1 class='nav-section-title' id='section-appendixes'>
                             Appendixes <a class='headerlink' href='#section-appendixes' title='Permanent link'>↵</a>
                         </h1>

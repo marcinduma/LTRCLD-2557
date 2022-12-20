@@ -1,0 +1,884 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explore Simplicity of Public Cloud Network Configuration with Cloud Network Controller (formerly cAPIC) and Nexus Dashboard Orchestrator (NDO)">
+      
+      
+        <meta name="author" content="Marcin Duma & Karol Okraska">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Use-case 01 - Stretched VRF - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#use-case-01-stretched-vrf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CiscoLive EMEA 2023 --- LTRCLD-2557" class="md-header__button md-logo" aria-label="CiscoLive EMEA 2023 --- LTRCLD-2557" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CiscoLive EMEA 2023 --- LTRCLD-2557
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Use-case 01 - Stretched VRF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CiscoLive EMEA 2023 --- LTRCLD-2557" class="md-nav__button md-logo" aria-label="CiscoLive EMEA 2023 --- LTRCLD-2557" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CiscoLive EMEA 2023 --- LTRCLD-2557
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Lab Access
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab Access" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lab Access
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_access/" class="md-nav__link">
+        Accessing the Lab Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          INFRA Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="INFRA Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          INFRA Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra-config/" class="md-nav__link">
+        Sites onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra-config-msite/" class="md-nav__link">
+        Multisite configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tenant configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tenant configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tenant configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ndo-tenant/" class="md-nav__link">
+        NDO Tenant configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-trust/" class="md-nav__link">
+        AWS Trust
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Use-cases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use-cases" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Use-cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Use-case 01 - Stretched VRF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Use-case 01 - Stretched VRF
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schema-template-configuration" class="md-nav__link">
+    Schema, Template configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema, Template configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schema-creation" class="md-nav__link">
+    1. Schema creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-creation" class="md-nav__link">
+    2. Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-to-site-association" class="md-nav__link">
+    3. Template to site association
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vrf-configuration" class="md-nav__link">
+    4. VRF Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-case2/" class="md-nav__link">
+        Use-case 02 - Internet Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-case3/" class="md-nav__link">
+        Use-case 03 - Inter-Tenant routing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Appendixes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-map/" class="md-nav__link">
+        ACI to Public Cloud Object mapping
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print_page/" class="md-nav__link">
+        PRINT version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schema-template-configuration" class="md-nav__link">
+    Schema, Template configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema, Template configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schema-creation" class="md-nav__link">
+    1. Schema creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-creation" class="md-nav__link">
+    2. Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-to-site-association" class="md-nav__link">
+    3. Template to site association
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vrf-configuration" class="md-nav__link">
+    4. VRF Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="use-case-01-stretched-vrf">Use-case 01 - Stretched VRF</h1>
+<p><strong>Previous tasks were focusing on infrastructure configuration, from now on, infrastructure is ready and will be working on logical topology.</strong></p>
+<p>First use-case task will focus on:</p>
+<ul>
+<li>Configuration of stretch VRF inside Tenant-01</li>
+<li>VPC CIDR, VNET configuration in respective clouds</li>
+<li>EPG configuration in both clouds </li>
+<li>EC2/Virutal Machine creation for communication testing </li>
+<li>Contract configuration to allow traffic flow </li>
+<li>Communication testing </li>
+</ul>
+<h2 id="schema-template-configuration">Schema, Template configuration</h2>
+<p>All logical polices and configuration is done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will also define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. </p>
+<h3 id="1-schema-creation">1. Schema creation</h3>
+<p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image70.png" width = 800></p>
+<p>Add Schema name and Description and hit <strong>"Add"</strong> button</p>
+<ul>
+<li>Name: <strong>Schema-T01</strong> </li>
+<li>Description: <strong>Schema for Tenant-01</strong></li>
+</ul>
+<h3 id="2-template-creation">2. Template creation</h3>
+<p>Under the Schema-T01, let's create first Template with <strong>"Add New Template"</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image71.png" width = 800></p>
+<p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
+<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<ul>
+<li>Display Name: <strong>temp-stretch-01</strong></li>
+<li>Tenant setting: <strong>Tenant-01</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image73.png" width = 800></p>
+<h3 id="3-template-to-site-association">3. Template to site association</h3>
+<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
+<p>For <strong>stretch template</strong>, we want to add both Azure and AWS sites. </p>
+<p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image76.png" width = 800></p>
+<p>Select both site <strong>CNC-AWS-01</strong> and <strong>CNC-Azure-01</strong> and hit <strong>Ok</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800></p>
+<h3 id="4-vrf-configuration">4. VRF Configuration</h3>
+<p>Inside <strong>Schema-T01</strong>, inside <strong>temp-stretch-01</strong> add the VRF with <strong>"Add VRF"</strong> button under <strong>VRFs</strong> box</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image74.png" width = 800></p>
+<p>Add VRF Common Properties </p>
+<ul>
+<li>Display Name: <strong>VRF-01</strong> </li>
+<li>Description: <strong>CL2023 Stretch VRF</strong></li>
+</ul>
+<p>Leave other as default. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image75.png" width = 800></p>
+<p>As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-AWS-1"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image78.png" width = 800></p>
+<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-AWS-01 Site</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image79.png" width = 800></p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<ul>
+<li><strong>Region:</strong> eu-central-1</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image80.png" width = 800></p>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC</p>
+<ul>
+<li>CIDR: <strong>10.0.0.0/23</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image81.png" width = 800></p>
+<p>Our CIDR also needs to be divided into subnets for respetive Availability zone - hit <strong>"Add Subnet"</strong> to configure it. </p>
+<p>We have to add subnet for a,b,c (number of AZ depends on the region), each subet need to be confirmed with click on <strong>checkbox</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image82.png" width = 800></p>
+<p>Create subnet for all 3 AZ in our Region, use non-virutal zone. </p>
+<ul>
+<li><strong>Subnet:</strong> 10.0.0.0/25      <strong>Name:</strong> az-1a-subnet <strong>AZ:</strong> eu-central-1a</li>
+<li><strong>Subnet:</strong> 10.0.0.128/25    <strong>Name:</strong> az-1b-subnet <strong>AZ:</strong> eu-central-1b</li>
+<li><strong>Subnet:</strong> 10.0.1.0/25      <strong>Name:</strong> az-1c-subnet <strong>AZ:</strong> eu-central-1c</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image83.png" width = 800></p>
+<p>When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p>We also want to connect our subnets to Catalys8000V routers, what is done ia Hub Network (Transit Gateway) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also <strong>Subnets</strong></p>
+<ul>
+<li>Hub Network: <strong>TGW-HUB</strong></li>
+<li>Subnets: <strong>10.0.0.0/2, 10.0.0.128/25, 10.0.1.0/25</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image84.png" width = 800></p>
+<p>Hit ok to finish configuration for <strong>CNC-AWS-01</strong> fabric.</p>
+<p>Similar configuration has to be done for <strong>CNC-Azure-01</strong></p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-1"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image85.png" width = 800></p>
+<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<ul>
+<li><strong>Region:</strong> francecentral</li>
+</ul>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC.</p>
+<ul>
+<li>CIDR: <strong>10.0.0.0/23</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image86.png" width = 800></p>
+<p>Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select <strong>Availability Zones.</strong> We can add whole CIDR as subnet. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image87.png" width = 800></p>
+<p>In case of Azure cloud, connection to CNC VNET is done via <strong>"VNET Peering"</strong> feature - enable it and select <strong>Default</strong> Hub Network</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image88.png" width = 800></p>
+<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"Tempalate Properties"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image89.png" width = 800></p>
+<p>When done <strong>"Deploy to sites"</strong> button will become active - click to deploy VRF to respective sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image90.png" width = 800></p>
+<p>Nexus Dashboard will also show you want changes will be made. Hit <strong>Deploy</strong> button to push configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image91.png" width = 800></p>
+<p>If all goes well, confirmation pop-up will get displayed on the screen. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image92.png" width = 800></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../aws-trust/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Trust" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              AWS Trust
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../use-case2/" class="md-footer__link md-footer__link--next" aria-label="Next: Use-case 02 - Internet Gateway" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Use-case 02 - Internet Gateway
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+    
+  </body>
+</html>

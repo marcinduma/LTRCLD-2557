@@ -478,9 +478,43 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrf-epg-contracts-deployment" class="md-nav__link">
+    VRF, EPG, contracts deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="VRF, EPG, contracts deployment">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#4-vrf-configuration" class="md-nav__link">
-    4. VRF Configuration
+  <a href="#1-vrf-configuration" class="md-nav__link">
+    1. VRF Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vrf-veryfication" class="md-nav__link">
+    2. VRF Veryfication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-additional-template-creation" class="md-nav__link">
+    3. Additional Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-epg-configuration" class="md-nav__link">
+    4. EPG Configuration
   </a>
   
 </li>
@@ -664,9 +698,43 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrf-epg-contracts-deployment" class="md-nav__link">
+    VRF, EPG, contracts deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="VRF, EPG, contracts deployment">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#4-vrf-configuration" class="md-nav__link">
-    4. VRF Configuration
+  <a href="#1-vrf-configuration" class="md-nav__link">
+    1. VRF Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vrf-veryfication" class="md-nav__link">
+    2. VRF Veryfication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-additional-template-creation" class="md-nav__link">
+    3. Additional Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-epg-configuration" class="md-nav__link">
+    4. EPG Configuration
   </a>
   
 </li>
@@ -725,12 +793,13 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image73.png" width = 800></p>
 <h3 id="3-template-to-site-association">3. Template to site association</h3>
 <p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
-<p>For <strong>stretch template</strong>, we want to add both Azure and AWS sites. </p>
+<p>For <strong>temp-stretch-01</strong>, we want to add both Azure and AWS sites. </p>
 <p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image76.png" width = 800></p>
 <p>Select both site <strong>CNC-AWS-01</strong> and <strong>CNC-Azure-01</strong> and hit <strong>Ok</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800></p>
-<h3 id="4-vrf-configuration">4. VRF Configuration</h3>
+<h2 id="vrf-epg-contracts-deployment">VRF, EPG, contracts deployment</h2>
+<h3 id="1-vrf-configuration">1. VRF Configuration</h3>
 <p>Inside <strong>Schema-T01</strong>, inside <strong>temp-stretch-01</strong> add the VRF with <strong>"Add VRF"</strong> button under <strong>VRFs</strong> box</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image74.png" width = 800></p>
 <p>Add VRF Common Properties </p>
@@ -740,22 +809,22 @@
 </ul>
 <p>Leave other as default. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image75.png" width = 800></p>
-<p>As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-AWS-1"</strong> </p>
+<p>As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-AWS-01"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image78.png" width = 800></p>
-<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-AWS-01 Site</strong></p>
+<p>Click on the <strong>"VRF-01"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-AWS-01 Site</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image79.png" width = 800></p>
-<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<p>Under the <strong>"Template Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
 <ul>
 <li><strong>Region:</strong> eu-central-1</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image80.png" width = 800></p>
-<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC</p>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC. This subnet will be configure as VPC CIDR on AWS cloud and will be used for VM and endpoint addressing. </p>
 <ul>
 <li>CIDR: <strong>10.0.0.0/23</strong> </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image81.png" width = 800></p>
-<p>Our CIDR also needs to be divided into subnets for respetive Availability zone - hit <strong>"Add Subnet"</strong> to configure it. </p>
-<p>We have to add subnet for a,b,c (number of AZ depends on the region), each subet need to be confirmed with click on <strong>checkbox</strong> button</p>
+<p>Our CIDR also needs to be divided into subnets for respective <strong>Availability Zones (AZ)</strong> - hit <strong>"Add Subnet"</strong> to configure it. </p>
+<p>We need to add subnet for a,b,c (number of AZ depends on the region), each subet needs to be confirmed with click on <strong>checkbox</strong> button.</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image82.png" width = 800></p>
 <p>Create subnet for all 3 AZ in our Region, use non-virutal zone. </p>
 <ul>
@@ -765,17 +834,17 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image83.png" width = 800></p>
 <p>When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
-<p>We also want to connect our subnets to Catalys8000V routers, what is done ia Hub Network (Transit Gateway) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also <strong>Subnets</strong></p>
+<p>We also want to connect our subnets to Catalys8000V routers, this is done via Hub Network (Transit Gateway in AWS) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also all <strong>Subnets</strong> added. </p>
 <ul>
 <li>Hub Network: <strong>TGW-HUB</strong></li>
 <li>Subnets: <strong>10.0.0.0/2, 10.0.0.128/25, 10.0.1.0/25</strong> </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image84.png" width = 800></p>
 <p>Hit ok to finish configuration for <strong>CNC-AWS-01</strong> fabric.</p>
-<p>Similar configuration has to be done for <strong>CNC-Azure-01</strong></p>
-<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-1"</strong> </p>
+<p>Similar configuration has to be done for <strong>CNC-Azure-01</strong>.</p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image85.png" width = 800></p>
-<p>CLick on the <strong>"VRF-01"</strong> which will open <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
+<p>Click on the <strong>"VRF-01"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
 <p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
 <ul>
 <li><strong>Region:</strong> francecentral</li>
@@ -787,17 +856,55 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image86.png" width = 800></p>
 <p>Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select <strong>Availability Zones.</strong> We can add whole CIDR as subnet. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image87.png" width = 800></p>
-<p>In case of Azure cloud, connection to CNC VNET is done via <strong>"VNET Peering"</strong> feature - enable it and select <strong>Default</strong> Hub Network</p>
+<p>In case of Azure cloud, connection to CNC VNET is done via <strong>"VNET Peering"</strong> feature - enable it and select <strong>"Default" Hub Network</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image88.png" width = 800></p>
 <p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
-<p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"Tempalate Properties"</strong></p>
+<p>Under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"Template Properties"</strong> main settings. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image89.png" width = 800></p>
-<p>When done <strong>"Deploy to sites"</strong> button will become active - click to deploy VRF to respective sites. </p>
+<p>When done <strong>"Deploy to sites"</strong> button will become active (blue) - click to deploy VRF to respective sites. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image90.png" width = 800></p>
-<p>Nexus Dashboard will also show you want changes will be made. Hit <strong>Deploy</strong> button to push configuration. </p>
+<p>Nexus Dashboard will also show you what changes are to be made. Review those and hit <strong>Deploy</strong> button to push configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image91.png" width = 800></p>
 <p>If all goes well, confirmation pop-up will get displayed on the screen. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image92.png" width = 800></p>
+<p>At this point in both Azure and AWS cloud, there will be VNET/VPC (respectively) created with defined addressing. </p>
+<h3 id="2-vrf-veryfication">2. VRF Veryfication</h3>
+<p>In the browser, open AWS console page. From the Region list, make sure that you have Frankfurt (eu-central-1) region selected. If not, switch to it. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image94.png" width = 800></p>
+<p>Search for <strong>"VPC"</strong> resource in Search tool and open it. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image93.png" width = 800></p>
+<p>You should have 2 VPCs created. </p>
+<ul>
+<li>context-[VRF-01]-addr-[10.0.0.0/23] - coresponding to NDO created VRF </li>
+<li>Default, without name, created automaticaly by AWS</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image95.png" width = 800></p>
+<p>Let's check the same in Azure Cloud. Open the Azure Portal and login if needed. </p>
+<p>Search for <strong>Virtual Networks"</strong> in search bar</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image96.png" width = 800></p>
+<p>As we are using shared subscribtion in this lab, there will be 2 <strong>Virtual Networks</strong> </p>
+<ul>
+<li>VRF-01 - corresponding to our VRF </li>
+<li>overlay-1 - infrastructure VRF in which CNC and Cloud Routers are connected </li>
+</ul>
+<h3 id="3-additional-template-creation">3. Additional Template creation</h3>
+<p>As per our topology diagram, EPGs in each Cloud are separate. As current <strong>temp-stretch-01</strong> is associated with both sites, we need to create 2 new templates in the <strong>Schema-T01</strong> schema,  to Azure and AWS cloud sites respectively. </p>
+<p>Use the "Add new Template" and create 2 new templates with following names:</p>
+<p><strong>AWS Template:</strong></p>
+<ul>
+<li>Template name: <strong>temp-AWS-01</strong></li>
+<li>Template type: <strong>ACI Multi-Cloud</strong></li>
+<li>Template Tenant: <strong>Tenant-01</strong></li>
+</ul>
+<p><strong>Azure Template:</strong></p>
+<ul>
+<li>Template name: <strong>temp-Azure-01</strong></li>
+<li>Template type: <strong>ACI Multi-Cloud</strong> </li>
+<li>Template Tenant: <strong>Tenant-01</strong></li>
+</ul>
+<h3 id="4-epg-configuration">4. EPG Configuration</h3>
+<p>ACI in Cloud doesn't use the concept of <strong>Bridge Domains</strong>, they don't have any representation in Cloud, that's why IP ranges were defined as part of VRF configuration. </p>
+<p><strong>EPGs</strong> can be now created and attached to VRF directly, without Bridge Domain. </p>
 
 
 

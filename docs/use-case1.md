@@ -1,6 +1,6 @@
 # Use-case 01 - Stretched VRF
 
-**Previous tasks were focusing on infrastructure configuration, from now on, infrastructure is ready and will be working on logical topology.**
+**Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and will be working on logical topology.**
 
 First use-case task will focus on:
 
@@ -57,7 +57,7 @@ Select both site **CNC-AWS-01** and **CNC-Azure-01** and hit **Ok**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800>
 
-## VRF, EPG, contracts deployment  
+## VRF, EPG, selectors deployment  
 
 ### 1. VRF Configuration
 
@@ -166,7 +166,7 @@ If all goes well, confirmation pop-up will get displayed on the screen.
 
 At this point in both Azure and AWS cloud, there will be VNET/VPC (respectively) created with defined addressing. 
 
-### 2. VRF Veryfication 
+### 2. VRF verification 
 
 In the browser, open AWS console page. From the Region list, make sure that you have Frankfurt (eu-central-1) region selected. If not, switch to it. 
 
@@ -194,33 +194,306 @@ As we are using shared subscribtion in this lab, there will be 2 **Virtual Netwo
 - VRF-01 - corresponding to our VRF 
 - overlay-1 - infrastructure VRF in which CNC and Cloud Routers are connected 
 
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image97.png" width = 800>
 
 ### 3. Additional Template creation 
 
 As per our topology diagram, EPGs in each Cloud are separate. As current **temp-stretch-01** is associated with both sites, we need to create 2 new templates in the **Schema-T01** schema,  to Azure and AWS cloud sites respectively. 
 
-Use the "Add new Template" and create 2 new templates with following names:
+Use the "Add new Template" and create 2 new templates with following names. Similar to first template form **Actions** mennu associate to respective sites. 
 
 **AWS Template:**
 
 - Template name: **temp-AWS-01**
 - Template type: **ACI Multi-Cloud**
 - Template Tenant: **Tenant-01**
+- Site associated: **CNC-AWS-01**
+
+Hit **Save** button to save the template. 
 
 **Azure Template:**
 
 - Template name: **temp-Azure-01**
 - Template type: **ACI Multi-Cloud** 
 - Template Tenant: **Tenant-01**
+- Site associated: **CNC-Azure-01**
+
+Hit **Save** button to save the template. 
+
+### 4. Application Profile and EPG Configuration for AWS 
+
+ACI in Cloud doesn't use the concept of **Bridge Domain**, they don't have any representation in Cloud, that's why IP ranges were defined as part of VRF configuration. 
+
+**EPGs** can be now created and attached to VRF directly. 
+
+Navigate to **temp-AWS-01** template using **View** dropdown menu. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image100.png" width = 800>
+
+Add **Application Profile** using **Add Application Profile** button. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image101.png" width = 800>
+
+- Display Name: **AppProf-AWS-01**
+- Description: **Application Profile CL 2023 AWS**
+
+Hit **Save**
+
+Under created **Application Profile** add **EPG**
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image102.png" width = 800>
+
+- Display Name: **EPG-AWS-01**
+- Description: **EPG AWS CL 2023** 
+- EPG Type: **Application** 
+
+Skip the **"On-Premises Properties"** and click on **"Cloud Properties"** and select **"Virtual Routing & Forwarding"** as **"VRF-01"**. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image103.png" width = 500>
+
+We also need to add **Selector**. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under **Site Specific** configuration for each EPG. 
+
+Thare can be different type of selectores: 
+
+- IP based 
+- TAG based
+- Region Based 
+- Custom 
+
+In our case we will use **IP based** selectors. 
+
+Under **Template Properties** swtich to **CNC-AWS-01** Site, click on **EPG-AWS-01** and hit **"Add Selector"** button under the EPG Cloud Properties. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image104.png" width = 800>
+
+Selector details: 
+
+- Endpoint Selector Name: **AWS-sel**
+- Expression: 
+    
+    - Type: **IP address**
+    - Operator: **Equals**
+    - Value: **10.0.0.0/23**
+
+Hit checkbox sign to save expression and then **Ok** to finish. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image105.png" width = 500>
+
+Under **Template Properties** swtich back to **Template Properties** and hit **"Deploy to sites"** and **"Deploy"**. 
+
+Once done confirmation will pop up on the screen. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image106.png" width = 500>
 
 
+### 5. Application Profile and EPG Configuration for Azure
 
-### 4. EPG Configuration 
+Navigate to **temp-Azure-01** template using **View** dropdown menu. 
 
-ACI in Cloud doesn't use the concept of **Bridge Domains**, they don't have any representation in Cloud, that's why IP ranges were defined as part of VRF configuration. 
+Add **Application Profile** using **Add Application Profile** button. 
 
-**EPGs** can be now created and attached to VRF directly, without Bridge Domain. 
+- Display Name: **AppProf-Azure-01**
+- Description: **Application Profile CL 2023 AWS**
+
+Hit **Save**
+
+Under created **Application Profile** add **EPG**
+
+- Display Name: **EPG-AWS-01**
+- Description: **EPG AWS CL 2023** 
+- EPG Type: **Application** 
+
+Skip the **"On-Premises Properties"** and click on **"Cloud Properties"** and select **"Virtual Routing & Forwarding"** as **"VRF-01"**. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image110.png" width = 800>
+
+We also need to add **Selector**. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under **Site Specific** configuration for each EPG. 
+
+Under **Template Properties** swtich to **CNC-Azure-01** Site, click on **EPG-Azure-01** and hit **"Add Selector"** button under the EPG Cloud Properties. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image111.png" width = 800>
+
+Selector details: 
+
+- Endpoint Selector Name: **Azure-sel**
+- Expression: 
+    
+    - Type: **IP address**
+    - Operator: **Equals**
+    - Value: **10.100.0.0/23**
+
+Hit checkbox sign to save expression and then **Ok** to finish. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image112.png" width = 500>
+
+Under **Template Properties** swtich back to **Template Properties** and hit **"Deploy to sites"** and **"Deploy"**. 
+
+Once done confirmation will pop up on the screen. 
 
 
+## EC2/VM creation and verification  
+
+Next step is creation of Vritual Machine/EC2 Instance in respective clouds for traffic veryfication. 
+
+### 1. AWS EC2 creation 
+
+Login to AWS user tenant via https://console.aws.amazon.com and make sure that you have **Frankfurt/eu-central-1** region selected 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image115.png" width = 300>
+
+To be able to launch and login to VM we need to have SSH key-pair created. 
+
+In seach bar type **"key pairs"** and select Key Pairs from Features list. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image118.png" width = 600>
+
+Hit **"Create key pair"** in top right corner and provide following settings: 
+
+- Name: **AWS-key-pair**
+- Key pair type: **RSA**
+- Private key file format: **.pem**
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image119.png" width = 600>
+
+Hit "Create key pair" to finish. Once you do it key will be downloaded to your desktop, so you can use for connection to VMs. Make sure to store it in know place on your desktop. 
+
+In seach bar type **"EC2"** and select EC2 from Service list. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image116.png" width = 600>
+
+On the EC2 Dashboard locate **"Launch instance"** and hit Launch instance option. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image117.png" width = 600>
+
+Instance details:
+
+- Name: **VM-AWS-01**
+- Application and OS Images: **Amazon Linux**
+- Architecture: **64-bit** 
+- Instance type: **t2.micro** 
+- Key pair(login): **AWS-key-pair** 
+- Network settings (hit Edit to change):
+
+    - VPC: **context-[VRF-01]-addr[10.0.0.0/23]**
+    - subnet: **subnet-[10.0.0.0/25]**
+    - Auto-assign public IP: **Enable**
+    - Firewall (security groups): **leave default**
+
+- Other setting leave default 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image120.png" width = 800>
+
+Review summary and hit **"Launch instance"** to create Virtual Machine
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image121.png" width = 400>
+
+It may take 3-5 minutes for instance to be ready - you may jump to next step and deploy instance in Azure, then come back here for veryfication. 
 
 
+### 2. AWS EC2 veryfication 
+
+Go back to EC2 -> Instances and locate your EC2 machine. Click on Instance-ID of you machine to open it. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image122.png" width = 800>
+
+ - Verify that VPC ID is correct 
+ - Verify that subnet is correct 
+ - Verify that instance has correct **Private IPv4 addressess"** 
+
+ Note down IP address of EC2 instance, we will need it for veryfication. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image123.png" width = 800>
+
+ Go to Security settings of VM and check that **Security groups** for you instance is the one related to **EPG-AWS-01** 
+
+ <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image124.png" width = 800>
+
+ This security group was pushed when EPG was deployed towards AWS site. Instance interfaces was assigned to this EPG/Security Group based on the IP based Selector configured for this EPG. Cloud Network Controller is monitoring resources created in managed Tenants and it's automatically assigning Security groupes based on selectors. 
+
+### 3. Azure Virutal Machine creation 
+
+Login to Azure portal  via https://portal.azure.com with your account 
+
+Search for **Virtual machine** in search bar and open from Services list 
+
+ <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width = 800>
+
+Under **Create** button select **"Azure virtual machine"**
+
+ <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image131.png" width = 800>
+
+ Virutal Machine details: 
+
+ !!!Note
+    If setting is not listed, leave default.
+
+ - Subscription: **leave selected** 
+ - Resource Group: **create new "RG-CL23"**
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image132.png" width = 400>
+
+ - Virtual Machine name: **VM-AZ-01**
+ - Region: **(Europe) France Central** 
+ - Authentication type: **Password**  
+ 
+    - username: **student** 
+    - password: **CiscoLive2023!**
+
+Hit **"Next: Disks >"** and accept all default values, hit **"Next: Networking >"** and configure: 
+
+ - Virtual Network: **VRF-01**
+ - Subnet: **az-subnet (10.100.0.0/23)**
+ - Public IP: **leave default**
+
+Hit directly **"Review + Create"** and all other setting will stat default. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image133.png" width = 500>
+
+Hit directly **"Create"** to deploy Virutal Machine. 
+
+It may take 3-5 minutes for instance to be ready. Portal will notify you when done. 
+
+### 4. Azure Virutal Machine veryfication 
+
+Go back to **Services -> Virutal machines** and locate you Virutal Machine. Click on the name to open it. 
+
+Under the **"Settings"**, go to **"Networking"** and then **"Application Security groups (ASG)"** and notice that our Virutal Machine is assigned to **"EPG-Azure-01_cloudapp-AppProf-Azure-01"** securty group. Similarly like for AWS, this ASG was assigned due to Selector configuration for EPG. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800>
+
+## AWS to Azure traffic verification 
+
+Let's check if our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800>
+
+On the Azure Virtual Machine, scroll down to **"Help"** Section and select **"Serial Console"** 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image141.png" width = 800>
+
+Hit enter and provide VM login credentials:
+
+- username: **student** 
+- password: **CiscoLive2023!**
+
+Once in the console try to reach via ping to AWS EC2 IP address we noted earlier. 
+
+    student@VM-AZ-01:~$ ping 10.0.0.106
+    PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
+
+    --- 10.0.0.106 ping statistics ---
+    7 packets transmitted, 0 received, 100% packet loss, time 6134ms
+    student@VM-AZ-01:~$
+
+It doesnt work, what is expected as we didn't connect out two EPGs via contract. So even they are part of the same VRF, they are not able to communicate. 
+
+## Contract, Filter configuration 
+
+Open Nexus Dashboard Orchestrator GUI -> Application Management -> Schemas -> "Schema-T01" -> open 
+
+Under View select "temp-stretch-01" and "Add filter" under **Filter** section. 
+
+
+Under View select "temp-stretch-01" and "Add contract" under **Contract** section. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image142.png" width = 800>

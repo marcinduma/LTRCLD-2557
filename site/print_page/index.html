@@ -1629,7 +1629,141 @@ ct-routerp-francecentral-0-0#
 <li>Azure subnet <strong>10.100.0.0/23</strong> is available via <strong>Static route</strong> towards interfaces <strong>GigabitEthernet2</strong>, which is interfaces conencted to inside of Azure. </li>
 <li>AWS subnet 10.0.0.0/23 is available from BGP protocol, from two (2) Cloud Router located in AWS Cloud </li>
 </ul>
-<p>In that way cloud routers know how to route traffic towards respective clouds. </p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
+<p>In that way cloud routers know how to route traffic towards respective clouds. </p></section><section class="print-page" id="use-case2"><h1 id="use-case2-use-case-02-internet-gateway">Use-case 02 - Internet Gateway</h1>
+<p><strong>In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet</strong></p>
+<p>Instances in AWS can assess Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between  VPC and the internet.</p>
+<p>An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).</p>
+<h2 id="use-case2-internet-gateway-as-external-epg">Internet Gateway as External EPG</h2>
+<p>As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) it's configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. </p>
+<h3 id="use-case2-external-epg-configuration">External EPG configuration</h3>
+<p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
+<p>Under View select <strong>"temp-AWS-01"</strong> and hit <strong>"Add External EPGs"</strong> under <strong>External EPGs</strong> section. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image172.png" width = 800></p>
+<ul>
+<li>Display Name: <strong>ExtEPG-IGW</strong></li>
+<li>Description: <strong>Ext EPG for Internet Gateway AWS</strong> </li>
+<li>Virutal Routing &amp; Forwarding: <strong>VRF-01</strong> </li>
+<li>Select Site Type: <strong>CLOUD</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image174.png" width = 800>   </p>
+<ul>
+<li>
+<p>Cloud Properties: </p>
+<ul>
+<li>Application Profile: <strong>AppProf-AWS-01</strong></li>
+<li>
+<p>Add Selector: </p>
+<ul>
+<li>Endpoint Selector Name: <strong>Internet</strong></li>
+<li>Expression Type: <strong>IP Address</strong></li>
+<li>Expression Operator: <strong>Equal</strong></li>
+<li>Expression Value: <strong>0.0.0.0/0</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image173.png" width = 800>   </p>
+<p>Hit <strong>Save</strong> to finish. </p>
+<h3 id="use-case2-contract-configuration-configuration">Contract configuration configuration</h3>
+<p>As External EPG is functioning as any other EPG, contract configuration from EPG to External EPG is mandatory for traffic to be allowed. </p>
+<h4 id="use-case2-1-filter-creation">1. Filter creation</h4>
+<p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
+<p>Under View select <strong>"temp-AWS-01""</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
+<ul>
+<li>Display Name: <strong>permit-any-aws</strong> </li>
+</ul>
+<p>Then click <strong>"Add entry"</strong> to define protocols and ports. </p>
+<ul>
+<li>Name: <strong>permit-any</strong> </li>
+</ul>
+<p>Leave rest setting as default - this will allow for all protocols and ports. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600></p>
+<p>Hit <strong>Ok</strong> to save it. </p>
+<h4 id="use-case2-2-contract-configuration">2. Contract configuration</h4>
+<p>As contracts will be used to connect AWS EPG to Ext EPG of AWS , contract should be created in AWS template </p>
+<p>Under View select <strong>"temp-AWS-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
+<p>Create two(2) contracts with following details: </p>
+<ul>
+<li>
+<p>Contract <strong>con-AWS-01-to-IGW</strong> </p>
+<ul>
+<li>Display Name: <strong>con-AWS-01-to-IGW</strong> </li>
+<li>Scope: <strong>VRF</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any-AWS</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image176.png" width = 800></p>
+<p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<ul>
+<li>
+<p>Contract <strong>con-IGW-to-AWS-01</strong> </p>
+<ul>
+<li>Display Name: <strong>con-IGW-to-AWS-01</strong> </li>
+<li>Scope: <strong>VRF</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any-AWS</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image175.png" width = 800></p>
+<p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be pushed. </p>
+<h4 id="use-case2-3-contract-assigment-to-epgs">3. Contract assigment to EPGs</h4>
+<p>Under View select <strong>"temp-AWS-01"</strong> click on the <strong>EPG-AWS-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
+<p>Hit <strong>"Add Contract"</strong> button and add the following</p>
+<p>Contract 1: </p>
+<ul>
+<li>EPG: <strong>EPG-AWS01</strong></li>
+<li>Contract: <strong>con-AWS-01-to-IGW</strong>*</li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Contract 2: </p>
+<ul>
+<li>EPG: <strong>EPG-AWS-01</strong></li>
+<li>Contract: <strong>con-IGW-to-AWS-01</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image177.png" width = 800></p>
+<p>Under View select <strong>"temp-AWS-01"</strong> click on the <strong>ExtEPG-IGW</strong> and under <strong>Common Properties</strong> locate <strong>Contract</strong> section</p>
+<p>Hit <strong>"Add Contract"</strong> button and add the following</p>
+<p>Contract 1: </p>
+<ul>
+<li>EPG: <strong>ExtEPG-IGW</strong></li>
+<li>Contract: <strong>con-IGW-to-AWS-01</strong></li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Contract 2: </p>
+<ul>
+<li>EPG: <strong>ExtEPG-IGW</strong></li>
+<li>Contract: <strong>con-AWS-01-to-IGW</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image178.png" width = 800></p>
+<p>Hit <strong>Deploy to sites</strong> to create IGW and deploy contracts associations. </p>
+<h2 id="use-case2-veryfication">Veryfication</h2>
+<p>Let's check if AWS EC2 instance is now reachable from internet. </p>
+<h3 id="use-case2-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
+<h3 id="use-case2-2-select-iam-user-provide-account-id-for-user-tenant-and-hit-next">2. Select IAM user,  provide Account ID for User tenant and hit "Next"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
+<h3 id="use-case2-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
+<h3 id="use-case2-4-in-aws-search-bar-type-ec2-and-select-ec2-services-tab">4. In AWS Search Bar type "EC2" and Select "EC2" Services Tab</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image6.png" width = 800></p>
+<h3 id="use-case2-5-from-resources-select-instances-running">5. From "Resources" select "Instances (Running)"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800></p>
+<p>Locate Public IPv4 Address of EC2 instance, either on the EC2 instance list or under Details section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image179.png" width = 800></p>
+<p>From workstation open commend line interface by hitting <strong>"Start"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image180.png" width = 800></p>
+<p>Execute command </p>
+<div class="highlight"><pre><span></span><code>ping &lt;Public IPaddress of EC2&gt;
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image181.png" width = 800></p>
+<p>Communication is successfull now, EC2 has access to Internet via AWS Internet Gateway. </p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
                         <h1 class='nav-section-title' id='section-appendixes'>
                             Appendixes <a class='headerlink' href='#section-appendixes' title='Permanent link'>↵</a>
                         </h1>

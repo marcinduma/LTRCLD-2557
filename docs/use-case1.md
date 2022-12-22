@@ -461,7 +461,7 @@ Under the **"Settings"**, go to **"Networking"** and then **"Application Securit
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800>
 
-## AWS to Azure traffic verification 
+## Cross Cloud traffic verification 
 
 Let's check if our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. 
 
@@ -487,13 +487,136 @@ Once in the console try to reach via ping to AWS EC2 IP address we noted earlier
 
 It doesnt work, what is expected as we didn't connect out two EPGs via contract. So even they are part of the same VRF, they are not able to communicate. 
 
-## Contract, Filter configuration 
+## Contract configuration 
+
+### 1. Filter creation
 
 Open Nexus Dashboard Orchestrator GUI -> Application Management -> Schemas -> "Schema-T01" -> open 
 
 Under View select "temp-stretch-01" and "Add filter" under **Filter** section. 
 
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image143.png" width = 800>
+
+ - Display Name: **permit-any** 
+
+Then click **"Add entry"** to define protocols and ports. 
+
+ - Name: **permit-any** 
+ 
+ Leave rest setting as default - this will allow for all protocols and ports. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600>
+
+Hit **Ok** to save it. 
+
+### 2. Contract configuration
 
 Under View select "temp-stretch-01" and "Add contract" under **Contract** section. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image142.png" width = 800>
+
+Create 2 contract with follwoing details: 
+
+- Contract **con-AWS-01-to-Azure-01** 
+
+    - Display Name: **con-AWS-01-to-Azure-01** 
+    - Scope: **VRF**
+    - Apply both direction: **yes**
+    - Add Filter: **permit-any**
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image145.png" width = 800>
+
+Hit **Save** to finish contract configuration. 
+
+- Contract **con-Azure-01-to-AWS-01** 
+
+    - Display Name: **con-Azure-01-to-AWS-01** 
+    - Scope: **VRF**
+    - Apply both direction: **yes**
+    - Add Filter: **permit-any**
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image146.png" width = 800>
+
+Hit **Save** to finish contract configuration. 
+
+Hit **Deploy to sites** 
+
+### 2. Contract assigment to EPGs 
+
+Just creation of contract doesn't have any imact on traffic. Contract needs to have at least on Provider EPG and one Consumer EPG to allow communication between them. 
+
+Under View select "temp-AWS-01" click on the **EPG-AWS-01** and under EPG specific setting locate **Contract** section
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800>
+
+Hit **"Add Conctract"** button and add the following
+
+Contract 1: 
+
+ - EPG: **EPG-AWS-01**
+ - Contract: **con-AWS-01-to-Azure-01**
+ - Type: **provider** 
+
+Contract 2: 
+
+ - EPG: **EPG-AWS-01**
+ - Contract: **con-Azure-01-to-AWS-01**
+ - Type: **consumer** 
+
+ Hit **Deploy to sites** 
+
+Under View select "temp-Azure-01" click on the **EPG-Azure-01** and under EPG specific setting locate **Contract** section
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800>
+
+Hit **"Add Conctract"** button and add the following
+
+Contract 1: 
+
+ - EPG: **EPG-Azure-01**
+ - Contract: **con-Azure-01-to-AWS-01**
+ - Type: **provider** 
+
+Contract 2: 
+
+ - EPG: **EPG-Azure-01**
+ - Contract: **con-AWS-01-to-Azure-01**
+ - Type: **consumer** 
+
+Hit **Deploy to sites** 
+
+## Cross Cloud traffic verification attempt 2 
+
+Let's check if now our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800>
+
+On the Azure Virtual Machine, scroll down to **"Help"** Section and select **"Serial Console"** 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image141.png" width = 800>
+
+Hit enter and provide VM login credentials:
+
+- username: **student** 
+- password: **CiscoLive2023!**
+
+Once in the console try to reach via ping to AWS EC2 IP address we noted earlier. 
+
+    student@VM-AZ-01:~$ ping 10.0.0.106
+    PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
+    64 bytes from 10.0.0.106: icmp_seq=1 ttl=252 time=14.7 ms
+    64 bytes from 10.0.0.106: icmp_seq=2 ttl=252 time=12.1 ms
+    64 bytes from 10.0.0.106: icmp_seq=3 ttl=252 time=12.2 ms
+    64 bytes from 10.0.0.106: icmp_seq=4 ttl=252 time=11.9 ms
+    64 bytes from 10.0.0.106: icmp_seq=5 ttl=252 time=12.1 ms
+    ^C
+    --- 10.0.0.106 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+    rtt min/avg/max/mdev = 11.893/12.598/14.707/1.060 ms
+    student@VM-AZ-01:~$
+
+Contract configuration makes communication possible. 
+
+## Cross Cloud traffic infrastructure check  
+
+Let's now check what was confiugure on the infsrastructure that traffic can flow. 

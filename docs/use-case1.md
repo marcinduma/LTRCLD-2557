@@ -553,7 +553,7 @@ Under View select **"temp-AWS-01"** click on the **EPG-AWS-01** and under EPG sp
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800>
 
-Hit **"Add Conctract"** button and add the following
+Hit **"Add Contract"** button and add the following
 
 Contract 1: 
 
@@ -573,7 +573,7 @@ Under View select **"temp-Azure-01"** click on the **EPG-Azure-01** and under EP
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image151.png" width = 800>
 
-Hit **"Add Conctract"** button and add the following
+Hit **"Add Contract"** button and add the following
 
 Contract 1: 
 

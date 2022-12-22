@@ -8,13 +8,19 @@ You will have access to Public Cloud Console Interface, as well as you will be a
 
 ## 2. AWS and Azure console access details: 
 
-Login link for AWS console: https://console.aws.amazon.com
+Login link for AWS console: 
 
-Login link for Azure portal: https://portal.azure.com 
+[https://console.aws.amazon.com](https://console.aws.amazon.com){target=_blank}
+
+Login link for Azure portal: 
+
+[https://portal.azure.com](https://portal.azure.com){target=_blank}
 
 ## 3. Accessing Cloud Network Controller and Nexus Dashboard. 
 
 All appliances are addressed with Public IP address, hence it can be accessed from local browser without any additional settings or VPN connections. 
+
+List of IP addreses: 
 
 
 

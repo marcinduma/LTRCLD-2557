@@ -161,14 +161,14 @@ Locate Public IPv4 Address of EC2 instance, either on the EC2 instance list or u
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image179.png" width = 800>
 
-From workstation open commend line interface by hitting **"Start"** 
+From workstation open command line interface by hitting **"Start"** and typing **"cmd"**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image180.png" width = 800>
 
 Execute command 
 
-    ping <Public IPaddress of EC2>
+    ping <Public IPv4 address of EC2>
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image181.png" width = 800>
 
-Communication is successfull now, EC2 has access to Internet via AWS Internet Gateway. 
+Communication is successfull now, EC2 instance has access to Internet via AWS Internet Gateway. 

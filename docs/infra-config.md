@@ -1,6 +1,6 @@
 # Infrastructure configuration - Site onboarding 
 
-## Find Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS 
+## Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS 
 
 ### 1. Open AWS console via browser 
 
@@ -27,7 +27,7 @@
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image8.png" width = 800>
 
 
-## Find Public IP Address of Cisco Cloud Network Controller in Azure
+## Public IP Address of Cisco Cloud Network Controller in Azure
 
 ### 1. Open Azure portal via browser
 

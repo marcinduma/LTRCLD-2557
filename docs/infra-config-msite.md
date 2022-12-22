@@ -155,7 +155,7 @@ Check the connectivity status for both **BGP EVPN** as well as **Tunnel Status.*
 Open Putty client from desktop and put IP address of Cloud router. 
 
 !!! Note
-Cloud Routers IP address are avaibale in POD details IP address schema.
+    Cloud Routers IP address are avaibale in POD details IP address schema.
 
 Login with username **"csradmin"** and password **"CiscoLive2023!"**
 

@@ -573,15 +573,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aws-to-azure-traffic-verification" class="md-nav__link">
-    AWS to Azure traffic verification
+  <a href="#cross-cloud-traffic-verification" class="md-nav__link">
+    Cross Cloud traffic verification
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contract-filter-configuration" class="md-nav__link">
-    Contract, Filter configuration
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Contract configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-filter-creation" class="md-nav__link">
+    1. Filter creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contract-configuration" class="md-nav__link">
+    2. Contract configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contract-assigment-to-epgs" class="md-nav__link">
+    2. Contract assigment to EPGs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cloud-traffic-verification-attempt-2" class="md-nav__link">
+    Cross Cloud traffic verification attempt 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cloud-traffic-infrastructure-check" class="md-nav__link">
+    Cross Cloud traffic infrastructure check
   </a>
   
 </li>
@@ -855,15 +896,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aws-to-azure-traffic-verification" class="md-nav__link">
-    AWS to Azure traffic verification
+  <a href="#cross-cloud-traffic-verification" class="md-nav__link">
+    Cross Cloud traffic verification
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contract-filter-configuration" class="md-nav__link">
-    Contract, Filter configuration
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Contract configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-filter-creation" class="md-nav__link">
+    1. Filter creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contract-configuration" class="md-nav__link">
+    2. Contract configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contract-assigment-to-epgs" class="md-nav__link">
+    2. Contract assigment to EPGs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cloud-traffic-verification-attempt-2" class="md-nav__link">
+    Cross Cloud traffic verification attempt 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cloud-traffic-infrastructure-check" class="md-nav__link">
+    Cross Cloud traffic infrastructure check
   </a>
   
 </li>
@@ -1211,7 +1293,7 @@
 <p>Go back to <strong>Services -&gt; Virutal machines</strong> and locate you Virutal Machine. Click on the name to open it. </p>
 <p>Under the <strong>"Settings"</strong>, go to <strong>"Networking"</strong> and then <strong>"Application Security groups (ASG)"</strong> and notice that our Virutal Machine is assigned to <strong>"EPG-Azure-01_cloudapp-AppProf-Azure-01"</strong> securty group. Similarly like for AWS, this ASG was assigned due to Selector configuration for EPG. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800></p>
-<h2 id="aws-to-azure-traffic-verification">AWS to Azure traffic verification</h2>
+<h2 id="cross-cloud-traffic-verification">Cross Cloud traffic verification</h2>
 <p>Let's check if our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800></p>
 <p>On the Azure Virtual Machine, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
@@ -1230,11 +1312,113 @@ PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
 student@VM-AZ-01:~$
 </code></pre></div>
 <p>It doesnt work, what is expected as we didn't connect out two EPGs via contract. So even they are part of the same VRF, they are not able to communicate. </p>
-<h2 id="contract-filter-configuration">Contract, Filter configuration</h2>
+<h2 id="contract-configuration">Contract configuration</h2>
+<h3 id="1-filter-creation">1. Filter creation</h3>
 <p>Open Nexus Dashboard Orchestrator GUI -&gt; Application Management -&gt; Schemas -&gt; "Schema-T01" -&gt; open </p>
 <p>Under View select "temp-stretch-01" and "Add filter" under <strong>Filter</strong> section. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image143.png" width = 800></p>
+<ul>
+<li>Display Name: <strong>permit-any</strong> </li>
+</ul>
+<p>Then click <strong>"Add entry"</strong> to define protocols and ports. </p>
+<ul>
+<li>Name: <strong>permit-any</strong> </li>
+</ul>
+<p>Leave rest setting as default - this will allow for all protocols and ports. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600></p>
+<p>Hit <strong>Ok</strong> to save it. </p>
+<h3 id="2-contract-configuration">2. Contract configuration</h3>
 <p>Under View select "temp-stretch-01" and "Add contract" under <strong>Contract</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image142.png" width = 800></p>
+<p>Create 2 contract with follwoing details: </p>
+<ul>
+<li>
+<p>Contract <strong>con-AWS-01-to-Azure-01</strong> </p>
+<ul>
+<li>Display Name: <strong>con-AWS-01-to-Azure-01</strong> </li>
+<li>Scope: <strong>VRF</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image145.png" width = 800></p>
+<p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<ul>
+<li>
+<p>Contract <strong>con-Azure-01-to-AWS-01</strong> </p>
+<ul>
+<li>Display Name: <strong>con-Azure-01-to-AWS-01</strong> </li>
+<li>Scope: <strong>VRF</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image146.png" width = 800></p>
+<p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<p>Hit <strong>Deploy to sites</strong> </p>
+<h3 id="2-contract-assigment-to-epgs">2. Contract assigment to EPGs</h3>
+<p>Just creation of contract doesn't have any imact on traffic. Contract needs to have at least on Provider EPG and one Consumer EPG to allow communication between them. </p>
+<p>Under View select "temp-AWS-01" click on the <strong>EPG-AWS-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800></p>
+<p>Hit <strong>"Add Conctract"</strong> button and add the following</p>
+<p>Contract 1: </p>
+<ul>
+<li>EPG: <strong>EPG-AWS-01</strong></li>
+<li>Contract: <strong>con-AWS-01-to-Azure-01</strong></li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Contract 2: </p>
+<ul>
+<li>EPG: <strong>EPG-AWS-01</strong></li>
+<li>Contract: <strong>con-Azure-01-to-AWS-01</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p>Hit <strong>Deploy to sites</strong> </p>
+<p>Under View select "temp-Azure-01" click on the <strong>EPG-Azure-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800></p>
+<p>Hit <strong>"Add Conctract"</strong> button and add the following</p>
+<p>Contract 1: </p>
+<ul>
+<li>EPG: <strong>EPG-Azure-01</strong></li>
+<li>Contract: <strong>con-Azure-01-to-AWS-01</strong></li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Contract 2: </p>
+<ul>
+<li>EPG: <strong>EPG-Azure-01</strong></li>
+<li>Contract: <strong>con-AWS-01-to-Azure-01</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p>Hit <strong>Deploy to sites</strong> </p>
+<h2 id="cross-cloud-traffic-verification-attempt-2">Cross Cloud traffic verification attempt 2</h2>
+<p>Let's check if now our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800></p>
+<p>On the Azure Virtual Machine, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image141.png" width = 800></p>
+<p>Hit enter and provide VM login credentials:</p>
+<ul>
+<li>username: <strong>student</strong> </li>
+<li>password: <strong>CiscoLive2023!</strong></li>
+</ul>
+<p>Once in the console try to reach via ping to AWS EC2 IP address we noted earlier. </p>
+<div class="highlight"><pre><span></span><code>student@VM-AZ-01:~$ ping 10.0.0.106
+PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
+64 bytes from 10.0.0.106: icmp_seq=1 ttl=252 time=14.7 ms
+64 bytes from 10.0.0.106: icmp_seq=2 ttl=252 time=12.1 ms
+64 bytes from 10.0.0.106: icmp_seq=3 ttl=252 time=12.2 ms
+64 bytes from 10.0.0.106: icmp_seq=4 ttl=252 time=11.9 ms
+64 bytes from 10.0.0.106: icmp_seq=5 ttl=252 time=12.1 ms
+^C
+--- 10.0.0.106 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 11.893/12.598/14.707/1.060 ms
+student@VM-AZ-01:~$
+</code></pre></div>
+<p>Contract configuration makes communication possible. </p>
+<h2 id="cross-cloud-traffic-infrastructure-check">Cross Cloud traffic infrastructure check</h2>
+<p>Let's now check what was confiugure on the infsrastructure that traffic can flow. </p>
 
 
 

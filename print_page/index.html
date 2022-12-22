@@ -977,8 +977,8 @@ For Azure Site - set ID **20**
 <p>Open Putty client from desktop and put IP address of Cloud router. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>Cloud Routers IP address are avaibale in POD details IP address schema.</p>
+</div>
 <p>Login with username <strong>"csradmin"</strong> and password <strong>"CiscoLive2023!"</strong></p>
 <p>Execute command <strong>"show ip int brief | include Tunnel"</strong></p>
 <div class="highlight"><pre><span></span><code>show ip int brief | include Tunnel
@@ -1436,11 +1436,11 @@ ct_routerp_eu-central-1_0_0#
 <p>Hit directly <strong>"Create"</strong> to deploy Virutal Machine. </p>
 <p>It may take 3-5 minutes for instance to be ready. Portal will notify you when done. </p>
 <h3 id="use-case1-4-azure-virutal-machine-veryfication">4. Azure Virutal Machine veryfication</h3>
-<p>Go back to <strong>Services -&gt; Virutal machines</strong> and locate you Virutal Machine. Click on the name to open it. </p>
+<p>Go back to <strong>Services -&gt; Virutal machines</strong> and locate your Virutal Machine. Click on the name to open it. </p>
 <p>Under the <strong>"Settings"</strong>, go to <strong>"Networking"</strong> and then <strong>"Application Security groups (ASG)"</strong> and notice that our Virutal Machine is assigned to <strong>"EPG-Azure-01_cloudapp-AppProf-Azure-01"</strong> securty group. Similarly like for AWS, this ASG was assigned due to Selector configuration for EPG. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800></p>
 <h2 id="use-case1-cross-cloud-traffic-verification">Cross Cloud traffic verification</h2>
-<p>Let's check if our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. </p>
+<p>Let's check if our Virutal Machines are able to communicate. For now we have configured that part of our infrastructure. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800></p>
 <p>On the Azure Virtual Machine, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image141.png" width = 800></p>
@@ -1449,7 +1449,7 @@ ct_routerp_eu-central-1_0_0#
 <li>username: <strong>student</strong> </li>
 <li>password: <strong>CiscoLive2023!</strong></li>
 </ul>
-<p>Once in the console try to reach via ping to AWS EC2 IP address we noted earlier. </p>
+<p>Inside the console try to reach via ping to AWS EC2 IP address we noted earlier. </p>
 <div class="highlight"><pre><span></span><code>student@VM-AZ-01:~$ ping 10.0.0.106
 PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
 
@@ -1457,11 +1457,12 @@ PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
 7 packets transmitted, 0 received, 100% packet loss, time 6134ms
 student@VM-AZ-01:~$
 </code></pre></div>
-<p>It doesnt work, what is expected as we didn't connect out two EPGs via contract. So even they are part of the same VRF, they are not able to communicate. </p>
+<p>It doesnt work, what is expected as we didn't connect our two EPGs via contract. So even they are part of the same VRF, they are not able to communicate, as exactly same principles as on ACI applies. </p>
 <h2 id="use-case1-contract-configuration">Contract configuration</h2>
 <h3 id="use-case1-1-filter-creation">1. Filter creation</h3>
-<p>Open Nexus Dashboard Orchestrator GUI -&gt; Application Management -&gt; Schemas -&gt; "Schema-T01" -&gt; open </p>
-<p>Under View select "temp-stretch-01" and "Add filter" under <strong>Filter</strong> section. </p>
+<p>In order to create Contract, we need to have a filter which defines what type of traffis is allowed or denied under specyfic contract. </p>
+<p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
+<p>Under View select <strong>"temp-stretch-01"</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image143.png" width = 800></p>
 <ul>
 <li>Display Name: <strong>permit-any</strong> </li>
@@ -1474,9 +1475,10 @@ student@VM-AZ-01:~$
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600></p>
 <p>Hit <strong>Ok</strong> to save it. </p>
 <h3 id="use-case1-2-contract-configuration">2. Contract configuration</h3>
-<p>Under View select "temp-stretch-01" and "Add contract" under <strong>Contract</strong> section. </p>
+<p>As contracts will be used to connect AWS EPG to Azure EPG, contract should be created in stretched templates so it's deployed in both sites. </p>
+<p>Under View select <strong>"temp-stretch-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image142.png" width = 800></p>
-<p>Create 2 contract with follwoing details: </p>
+<p>Create two(2) contracts with following details: </p>
 <ul>
 <li>
 <p>Contract <strong>con-AWS-01-to-Azure-01</strong> </p>
@@ -1503,16 +1505,16 @@ student@VM-AZ-01:~$
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image146.png" width = 800></p>
 <p>Hit <strong>Save</strong> to finish contract configuration. </p>
-<p>Hit <strong>Deploy to sites</strong> </p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be pushed. </p>
 <h3 id="use-case1-2-contract-assigment-to-epgs">2. Contract assigment to EPGs</h3>
-<p>Just creation of contract doesn't have any imact on traffic. Contract needs to have at least on Provider EPG and one Consumer EPG to allow communication between them. </p>
-<p>Under View select "temp-AWS-01" click on the <strong>EPG-AWS-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
+<p>Just creation of contract doesn't have any impact on the traffic. Contract needs to have at least on Provider EPG and one Consumer EPG to allow communication between them. </p>
+<p>Under View select <strong>"temp-AWS-01"</strong> click on the <strong>EPG-AWS-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800></p>
 <p>Hit <strong>"Add Conctract"</strong> button and add the following</p>
 <p>Contract 1: </p>
 <ul>
 <li>EPG: <strong>EPG-AWS-01</strong></li>
-<li>Contract: <strong>con-AWS-01-to-Azure-01</strong></li>
+<li>Contract: <strong>152</strong></li>
 <li>Type: <strong>provider</strong> </li>
 </ul>
 <p>Contract 2: </p>
@@ -1521,9 +1523,9 @@ student@VM-AZ-01:~$
 <li>Contract: <strong>con-Azure-01-to-AWS-01</strong></li>
 <li>Type: <strong>consumer</strong> </li>
 </ul>
-<p>Hit <strong>Deploy to sites</strong> </p>
-<p>Under View select "temp-Azure-01" click on the <strong>EPG-Azure-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image150.png" width = 800></p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be applied to EPGs. </p>
+<p>Under View select <strong>"temp-Azure-01"</strong> click on the <strong>EPG-Azure-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image151.png" width = 800></p>
 <p>Hit <strong>"Add Conctract"</strong> button and add the following</p>
 <p>Contract 1: </p>
 <ul>
@@ -1537,10 +1539,10 @@ student@VM-AZ-01:~$
 <li>Contract: <strong>con-AWS-01-to-Azure-01</strong></li>
 <li>Type: <strong>consumer</strong> </li>
 </ul>
-<p>Hit <strong>Deploy to sites</strong> </p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be applied to EPGs. </p>
 <h2 id="use-case1-cross-cloud-traffic-verification-attempt-2">Cross Cloud traffic verification attempt 2</h2>
-<p>Let's check if now our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800></p>
+<p>Let's check now if our Virutal Machine are able to communicate. For now we have configured that part of our infrastructure. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image152.png" width = 800></p>
 <p>On the Azure Virtual Machine, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image141.png" width = 800></p>
 <p>Hit enter and provide VM login credentials:</p>
@@ -1564,7 +1566,70 @@ student@VM-AZ-01:~$
 </code></pre></div>
 <p>Contract configuration makes communication possible. </p>
 <h2 id="use-case1-cross-cloud-traffic-infrastructure-check">Cross Cloud traffic infrastructure check</h2>
-<p>Let's now check what was confiugure on the infsrastructure that traffic can flow. </p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
+<p>Let's now check what was confiugure on the infrastructure that traffic can now flow. </p>
+<h3 id="use-case1-azure-cloud-veryfication">Azure Cloud veryfication</h3>
+<p>Go back to <strong>Services -&gt; Virutal machines</strong> and locate your Virutal Machine. Click on the name to open it. </p>
+<p>Under the <strong>"Settings"</strong>, go to <strong>"Networking"</strong> and then take a look in <strong>Inbound port rules</strong> and <strong>Outband port rules</strong>. </p>
+<p>Our contract configuration added one more rule to the port rules which allows for communication with CIDR of AWS Cloud. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image153.png" width = 800></p>
+<p>Under the <strong>"Settings"</strong>, go to <strong>"Networking"</strong> locate the <strong>"Network Interface"</strong> and click on it's ID. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image154.png" width = 800></p>
+<p>Under the <strong>Network Interface</strong> locate the <strong>Help Section</strong> in left navigation menu and select <strong>"Effective Routes"</strong> tab </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image155.png" width = 800></p>
+<p>It may take couple of second to load, once loaded scroll down to the end of the list and notice one <strong>User</strong> Route added. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image156.png" width = 800></p>
+<p>You can see that subnet representing <strong>AWS CIDR space - 10.0.0.0/23</strong> is routed to <strong>Virtual Appliance</strong> which is an <strong>Internal Load Balancer</strong> balancing the traffic between 2 Cloud Routers. </p>
+<p>With that configuration, traffic is send to <strong>Azure Cloud Routers</strong> from which via <strong>IPSec tunnels</strong> is send to <strong>AWS Cloud Routers</strong> and towards destination AWS VPC. </p>
+<h3 id="use-case1-aws-cloud-veryfication">AWS Cloud veryfication</h3>
+<p>Login to AWS user tenant via https://console.aws.amazon.com and make sure that you have <strong>Frankfurt/eu-central-1</strong> region selected </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image115.png" width = 300></p>
+<p>In seach bar type <strong>"Subnet"</strong> and select <strong>Subnet (VPC feature)</strong> from Features list. </p>
+<p>Locate you subnet <strong>subnet-[10.0.0.0/25]</strong> and click on <strong>Subnet ID</strong> assocaited to open that subnet. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image160.png" width = 800></p>
+<p>On the subnet details page, scroll down and locate <strong>"Route Table"</strong> tab, click on it </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image161.png" width = 800></p>
+<p>Notice that there was route added for <strong>Azure VNET space - 10.100.0.0/23</strong> towards <strong>"tgw-*"</strong> which is our Transit Gateway used to communicated with <strong>AWS Cloud Routers</strong>, so traffic can be send to Azure. </p>
+<h3 id="use-case1-cloud-routers-veryfication">Cloud Routers Veryfication</h3>
+<p>Open Putty client from desktop and put IP address of Cloud router from Azure - you can login to any of 4 routers. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cloud Routers IP address are avaibale in POD details IP address schema, or you can find them in Azure/AWS console directly. </p>
+</div>
+<p>Login with username <strong>"csradmin"</strong> and password <strong>"CiscoLive2023!"</strong></p>
+<p>Execute command <strong>"show vrf | inc VRF-01</strong></p>
+<div class="highlight"><pre><span></span><code>show vrf | inc VRF-01
+</code></pre></div>
+<p>Expected output: </p>
+<div class="highlight"><pre><span></span><code>ct-routerp-francecentral-0-0#show vrf | inc VRF-01
+    Tenant-01:VRF-01                 10.20.0.52:7          ipv4        BD7
+ct-routerp-francecentral-0-0#
+</code></pre></div>
+<p>Check the routing table for that VRF </p>
+<p>Execute command <strong>"show ip route vrf Tenant-01:VRF-01</strong></p>
+<div class="highlight"><pre><span></span><code>show ip route vrf Tenant-01:VRF-01
+</code></pre></div>
+<p>Expected output: </p>
+<div class="highlight"><pre><span></span><code>ct-routerp-francecentral-0-0#show ip route vrf Tenant-01:VRF-01
+
+Routing Table: Tenant-01:VRF-01
+[output truncated]
+Gateway of last resort is not set
+
+    10.0.0.0/23 is subnetted, 2 subnets
+B        10.0.0.0 [20/0] via binding label: 0x3000001, 1d21h
+                  [20/0] via binding label: 0x3000002, 1d21h
+S        10.100.0.0 [1/0] via 10.20.0.1, GigabitEthernet2
+      192.168.100.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.100.0/24 is directly connected, BDI7
+L        192.168.100.100/32 is directly connected, BDI7
+ct-routerp-francecentral-0-0#
+</code></pre></div>
+<p>Output shows routing table from perspective of Azure Cloud Router, hence:</p>
+<ul>
+<li>Azure subnet <strong>10.100.0.0/23</strong> is available via <strong>Static route</strong> towards interfaces <strong>GigabitEthernet2</strong>, which is interfaces conencted to inside of Azure. </li>
+<li>AWS subnet 10.0.0.0/23 is available from BGP protocol, from two (2) Cloud Router located in AWS Cloud </li>
+</ul>
+<p>In that way cloud routers know how to route traffic towards respective clouds. </p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
                         <h1 class='nav-section-title' id='section-appendixes'>
                             Appendixes <a class='headerlink' href='#section-appendixes' title='Permanent link'>↵</a>
                         </h1>

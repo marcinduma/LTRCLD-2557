@@ -172,3 +172,7 @@ Execute command
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image181.png" width = 800>
 
 Communication is successfull now, EC2 instance has access to Internet via AWS Internet Gateway. 
+
+At this point we completed that part of our topology configuration. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800>

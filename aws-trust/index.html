@@ -539,6 +539,179 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Lab details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Lab details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod1/" class="md-nav__link">
+        POD-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod2.md" class="md-nav__link">
+        POD-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod3.md" class="md-nav__link">
+        POD-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod4.md" class="md-nav__link">
+        POD-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod5.md" class="md-nav__link">
+        POD-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod6.md" class="md-nav__link">
+        POD-06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod7.md" class="md-nav__link">
+        POD-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod8.md" class="md-nav__link">
+        POD-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod9.md" class="md-nav__link">
+        POD-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod10.md" class="md-nav__link">
+        POD-10
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../object-map/" class="md-nav__link">
         ACI to Public Cloud Object mapping
@@ -638,7 +811,7 @@
 
 
 <h1 id="nexus-dasboard-orchestrator-tenant-aws-trust-configuration">Nexus Dasboard Orchestrator Tenant AWS Trust Configuration</h1>
-<p>In previus step we select Tenant configuration Mode as Trusted, hence trust need to be made to allow for configuration. </p>
+<p>In previus step we have selected Tenant configuration Mode as Trusted, so now trust needs to be made for Cloud Network Controller to have access to AWS Account. </p>
 <h2 id="aws-user-account-login">AWS User Account Login</h2>
 <p>Each User POD has two(2) AWS Accounts. </p>
 <ul>
@@ -654,14 +827,14 @@
 <p>Select IAM user, provide Account ID and hit "Next" </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For this login please use AWS User Account ID </p>
+<p>For this login please use AWS User Account ID from POD details</p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
 <p>Provide Username and password and hit "Sign In" </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
 <p>You will land on the welcome page of AWS cloud console. </p>
 <h2 id="aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
-<p>Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. Make sure to use the same incognito mode as for AWS User tenant. </p>
+<p>Using the IP of AWS Cisco Clout Network Controller (can be found in POD deatils), connect via browser to CNC GUI for AWS instance. Make sure to use the same browser in which you logged in for AWS User Tenant. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The trust configuration CloudFormation script needs to be executed on AWS User Account! </p>
@@ -675,10 +848,14 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
 <p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
-<p>Look on the <strong>Dashboard -&gt; Application Management -&gt; Tenants</strong> We can see newly create tenant in the list. </p>
+<p>Look on the <strong>Dashboard -&gt; Application Management -&gt; Tenants</strong>, we can see newly create tenant on the list. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
-<p>Double-click on the tenant name <strong>"Tenant-01"</strong> to open it. </p>
-<p>Under the AWS Account section there is warning related to our Trust configuration, along with the <strong>"Run the CloudFormation Template"</strong> hyperlink.  </p>
+<p>Double-click the Tenant name <strong>"Tenant-01"</strong> to open it. </p>
+<p>Under the <strong>AWS Account</strong> section there is warning related to our Trust configuration, along with the <strong>"Run the CloudFormation Template"</strong> hyperlink. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you have executed CloudFormation link from AWS User Tenant!</p>
+</div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800></p>
 <p>Click on the hyperlink to run CloudFormation Script. You will be then redirected to AWS console CloudFormation Stack configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width = 800></p>
@@ -694,6 +871,7 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width = 800></p>
 <p>After couple of seconds(use refresh button) - stack will be completed and we are good to go. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png" width = 800></p>
+<p>After AWS trust configuration we have our Infrastruture and first Tenant ready to be used. In next section of the Lab we will procced to Use-Cases configuration. Three(3) use-case we are about to configure are presenting typical real-life scenearios. </p>
 
 
 

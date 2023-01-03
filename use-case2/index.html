@@ -479,11 +479,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#contract-configuration-configuration" class="md-nav__link">
-    Contract configuration configuration
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
   </a>
   
-    <nav class="md-nav" aria-label="Contract configuration configuration">
+    <nav class="md-nav" aria-label="Contract configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -627,6 +627,179 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Lab details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Lab details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod1/" class="md-nav__link">
+        POD-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod2.md" class="md-nav__link">
+        POD-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod3.md" class="md-nav__link">
+        POD-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod4.md" class="md-nav__link">
+        POD-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod5.md" class="md-nav__link">
+        POD-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod6.md" class="md-nav__link">
+        POD-06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod7.md" class="md-nav__link">
+        POD-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod8.md" class="md-nav__link">
+        POD-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod9.md" class="md-nav__link">
+        POD-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod10.md" class="md-nav__link">
+        POD-10
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../object-map/" class="md-nav__link">
         ACI to Public Cloud Object mapping
@@ -712,11 +885,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#contract-configuration-configuration" class="md-nav__link">
-    Contract configuration configuration
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
   </a>
   
-    <nav class="md-nav" aria-label="Contract configuration configuration">
+    <nav class="md-nav" aria-label="Contract configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -814,11 +987,11 @@
 
 
 <h1 id="use-case-02-internet-gateway">Use-case 02 - Internet Gateway</h1>
-<p><strong>In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet</strong></p>
-<p>Instances in AWS can assess Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between  VPC and the internet.</p>
+<p><strong>In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet.</strong></p>
+<p>Instances in AWS can access Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.</p>
 <p>An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).</p>
 <h2 id="internet-gateway-as-external-epg">Internet Gateway as External EPG</h2>
-<p>As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) it's configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. </p>
+<p>As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. </p>
 <h3 id="external-epg-configuration">External EPG configuration</h3>
 <p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-AWS-01"</strong> and hit <strong>"Add External EPGs"</strong> under <strong>External EPGs</strong> section. </p>
@@ -849,7 +1022,11 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image173.png" width = 800>   </p>
 <p>Hit <strong>Save</strong> to finish. </p>
-<h3 id="contract-configuration-configuration">Contract configuration configuration</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Adding the "0.0.0.0/0" subnet will add additional route to this prefix, pointing to internet gateway object create in AWS. In case only specyfic prefixes should be rechable, you can use differnt subnet that 0.0.0.0/0. </p>
+</div>
+<h3 id="contract-configuration">Contract configuration</h3>
 <p>As External EPG is functioning as any other EPG, contract configuration from EPG to External EPG is mandatory for traffic to be allowed. </p>
 <h4 id="1-filter-creation">1. Filter creation</h4>
 <p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
@@ -865,7 +1042,7 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600></p>
 <p>Hit <strong>Ok</strong> to save it. </p>
 <h4 id="2-contract-configuration">2. Contract configuration</h4>
-<p>As contracts will be used to connect AWS EPG to Ext EPG of AWS , contract should be created in AWS template </p>
+<p>As contracts will be used to connect AWS EPG to ExtEPG of AWS, contract should be created in AWS template </p>
 <p>Under View select <strong>"temp-AWS-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
 <p>Create two(2) contracts with following details: </p>
 <ul>
@@ -895,6 +1072,10 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image175.png" width = 800></p>
 <p>Hit <strong>Save</strong> to finish contract configuration. </p>
 <p>Hit <strong>Deploy to sites</strong> for contracts to be pushed. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Having contract only in one direction where Internet Gateway is a provider will be enough for EC2 instances to reach Internet, however contract in opposite direction is needed in case you want to connect to EC2 instances Public IPv4 Addresses from Internet. </p>
+</div>
 <h4 id="3-contract-assigment-to-epgs">3. Contract assigment to EPGs</h4>
 <p>Under View select <strong>"temp-AWS-01"</strong> click on the <strong>EPG-AWS-01</strong> and under EPG specific setting locate <strong>Contract</strong> section</p>
 <p>Hit <strong>"Add Contract"</strong> button and add the following</p>
@@ -950,6 +1131,7 @@
 <p>Communication is successfull now, EC2 instance has access to Internet via AWS Internet Gateway. </p>
 <p>At this point we completed that part of our topology configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800></p>
+<p>In Next Section we will configure additional Tenant and try inter-tenant leaking. </p>
 
 
 

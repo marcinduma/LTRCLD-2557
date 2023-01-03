@@ -20,7 +20,12 @@ Login link for Azure portal:
 
 All appliances are addressed with Public IP address, hence it can be accessed from local browser without any additional settings or VPN connections. 
 
-List of IP addreses: 
+List of IP addreses for each POD can be found in respective POD link:
+
+[Lab Details POD1](pod1.md)
+
+[Lab Details POD2](pod2.md)
+
 
 
 

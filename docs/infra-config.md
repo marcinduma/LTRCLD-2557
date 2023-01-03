@@ -22,7 +22,11 @@
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800>
 
-### 6. On the Instances List scroll to the right and note down "Public IPv4 address" 
+### 6. On the Instances List scroll to the right and note down "Public IPv4 address" for: 
+
+- **"ND1-Master"**
+
+- **"Cisco Cloud Network Controller"**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image8.png" width = 800>
 
@@ -49,7 +53,9 @@
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 800>
 
-### 6. On the Virtual Machines list scroll to the right and note down "Public IP address" 
+### 6. On the Virtual Machines list scroll to the right and note down "Public IP address" for: 
+
+- **"CloudNetworkController"**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image19.png" width = 800>
 
@@ -57,7 +63,53 @@
 
 ## Nexus Dashboard site onboarding
 
-### 1. Login to Nexus Dasboard using IP collected above and login with provided credentials 
+**Cisco Nexus Dashboard** is a single launch point to monitor and scale across different sites, whether it is Cisco Application Centric Infrastructure™ (Cisco ACI®) fabric controllers, the Cisco® Application Policy Infrastructure Controller (APIC), Cisco Nexus Dashboard Fabric Controller (NDFC), or a Cloud APIC running in a public cloud provider environment.
+
+Cisco Nexus Dashboard provides a single focal point to unite the disparate views of hybrid-cloud data-center operations, application deployment, and performance.
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9a.png" width = 800>
+
+**Benefits**
+
+●Easy to use
+
+-      Customizable role-based UI view to provide a focused view on network operator use cases
+
+-      Single Sign-On (SSO) for seamless user experience across operation services
+
+-      Single console for health monitoring and quick service turn-up
+
+●Easy to scale
+
+-      Ensure high availability, scale-out operations from a single dashboard
+
+-      Scale use cases leveraging flexible deployment options
+
+-      Operations that span across on-premises, multicloud, and edge networks
+
+●Easy to maintain
+
+-     Seamless integration and lifecycle management of operational services
+
+-      Onboard and manage operational services across on-premises, cloud, or hybrid environments
+
+-      Single integration point for critical third-party applications and tools
+
+●Flexible deployment options
+
+-      On premises: Run Cisco Nexus Dashboard on the Cisco Nexus Dashboard platform
+
+-      Hybrid: Run Cisco Nexus Dashboard on premises and in the cloud
+
+-      Virtual: Run Cisco Nexus Dashboard on any local compute
+
+-      Cloud: Run Cisco Nexus Dashboard on public cloud of choice
+
+-      SaaS: Deploy, maintain, and support your infrastructure from anywhere*
+
+**Let's now login and start using it! **
+
+### 1. Login to Nexus Dasboard using **"ND1-Master"** Public IPv4 Address
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9.png" width = 800>
 
@@ -76,7 +128,7 @@
 ### 5. Add AWS Cloud Network Controller 
   - Site Type: **"Cloud Network Controller"**
   - Name: **"CNC-AWS-01"**
-  - Hostname/IP Address: **"Public IP of Cloud Network Controller for AWS collected above"**
+  - Hostname/IP Address: **"Public IPv4 Address of AWS Cisco Cloud Network Controller"**
   - Username: **admin**
   - Password: **CiscoLive2023!**
   - Login Domain: empty
@@ -87,7 +139,7 @@
 
 **"AWS site should be added now, stay on the same page! "**
 
-### 7. Hit "Add site button one more time to add Azure site 
+### 7. Hit "Add site" button one more time to add Azure site 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image20.png" width = 800>
 
@@ -95,7 +147,7 @@
 
   - Site Type: **"Cloud Network Controller"**
   - Name: **"CNC-Azure-01"**
-  - Hostname/IP Address: **"Public IP of Cloud Network Controller from Azure collected above"**
+  - Hostname/IP Address: **"Public IP Address of Azure CloudNetworkController"**
   - Username: **admin**
   - Password: **CiscoLive2023!**
   - Login Domain: empty
@@ -109,3 +161,11 @@
 You should see both sites added under the site list. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image22.png" width = 800>
+
+On the Site list hit "Continue" and then "Done" button to finish Initial Setup.
+
+Navigate to **"Go To Dashboard"** in bottom right corner - you should be moved to ND Dashboard with Site Map. 
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800>
+
+In this section **Azure** and **AWS Cloud Network Controllers** were added to **Network Dashboard**. We will now proceed to **Multisite** configuration, and start managing those sites from **Nexus Dashboard Orchestrator**. We will also build an IPSec tunnels between them, so they can securly exchange traffic. 

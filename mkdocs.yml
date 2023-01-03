@@ -17,6 +17,17 @@ nav:
     - Use-case 02 - Internet Gateway: use-case2.md
     - Use-case 03 - Inter-Tenant routing: use-case3.md
   - Appendixes:
+    - Lab details:
+      - POD-01: pod1.md
+      - POD-02: pod2.md
+      - POD-03: pod3.md
+      - POD-04: pod4.md
+      - POD-05: pod5.md
+      - POD-06: pod6.md
+      - POD-07: pod7.md
+      - POD-08: pod8.md
+      - POD-09: pod9.md
+      - POD-10: pod10.md
     - ACI to Public Cloud Object mapping: object-map.md
     - Resources: resources.md
     - PRINT version: print_page/

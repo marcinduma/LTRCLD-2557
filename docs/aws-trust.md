@@ -1,6 +1,6 @@
 # Nexus Dasboard Orchestrator Tenant AWS Trust Configuration
 
-In previus step we select Tenant configuration Mode as Trusted, hence trust need to be made to allow for configuration. 
+In previus step we have selected Tenant configuration Mode as Trusted, so now trust needs to be made for Cloud Network Controller to have access to AWS Account. 
 
 ## AWS User Account Login 
 
@@ -19,7 +19,7 @@ Open AWS console via browser
 Select IAM user, provide Account ID and hit "Next" 
 
 !!! Note 
-    For this login please use AWS User Account ID 
+    For this login please use AWS User Account ID from POD details
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300>
 
@@ -31,7 +31,7 @@ You will land on the welcome page of AWS cloud console.
 
 ## AWS Cloud Network Controller Login 
 
-Using the IP found during site onboarding (can be also found in POD guide), connect via browser to CNC GUI for AWS instance. Make sure to use the same incognito mode as for AWS User tenant. 
+Using the IP of AWS Cisco Clout Network Controller (can be found in POD deatils), connect via browser to CNC GUI for AWS instance. Make sure to use the same browser in which you logged in for AWS User Tenant. 
 
 !!!Note 
     The trust configuration CloudFormation script needs to be executed on AWS User Account! 
@@ -49,13 +49,16 @@ Hit **"Get started"** to view Cloud Network Controller Dashboard.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800>
 
-Look on the **Dashboard -> Application Management -> Tenants** We can see newly create tenant in the list. 
+Look on the **Dashboard -> Application Management -> Tenants**, we can see newly create tenant on the list. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800>
 
-Double-click on the tenant name **"Tenant-01"** to open it. 
+Double-click the Tenant name **"Tenant-01"** to open it. 
 
-Under the AWS Account section there is warning related to our Trust configuration, along with the **"Run the CloudFormation Template"** hyperlink.  
+Under the **AWS Account** section there is warning related to our Trust configuration, along with the **"Run the CloudFormation Template"** hyperlink. 
+
+!!!Note 
+    Make sure you have executed CloudFormation link from AWS User Tenant!
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width = 800>
 
@@ -81,3 +84,5 @@ In **Review CNC-AWS-Trust** step - leave all options as default, scroll down to 
 After couple of seconds(use refresh button) - stack will be completed and we are good to go. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png" width = 800>
+
+After AWS trust configuration we have our Infrastruture and first Tenant ready to be used. In next section of the Lab we will procced to Use-Cases configuration. Three(3) use-case we are about to configure are presenting typical real-life scenearios. 

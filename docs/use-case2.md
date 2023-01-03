@@ -1,14 +1,14 @@
 # Use-case 02 - Internet Gateway
 
-**In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet**
+**In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet.**
 
-Instances in AWS can assess Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between  VPC and the internet.
+Instances in AWS can access Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.
 
 An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).
 
 ## Internet Gateway as External EPG
 
-As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) it's configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. 
+As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. 
 
 ### External EPG configuration 
 
@@ -39,7 +39,10 @@ Under View select **"temp-AWS-01"** and hit **"Add External EPGs"** under **Exte
 
 Hit **Save** to finish. 
 
-### Contract configuration configuration
+!!! Info 
+    Adding the "0.0.0.0/0" subnet will add additional route to this prefix, pointing to internet gateway object create in AWS. In case only specyfic prefixes should be rechable, you can use differnt subnet that 0.0.0.0/0. 
+
+### Contract configuration
 
 As External EPG is functioning as any other EPG, contract configuration from EPG to External EPG is mandatory for traffic to be allowed. 
 
@@ -63,7 +66,7 @@ Hit **Ok** to save it.
 
 #### 2. Contract configuration
 
-As contracts will be used to connect AWS EPG to Ext EPG of AWS , contract should be created in AWS template 
+As contracts will be used to connect AWS EPG to ExtEPG of AWS, contract should be created in AWS template 
 
 Under View select **"temp-AWS-01"** and **"Add contract"** under **Contract** section. 
 
@@ -92,6 +95,9 @@ Hit **Save** to finish contract configuration.
 Hit **Save** to finish contract configuration. 
 
 Hit **Deploy to sites** for contracts to be pushed. 
+
+!!! Info 
+    Having contract only in one direction where Internet Gateway is a provider will be enough for EC2 instances to reach Internet, however contract in opposite direction is needed in case you want to connect to EC2 instances Public IPv4 Addresses from Internet. 
 
 #### 3. Contract assigment to EPGs 
 
@@ -176,3 +182,5 @@ Communication is successfull now, EC2 instance has access to Internet via AWS In
 At this point we completed that part of our topology configuration. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800>
+
+In Next Section we will configure additional Tenant and try inter-tenant leaking. 

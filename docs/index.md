@@ -17,7 +17,7 @@ Cisco Cloud Network Controller enables:
 
 ●      Operational simplicity and visibility across a vast multisite, multicloud
 
-●      data-center network
+●      Data-center network
 
 ●      Easy L4-7 services integration
 
@@ -25,7 +25,7 @@ Cisco Cloud Network Controller enables:
 
 ●      Business continuity and disaster recovery
 
-## Cloud Network Controller components: 
+## Cisco Cloud Network Solution components: 
 
 Cisco Cloud Network Controller is the main architectural component of this multicloud solution. It is the unified point of automation and management for the solution fabric including network and security policy, health monitoring, and optimizes performance and agility. The complete solution includes:
 
@@ -45,13 +45,19 @@ In this lab we will be using two(2) Public Cloud Provders:
 
 However Cloud Network Controller (CNC) is also supported on Google Cloud. 
 
-In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will be run on Nexus Dashboard appliance deployed in AWS cloud. 
+In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will run on Nexus Dashboard appliance deployed in AWS cloud. 
 
-Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. 
+Due to time concern of this lab, Cloud Network Controller and Nexus Dashboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. 
 
 **Intial lab diagram:**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800>
+
+As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds. 
+
+Each POD have a dedicated Azure AAD Tenant and Subscription which will be shared to host both Infrastructure components (Cloud Network Controller, Cloud Routers), as well as User Virutal Machines for testing. 
+
+For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have two(2) of them. First - for Infrastructure components (Cloud Network Controller, Cloud Routers, Nexus Dashboard), second for User Tenant hosting User Virtual Machines. 
 
 ## **Lab agenda**
 
@@ -68,5 +74,7 @@ Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard alo
 Step by step configuration will guide you towards final topology as indicated in the picture below: 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image2.png" width = 800>
+
+The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. 
 
 **<p style="text-align: center;">Enjoy!</p>**

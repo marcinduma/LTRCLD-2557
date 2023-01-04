@@ -66,7 +66,7 @@ For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have
 ### 3. Multisite infrastructure configuration
 ### 4. Multisite configuration check 
 ### 5. Tenant creation and Public Cloud Trust configuration 
-### 6. Three(3) common use-cases configuration and veryfcation
+### 6. Three(3) common use-cases configuration and verifcation
 ####  - Stretched VRF across Public Clouds with Cloud-local EPGs 
 ####  - Internet Gateway configuration in AWS 
 ####  - Inter-Tenant routing 

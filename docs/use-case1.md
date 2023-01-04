@@ -345,7 +345,7 @@ Under **Template Properties** swtich back to **Template Properties** and hit **"
 
 Once done confirmation will pop up on the screen. 
 
-**At this point we have created Tenant, VRF, EPGs and selectors - let's not add Virtual Machines/EC2 instances to test traffic flow.**
+**At this point we have created Tenant, VRF, EPGs and selectors - let's now add Virtual Machines/EC2 instances to test traffic flow.**
 
 ## EC2/VM creation and verification  
 

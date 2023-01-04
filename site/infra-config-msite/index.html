@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#infrastructure-configuration-multi-site-configuration" class="md-skip">
+        <a href="#infrastructure-configuration-multisite-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -348,8 +348,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ndo-introduction" class="md-nav__link">
-    1. NDO Introduction
+  <a href="#1-ndo-service-introduction" class="md-nav__link">
+    1. NDO Service Introduction
   </a>
   
 </li>
@@ -613,6 +613,179 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Lab details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Lab details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod1/" class="md-nav__link">
+        POD-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod2.md" class="md-nav__link">
+        POD-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod3.md" class="md-nav__link">
+        POD-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod4.md" class="md-nav__link">
+        POD-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod5.md" class="md-nav__link">
+        POD-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod6.md" class="md-nav__link">
+        POD-06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod7.md" class="md-nav__link">
+        POD-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod8.md" class="md-nav__link">
+        POD-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod9.md" class="md-nav__link">
+        POD-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod10.md" class="md-nav__link">
+        POD-10
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../object-map/" class="md-nav__link">
         ACI to Public Cloud Object mapping
@@ -691,8 +864,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ndo-introduction" class="md-nav__link">
-    1. NDO Introduction
+  <a href="#1-ndo-service-introduction" class="md-nav__link">
+    1. NDO Service Introduction
   </a>
   
 </li>
@@ -785,14 +958,59 @@
                   
 
 
-<h1 id="infrastructure-configuration-multi-site-configuration">Infrastructure configuration - Multi-Site configuration</h1>
-<p>In this lab section we will use Nexus Dashboard orchestrator to connect 2 ACI Fabrics together. </p>
+<h1 id="infrastructure-configuration-multisite-configuration">Infrastructure configuration - MultiSite configuration</h1>
+<p>In this lab section we will use Nexus Dashboard Orchestrator(NDO) to connect 2 Cloud Fabrics together. </p>
 <h2 id="nexus-dashboard-orchestratorndo">Nexus Dashboard Orchestrator(NDO)</h2>
-<h3 id="1-ndo-introduction">1. NDO Introduction</h3>
-<p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup from previous chapter. </p>
-<p>Click <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map</p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
-<p>In the navigation menu on the left  go to <strong>"Admin Console"</strong></p>
+<p><strong>Cisco Nexus Dashboard Orchestrator (NDO)</strong> provides consistent network and policy orchestration, scalability, and disaster recovery across multiple data centers through a single pane of glass while allowing the data center to go wherever the data is.</p>
+<p>NDO allows you to interconnect separate Cisco® Application Centric Infrastructure (Cisco ACI®) sites, Cisco Cloud ACI sites, and Cisco Nexus Dashboard Fabric Controller (NDFC) sites, each managed by its own controller (APIC cluster, NDFC cluster, or Cloud APIC instances in a public cloud). The on-premises sites (ACI or NDFC in the future) can be extended to different public clouds for hybrid-cloud deployments while cloud-first installations can be extended to multi-cloud deployments without on-premises sites. </p>
+<p>The single-pane network interconnect policy management and the consistent network workload and segmentation policy provided by NDO allows monitoring the health of the interconnected fabrics, enforcement of segmentation and security policies, and performance of all tasks required to define tenant intersite policies in APIC, NDFC, and cAPIC sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23a.png" width = 800></p>
+<p>● Key features and benefits</p>
+<ul>
+<li>
+<p>Single pane of glass for administration and orchestration of multiple networking fabrics for both Cisco ACI and NDFC</p>
+</li>
+<li>
+<p>Automation of the configuration and management of intersite network interconnects across an IP backbone for both Cisco ACI and NDFC</p>
+</li>
+<li>
+<p>Consistent multitenant policy across multiple sites, which allows IP mobility, disaster recovery, and active/active use cases for data centers</p>
+</li>
+<li>
+<p>Capability to map tenants, applications, and associated networks to specific availability domains within the Cisco Multi-Site architecture for both Cisco ACI and NDFC</p>
+</li>
+<li>
+<p>Hybrid cloud and multi-cloud orchestration supporting on-premises Cisco ACI sites and public cloud sites (AWS and Azure)</p>
+</li>
+<li>
+<p>Capability to have multi-cloud ACI deployments without on-premises sites</p>
+</li>
+<li>
+<p>Scale out sites and leaf switches based on resource growth</p>
+</li>
+</ul>
+<p>●Use cases</p>
+<p>There are several uses of Cisco Nexus Dashboard Orchestrator. Some of the main use cases include:</p>
+<ul>
+<li>
+<p>Large scale data center deployment</p>
+</li>
+<li>
+<p>Data center interconnectivity</p>
+</li>
+<li>
+<p>Cisco NDO multi-domain integrations</p>
+</li>
+<li>
+<p>Hybrid cloud and multi-cloud</p>
+</li>
+<li>
+<p>Service provider – 5G telco</p>
+</li>
+</ul>
+<p><strong>Let's now explore possibilites of Cisco Nexus Dashboard Orchestrator!</strong></p>
+<h3 id="1-ndo-service-introduction">1. NDO Service Introduction</h3>
+<p>In the navigation menu on the left go to <strong>"Admin Console"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
 <p>You will be moved to <strong>Admin Console</strong> page, where you can see <strong>Health</strong> of your Nexus Dashboard and status of sites and services. </p>
 <p>Navigate to <strong>"Sites"</strong> tab and verify if <strong>"Connectivity Status"</strong> of you sites is <strong>"Up"</strong></p>
@@ -814,19 +1032,20 @@
 For Azure Site - set ID **20**
 </code></pre></div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image31.png" width = 800></p>
-<p>After this operation - both sites should be visable as <strong>Managed</strong></p>
+<p>After this operation - both sites should be visible as <strong>Managed</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image32.png" width = 800></p>
 <h3 id="3-site-connectivity-configuration">3. Site Connectivity Configuration</h3>
 <p>In Next Step we would configure Infrastructure to connect 2 Cloud ACI Sites togehter.</p>
 <p>Navigate to <strong>Infrastructure</strong> -&gt; <strong>Site Connectivity</strong> -&gt; <strong>Configure</strong> button</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image33.png" width = 800></p>
-<p>On the <strong>General Settings</strong> Page, scroll down to OSPF Configuration and fill in OSPF Area ID to value <strong>0.0.0.0</strong>, leave other setting as default. </p>
+<p>On the <strong>General Settings</strong> Page, scroll down to OSPF Configuration and fill in OSPF Area ID to value <strong>0.0.0.0</strong>, leave other setting as default. OSPF Protocol will be configured over IPSec tunnel and allows for prefixes exchange to bring BGP Neighbourship. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image34.png" width = 800></p>
 <p>Go to tab <strong>"IPSec Tunnel Subnet Pools"</strong>, click <strong>Add IP address</strong> button and add subnet</p>
 <div class="highlight"><pre><span></span><code>Subnet: 192.168.255.0/24
 </code></pre></div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image40.png" width = 800></p>
-<p>Confirm with checkbox button.</p>
+<p>Confirm with <strong>checkbox</strong> button.</p>
+<p>You may notice that there is already one subnet 169.254.0.0/16 configured, which is used for Tunnel addresing between Cloud Routers and Cloud Load Balancers(Azure)/Transit Gateways(AWS). Those tunnles are used to forward traffic from Cloud instances to Cloud Routers and further to another sites. </p>
 <p>In the left navigation bar, under the Sites bar, click on first site <strong>CNC-AWS-01</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image35.png" width = 200></p>
 <p>Enable the site for MultiSite by checking the checkbox <strong>"ACI Multisite"</strong> also enable <strong>"Contract Based Routing"</strong></p>
@@ -849,9 +1068,9 @@ For Azure Site - set ID **20**
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image39.png" width = 800></p>
 <p>Once done, locate the <strong>Deploy</strong> button on top the screen, click it and Select <strong>"Deploy Only"</strong>, hit <strong>Yes</strong> for confirmation. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image41.png" width = 800></p>
-<p>As you hit <strong>Deploy</strong> button, NDO will now configure CNC and Cloud Routes. </p>
+<p>As you hit <strong>Deploy</strong> button, NDO will now configure CNC and Cloud Routes (previously deployed and visible in AWS EC2/Azure Virutal Machines pages). Configuration includes:  </p>
 <div class="highlight"><pre><span></span><code>- IPSec tunnels, full mesh between all 4 routers (2 per Cloud)
-- OSPF routing over IPSec
+- OSPF routing over IPSec Tunnels
 - BGP EVPN peering for prefixes exchange
 </code></pre></div>
 <h2 id="inter-site-connectivity-veryfication">Inter-site connectivity veryfication</h2>
@@ -889,7 +1108,9 @@ Tunnel7                192.168.255.2   YES NVRAM  up                    up
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that all 4 tunnels are up/up. </p>
-<p>Note also that Tunnel6 and Tunnel7 are addressed from subnet which was specified in the beginning of Multiste Configuration. Those 2 tunnel are configured towards two (2) Catalyst 8000V Routers in another site! </p>
+<p>Tunnel0 is addressed from TEP pool of our Cloud Contoller Fabric and it's used for communication between CNC and Cloud Router. </p>
+<p>Tunnel1 is a connected to inside of a Cloud. Depends on the provider - it's an Azure Load Balancer or AWS Transit Gateway and routing will be injected to send traffic towards VNETs and VPC CIDRs. </p>
+<p>Tunnel6 and Tunnel7 are configured towards two (2) Catalyst 8000V Routers in another site. Note also that Tunnel6 and Tunnel7 are addressed from IPSec subnet which was specified in the beginning of Multiste Configuration.</p>
 <h3 id="2-ospf-adjacency-veryfication">2. OSPF adjacency veryfication</h3>
 <p>Execute command <strong>"show ip ospf neighbor"</strong></p>
 <div class="highlight"><pre><span></span><code>show ip ospf neighbor
@@ -902,7 +1123,7 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 10.20.0.68        0   FULL/  -        00:00:38    192.168.255.5   Tunnel6
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
-<p>Verify that both sessions are in <strong>FULL</strong> State. </p>
+<p>Verify that both sessions are in <strong>FULL</strong> State. OSPF Neighbourship allows for prefixes exchange, so BGP session can be build. </p>
 <h3 id="2-bgp-evpn-veryfication">2. BGP EVPN veryfication</h3>
 <p>Execute command <strong>"show bgp l2vpn evpn summary"</strong></p>
 <div class="highlight"><pre><span></span><code>show bgp l2vpn evpn summary
@@ -918,6 +1139,7 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that both sessions are Up (O in "State/PfxRcd" column)</p>
+<p><strong>In Next Section our First Tenant will be configured!</strong></p>
 
 
 

@@ -532,6 +532,179 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Lab details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Lab details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod1/" class="md-nav__link">
+        POD-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod2.md" class="md-nav__link">
+        POD-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod3.md" class="md-nav__link">
+        POD-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod4.md" class="md-nav__link">
+        POD-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod5.md" class="md-nav__link">
+        POD-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod6.md" class="md-nav__link">
+        POD-06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod7.md" class="md-nav__link">
+        POD-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod8.md" class="md-nav__link">
+        POD-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod9.md" class="md-nav__link">
+        POD-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod10.md" class="md-nav__link">
+        POD-10
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../object-map/" class="md-nav__link">
         ACI to Public Cloud Object mapping
@@ -624,20 +797,22 @@
 
 
 <h1 id="nexus-dasboard-orchestrator-tenant-configuration">Nexus Dasboard Orchestrator Tenant configuration</h1>
-<p>In this section we will configure our first Tenant, streteched between Azure and AWS. As Cloud Network Controller will be used for configuration, we need to make sure that CNC has privillages to do so. Will learn how to do it. </p>
+<p>In this section we will configure our first Tenant, stretched between Azure and AWS. As Cloud Network Controller will be used for configuration, we need to make sure that CNC has privillages to make configuration changes in cloud providers. Will learn how to do it and when we need it. </p>
+<p>Following diagram shows what is to about to be configured. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image49a.png" width = 800></p>
 <h2 id="tenant-creation-on-ndo">Tenant Creation on NDO</h2>
 <p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image50.png" width = 800></p>
 <p>Fill in Tenant details for name and description </p>
 <ul>
-<li>Display Name: Tenant-01</li>
-<li>Descrption: Cisco Live 2023 AMS Tenant</li>
+<li>Display Name: <strong>Tenant-01</strong></li>
+<li>Descrption: <strong>Cisco Live 2023 AMS Tenant</strong></li>
 </ul>
-<p>Associate Tenant to both Site by checking the checkbox next to it. </p>
+<p>Associate Tenant to both Sites by checking the checkbox next to it. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image51.png" width = 800></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For now you are not able to <strong>Save</strong> this configuration with red marking on both Sites. Click the <strong>Pencil</strong> button at the end of each site line to finish configuration. </p>
+<p>For now you are not able to <strong>Save</strong> this configuration with red marking on both Sites. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
 <p>Additional setting are needed for CNC, so it knows which subscribtion to use on Azure and which Tenant ID on AWS. </p>
 </div>
 <p><strong>CNC-Azure-01 site configuration</strong></p>
@@ -645,12 +820,14 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800></p>
 <p><strong>CNC-AWS-01 site configuration</strong></p>
 <p>For AWS site we have 2 options - <strong>Untrusted</strong> with Cloud Access key and Secret or <strong>Trusted</strong>. In our case we would be using Trusted configuration. </p>
-<p>Each Tenant create on NDO with AWS Site association required sepearete Account ID on AWS site. You can find your in POD Details. </p>
+<p>Each Tenant created on NDO associated to AWS Cloud required sepearete Account ID on AWS site. You can find your in POD Details under following Appendix </p>
 <p>Fill in with your POD <strong> AWS User-Account ID</strong> and select <strong>Access Type</strong> as <strong>Trusted</strong>, hit <strong>Save</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image53.png" width = 800></p>
 <p>Now configuration can be saved, leave assocaited user list empty as there are no additional users and hit <strong>Save</strong>.</p>
 <p>On the Tenant list you should see <strong>Tenant-01</strong> created an assigned to 2 Sites. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image54.png" width = 800></p>
+<p>In next step we will make AWS trust configuration, so CNC can make changes to AWS objects. This step is not needed for Azure, as we are using shared subscription model, so access for CNC to manage Azure components was granted as part of infrastructure configuration. </p>
+<p>You can find details about this process under <strong>Resources</strong> in <strong>Appendixes</strong> section of this Lab Guide. </p>
 
 
 

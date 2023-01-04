@@ -46,6 +46,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - attr_list
+  - tables
 plugins:
   - search
   - print-site:

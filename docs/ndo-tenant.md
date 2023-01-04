@@ -15,7 +15,7 @@ On the Left navigation page click **"Application Management" -> "Tenant"** and t
 Fill in Tenant details for name and description 
 
  - Display Name: **Tenant-01**
- - Descrption: **Cisco Live 2023 AMS Tenant**
+ - Descrption: **CL23 AMS Tenant-01**
 
 Associate Tenant to both Sites by checking the checkbox next to it. 
 

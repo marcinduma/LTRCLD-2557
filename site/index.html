@@ -242,8 +242,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cloud-network-controller-components" class="md-nav__link">
-    Cloud Network Controller components:
+  <a href="#cisco-cloud-network-solution-components" class="md-nav__link">
+    Cisco Cloud Network Solution components:
   </a>
   
 </li>
@@ -626,6 +626,179 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Lab details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lab details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Lab details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod1/" class="md-nav__link">
+        POD-01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod2.md" class="md-nav__link">
+        POD-02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod3.md" class="md-nav__link">
+        POD-03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod4.md" class="md-nav__link">
+        POD-04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod5.md" class="md-nav__link">
+        POD-05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod6.md" class="md-nav__link">
+        POD-06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod7.md" class="md-nav__link">
+        POD-07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod8.md" class="md-nav__link">
+        POD-08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod9.md" class="md-nav__link">
+        POD-09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pod10.md" class="md-nav__link">
+        POD-10
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="object-map/" class="md-nav__link">
         ACI to Public Cloud Object mapping
@@ -703,8 +876,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cloud-network-controller-components" class="md-nav__link">
-    Cloud Network Controller components:
+  <a href="#cisco-cloud-network-solution-components" class="md-nav__link">
+    Cisco Cloud Network Solution components:
   </a>
   
 </li>
@@ -823,11 +996,11 @@
 <p>Cisco Cloud Network Controller enables:</p>
 <p>●      Seamless connectivity for any workload at scale across any location</p>
 <p>●      Operational simplicity and visibility across a vast multisite, multicloud</p>
-<p>●      data-center network</p>
+<p>●      Data-center network</p>
 <p>●      Easy L4-7 services integration</p>
 <p>●      Consistent security and segmentation</p>
 <p>●      Business continuity and disaster recovery</p>
-<h2 id="cloud-network-controller-components">Cloud Network Controller components:</h2>
+<h2 id="cisco-cloud-network-solution-components">Cisco Cloud Network Solution components:</h2>
 <p>Cisco Cloud Network Controller is the main architectural component of this multicloud solution. It is the unified point of automation and management for the solution fabric including network and security policy, health monitoring, and optimizes performance and agility. The complete solution includes:</p>
 <p>●      Cisco Cloud Network Controller(deployed in each Public Cloud which is to be managed) </p>
 <p>●      Cisco Nexus Dashboard (in our lab deployed in AWS Cloud) - Multicloud networking orchestration and policy management, disaster recovery, and high availability, as well as provisioning and health monitoring.</p>
@@ -837,10 +1010,13 @@
 <p>●      Microsoft Azure</p>
 <p>●      Amazon AWS </p>
 <p>However Cloud Network Controller (CNC) is also supported on Google Cloud. </p>
-<p>In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will be run on Nexus Dashboard appliance deployed in AWS cloud. </p>
-<p>Due to time concern of this lab, Cloud Network Controller and Nexus Dasboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. </p>
+<p>In both Public Enviroments CNC will be deployed. Nexus Dashboard orchestrator will run on Nexus Dashboard appliance deployed in AWS cloud. </p>
+<p>Due to time concern of this lab, Cloud Network Controller and Nexus Dashboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration. </p>
 <p><strong>Intial lab diagram:</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800></p>
+<p>As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds. </p>
+<p>Each POD have a dedicated Azure AAD Tenant and Subscription which will be shared to host both Infrastructure components (Cloud Network Controller, Cloud Routers), as well as User Virutal Machines for testing. </p>
+<p>For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have two(2) of them. First - for Infrastructure components (Cloud Network Controller, Cloud Routers, Nexus Dashboard), second for User Tenant hosting User Virtual Machines. </p>
 <h2 id="lab-agenda"><strong>Lab agenda</strong></h2>
 <h3 id="1-infrastructure-veryfication-login-and-access">1. Infrastructure veryfication - login and access</h3>
 <h3 id="2-site-onboarding-in-nexus-dashboard">2. Site onboarding in Nexus Dashboard</h3>
@@ -853,6 +1029,7 @@
 <h4 id="-inter-tenant-routing">- Inter-Tenant routing</h4>
 <p>Step by step configuration will guide you towards final topology as indicated in the picture below: </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image2.png" width = 800></p>
+<p>The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. </p>
 <p><strong><p style="text-align: center;">Enjoy!</p></strong></p>
 
 

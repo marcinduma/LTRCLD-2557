@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#use-case-03-inter-tenant-routing" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -445,10 +450,138 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Use-case 03 - Inter-Tenant routing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Use-case 03 - Inter-Tenant routing
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tenant-creation" class="md-nav__link">
+    Tenant creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-template-configuration" class="md-nav__link">
+    Schema, Template configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema, Template configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schema-creation" class="md-nav__link">
+    1. Schema creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-creation" class="md-nav__link">
+    2. Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-to-site-association" class="md-nav__link">
+    3. Template to site association
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrf-epg-selectors-deployment" class="md-nav__link">
+    VRF, EPG, selectors deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="VRF, EPG, selectors deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vrf-configuration" class="md-nav__link">
+    1. VRF Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-profile-and-epg-configuration-for-azure" class="md-nav__link">
+    2. Application Profile and EPG Configuration for Azure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm-creation" class="md-nav__link">
+    VM creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Contract configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-filter-creation" class="md-nav__link">
+    1. Filter creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contracts-configuration" class="md-nav__link">
+    2. Contracts configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -727,6 +860,118 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tenant-creation" class="md-nav__link">
+    Tenant creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-template-configuration" class="md-nav__link">
+    Schema, Template configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema, Template configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schema-creation" class="md-nav__link">
+    1. Schema creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-template-creation" class="md-nav__link">
+    2. Template creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-to-site-association" class="md-nav__link">
+    3. Template to site association
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrf-epg-selectors-deployment" class="md-nav__link">
+    VRF, EPG, selectors deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="VRF, EPG, selectors deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vrf-configuration" class="md-nav__link">
+    1. VRF Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-profile-and-epg-configuration-for-azure" class="md-nav__link">
+    2. Application Profile and EPG Configuration for Azure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm-creation" class="md-nav__link">
+    VM creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-configuration" class="md-nav__link">
+    Contract configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Contract configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-filter-creation" class="md-nav__link">
+    1. Filter creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-contracts-configuration" class="md-nav__link">
+    2. Contracts configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -741,9 +986,295 @@
                   
 
 
-  <h1>Use-case 03 - Inter-Tenant routing</h1>
-
-<p>TBD</p>
+<h1 id="use-case-03-inter-tenant-routing">Use-case 03 - Inter-Tenant routing</h1>
+<p>In this section of the lab we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenarios where multiple accounts/tenants in Public Cloud need to communicate with one central one where common service are located. </p>
+<h2 id="tenant-creation">Tenant creation</h2>
+<p>One additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be created, to avoid another trust configuration. </p>
+<p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image50.png" width = 800></p>
+<p>Fill in Tenant details for name and description </p>
+<ul>
+<li>Display Name: <strong>Tenant-Azure-02</strong></li>
+<li>Descrption: <strong>CL23 Tenant-02 Azure</strong></li>
+</ul>
+<p>Associate Tenant to Azure CNC-Azure-01 Sites by checking the checkbox next to it. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image200.png" width = 800></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Similar as for first Tenant, we are not able to <strong>Save</strong> this configuration with red marking Site. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
+<p>Additional setting are needed for CNC, so it knows which subscribtion. </p>
+</div>
+<p><strong>CNC-Azure-01 site configuration</strong></p>
+<p>For Azure site, we will be using the same <strong>Subscription</strong> as previously - select <strong>Mode</strong> as <strong>"Select Shared"</strong> and use existing subscription from drop-down. Leave security domains empty. Hit <strong>Save</strong>. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800></p>
+<p>As configuration will be done for new Tenant, new Schema, Template, VRF and all other logical objects have to be created. </p>
+<h2 id="schema-template-configuration">Schema, Template configuration</h2>
+<h3 id="1-schema-creation">1. Schema creation</h3>
+<p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image201.png" width = 800></p>
+<p>Add Schema name and Description and hit <strong>"Add"</strong> button</p>
+<ul>
+<li>Name: <strong>Schema-T02-Azure</strong> </li>
+<li>Description: <strong>Schema for Tenant-Azure-02</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image202.png" width = 400></p>
+<p>Let's now create template inside this schema. </p>
+<h3 id="2-template-creation">2. Template creation</h3>
+<p>Under the Schema-T02-Azure, let's create first Template with <strong>"Add New Template"</strong> button</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image203.png" width = 800></p>
+<p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
+<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<ul>
+<li>Display Name: <strong>temp-Azure-01</strong></li>
+<li>Tenant setting: <strong>Tenant-02-Azure</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image204.png" width = 800></p>
+<h3 id="3-template-to-site-association">3. Template to site association</h3>
+<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
+<p>For <strong>temp-Azure-01</strong>, we want to add both Azure site only. </p>
+<p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image205.png" width = 800></p>
+<p>Select <strong>CNC-Azure-01</strong> site and hit <strong>Ok</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image206.png" width = 800></p>
+<h2 id="vrf-epg-selectors-deployment">VRF, EPG, selectors deployment</h2>
+<h3 id="1-vrf-configuration">1. VRF Configuration</h3>
+<p>Inside <strong>Schema-T02-Azure</strong>, inside <strong>temp-Azure-01</strong> add the VRF with <strong>"Add VRF"</strong> button under <strong>VRFs</strong> box</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image207.png" width = 800></p>
+<p>Add VRF Common Properties </p>
+<ul>
+<li>Display Name: <strong>T2-VRF-02</strong> </li>
+<li>Description: <strong>CL2023 VRF-02</strong></li>
+</ul>
+<p>Leave other as default. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image208.png" width = 800></p>
+<p>As Tempalte was assocaited to Azure site, we need to update details for it, to do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
+<p>Under <strong>temp-Azure-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image209.png" width = 800></p>
+<p>Click on the <strong>"T2-VRF-02"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image210.png" width = 800></p>
+<ul>
+<li><strong>Region:</strong> francecentral</li>
+</ul>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC.</p>
+<ul>
+<li>CIDR: <strong>10.200.0.0/23</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image211.png" width = 800></p>
+<p>Like previously we need to add subnet, which is whole CIDR. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image212.png" width = 800></p>
+<p>For traffic to flow between the Tenants, <strong>"VNET Peering"</strong> feature with <strong>"Default" Hub Network</strong> needs to be selected as well.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image213.png" width = 800></p>
+<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Under <strong>temp-Azure-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"Template Properties"</strong> main settings. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image214.png" width = 800></p>
+<p>When done <strong>"Deploy to sites"</strong> button will become active (blue) - click to deploy VRF to respective sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image215.png" width = 800></p>
+<p>Nexus Dashboard will also show what changes are to be made. Review those and hit <strong>Deploy</strong> button to push configuration. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image216.png" width = 800></p>
+<p>If all goes well, confirmation pop-up will get displayed on the screen. </p>
+<h3 id="2-application-profile-and-epg-configuration-for-azure">2. Application Profile and EPG Configuration for Azure</h3>
+<p>Navigate to <strong>temp-Azure-01</strong> template using <strong>View</strong> dropdown menu. </p>
+<p>Add <strong>Application Profile</strong> using <strong>Add Application Profile</strong> button. </p>
+<ul>
+<li>Display Name: <strong>AppProf-Azure-T2-01</strong></li>
+<li>Description: <strong>Application Profile CL 2023 Azure T02</strong></li>
+</ul>
+<p>Hit <strong>Save</strong></p>
+<p>Under created <strong>Application Profile</strong> add <strong>EPG</strong></p>
+<ul>
+<li>Display Name: <strong>EPG-Azure-02</strong></li>
+<li>Description: <strong>EPG Azure CL 2023 T02</strong> </li>
+<li>EPG Type: <strong>Application</strong> </li>
+</ul>
+<p>Skip the <strong>"On-Premises Properties"</strong> and click on <strong>"Cloud Properties"</strong> and select <strong>"Virtual Routing &amp; Forwarding"</strong> as <strong>"T2-VRF-02"</strong>. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image220.png" width = 800></p>
+<p>We also need to add <strong>Selector</strong> for this EPG. Selector should be added Under <strong>Site Specific</strong> configuration for each EPG. </p>
+<p>Under <strong>Template Properties</strong> swtich to <strong>CNC-Azure-01</strong> Site, click on <strong>EPG-Azure-02</strong> and hit <strong>"Add Selector"</strong> button under the EPG Cloud Properties. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image221.png" width = 800></p>
+<p>Selector details: </p>
+<ul>
+<li>Endpoint Selector Name: <strong>Azure-sel-02</strong></li>
+<li>
+<p>Expression: </p>
+<ul>
+<li>Type: <strong>IP address</strong></li>
+<li>Operator: <strong>Equals</strong></li>
+<li>Value: <strong>10.200.0.0/23</strong></li>
+</ul>
+</li>
+</ul>
+<p>Hit checkbox sign to save expression and then <strong>Ok</strong> to finish. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image222.png" width = 500></p>
+<p>Under <strong>Template Properties</strong> swtich back to <strong>Template Properties</strong> and hit <strong>"Deploy to sites"</strong> and <strong>"Deploy"</strong>. </p>
+<p>Once done confirmation will pop up on the screen. </p>
+<p><strong>At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance.</strong></p>
+<h2 id="vm-creation">VM creation</h2>
+<p>Creation of VM for Tenant-Azure-02 in Azure. </p>
+<p>Login to Azure portal via https://portal.azure.com with your account details</p>
+<p>Search for <strong>Virtual machine</strong> in search bar and open from Services list </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width = 800></p>
+<p>Under <strong>Create</strong> button select <strong>"Azure virtual machine"</strong></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image131.png" width = 800></p>
+<p>Virtual Machine details: </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If setting is not listed, leave default.</p>
+</div>
+<ul>
+<li>Subscription: <strong>leave selected</strong> </li>
+<li>Resource Group: <strong>hit create new and add with name "RG-CL23-T02, then hit OK"</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image230.png" width = 400></p>
+<ul>
+<li>Virtual Machine name: <strong>VM-AZ-02</strong></li>
+<li>Region: <strong>(Europe) France Central</strong> </li>
+<li>
+<p>Authentication type: <strong>Password</strong>  </p>
+<ul>
+<li>username: <strong>student</strong> </li>
+<li>password: <strong>CiscoLive2023!</strong></li>
+</ul>
+</li>
+</ul>
+<p>Hit <strong>"Next: Disks &gt;"</strong> and accept all default values, hit <strong>"Next: Networking &gt;"</strong> and configure: </p>
+<ul>
+<li>Virtual Network: <strong>T2-VRF-02</strong></li>
+<li>Subnet: <strong>az-subnet (10.200.0.0/23)</strong></li>
+<li>Public IP: <strong>leave default</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image231.png" width = 400></p>
+<p>Hit directly <strong>"Review + Create"</strong> and leave all other setting as default. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image232.png" width = 500></p>
+<p>Hit directly <strong>"Create"</strong> to deploy Virtual Machine. </p>
+<p>It may take 3-5 minutes for instance to be ready. Portal will notify you when done. </p>
+<p><strong>Let's add contract to allow communication.</strong></p>
+<h2 id="contract-configuration">Contract configuration</h2>
+<h3 id="1-filter-creation">1. Filter creation</h3>
+<p>In order to create Contract, we need to have a filter in this template also</p>
+<p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T02-Azure"</strong> -&gt; open </p>
+<p>Under View select <strong>"temp-Azure-01"</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image233.png" width = 800></p>
+<ul>
+<li>Display Name: <strong>permit-any</strong> </li>
+</ul>
+<p>Then click <strong>"Add entry"</strong> to define protocols and ports. </p>
+<ul>
+<li>Name: <strong>permit-any</strong> </li>
+</ul>
+<p>Leave rest setting as default - this will allow for all protocols and ports, but we could limit traffic to very specific conditions. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image144.png" width = 600></p>
+<p>Hit <strong>Ok</strong> to save it. </p>
+<h3 id="2-contracts-configuration">2. Contracts configuration</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default <strong>VRF</strong> Scope was enough to cover provider and consumer. </p>
+</div>
+<p>In this Use-case, idea is to connect EPGs from different Tenants, hence scope for contract needs to be set to <strong>"Global"</strong>, as this is the only one which covers EPGs from different tenants. Also placement of contract is imporant.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed in the Tenant were Provider of this contract is configured. </p>
+</div>
+<p>In our case contract where <strong>EPG-Azure-02</strong> from <strong>Tenant-Azure-02</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T02-Azure"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
+<p>Contract in opposite direction where <strong>EPG-Azure-01</strong> from <strong>Tenant-01</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T01"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
+<p><strong>Contracts configuration under Tenant-Azure-02</strong> </p>
+<p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image240.png" width = 800></p>
+<p>Create contracts with following details: </p>
+<ul>
+<li>
+<p>Contract <strong>con-Azure-02-to-Azure-01</strong> </p>
+<ul>
+<li>Display Name: <strong>con-Azure-02-to-Azure-01</strong> </li>
+<li>Scope: <strong>Global</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image241.png" width = 800></p>
+<p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and under <strong>EPG-Azure-02</strong> specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image242.png" width = 800></p>
+<p>Hit <strong>"Add Contract"</strong> button and add the following contract: </p>
+<ul>
+<li>EPG: <strong>EPG-Azure-02</strong></li>
+<li>Contract: <strong>con-Azure-02-to-Azure-01</strong></li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be applied to EPGs. </p>
+<p><strong>Let's now create contract in opposite direction.</strong></p>
+<p>Under Schema <strong>"Schema-T01"</strong> navigate to <strong>View</strong> select <strong>"temp-stretch-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
+<p>Create contracts with following details: </p>
+<ul>
+<li>
+<p>Contract <strong>con-Azure-01-to-Azure-02</strong> </p>
+<ul>
+<li>Display Name: <strong>con-Azure-01-to-Azure-02</strong> </li>
+<li>Scope: <strong>Global</strong></li>
+<li>Apply both direction: <strong>yes</strong></li>
+<li>Add Filter: <strong>permit-any</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image247.png" width = 800> </p>
+<p>Under Schema <strong>"Schema-T01"</strong>  navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and under <strong>EPG-Azure-01</strong> specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image248.png" width = 800></p>
+<p>Hit <strong>"Add Contract"</strong> button and add the following contract: </p>
+<p>Contract 1: </p>
+<ul>
+<li>EPG: <strong>EPG-Azure-01</strong></li>
+<li>Contract: <strong>con-Azure-01-to-Azure-02</strong></li>
+<li>Type: <strong>provider</strong> </li>
+</ul>
+<p>Contract 2:</p>
+<ul>
+<li>EPG: <strong>EPG-Azure-01</strong></li>
+<li>Contract: <strong>con-Azure-02-to-Azure-01</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image249.png" width = 800></p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be applied to EPGs. </p>
+<p><strong>Let's come back to Tenant-Azure-02 to consume newly created contract.</strong></p>
+<p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and under <strong>EPG-Azure-02</strong> specific setting locate <strong>Contract</strong> section</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image242.png" width = 800></p>
+<p>Hit <strong>"Add Contract"</strong> button and add the following contract: </p>
+<ul>
+<li>EPG: <strong>EPG-Azure-02</strong></li>
+<li>Contract: <strong>con-Azure-01-to-Azure-02</strong></li>
+<li>Type: <strong>consumer</strong> </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image250.png" width = 800></p>
+<p>Hit <strong>Deploy to sites</strong> for contracts to be applied to EPGs. </p>
+<p>## Cross-Tenant traffic verification </p>
+<p>Let's check now if our Virtual Machines are able to communicate. For now we have configured that part of our infrastructure. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png" width = 800></p>
+<p>Login to Azure portal via https://portal.azure.com with your account details</p>
+<p>Search for <strong>Virtual machine</strong> in search bar and open from Services list </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width = 800></p>
+<p>On the Azure Virtual Machine <strong>VM-AZ-02</strong>, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image252.png" width = 800></p>
+<p>Hit enter and provide VM login credentials:</p>
+<ul>
+<li>username: <strong>student</strong> </li>
+<li>password: <strong>CiscoLive2023!</strong></li>
+</ul>
+<p>Once in the console try to reach via ping to private IP address of Virutal Machine <strong>VM-AZ-01</strong> </p>
+<div class="highlight"><pre><span></span><code>student@VM-AZ-02:~$ ping 10.100.0.4
+PING 10.100.0.4 (10.100.0.4) 56(84) bytes of data.
+64 bytes from 10.100.0.4: icmp_seq=1 ttl=63 time=4.48 ms
+64 bytes from 10.100.0.4: icmp_seq=2 ttl=63 time=6.70 ms
+64 bytes from 10.100.0.4: icmp_seq=3 ttl=63 time=3.19 ms
+64 bytes from 10.100.0.4: icmp_seq=4 ttl=63 time=6.22 ms
+^C
+--- 10.100.0.4 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 3.185/5.147/6.699/1.401 ms
+student@VM-AZ-02:~$
+</code></pre></div>
+<p>Communication is successfull! Well done. </p>
+<h1 id="this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-some-new-infromations">This test has completed our lab, hope you enjoyed it and learn some new infromations.</h1>
 
 
 

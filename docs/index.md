@@ -73,7 +73,7 @@ For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have
 
 Step by step configuration will guide you towards final topology as indicated in the picture below: 
 
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image2.png" width = 800>
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png" width = 800>
 
 The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. 
 

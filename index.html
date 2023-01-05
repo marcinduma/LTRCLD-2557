@@ -154,8 +154,8 @@
 <nav aria-label="Lab agenda" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-infrastructure-veryfication-login-and-access">
-    1. Infrastructure veryfication - login and access
+<a class="md-nav__link" href="#1-infrastructure-verification-login-and-access">
+    1. Infrastructure verification - login and access
   </a>
 </li>
 <li class="md-nav__item">
@@ -174,8 +174,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#5-tenant-creation-and-public-cloud-trust-configuration">
-    5. Tenant creation and Public Cloud Trust configuration
+<a class="md-nav__link" href="#5-tenant-creation-and-aws-account-trust-configuration">
+    5. Tenant creation and AWS Account Trust configuration
   </a>
 </li>
 <li class="md-nav__item">
@@ -185,8 +185,8 @@
 <nav aria-label="6. Three(3) common use-cases configuration and verifcation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-stretched-vrf-across-public-clouds-with-cloud-local-epgs">
-    - Stretched VRF across Public Clouds with Cloud-local EPGs
+<a class="md-nav__link" href="#-stretched-vrf-across-public-clouds-with-site-local-epgs">
+    - Stretched VRF across Public Clouds with site-local EPGs
   </a>
 </li>
 <li class="md-nav__item">
@@ -211,13 +211,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          Lab Access
+          Lab access
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Lab Access" class="md-nav" data-md-level="1">
+<nav aria-label="Lab access" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          Lab Access
+          Lab access
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -231,13 +231,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
-          INFRA Configuration
+          Infrastructure configuration
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="INFRA Configuration" class="md-nav" data-md-level="1">
+<nav aria-label="Infrastructure configuration" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          INFRA Configuration
+          Infrastructure configuration
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -267,7 +267,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="ndo-tenant/">
-        NDO Tenant configuration
+        NDO Tenant Configuration
       </a>
 </li>
 <li class="md-nav__item">
@@ -439,8 +439,8 @@
 <nav aria-label="Lab agenda" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-infrastructure-veryfication-login-and-access">
-    1. Infrastructure veryfication - login and access
+<a class="md-nav__link" href="#1-infrastructure-verification-login-and-access">
+    1. Infrastructure verification - login and access
   </a>
 </li>
 <li class="md-nav__item">
@@ -459,8 +459,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#5-tenant-creation-and-public-cloud-trust-configuration">
-    5. Tenant creation and Public Cloud Trust configuration
+<a class="md-nav__link" href="#5-tenant-creation-and-aws-account-trust-configuration">
+    5. Tenant creation and AWS Account Trust configuration
   </a>
 </li>
 <li class="md-nav__item">
@@ -470,8 +470,8 @@
 <nav aria-label="6. Three(3) common use-cases configuration and verifcation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-stretched-vrf-across-public-clouds-with-cloud-local-epgs">
-    - Stretched VRF across Public Clouds with Cloud-local EPGs
+<a class="md-nav__link" href="#-stretched-vrf-across-public-clouds-with-site-local-epgs">
+    - Stretched VRF across Public Clouds with site-local EPGs
   </a>
 </li>
 <li class="md-nav__item">
@@ -525,22 +525,22 @@
 <p>Due to time concern of this lab, Cloud Network Controller and Nexus Dashboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration.</p>
 <p><strong>Intial lab diagram:</strong></p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width="800"/></a></p>
-<p>As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds. </p>
+<p>As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds, however there is no restrictions from CNC site to use different one. </p>
 <p>Each POD have a dedicated Azure AAD Tenant and Subscription which will be shared to host both Infrastructure components (Cloud Network Controller, Cloud Routers), as well as User Virutal Machines for testing. </p>
 <p>For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have two(2) of them. First - for Infrastructure components (Cloud Network Controller, Cloud Routers, Nexus Dashboard), second for User Tenant hosting User Virtual Machines. </p>
 <h2 id="lab-agenda"><strong>Lab agenda</strong></h2>
-<h3 id="1-infrastructure-veryfication-login-and-access">1. Infrastructure veryfication - login and access</h3>
+<h3 id="1-infrastructure-verification-login-and-access">1. Infrastructure verification - login and access</h3>
 <h3 id="2-site-onboarding-in-nexus-dashboard">2. Site onboarding in Nexus Dashboard</h3>
 <h3 id="3-multisite-infrastructure-configuration">3. Multisite infrastructure configuration</h3>
 <h3 id="4-multisite-configuration-check">4. Multisite configuration check</h3>
-<h3 id="5-tenant-creation-and-public-cloud-trust-configuration">5. Tenant creation and Public Cloud Trust configuration</h3>
+<h3 id="5-tenant-creation-and-aws-account-trust-configuration">5. Tenant creation and AWS Account Trust configuration</h3>
 <h3 id="6-three3-common-use-cases-configuration-and-verifcation">6. Three(3) common use-cases configuration and verifcation</h3>
-<h4 id="-stretched-vrf-across-public-clouds-with-cloud-local-epgs">- Stretched VRF across Public Clouds with Cloud-local EPGs</h4>
+<h4 id="-stretched-vrf-across-public-clouds-with-site-local-epgs">- Stretched VRF across Public Clouds with site-local EPGs</h4>
 <h4 id="-internet-gateway-configuration-in-aws">- Internet Gateway configuration in AWS</h4>
 <h4 id="-inter-tenant-routing">- Inter-Tenant routing</h4>
 <p>Step by step configuration will guide you towards final topology as indicated in the picture below: </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png" width="800"/></a></p>
-<p>The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. </p>
+<p>Aim of this lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. </p>
 <p><strong><p style="text-align: center;">Enjoy!</p></strong></p>
 </article>
 </div>

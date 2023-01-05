@@ -8,10 +8,10 @@
 <meta content="Explore Simplicity of Public Cloud Network Configuration with Cloud Network Controller (formerly cAPIC) and Nexus Dashboard Orchestrator (NDO)" name="description"/>
 <meta content="Marcin Duma &amp; Karol Okraska" name="author"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.2.16" name="generator"/>
 <title>AWS Trust - CiscoLive EMEA 2023 --- LTRCLD-2557</title>
-<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.1c3799f8.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cc9b2e1e.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -23,7 +23,7 @@
 <link href="../css/print-site-enum-headings6.css" rel="stylesheet"/>
 <link href="../css/print-site.css" rel="stylesheet"/>
 <link href="../css/print-site-material.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -36,7 +36,7 @@
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
-<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -84,7 +84,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </label>
 <nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
 </button>
 </nav>
@@ -384,15 +384,15 @@
 <p class="admonition-title">Note</p>
 <p>As you are already logged into AWS for Infrastructure Account, you can logout or use Incognito Mode (preferably), or different browser. </p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width="400"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width="400"/></a></p>
 <p>Select IAM user, provide Account ID and hit "Next" </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For this login please use AWS User Account ID from POD details</p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width="300"/></a></p>
 <p>Provide Username and password and hit "Sign In" </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width="300"/></a></p>
 <p>You will land on the welcome page of AWS cloud console. </p>
 <h2 id="aws-cloud-network-controller-login">AWS Cloud Network Controller Login</h2>
 <p>Using the IP of AWS Cisco Clout Network Controller (can be found in POD deatils), connect via browser to CNC GUI for AWS instance. Make sure to use the same browser in which you logged in for AWS User Tenant. </p>
@@ -400,38 +400,38 @@
 <p class="admonition-title">Note</p>
 <p>The trust configuration CloudFormation script needs to be executed on AWS User Account! </p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image60.png" width="300"/></a></p>
 <p>Provide Credentials and hit <strong>Login</strong></p>
 <ul>
 <li>Username: admin </li>
 <li>Password: CiscoLive2023! </li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width="800"/></a></p>
 <p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width="800"/></a></p>
 <p>Look on the <strong>Dashboard -&gt; Application Management -&gt; Tenants</strong>, we can see newly create tenant on the list. </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width="800"/></a></p>
 <p>Double-click the Tenant name <strong>"Tenant-01"</strong> to open it. </p>
 <p>Under the <strong>AWS Account</strong> section there is warning related to our Trust configuration, along with the <strong>"Run the CloudFormation Template"</strong> hyperlink. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure you have executed CloudFormation link from AWS User Tenant!</p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image64.png" width="800"/></a></p>
 <p>Click on the hyperlink to run CloudFormation Script. You will be then redirected to AWS console CloudFormation Stack configuration. </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image65.png" width="800"/></a></p>
 <p>All the parameters are already filled in, hit <strong>"Next"</strong> to continue. </p>
 <p>In <strong>Specify stack details</strong> step - fill in stack name and hit <strong>"Next"</strong></p>
 <ul>
 <li>Stack Name: <strong>CNC-AWS-Trust</strong></li>
 <li>Parameters: none</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image66.png" width="800"/></a></p>
 <p>In <strong>Configure stack options</strong> step - leave all options as default and hit <strong>"Next"</strong></p>
 <p>In <strong>Review CNC-AWS-Trust</strong> step - leave all options as default, scroll down to <strong>"Capabilities"</strong> section and check the checkbox for resource creation and hit <strong>"Submit"</strong></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image67.png" width="800"/></a></p>
 <p>After couple of seconds(use refresh button) - stack will be completed and we are good to go. </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image68.png" width="800"/></a></p>
 <p>After AWS trust configuration we have our Infrastruture and first Tenant ready to be used. In next section of the Lab we will procced to Use-Cases configuration. Three(3) use-case we are about to configure are presenting typical real-life scenearios. </p>
 </article>
 </div>
@@ -483,8 +483,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.3a4b43e5.min.js"></script>
 <script src="../js/print-site.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "fade"});})</script></body>
 </html>

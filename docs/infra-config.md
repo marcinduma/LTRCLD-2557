@@ -1,5 +1,7 @@
 # Infrastructure configuration - Site onboarding 
 
+In this section we will find out Public IP addressing of Nexus Dashboard as well as Cloud Network Contollers. Also, will onboard AWS and Azure sites to Nexus Dashboard for further use. 
+
 ## Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS 
 
 ### 1. Open AWS console via browser 
@@ -7,6 +9,9 @@
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400>
 
 ### 2. Select IAM user,  provide Account ID and hit "Next" 
+
+!!! Note 
+    Use Account ID of **AWS Infrastructure Account** from POD Details page. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300>
 
@@ -47,11 +52,11 @@
 
 ### 4. Use "Skip for now" option for Account Protection
 
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 800>
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 300>
 
 ### 5. In Search bar look for "virtual machines" and select from services
 
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 800>
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 400>
 
 ### 6. On the Virtual Machines list scroll to the right and note down "Public IP address" for: 
 
@@ -166,6 +171,8 @@ On the Site list hit "Continue" and then "Done" button to finish Initial Setup.
 
 Navigate to **"Go To Dashboard"** in bottom right corner - you should be moved to ND Dashboard with Site Map. 
 
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23b.png" width = 800>
+
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800>
 
-In this section **Azure** and **AWS Cloud Network Controllers** were added to **Network Dashboard**. We will now proceed to **Multisite** configuration, and start managing those sites from **Nexus Dashboard Orchestrator**. We will also build an IPSec tunnels between them, so they can securly exchange traffic. 
+In this section **Azure** and **AWS Cloud Network Controllers** were added to **Network Dashboard**. We will now proceed to **Multisite** configuration, and start using those sites from **Nexus Dashboard Orchestrator**. We will also build an IPSec tunnels between them, so they can securly exchange traffic. 

@@ -8,7 +8,7 @@ In this lab section we will use Nexus Dashboard Orchestrator(NDO) to connect 2 C
 
 NDO allows you to interconnect separate Cisco® Application Centric Infrastructure (Cisco ACI®) sites, Cisco Cloud ACI sites, and Cisco Nexus Dashboard Fabric Controller (NDFC) sites, each managed by its own controller (APIC cluster, NDFC cluster, or Cloud APIC instances in a public cloud). The on-premises sites (ACI or NDFC in the future) can be extended to different public clouds for hybrid-cloud deployments while cloud-first installations can be extended to multi-cloud deployments without on-premises sites. 
 
-The single-pane network interconnect policy management and the consistent network workload and segmentation policy provided by NDO allows monitoring the health of the interconnected fabrics, enforcement of segmentation and security policies, and performance of all tasks required to define tenant intersite policies in APIC, NDFC, and cAPIC sites. 
+The single-pane network interconnect policy management and the consistent network workload and segmentation policy provided by NDO allows health monitoring of the interconnected fabrics, enforcement of segmentation and security policies, and performance of all tasks required to define tenant intersite policies in APIC, NDFC, and Cloud sites. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23a.png" width = 800>
 
@@ -44,6 +44,8 @@ There are several uses of Cisco Nexus Dashboard Orchestrator. Some of the main u
 
 **Let's now explore possibilites of Cisco Nexus Dashboard Orchestrator!**
 
+Nexus Dashboard Orchestrator(NDO) is working as an Application/Service on top of Nexus Dashboard(ND) appliance cluster. Such architecture allows for deployment simplicity, easy maintainace and upgrades, as well as efficient resource use. NDO is one of many application which can co-exist on ND cluster at the same time. 
+
 ### 1. NDO Service Introduction
 
 In the navigation menu on the left go to **"Admin Console"**
@@ -66,7 +68,7 @@ Navigate to **"Sevices"** tab to see what applications are installed on this Nex
 
 Hit **"Open"** button in order to login 
 
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400>
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 300>
 
 You will be now redirected to **Nexus Dashboard Orchestrator** Dashboard. 
 
@@ -162,9 +164,9 @@ At this point we configured this part of our topology diagram:
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800>
 
-### 1. Nexush Dashboard view
+### 1. Nexus Dashboard view
 
-Nexus Dashboard allows for monitoring of Inter-Site connectivity. 
+Apart from configuration, Nexus Dashboard also allows for monitoring of Inter-Site connectivity. 
 
 On the Left navigation page click **"Dashboard"** to go back to main Connectivity View. 
 
@@ -176,7 +178,7 @@ On the Left navigation page click **"Infrastructure"** -> **"Site Connectivity"*
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image44.png" width = 300>
 
-Under the site list, locate "Show Connectivity Status" and click on it. 
+Under the site list, locate **"Show Connectivity Status"** and click on it. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image45.png" width = 800>
 
@@ -210,11 +212,11 @@ Expected output:
 
 Verify that all 4 tunnels are up/up. 
 
-Tunnel0 is addressed from TEP pool of our Cloud Contoller Fabric and it's used for communication between CNC and Cloud Router. 
+**Tunnel0** is addressed from TEP pool of our Cloud Contoller Fabric and it's used for communication between CNC and Cloud Router. 
 
-Tunnel1 is a connected to inside of a Cloud. Depends on the provider - it's an Azure Load Balancer or AWS Transit Gateway and routing will be injected to send traffic towards VNETs and VPC CIDRs. 
+**Tunnel1** is a connected to inside of a Cloud. Depends on the provider - it's an Azure Load Balancer or AWS Transit Gateway and routing will be injected to send traffic towards VNETs and VPC CIDRs. 
 
-Tunnel6 and Tunnel7 are configured towards two (2) Catalyst 8000V Routers in another site. Note also that Tunnel6 and Tunnel7 are addressed from IPSec subnet which was specified in the beginning of Multiste Configuration.
+**Tunnel6** and **Tunnel7** are configured towards two (2) Catalyst 8000V Routers in another site. Note also that Tunnel6 and Tunnel7 are addressed from IPSec subnet which was specified in the beginning of Multiste Configuration.
 
 ### 2. OSPF adjacency veryfication
 
@@ -252,4 +254,4 @@ Expected output:
 
 Verify that both sessions are Up (O in "State/PfxRcd" column)
 
-**In Next Section our First Tenant will be configured!**
+**In Next Section we will configure our first Tenant** 

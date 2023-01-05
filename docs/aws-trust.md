@@ -6,19 +6,19 @@ In previus step we have selected Tenant configuration Mode as Trusted, so now tr
 
 Each User POD has two(2) AWS Accounts. 
 
-- 1st for Infrastrucre Configuration 
+- 1st for Infrastructure Configuration 
 - 2nd for Tenant Configuration 
 
 Open AWS console via browser 
 
-!!! Note 
+!!! Warning 
     As you are already logged into AWS for Infrastructure Account, you can logout or use Incognito Mode (preferably), or different browser. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400>
 
 Select IAM user, provide Account ID and hit "Next" 
 
-!!! Note 
+!!! Info 
     For this login please use AWS User Account ID from POD details
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300>
@@ -49,7 +49,7 @@ Hit **"Get started"** to view Cloud Network Controller Dashboard.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800>
 
-Look on the **Dashboard -> Application Management -> Tenants**, we can see newly create tenant on the list. 
+Look on the ** Application Management -> Tenants**, we can see newly create tenant on the list. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800>
 

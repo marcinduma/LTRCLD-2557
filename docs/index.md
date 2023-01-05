@@ -53,7 +53,7 @@ Due to time concern of this lab, Cloud Network Controller and Nexus Dashboard al
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800>
 
-As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds. 
+As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds, however there is no restrictions from CNC site to use different one. 
 
 Each POD have a dedicated Azure AAD Tenant and Subscription which will be shared to host both Infrastructure components (Cloud Network Controller, Cloud Routers), as well as User Virutal Machines for testing. 
 
@@ -61,13 +61,13 @@ For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have
 
 ## **Lab agenda**
 
-### 1. Infrastructure veryfication - login and access 
-### 2. Site onboarding in Nexus Dashboard   
+### 1. Infrastructure verification - login and access 
+### 2. Site onboarding in Nexus Dashboard 
 ### 3. Multisite infrastructure configuration
 ### 4. Multisite configuration check 
-### 5. Tenant creation and Public Cloud Trust configuration 
+### 5. Tenant creation and AWS Account Trust configuration 
 ### 6. Three(3) common use-cases configuration and verifcation
-####  - Stretched VRF across Public Clouds with Cloud-local EPGs 
+####  - Stretched VRF across Public Clouds with site-local EPGs 
 ####  - Internet Gateway configuration in AWS 
 ####  - Inter-Tenant routing 
 
@@ -75,6 +75,6 @@ Step by step configuration will guide you towards final topology as indicated in
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png" width = 800>
 
-The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. 
+Aim of this lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. 
 
 **<p style="text-align: center;">Enjoy!</p>**

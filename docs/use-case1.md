@@ -1,4 +1,4 @@
-# Use-case 01 - Stretched VRF
+# Use-case 01 - Stretched VRF across Public Clouds with site-local EPGs
 
 **Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and will be working on logical topology.**
 

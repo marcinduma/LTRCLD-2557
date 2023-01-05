@@ -4,13 +4,13 @@ site_author: Marcin Duma & Karol Okraska
 
 nav:
   - Home: index.md #opis laba z HLD - obrazkiem
-  - Lab Access:
+  - Lab access:
     - Accessing the Lab Environment: LAB_access.md
-  - INFRA Configuration: 
+  - Infrastructure configuration: 
     - Sites onboarding: infra-config.md
     - Multisite configuration: infra-config-msite.md
   - Tenant configuration:
-    - NDO Tenant configuration: ndo-tenant.md
+    - NDO Tenant Configuration: ndo-tenant.md
     - AWS Trust: aws-trust.md
   - Use-cases:
     - Use-case 01 - Stretched VRF: use-case1.md

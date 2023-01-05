@@ -443,16 +443,16 @@
 <p>In this lab section you will create and execute list of API calls to configure ACI managed objects as well as read data from existing polices and devices. After this section you should feel comfortable with running simple automation tasks and build your own tasks for further customizations. You will be familiar with Postman dashboard and general idea of running request individually or as a collection defined.</p>
 <h2 id="1-define-restapi-calls-under-collection">1 Define restAPI calls under Collection</h2>
 <p>Now is a time to work with our requests to GET or POST restAPI. You will define couple of them during the LAB. Figure below shows where to navigate to create new request in your collection.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-request-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-request-1.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-request-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-request-1.png" width="800"/></a></p>
 <p>Every API command have predefined structure. Administrator needs to specify URI for correct object are you going to work with. Everything is described in details under the following link:
 <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/2-x/rest_cfg/2_1_x/b_Cisco_APIC_REST_API_Configuration_Guide/b_Cisco_APIC_REST_API_Configuration_Guide_chapter_01.html" target="_blank">Cisco ACI API Configuration guide</a>.</p>
 <p>The figure below shows structure of every API call:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/349945.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/349945.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/349945.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/349945.png" width="800"/></a></p>
 <h3 id="11-create-aci-login-request">1.1 Create ACI login request</h3>
 <p>First request when working with ACI must be authentication. Without having your session authenticated, no API calls can be successfully executed. Information about Authentication request structure can be found here:</p>
 <p><a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/2-x/rest_cfg/2_1_x/b_Cisco_APIC_REST_API_Configuration_Guide/b_Cisco_APIC_REST_API_Configuration_Guide_chapter_01.html#concept_D16AC6DC9CCD4351A4A40287487F061A" target="_blank">Cisco ACI Authentication API</a>.</p>
 <p>Define it in Postman:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-1.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-1.png" width="800"/></a></p>
 <p>In New Request section specify:</p>
 <p>1) Name of Request</p>
 <div class="highlight"><pre><span></span><code>    ACI Login
@@ -467,7 +467,7 @@
 </div>
 <p>4) Move to <strong>Body</strong> section for further work with your request</p>
 <p>Once you open Body section, you need to select type of data to be <strong>raw</strong> and coding to <strong>JSON</strong>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-2.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-2.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-2.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-2.png" width="800"/></a></p>
 <p>Now you can copy code defined below to body section of your request.</p>
 <div class="highlight"><span class="filename">aaaLogin</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span><span class="w"></span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">"aaaUser"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -480,9 +480,9 @@
 </code></pre></div>
 <p><strong><mark>Yellow</mark></strong> highlighted text in the json code above will use variables you defined in <strong>Environment</strong> at the beginning of the Lab.</p>
 <p>Now your Request should looks like on the figure below.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-3.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-3.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-3.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-3.png" width="800"/></a></p>
 <p><span style="color:blue"><strong>It's time to TEST it!</strong></span>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-4.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-4.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-4.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-4.png" width="800"/></a></p>
 <p>Click on <strong>Send</strong> button. Make sure your environment <strong>ACI-dcloud</strong> is selected - above the Send button.</p>
 <p>When works as expected you will be authenticated to APIC. Responce from the APIC is visible in the section at your screen.
 Let's go together across results you see on the screen. First is a Status <strong> 200 OK </strong> - means APIC server accepted your request, execute it and responce with data. In the REPLY Body you see JSON structure data. You can see <strong>token</strong> which is your authentication token. <strong>RefreshTimeoutSeconds</strong> set to 600 seconds = 10 minutes. Token is valid for 10 minutes and after that period will expire.</p>
@@ -493,7 +493,7 @@ Let's go together across results you see on the screen. First is a Status <stron
 <li>aaaWriteRoles</li>
 </ul>
 <p>Write them down to notepad.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-5.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-5.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-5.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-aaalogin-5.png" width="800"/></a></p>
 <h3 id="register-your-aci-fabric-switches-in-apic">Register your ACI Fabric Switches in APIC</h3>
 <p>Lab is clear and leaf/spines requires registration. You can automate it using Postman.</p>
 <p>Configure new Postman POST Request with code <strong><a href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/docs/fabricinfra.json" target="_blank">downloaded from here</a></strong></p>
@@ -503,7 +503,7 @@ Let's go together across results you see on the screen. First is a Status <stron
 <p>Contact Instructor in case of issues.</p>
 <h3 id="12-get-information-about-a-node">1.2 Get Information About a Node</h3>
 <p>POST is not only one request type. You can configure your ACI fabric, but you can use restAPI to pull data you are interest to analyse. This excercise is about writing a <strong>GET</strong> Request under already created ACI collection. As an example you will pull information about Leaf node-101 system in <em>json</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-get-node101-1.PNG"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-get-node101-1.PNG" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-get-node101-1.PNG"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-get-node101-1.PNG" width="800"/></a></p>
 <p>Name your new Request</p>
 <div class="highlight"><pre><span></span><code>    Node-101-topsystem check
 </code></pre></div>
@@ -528,7 +528,7 @@ You can pull data about AccessPolices, Interfaces as well as Logical construct -
 Try to delete part of URI <mark><strong>?query-target=subtree&amp;target-subtree-class=firmwareCtrlrRunning</strong></mark> and do Send again.</p>
 <h2 id="2-aci-access-polices">2  ACI Access Polices</h2>
 <p>Every ACI Fabric configuration starts with Access Polices. You need to define ACI objects which represent single physical port configurations. To remind relationships between objects, please check following figure.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/access-polices.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/access-polices.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/access-polices.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/access-polices.png" width="800"/></a></p>
 <p>Usually Interface Polices are configured once and re-used like LLDP, LACP, CDP, etc. However our LAB is empty and you need to start from zero. Following sections will help you to prepare your API requests.</p>
 <h3 id="21-interface-policies">2.1 Interface Policies</h3>
 <p>You will configure LACP Policy, LLDP_ON, LINK-10G. Copy each of the Policy json definition to individual POST requests under your ACI Collection in Postman.</p>
@@ -578,7 +578,7 @@ Try to delete part of URI <mark><strong>?query-target=subtree&amp;target-subtree
 <p>Create VLAN pool with vlan-range, associate it with Physical Domain and AAEP.
 Now you will change an approach. Your task is to create VLAN Pool with APIC GUI and capture json code from <strong>API Inspector</strong>.</p>
 <p>Connect to your APIC using bookmark in dCloud workstation Chrome. Navigate to Access Polices -&gt; Pools -&gt; VLAN. When you are there, Click on <em>Help and Tools</em> menu in APIC Dashboard</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/apic-api-inspector.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/apic-api-inspector.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/apic-api-inspector.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/apic-api-inspector.png" width="800"/></a></p>
 <p>and Click on <strong>Show API Inspector</strong>. In new window you will open API Inspector, where you can capture every API call send to the APIC server.</p>
 <p>Now you can start ADD VLAN-pool in APIC GUI.</p>
 <p>VLAN POOL NAME:</p>
@@ -588,7 +588,7 @@ Now you will change an approach. Your task is to create VLAN Pool with APIC GUI 
 <p><strong>Encap Blocks</strong>: 100-200, Inherit Allocation mode from parent, <strong>Role:</strong> External or On the wire encapsulations</p>
 <p>SUBMIT and open API Inspector in the another Chrome Window.</p>
 <p>Search for <mark><strong>POST</strong></mark> method.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/api-inspector-vlanpool.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/api-inspector-vlanpool.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/api-inspector-vlanpool.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/api-inspector-vlanpool.png" width="800"/></a></p>
 <p>COPY now ALL POST URI from API Inspector to Postman request Body.</p>
 <p>You should capture data as shown in code below.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//apic1.dcloud.cisco.com/api/node/mo/uni/infra/vlanns-[vlan-pool]-static.json</span><span class="w"></span>
@@ -805,7 +805,7 @@ Interesting fact about domain to AAEP association. Domain is sub-object to AAEP,
 <p>Upon now you created ACI AccessPolicies for your Tenant. Having JSON code for every object you will be able to unified variables across Postman Collection and then run all together using Variables from <em>Environment</em> or much better from CSV file.</p>
 <p>Now is time to create your tenant using JSON. It will be simple Tenant definition with one VRF and two bridge domains associated with two EPGs. Every EPG will be associated with created domain and statically binded to both VPC created, with VLAN from VLAN pool done by you perviously.</p>
 <p>Figure below shows our Logical Tenant.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/dcloud-tenant-1.PNG"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/dcloud-tenant-1.PNG" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/dcloud-tenant-1.PNG"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/dcloud-tenant-1.PNG" width="800"/></a></p>
 <p>You need to define Tenant, VRF, Bridge-Domains, Application-Profile, EPGs with Domain association and static binding under EPG. Quite many of Requests to do in Postman. You can define all of them under one Request.
 Please, download a JSON file from <mark><strong><a href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/docs/tn-dcloud-tenant-1.json" target="_blank">JSON Tenant Ready</a>.</strong></mark></p>
 <p>Once you have it on dcloud workstation, please create new Request under ACI Collection:
@@ -979,28 +979,28 @@ NAME:</p>
 <p>By running five requests from your Collection and using CSV file from location <mark><strong><a href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/docs/tenant-create.csv" target="_blank">FILE CSV TO DOWNLOAD</a></strong></mark> you will add new Tenant with one VRF, Applicatioin Profile, 22 Bridge-Domains and 22 EPGs associated to Physical Domain created before. All of this will be done in one Postman collection Run.</p>
 <h2 id="41-run-collection-requests">4.1 Run Collection requests</h2>
 <p>Follow the instruction from the figure below:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-1.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-1.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-1.png" width="800"/></a></p>
 <p>1)  Click on dots icon at your ACI dCloud collection folder</p>
 <p>2)  Select <strong>Run Collection</strong></p>
 <p>You will be moved to new dashboard, where you will select Requests and input file.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-2.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-2.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-2.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-2.png" width="800"/></a></p>
 <p>Deselect All, and then Select only needed requests:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-3.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-3.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-3.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-3.png" width="800"/></a></p>
 <p>When you select Requests, go to Data <strong>"Select File"</strong> and choice downloaded CSV file - <em>tenant-create.csv</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-4.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-4.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-4.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-4.png" width="800"/></a></p>
 <p>Confirm that your file is selected as on the figure above. You can confirm amount of iterations in the top field <em>Iterations</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Do not forget to authenticate your Postman session using ACI Login request. I recommend to do it out of collection Run -- beforehand.</p>
 </div>
 <p>Click <strong> Run ACI dCloud </strong> Blue button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-5.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-5.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-5.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-5.png" width="800"/></a></p>
 <h2 id="42-verification-after-runing-the-collection">4.2 Verification after runing the collection</h2>
 <p>When you successfully execute your collection, in Summary at the screen you will see results of every Iteration.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-6.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-6.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-6.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-6.png" width="800"/></a></p>
 <p>When Request was accepted by APIC, result will be <strong>200 OK</strong>. Every Iteration contain all five seleceted requests. You probably noticed that one of them is getting <strong>400 Bad Request</strong> - "Bridge Domain L3 from CSV". Reason for that, is missing children attribute <strong>fvSubnet</strong> for all L2 bridge-domain in our CSV file.</p>
 <p>Now connect to APIC GUI and verify if tenant exists, check dashboard status.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-7.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-7.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-7.png"><img src="https://raw.githubusercontent.com/marcinduma/ACI-Automation/main/images/postman-coll-run-7.png" width="800"/></a></p>
 <p>You successfully Created New Tenant with 22 EPGs and 22 BDs.</p>
 <p>Please, edit CSV file in notepad++ editor at your dCloud workstation, replace Tenantname with new and run your Postman Collection once again.</p>
 <p><strong><p align="center">Do you understand now power of simple automation?</p></strong></p>
@@ -1029,5 +1029,5 @@ NAME:</p>
 <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.3a4b43e5.min.js"></script>
 <script src="../js/print-site.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "fade"});})</script></body>
 </html>

@@ -61,11 +61,11 @@ plugins:
   - glightbox:
       touchNavigation: true
       loop: false
-      effect: zoom
-      slide_effect: slide
-      width: 100%
+      effect: fade
+      slide_effect: fade
+      width: 80%
       height: auto
-      zoomable: true
+      zoomable: false
       draggable: true
       skip_classes:
       - custom-skip-class-name

@@ -1933,7 +1933,8 @@ student@VM-AZ-01:~$
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image161.png" width = 800></p>
 <p>Notice that there was route added for <strong>Azure VNET space - 10.100.0.0/23</strong> towards <strong>"tgw-*"</strong> which is our Transit Gateway used to communicated with <strong>AWS Cloud Routers</strong>, so traffic can be send to Azure. </p>
 <h3 id="use-case1-cloud-routers-verification">Cloud Routers verification</h3>
-<p>Open Putty client from desktop and put IP address of Cloud router from Azure - you can login to any of 4 routers. </p>
+<p>Let's check what was configured on Cloud Routers, so traffic can flow, will take a look on one of it as an example. </p>
+<p>Open Putty client from desktop and put IP address of Cloud router from Azure - <strong>ct_routerp_francecentral_0_0</strong> </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Cloud Routers IP addresses are available in POD details section, or you can find them in Azure/AWS console directly. </p>
@@ -1967,21 +1968,21 @@ C        192.168.100.0/24 is directly connected, BDI7
 L        192.168.100.100/32 is directly connected, BDI7
 ct-routerp-francecentral-0-0#
 </code></pre></div>
-<p>Output shows routing table from perspective of Azure Cloud Router, hence:</p>
+<p>Output shows routing table from perspective of Azure Cloud Router, what we can see:</p>
 <ul>
 <li><strong>Azure subnet 10.100.0.0/23</strong> is available via <strong>Static route</strong> towards interfaces <strong>GigabitEthernet2</strong>, which is interfaces conencted to inside of Azure network </li>
 <li><strong>AWS subnet 10.0.0.0/23</strong> is available from <strong>BGP protocol</strong>, from two (2) Cloud Routers located in AWS Cloud </li>
 </ul>
 <p>In that way cloud routers know how to route traffic towards respective clouds. </p>
-<p>This verification finishes the Use-case-01 configuration in which we have deployed our VRF, EPGs, contracts and EC2s/VMs. We have also checked how configration done via NDO is reflected as Cloud Native objects in respective clouds.</p>
-<p>In next section we will deploy Internet Gateway to allow for internet communication</p></section><section class="print-page" id="use-case2"><h1 id="use-case2-use-case-02-internet-gateway">Use-case 02 - Internet Gateway</h1>
-<p><strong>In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet.</strong></p>
-<p>Instances in AWS can access Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.</p>
+<p>This verification finishes the Use-case-01 configuration in which we have deployed our VRF, EPGs, contracts and EC2s/VMs. We have also checked how configration done via NDO is reflected as Cloud Native objects in respective clouds. </p>
+<p>In next section we will deploy Internet Gateway to allow for internet communication.</p></section><section class="print-page" id="use-case2"><h1 id="use-case2-use-case-02-internet-gateway">Use-case 02 - Internet Gateway</h1>
+<p><strong>In this task we will configure Internet Gateway in AWS cloud, so EC2 instances and Endpoints are able to reach Internet.</strong></p>
+<p>Instances in AWS can access Internet with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.</p>
 <p>An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).</p>
 <h2 id="use-case2-internet-gateway-as-external-epg">Internet Gateway as External EPG</h2>
-<p>As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. </p>
+<p>As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. </p>
 <h3 id="use-case2-external-epg-configuration">External EPG configuration</h3>
-<p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
+<p>Open Nexus Dashboard Orchestrator GUI and navigate to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-AWS-01"</strong> and hit <strong>"Add External EPGs"</strong> under <strong>External EPGs</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image172.png" width = 800></p>
 <ul>
@@ -2097,7 +2098,7 @@ ct-routerp-francecentral-0-0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image178.png" width = 800></p>
 <p>Hit <strong>Deploy to sites</strong> to create IGW and deploy contracts associations. </p>
 <h2 id="use-case2-veryfication">Veryfication</h2>
-<p>Let's check if AWS EC2 instance is now reachable from internet. </p>
+<p>Let's check if AWS EC2 instance is now reachable from the internet. </p>
 <h3 id="use-case2-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
 <h3 id="use-case2-2-select-iam-user-provide-account-id-for-user-tenant-and-hit-next">2. Select IAM user,  provide Account ID for User tenant and hit "Next"</h3>
@@ -2110,7 +2111,7 @@ ct-routerp-francecentral-0-0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800></p>
 <p>Locate Public IPv4 Address of EC2 instance, either on the EC2 instance list or under Details section</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image179.png" width = 800></p>
-<p>From workstation open command line interface by hitting <strong>"Start"</strong> and typing <strong>"cmd"</strong></p>
+<p>From workstation open command line interface by hitting <strong>"Start"</strong> and typing <strong>"cmd"</strong>. If you are a Mac User, launch <strong>Terminal</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image180.png" width = 800></p>
 <p>Execute command </p>
 <div class="highlight"><pre><span></span><code>ping &lt;Public IPv4 address of EC2&gt;
@@ -2120,9 +2121,9 @@ ct-routerp-francecentral-0-0#
 <p>At this point we completed that part of our topology configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800></p>
 <p>In Next Section we will configure additional Tenant and try inter-tenant leaking. </p></section><section class="print-page" id="use-case3"><h1 id="use-case3-use-case-03-inter-tenant-routing">Use-case 03 - Inter-Tenant routing</h1>
-<p>In this section of the lab we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenarios where multiple accounts/tenants in Public Cloud need to communicate with one central one where common service are located. </p>
+<p>In this section we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  </p>
+<p>Additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be used in this lab. Later in the lab we will configured inter-tenant leaking, so Virtual Machines from 2 tenants are able to talk to each other. </p>
 <h2 id="use-case3-tenant-creation">Tenant creation</h2>
-<p>One additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be created, to avoid another trust configuration. </p>
 <p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image50.png" width = 800></p>
 <p>Fill in Tenant details for name and description </p>
@@ -2407,6 +2408,7 @@ rtt min/avg/max/mdev = 3.185/5.147/6.699/1.401 ms
 student@VM-AZ-02:~$
 </code></pre></div>
 <p>Communication is successfull! Well done. </p>
+<p>## Cloud Routers verification </p>
 <h1 id="use-case3-this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-some-new-infromations">This test has completed our lab, hope you enjoyed it and learn some new infromations.</h1></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
                         <h1 class='nav-section-title' id='section-appendixes'>
                             Appendixes <a class='headerlink' href='#section-appendixes' title='Permanent link'>↵</a>

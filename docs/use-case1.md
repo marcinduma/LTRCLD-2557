@@ -701,7 +701,9 @@ Notice that there was route added for **Azure VNET space - 10.100.0.0/23** towar
 
 ### Cloud Routers verification 
 
-Open Putty client from desktop and put IP address of Cloud router from Azure - you can login to any of 4 routers. 
+Let's check what was configured on Cloud Routers, so traffic can flow, will take a look on one of it as an example. 
+
+Open Putty client from desktop and put IP address of Cloud router from Azure - **ct_routerp_francecentral_0_0** 
 
 !!! Note 
     Cloud Routers IP addresses are available in POD details section, or you can find them in Azure/AWS console directly. 
@@ -741,13 +743,13 @@ Expected output:
     L        192.168.100.100/32 is directly connected, BDI7
     ct-routerp-francecentral-0-0#
 
-Output shows routing table from perspective of Azure Cloud Router, hence:
+Output shows routing table from perspective of Azure Cloud Router, what we can see:
 
 - **Azure subnet 10.100.0.0/23** is available via **Static route** towards interfaces **GigabitEthernet2**, which is interfaces conencted to inside of Azure network 
 - **AWS subnet 10.0.0.0/23** is available from **BGP protocol**, from two (2) Cloud Routers located in AWS Cloud 
 
 In that way cloud routers know how to route traffic towards respective clouds. 
 
-This verification finishes the Use-case-01 configuration in which we have deployed our VRF, EPGs, contracts and EC2s/VMs. We have also checked how configration done via NDO is reflected as Cloud Native objects in respective clouds.
+This verification finishes the Use-case-01 configuration in which we have deployed our VRF, EPGs, contracts and EC2s/VMs. We have also checked how configration done via NDO is reflected as Cloud Native objects in respective clouds. 
 
-In next section we will deploy Internet Gateway to allow for internet communication
+In next section we will deploy Internet Gateway to allow for internet communication.

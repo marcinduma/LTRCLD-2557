@@ -1,10 +1,10 @@
 # Use-case 03 - Inter-Tenant routing
 
-In this section of the lab we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenarios where multiple accounts/tenants in Public Cloud need to communicate with one central one where common service are located. 
+In this section we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  
+
+Additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be used in this lab. Later in the lab we will configured inter-tenant leaking, so Virtual Machines from 2 tenants are able to talk to each other. 
 
 ## Tenant creation 
-
-One additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be created, to avoid another trust configuration. 
 
 On the Left navigation page click **"Application Management" -> "Tenant"** and then **"Add Tenant"**
 
@@ -396,5 +396,7 @@ Once in the console try to reach via ping to private IP address of Virutal Machi
     student@VM-AZ-02:~$ 
 
 Communication is successfull! Well done. 
+
+ ## Cloud Routers verification 
 
 # This test has completed our lab, hope you enjoyed it and learn some new infromations.

@@ -1,18 +1,18 @@
 # Use-case 02 - Internet Gateway
 
-**In this task we will configure Internet Gateway in AWS cloud, so Virtual Machines and Endpoints are able to reach the Internet.**
+**In this task we will configure Internet Gateway in AWS cloud, so EC2 instances and Endpoints are able to reach Internet.**
 
-Instances in AWS can access Internet in AWS cloud with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.
+Instances in AWS can access Internet with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.
 
 An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).
 
 ## Internet Gateway as External EPG
 
-As all VPC aspects and routing are controller by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. 
+As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. 
 
 ### External EPG configuration 
 
-Open Nexus Dashboard Orchestrator GUI then go to **Application Management -> Schemas -> "Schema-T01"** -> open 
+Open Nexus Dashboard Orchestrator GUI and navigate to **Application Management -> Schemas -> "Schema-T01"** -> open 
 
 Under View select **"temp-AWS-01"** and hit **"Add External EPGs"** under **External EPGs** section. 
 
@@ -141,7 +141,7 @@ Hit **Deploy to sites** to create IGW and deploy contracts associations.
 
 ## Veryfication 
 
-Let's check if AWS EC2 instance is now reachable from internet. 
+Let's check if AWS EC2 instance is now reachable from the internet. 
 
 ### 1. Open AWS console via browser 
 
@@ -167,7 +167,7 @@ Locate Public IPv4 Address of EC2 instance, either on the EC2 instance list or u
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image179.png" width = 800>
 
-From workstation open command line interface by hitting **"Start"** and typing **"cmd"**
+From workstation open command line interface by hitting **"Start"** and typing **"cmd"**. If you are a Mac User, launch **Terminal**. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image180.png" width = 800>
 

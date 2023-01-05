@@ -1,4 +1,4 @@
-# Connectivity Check
+# Lab Access
 
 ## 1. Lab access general description
 
@@ -20,9 +20,9 @@ Information about account details as well as credentials are available in per PO
 
 | Attendee Name           | POD ID       | POD access details       |
 | -------------- | -------------- | -------------- |
-| CloudNetworkController | admin | [Lab Details POD1](pod1.md)|
-| ct_routerp_francecentral_0_0 | csradmin | [Lab Details POD1](pod1.md)|
-| ct_routerp_francecentral_1_0 | csradmin | [Lab Details POD1](pod1.md)|
+| Student 1 | POD1 | [Lab Details POD1](pod1.md)|
+| Student 2 | POD2 | [Lab Details POD2](pod1.md)|
+| Student 3 | POD3 | [Lab Details POD3](pod1.md)|
 
 
 ## 3. Accessing Cloud Network Controller and Nexus Dashboard. 
@@ -30,8 +30,3 @@ Information about account details as well as credentials are available in per PO
 All appliances are addressed with Public IP address, they can be accessed from local browser without any additional settings or VPN connections. Any browser can be used - we recommend however to use Chrome of Firefox. 
 
 List of IP addreses for all devices can be found in respective POD access details sections listed in table above. 
-
-
-
-
-

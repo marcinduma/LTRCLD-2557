@@ -3,20 +3,9 @@ site_description: Explore Simplicity of Public Cloud Network Configuration with 
 site_author: Marcin Duma & Karol Okraska
 
 nav:
-  - Home: index.md #opis laba z HLD - obrazkiem
+  - Home: index.md #opis laba z HLD
   - Lab access:
     - Accessing the Lab Environment: LAB_access.md
-  - Infrastructure configuration: 
-    - Sites onboarding: infra-config.md
-    - Multisite configuration: infra-config-msite.md
-  - Tenant configuration:
-    - NDO Tenant Configuration: ndo-tenant.md
-    - AWS Trust: aws-trust.md
-  - Use-cases:
-    - Use-case 01 - Stretched VRF: use-case1.md
-    - Use-case 02 - Internet Gateway: use-case2.md
-    - Use-case 03 - Inter-Tenant routing: use-case3.md
-  - Appendixes:
     - Lab details:
       - POD-01: pod1.md
       - POD-02: pod2.md
@@ -28,6 +17,18 @@ nav:
       - POD-08: pod8.md
       - POD-09: pod9.md
       - POD-10: pod10.md
+  - Infrastructure configuration: 
+    - Sites onboarding: infra-config.md
+    - Multisite configuration: infra-config-msite.md
+  - Tenant configuration:
+    - NDO Tenant Configuration: ndo-tenant.md
+    - AWS Trust: aws-trust.md
+  - Use-cases:
+    - Use-case 01 - Stretched VRF: use-case1.md
+    - Use-case 02 - Internet Gateway: use-case2.md
+    - Use-case 03 - Inter-Tenant routing: use-case3.md
+  - Appendixes:
+
     - ACI to Public Cloud Object mapping: object-map.md
     - Resources: resources.md
     - PRINT version: print_page/

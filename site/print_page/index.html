@@ -231,14 +231,14 @@
       
       
         <label class="md-nav__link" for="__nav_2">
-          Lab Access
+          Lab access
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Lab Access" data-md-level="1">
+      <nav class="md-nav" aria-label="Lab access" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Lab Access
+          Lab access
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -279,14 +279,14 @@
       
       
         <label class="md-nav__link" for="__nav_3">
-          INFRA Configuration
+          Infrastructure configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="INFRA Configuration" data-md-level="1">
+      <nav class="md-nav" aria-label="Infrastructure configuration" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          INFRA Configuration
+          Infrastructure configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -359,7 +359,7 @@
   
     <li class="md-nav__item">
       <a href="../ndo-tenant/" class="md-nav__link">
-        NDO Tenant configuration
+        NDO Tenant Configuration
       </a>
     </li>
   
@@ -744,10 +744,10 @@
       
         <li class="md-nav__item">
   <a href="#section-lab-access" class="md-nav__link">
-    I. Lab Access
+    I. Lab access
   </a>
   
-    <nav class="md-nav" aria-label="I. Lab Access">
+    <nav class="md-nav" aria-label="I. Lab access">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -763,11 +763,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-infra-configuration" class="md-nav__link">
-    II. INFRA Configuration
+  <a href="#section-infrastructure-configuration" class="md-nav__link">
+    II. Infrastructure configuration
   </a>
   
-    <nav class="md-nav" aria-label="II. INFRA Configuration">
+    <nav class="md-nav" aria-label="II. Infrastructure configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -799,7 +799,7 @@
         
           <li class="md-nav__item">
   <a href="#ndo-tenant" class="md-nav__link">
-    5. NDO Tenant configuration
+    5. NDO Tenant Configuration
   </a>
   
 </li>
@@ -970,48 +970,78 @@
 <p>Due to time concern of this lab, Cloud Network Controller and Nexus Dashboard along with Nexus Dashboard Orchestrator Application will be pre-installed for you and ready for configuration.</p>
 <p><strong>Intial lab diagram:</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image1a.png" width = 800></p>
-<p>As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds. </p>
+<p>As indicated in the diagram, this lab is using EMEA based regions in both AWS(eu-central-1) and Azure(France Central) Clouds, however there is no restrictions from CNC site to use different one. </p>
 <p>Each POD have a dedicated Azure AAD Tenant and Subscription which will be shared to host both Infrastructure components (Cloud Network Controller, Cloud Routers), as well as User Virutal Machines for testing. </p>
 <p>For AWS Cloud each Tenant needs to have it's own Account ID, hence each POD have two(2) of them. First - for Infrastructure components (Cloud Network Controller, Cloud Routers, Nexus Dashboard), second for User Tenant hosting User Virtual Machines. </p>
 <h2 id="index-lab-agenda"><strong>Lab agenda</strong></h2>
-<h3 id="index-1-infrastructure-veryfication-login-and-access">1. Infrastructure veryfication - login and access</h3>
+<h3 id="index-1-infrastructure-verification-login-and-access">1. Infrastructure verification - login and access</h3>
 <h3 id="index-2-site-onboarding-in-nexus-dashboard">2. Site onboarding in Nexus Dashboard</h3>
 <h3 id="index-3-multisite-infrastructure-configuration">3. Multisite infrastructure configuration</h3>
 <h3 id="index-4-multisite-configuration-check">4. Multisite configuration check</h3>
-<h3 id="index-5-tenant-creation-and-public-cloud-trust-configuration">5. Tenant creation and Public Cloud Trust configuration</h3>
+<h3 id="index-5-tenant-creation-and-aws-account-trust-configuration">5. Tenant creation and AWS Account Trust configuration</h3>
 <h3 id="index-6-three3-common-use-cases-configuration-and-verifcation">6. Three(3) common use-cases configuration and verifcation</h3>
-<h4 id="index--stretched-vrf-across-public-clouds-with-cloud-local-epgs">- Stretched VRF across Public Clouds with Cloud-local EPGs</h4>
+<h4 id="index--stretched-vrf-across-public-clouds-with-site-local-epgs">- Stretched VRF across Public Clouds with site-local EPGs</h4>
 <h4 id="index--internet-gateway-configuration-in-aws">- Internet Gateway configuration in AWS</h4>
 <h4 id="index--inter-tenant-routing">- Inter-Tenant routing</h4>
 <p>Step by step configuration will guide you towards final topology as indicated in the picture below: </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image251.png" width = 800></p>
-<p>The aim of the lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. </p>
+<p>Aim of this lab is to deploy end to end infrastructure hosted in two different Public Clouds with help of Cloud Network Controller and Nexus Dashboard, and also to perform validation and communication tests. </p>
 <p><strong><p style="text-align: center;">Enjoy!</p></strong></p></section>
                         <h1 class='nav-section-title' id='section-lab-access'>
-                            Lab Access <a class='headerlink' href='#section-lab-access' title='Permanent link'>↵</a>
+                            Lab access <a class='headerlink' href='#section-lab-access' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="lab_access"><h1 id="lab_access-connectivity-check">Connectivity Check</h1>
 <h2 id="lab_access-1-lab-access-general-description">1. Lab access general description</h2>
-<p>This lab is fully hosted in Public Cloud infrastrucure, both AWS and Azure, no local resources are used. </p>
-<p>You will have access to Public Cloud Console Interface, as well as you will be able to login to necessary resources and appliances. </p>
-<h2 id="lab_access-2-aws-and-azure-console-access-details">2. AWS and Azure console access details:</h2>
-<p>Login link for AWS console: </p>
+<p>This lab is fully hosted in Public Cloud infrastrucure, both AWS and Azure, no local/on-premises resources are used. </p>
+<p>You will get access to Public Clouds Console Interface, as well as you will be able to login to necessary resources and appliances. </p>
+<h2 id="lab_access-2-aws-and-azure-console-access-details">2. AWS and Azure console access details</h2>
+<p>AWS console login link:</p>
 <p><a href="https://console.aws.amazon.com" target="_blank">https://console.aws.amazon.com</a></p>
-<p>Login link for Azure portal: </p>
+<p>Azure portal login link: </p>
 <p><a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a></p>
+<p>Information about account details as well as credentials are available in per POD sections listed in table below. Make sure to use POD ID assigned to your name. POD to name assigment is also listed in table below. </p>
+<table>
+<thead>
+<tr>
+<th>Attendee Name</th>
+<th>POD ID</th>
+<th>POD access details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CloudNetworkController</td>
+<td>admin</td>
+<td><a href="#pod1">Lab Details POD1</a></td>
+</tr>
+<tr>
+<td>ct_routerp_francecentral_0_0</td>
+<td>csradmin</td>
+<td><a href="#pod1">Lab Details POD1</a></td>
+</tr>
+<tr>
+<td>ct_routerp_francecentral_1_0</td>
+<td>csradmin</td>
+<td><a href="#pod1">Lab Details POD1</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="lab_access-3-accessing-cloud-network-controller-and-nexus-dashboard">3. Accessing Cloud Network Controller and Nexus Dashboard.</h2>
-<p>All appliances are addressed with Public IP address, hence it can be accessed from local browser without any additional settings or VPN connections. </p>
-<p>List of IP addreses for each POD can be found in respective POD link:</p>
-<p><a href="#pod1">Lab Details POD1</a></p>
-<p><a href="#lab_access-pod2.md">Lab Details POD2</a></p></section><h1 class='nav-section-title-end'>Ended: Lab Access</h1>
-                        <h1 class='nav-section-title' id='section-infra-configuration'>
-                            INFRA Configuration <a class='headerlink' href='#section-infra-configuration' title='Permanent link'>↵</a>
+<p>All appliances are addressed with Public IP address, they can be accessed from local browser without any additional settings or VPN connections. Any browser can be used - we recommend however to use Chrome of Firefox. </p>
+<p>List of IP addreses for all devices can be found in respective POD access details sections listed in table above. </p></section><h1 class='nav-section-title-end'>Ended: Lab access</h1>
+                        <h1 class='nav-section-title' id='section-infrastructure-configuration'>
+                            Infrastructure configuration <a class='headerlink' href='#section-infrastructure-configuration' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="infra-config"><h1 id="infra-config-infrastructure-configuration-site-onboarding">Infrastructure configuration - Site onboarding</h1>
+<p>In this section we will find out Public IP addressing of Nexus Dashboard as well as Cloud Network Contollers. Also, will onboard AWS and Azure sites to Nexus Dashboard for further use. </p>
 <h2 id="infra-config-public-ip-address-of-nexus-dashboard-and-cisco-cloud-network-controller-in-aws">Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS</h2>
 <h3 id="infra-config-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
 <h3 id="infra-config-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user,  provide Account ID and hit "Next"</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use Account ID of <strong>AWS Infrastructure Account</strong> from POD Details page. </p>
+</div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
 <h3 id="infra-config-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
@@ -1037,9 +1067,9 @@
 <h3 id="infra-config-3-provide-password-and-hit-sign-in">3. Provide password and hit "Sign In"</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image16.png" width = 400></p>
 <h3 id="infra-config-4-use-skip-for-now-option-for-account-protection">4. Use "Skip for now" option for Account Protection</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 800></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 300></p>
 <h3 id="infra-config-5-in-search-bar-look-for-virtual-machines-and-select-from-services">5. In Search bar look for "virtual machines" and select from services</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 800></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 400></p>
 <h3 id="infra-config-6-on-the-virtual-machines-list-scroll-to-the-right-and-note-down-public-ip-address-for">6. On the Virtual Machines list scroll to the right and note down "Public IP address" for:</h3>
 <ul>
 <li><strong>"CloudNetworkController"</strong></li>
@@ -1143,13 +1173,14 @@
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image22.png" width = 800></p>
 <p>On the Site list hit "Continue" and then "Done" button to finish Initial Setup.</p>
 <p>Navigate to <strong>"Go To Dashboard"</strong> in bottom right corner - you should be moved to ND Dashboard with Site Map. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23b.png" width = 800></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23.png" width = 800></p>
-<p>In this section <strong>Azure</strong> and <strong>AWS Cloud Network Controllers</strong> were added to <strong>Network Dashboard</strong>. We will now proceed to <strong>Multisite</strong> configuration, and start managing those sites from <strong>Nexus Dashboard Orchestrator</strong>. We will also build an IPSec tunnels between them, so they can securly exchange traffic. </p></section><section class="print-page" id="infra-config-msite"><h1 id="infra-config-msite-infrastructure-configuration-multisite-configuration">Infrastructure configuration - MultiSite configuration</h1>
+<p>In this section <strong>Azure</strong> and <strong>AWS Cloud Network Controllers</strong> were added to <strong>Network Dashboard</strong>. We will now proceed to <strong>Multisite</strong> configuration, and start using those sites from <strong>Nexus Dashboard Orchestrator</strong>. We will also build an IPSec tunnels between them, so they can securly exchange traffic. </p></section><section class="print-page" id="infra-config-msite"><h1 id="infra-config-msite-infrastructure-configuration-multisite-configuration">Infrastructure configuration - MultiSite configuration</h1>
 <p>In this lab section we will use Nexus Dashboard Orchestrator(NDO) to connect 2 Cloud Fabrics together. </p>
 <h2 id="infra-config-msite-nexus-dashboard-orchestratorndo">Nexus Dashboard Orchestrator(NDO)</h2>
 <p><strong>Cisco Nexus Dashboard Orchestrator (NDO)</strong> provides consistent network and policy orchestration, scalability, and disaster recovery across multiple data centers through a single pane of glass while allowing the data center to go wherever the data is.</p>
 <p>NDO allows you to interconnect separate Cisco® Application Centric Infrastructure (Cisco ACI®) sites, Cisco Cloud ACI sites, and Cisco Nexus Dashboard Fabric Controller (NDFC) sites, each managed by its own controller (APIC cluster, NDFC cluster, or Cloud APIC instances in a public cloud). The on-premises sites (ACI or NDFC in the future) can be extended to different public clouds for hybrid-cloud deployments while cloud-first installations can be extended to multi-cloud deployments without on-premises sites. </p>
-<p>The single-pane network interconnect policy management and the consistent network workload and segmentation policy provided by NDO allows monitoring the health of the interconnected fabrics, enforcement of segmentation and security policies, and performance of all tasks required to define tenant intersite policies in APIC, NDFC, and cAPIC sites. </p>
+<p>The single-pane network interconnect policy management and the consistent network workload and segmentation policy provided by NDO allows health monitoring of the interconnected fabrics, enforcement of segmentation and security policies, and performance of all tasks required to define tenant intersite policies in APIC, NDFC, and Cloud sites. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image23a.png" width = 800></p>
 <p>● Key features and benefits</p>
 <ul>
@@ -1195,6 +1226,7 @@
 </li>
 </ul>
 <p><strong>Let's now explore possibilites of Cisco Nexus Dashboard Orchestrator!</strong></p>
+<p>Nexus Dashboard Orchestrator(NDO) is working as an Application/Service on top of Nexus Dashboard(ND) appliance cluster. Such architecture allows for deployment simplicity, easy maintainace and upgrades, as well as efficient resource use. NDO is one of many application which can co-exist on ND cluster at the same time. </p>
 <h3 id="infra-config-msite-1-ndo-service-introduction">1. NDO Service Introduction</h3>
 <p>In the navigation menu on the left go to <strong>"Admin Console"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image24.png" width = 400></p>
@@ -1206,7 +1238,7 @@
 <p><strong>Nexus Dashboard Orchestrator</strong> is already installed and enabled under <strong>"Service Catalog"</strong> inside <strong>"Installed Service"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image27.png" width = 800></p>
 <p>Hit <strong>"Open"</strong> button in order to login </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 400></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 300></p>
 <p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
 <h3 id="infra-config-msite-2-ndo-sites-onboarding">2. NDO Sites Onboarding</h3>
 <p>In order to configure AWS and Azure sites from NDO, added previously on <strong>Nexus Dashboard</strong>, sites have to be <strong>Maneged</strong> and have <strong>Site ID</strong> assigned. </p>
@@ -1263,14 +1295,14 @@ For Azure Site - set ID **20**
 <p><strong>It may take 5-10 minutes for configuration to be pushed and Tunnels to be established.</strong></p>
 <p>At this point we configured this part of our topology diagram: </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image42.png" width = 800></p>
-<h3 id="infra-config-msite-1-nexush-dashboard-view">1. Nexush Dashboard view</h3>
-<p>Nexus Dashboard allows for monitoring of Inter-Site connectivity. </p>
+<h3 id="infra-config-msite-1-nexus-dashboard-view">1. Nexus Dashboard view</h3>
+<p>Apart from configuration, Nexus Dashboard also allows for monitoring of Inter-Site connectivity. </p>
 <p>On the Left navigation page click <strong>"Dashboard"</strong> to go back to main Connectivity View. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image43.png" width = 800></p>
 <p>Take a look into green line between AWS and Azure site(you can use use magnifying tool for better view). Green line indicated that all is fine with connectivity. </p>
 <p>On the Left navigation page click <strong>"Infrastructure"</strong> -&gt; <strong>"Site Connectivity"</strong> and scroll down on a page. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image44.png" width = 300></p>
-<p>Under the site list, locate "Show Connectivity Status" and click on it. </p>
+<p>Under the site list, locate <strong>"Show Connectivity Status"</strong> and click on it. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image45.png" width = 800></p>
 <p>Check the connectivity status for both <strong>BGP EVPN</strong> as well as <strong>Tunnel Status.</strong> There should be 4 UP BGP sessions, as well as 4 Tunnels which are <strong>UP</strong> between Sites.</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image46.png" width = 800></p>
@@ -1294,9 +1326,9 @@ Tunnel7                192.168.255.2   YES NVRAM  up                    up
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that all 4 tunnels are up/up. </p>
-<p>Tunnel0 is addressed from TEP pool of our Cloud Contoller Fabric and it's used for communication between CNC and Cloud Router. </p>
-<p>Tunnel1 is a connected to inside of a Cloud. Depends on the provider - it's an Azure Load Balancer or AWS Transit Gateway and routing will be injected to send traffic towards VNETs and VPC CIDRs. </p>
-<p>Tunnel6 and Tunnel7 are configured towards two (2) Catalyst 8000V Routers in another site. Note also that Tunnel6 and Tunnel7 are addressed from IPSec subnet which was specified in the beginning of Multiste Configuration.</p>
+<p><strong>Tunnel0</strong> is addressed from TEP pool of our Cloud Contoller Fabric and it's used for communication between CNC and Cloud Router. </p>
+<p><strong>Tunnel1</strong> is a connected to inside of a Cloud. Depends on the provider - it's an Azure Load Balancer or AWS Transit Gateway and routing will be injected to send traffic towards VNETs and VPC CIDRs. </p>
+<p><strong>Tunnel6</strong> and <strong>Tunnel7</strong> are configured towards two (2) Catalyst 8000V Routers in another site. Note also that Tunnel6 and Tunnel7 are addressed from IPSec subnet which was specified in the beginning of Multiste Configuration.</p>
 <h3 id="infra-config-msite-2-ospf-adjacency-veryfication">2. OSPF adjacency veryfication</h3>
 <p>Execute command <strong>"show ip ospf neighbor"</strong></p>
 <div class="highlight"><pre><span></span><code>show ip ospf neighbor
@@ -1325,13 +1357,13 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that both sessions are Up (O in "State/PfxRcd" column)</p>
-<p><strong>In Next Section our First Tenant will be configured!</strong></p></section><h1 class='nav-section-title-end'>Ended: INFRA Configuration</h1>
+<p><strong>In Next Section we will configure our first Tenant</strong> </p></section><h1 class='nav-section-title-end'>Ended: Infrastructure configuration</h1>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="ndo-tenant"><h1 id="ndo-tenant-nexus-dasboard-orchestrator-tenant-configuration">Nexus Dasboard Orchestrator Tenant configuration</h1>
-<p>In this section we will configure our first Tenant, stretched between Azure and AWS. As Cloud Network Controller will be used for configuration, we need to make sure that CNC has privillages to make configuration changes in cloud providers. Will learn how to do it and when we need it. </p>
-<p>Following diagram shows what is to about to be configured. </p>
+<p>In this section we will configure our first Tenant, stretched between Azure and AWS. As Cloud Network Controller will be used for configuration, we need to make sure that CNC has privileges to make configuration changes in cloud provider accounts. Will learn how to do it and when we need it. </p>
+<p>Following diagram shows what we are about to configure. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image49a.png" width = 800></p>
 <h2 id="ndo-tenant-tenant-creation-on-ndo">Tenant Creation on NDO</h2>
 <p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
@@ -1352,31 +1384,31 @@ ct_routerp_eu-central-1_0_0#
 <p>For Azure site, we will be using the same <strong>Subscription</strong> as the one used for CNC deployment - select <strong>Mode</strong> as <strong>"Select Shared"</strong> and use existing subscription from drop-down. Leave security domains empty. Hit <strong>Save</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800></p>
 <p><strong>CNC-AWS-01 site configuration</strong></p>
-<p>For AWS site we have 2 options - <strong>Untrusted</strong> with Cloud Access key and Secret or <strong>Trusted</strong>. In our case we would be using Trusted configuration. </p>
-<p>Each Tenant created on NDO associated to AWS Cloud required sepearete Account ID on AWS site. You can find your in POD Details under following Appendix </p>
-<p>Fill in with your POD <strong> AWS User-Account ID</strong> and select <strong>Access Type</strong> as <strong>Trusted</strong>, hit <strong>Save</strong>. </p>
+<p>For AWS site we have 2 options - <strong>Untrusted</strong> with Cloud Access key and Secret or <strong>Trusted</strong>. In our case we would be using <strong>Trusted</strong> configuration. </p>
+<p>Each Tenant created on NDO, associated to AWS Cloud require sepearete Account ID on AWS site. You can find your <strong>AWS User-Account ID</strong> in POD Details. </p>
+<p>Fill in with your POD <strong>AWS User-Account ID</strong> and select <strong>Access Type</strong> as <strong>Trusted</strong>, hit <strong>Save</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image53.png" width = 800></p>
-<p>Now configuration can be saved, leave assocaited user list empty as there are no additional users and hit <strong>Save</strong>.</p>
+<p>Now configuration can be saved, leave associated user list empty as there are no additional users and hit <strong>Save</strong>.</p>
 <p>On the Tenant list you should see <strong>Tenant-01</strong> created an assigned to 2 Sites. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image54.png" width = 800></p>
-<p>In next step we will make AWS trust configuration, so CNC can make changes to AWS objects. This step is not needed for Azure, as we are using shared subscription model, so access for CNC to manage Azure components was granted as part of infrastructure configuration. </p>
+<p>In next step we will make AWS trust configuration, so CNC can make changes to an AWS objects. This step is not needed for Azure, as we are using shared subscription model, so access for CNC to manage Azure components was granted as part of infrastructure configuration. </p>
 <p>You can find details about this process under <strong>Resources</strong> in <strong>Appendixes</strong> section of this Lab Guide. </p></section><section class="print-page" id="aws-trust"><h1 id="aws-trust-nexus-dasboard-orchestrator-tenant-aws-trust-configuration">Nexus Dasboard Orchestrator Tenant AWS Trust Configuration</h1>
 <p>In previus step we have selected Tenant configuration Mode as Trusted, so now trust needs to be made for Cloud Network Controller to have access to AWS Account. </p>
 <h2 id="aws-trust-aws-user-account-login">AWS User Account Login</h2>
 <p>Each User POD has two(2) AWS Accounts. </p>
 <ul>
-<li>1st for Infrastrucre Configuration </li>
+<li>1st for Infrastructure Configuration </li>
 <li>2nd for Tenant Configuration </li>
 </ul>
 <p>Open AWS console via browser </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>As you are already logged into AWS for Infrastructure Account, you can logout or use Incognito Mode (preferably), or different browser. </p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
 <p>Select IAM user, provide Account ID and hit "Next" </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>For this login please use AWS User Account ID from POD details</p>
 </div>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
@@ -1398,7 +1430,7 @@ ct_routerp_eu-central-1_0_0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image61.png" width = 800></p>
 <p>Hit <strong>"Get started"</strong> to view Cloud Network Controller Dashboard. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image62.png" width = 800></p>
-<p>Look on the <strong>Dashboard -&gt; Application Management -&gt; Tenants</strong>, we can see newly create tenant on the list. </p>
+<p>Look on the <strong> Application Management -&gt; Tenants</strong>, we can see newly create tenant on the list. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image63.png" width = 800></p>
 <p>Double-click the Tenant name <strong>"Tenant-01"</strong> to open it. </p>
 <p>Under the <strong>AWS Account</strong> section there is warning related to our Trust configuration, along with the <strong>"Run the CloudFormation Template"</strong> hyperlink. </p>
@@ -1425,7 +1457,7 @@ ct_routerp_eu-central-1_0_0#
                         <h1 class='nav-section-title' id='section-use-cases'>
                             Use-cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>
-                        <section class="print-page" id="use-case1"><h1 id="use-case1-use-case-01-stretched-vrf">Use-case 01 - Stretched VRF</h1>
+                        <section class="print-page" id="use-case1"><h1 id="use-case1-use-case-01-stretched-vrf-across-public-clouds-with-site-local-epgs">Use-case 01 - Stretched VRF across Public Clouds with site-local EPGs</h1>
 <p><strong>Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and will be working on logical topology.</strong></p>
 <p>First use-case task will focus on:</p>
 <ul>

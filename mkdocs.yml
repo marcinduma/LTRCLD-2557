@@ -20,6 +20,7 @@ nav:
   - Infrastructure configuration: 
     - Sites onboarding: infra-config.md
     - Multisite configuration: infra-config-msite.md
+  - ACI to Public Cloud Object mapping: object-map.md
   - Tenant configuration:
     - NDO Tenant Configuration: ndo-tenant.md
     - AWS Trust: aws-trust.md
@@ -28,8 +29,6 @@ nav:
     - Use-case 02 - Internet Gateway: use-case2.md
     - Use-case 03 - Inter-Tenant routing: use-case3.md
   - Appendixes:
-
-    - ACI to Public Cloud Object mapping: object-map.md
     - Resources: resources.md
     - PRINT version: print_page/
 theme:

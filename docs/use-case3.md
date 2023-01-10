@@ -1,6 +1,6 @@
 # Use-case 03 - Inter-Tenant routing
 
-In this section we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  
+In this section we will explore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  
 
 Additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be used in this lab. Later in the lab we will configured inter-tenant leaking, so Virtual Machines from 2 tenants are able to talk to each other. 
 
@@ -20,9 +20,9 @@ Associate Tenant to Azure CNC-Azure-01 Sites by checking the checkbox next to it
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image200.png" width = 800>
 
 !!! Note 
-    Similar as for first Tenant, we are not able to **Save** this configuration with red marking Site. Click the **Pencil** button at the end of each site line to complete configuration. 
+    Similar as for first Tenant, we are not able to **Save** this configuration with red marking on Site. Click the **Pencil** button at the end of each site line to complete configuration. 
 
-    Additional setting are needed for CNC, so it knows which subscribtion. 
+    Additional setting are needed for CNC, so it knows which subscription to use. 
 
 **CNC-Azure-01 site configuration**
 
@@ -30,8 +30,7 @@ For Azure site, we will be using the same **Subscription** as previously - selec
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800>
 
-
-As configuration will be done for new Tenant, new Schema, Template, VRF and all other logical objects have to be created. 
+As configuration will be done for new Tenant thus new Schema, Template, VRF and all other logical objects have to be created. 
 
 ## Schema, Template configuration 
 
@@ -60,7 +59,7 @@ For a Template type select **"ACI Multi-Cloud"** and hit **"Add"**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800>
 
-On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. 
+On the right side of the template screen, we can customize the Template Display Name, and also select Tenant. Add Display Name and Select a Tenant. 
 
 - Display Name: **temp-Azure-01**
 - Tenant setting: **Tenant-02-Azure**
@@ -69,9 +68,9 @@ On the right side of the template screen, we can customize the Tempalte Display 
 
 ### 3. Template to site association
 
-For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. 
+For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabrics configuration will be pushed. 
 
-For **temp-Azure-01**, we want to add both Azure site only. 
+For **temp-Azure-01**, we want to add Azure site only. 
 
 To do it under the **Template Properties** locate the **Actions** button and hit **Sites Associations**
 
@@ -98,8 +97,7 @@ Leave other as default.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image208.png" width = 800>
 
-As Tempalte was assocaited to Azure site, we need to update details for it, to do so under **temp-stretch-01** expand **"Template Properties"** and go to **"CNC-Azure-01"** 
-
+As Tempalte was assocaited to Azure site, we need to update details for it.
 
 Under **temp-Azure-01** expand **"Tempalate Properties"** and go to **"CNC-Azure-01"** 
 
@@ -123,11 +121,11 @@ Like previously we need to add subnet, which is whole CIDR. When done, hit **"Sa
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image212.png" width = 800>
 
-For traffic to flow between the Tenants, **"VNET Peering"** feature with **"Default" Hub Network** needs to be selected as well.
+For traffic to flow between the Tenants, **"VNET Peering"** feature with **"Default" Hub Network** needs to be selected as well. This will allow for traffic routing between two(2) created VRFs, over the Azure Network Backbone. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image213.png" width = 800>
 
-Hit ok to finish configuration for **CNC-Azure-01** fabric.
+Hit **Ok** to finish configuration for **CNC-Azure-01** fabric.
 
 Under **temp-Azure-01** expand **"Template Properties"** and go to **"Template Properties"** main settings. 
 
@@ -183,11 +181,11 @@ Hit checkbox sign to save expression and then **Ok** to finish.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image222.png" width = 500>
 
-Under **Template Properties** swtich back to **Template Properties** and hit **"Deploy to sites"** and **"Deploy"**. 
+Under **Template Properties** switch back to **Template Properties** and hit **"Deploy to sites"** and **"Deploy"**. 
 
 Once done confirmation will pop up on the screen. 
 
-**At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance.**
+**At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance inside this Tenant to test configuration.**
 
 ## VM creation 
 
@@ -242,7 +240,7 @@ It may take 3-5 minutes for instance to be ready. Portal will notify you when do
 
 ### 1. Filter creation
 
-In order to create Contract, we need to have a filter in this template also
+In order to create Contract, we need to have a filter inside this template.
 
 Open Nexus Dashboard Orchestrator GUI then go to **Application Management -> Schemas -> "Schema-T02-Azure"** -> open 
 
@@ -265,18 +263,18 @@ Hit **Ok** to save it.
 ### 2. Contracts configuration
 
 !!! Info 
-    Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default **VRF** Scope was enough to cover provider and consumer. 
+    Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located, we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default **VRF** Scope was enough to cover provider and consumer. 
 
 In this Use-case, idea is to connect EPGs from different Tenants, hence scope for contract needs to be set to **"Global"**, as this is the only one which covers EPGs from different tenants. Also placement of contract is imporant.
 
 !!! Important
-    If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed in the Tenant were Provider of this contract is configured. 
+    If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed first in the Tenant were Provider of this contract is configured. 
 
 In our case contract where **EPG-Azure-02** from **Tenant-Azure-02** is to be a **Provider** will be created in **"Schema-T02-Azure"** and Tempalte **"temp-Azure-01"**. 
 
 Contract in opposite direction where **EPG-Azure-01** from **Tenant-01** is to be a **Provider** will be created in **"Schema-T01"** and Tempalte **"temp-Azure-01"**. 
 
-**Contracts configuration under Tenant-Azure-02** 
+**Contracts configuration for Tenant-Azure-02** 
 
 Under Schema **"Schema-T02-Azure"** navigate to **View** select **"temp-Azure-01"** and **"Add contract"** under **Contract** section. 
 
@@ -294,6 +292,8 @@ Create contracts with following details:
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image241.png" width = 800>
 
 Hit **Save** to finish contract configuration. 
+
+**Let's now make EPG-Azure-02 as provider of this contract, so we can than consume it in Tenant-01. 
 
 Under Schema **"Schema-T02-Azure"** navigate to **View** select **"temp-Azure-01"** and under **EPG-Azure-02** specific setting locate **Contract** section
 
@@ -372,6 +372,8 @@ Search for **Virtual machine** in search bar and open from Services list
 
  <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width = 800>
 
+Open Virtual Machine **VM-AZ-02**.
+
 On the Azure Virtual Machine **VM-AZ-02**, scroll down to **"Help"** Section and select **"Serial Console"** 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image252.png" width = 800>
@@ -395,8 +397,8 @@ Once in the console try to reach via ping to private IP address of Virutal Machi
     rtt min/avg/max/mdev = 3.185/5.147/6.699/1.401 ms
     student@VM-AZ-02:~$ 
 
-Communication is successfull! Well done. 
+Communication is successfull! Well done! 
 
- ## Cloud Routers verification 
+# Great job. This test has completed our lab, hope you enjoyed it and learn something new!
 
-# This test has completed our lab, hope you enjoyed it and learn some new infromations.
+In Appendixes section you can find links to documentation and resources for futher details. 

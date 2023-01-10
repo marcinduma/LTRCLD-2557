@@ -1,19 +1,21 @@
 # Use-case 01 - Stretched VRF across Public Clouds with site-local EPGs
 
-**Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and will be working on logical topology.**
+**Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and we will be working on logical topology.**
 
-First use-case task will focus on:
+In the first usecase in this lab we will configure topology with one(1) Tenant, stretched to 2 Public Cloud Sites. On top of it VRF, EPGs, selectors and contracts will be added and veryfication of created polices will be done. Lastly we will configure out Virutal Machines/EC2 instances to test real traffic communication, will also take a look how infrastructure configuration looks under the hood. 
+
+Configuration tasks will focus on:
 
 - Configuration of stretched VRF inside Tenant-01
-- VPC CIDR(AWS), VNET(Azure) configuration in respective Clouds
-- EPG configuration in both Clouds 
-- EC2/Virtual Machine creation and EPG assigment 
-- Contract configuration to allow traffic flow 
+- VPC CIDR(AWS), VNET(Azure) creation in respective Clouds
+- EPG definition in both Providers 
+- EC2/Virtual Machine deployment and EPG assigment
+- Contract configuration to allow traffic 
 - Communication testing 
 
 ## Schema, Template configuration 
 
-All logical polices and configuration are done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will also define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. 
+All logical polices and configuration are done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. 
 
 ### 1. Schema creation 
 
@@ -36,7 +38,7 @@ For a Template type select **"ACI Multi-Cloud"** and hit **"Add"**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800>
 
-On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. 
+On the right side of the template screen, we can customize the **Template Display Name**, and also select **Tenant**. Add Display Name and Select a Tenant. 
 
 - Display Name: **temp-stretch-01**
 - Tenant setting: **Tenant-01**
@@ -45,7 +47,7 @@ On the right side of the template screen, we can customize the Tempalte Display 
 
 ### 3. Template to site association
 
-For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. 
+To deploy configuration inside template, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. 
 
 For **temp-stretch-01**, we want to add both Azure and AWS sites. 
 
@@ -53,11 +55,11 @@ To do it under the **Template Properties** locate the **Actions** button and hit
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image76.png" width = 800>
 
-Select both site **CNC-AWS-01** and **CNC-Azure-01** and hit **Ok**
+Select both sites **CNC-AWS-01** and **CNC-Azure-01** and hit **Ok**
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800>
 
-## VRF, EPG, selectors deployment  
+## VRF, EPGs, selectors deployment  
 
 ### 1. VRF Configuration
 
@@ -74,7 +76,7 @@ Leave other as default.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image75.png" width = 800>
 
-As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under **temp-stretch-01** expand **"Template Properties"** and go to **"CNC-AWS-01"** 
+As Template was associated to both sites, we need to update details for each cloud provider, so ND knows which account/subscribtion should map to the Tenant. To do so under **temp-stretch-01** expand **"Template Properties"** and go to **"CNC-AWS-01"** 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image78.png" width = 800>
 
@@ -88,7 +90,7 @@ Under the **"Template Properties"** hit **"Add Region"** button and select **Reg
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image80.png" width = 800>
 
-Now we need to specify what subnet we would like to use in AWS cloud for that VPC. This subnet will be configure as VPC CIDR on AWS cloud and will be used for VM and endpoint addressing. 
+Now we need to specify what subnet we would like to use in AWS cloud for that VPC. This subnet will be configured as VPC CIDR on AWS cloud and will be used for EC2 and endpoint addressing. 
 
 - CIDR: **10.0.0.0/23** 
 
@@ -100,18 +102,17 @@ We need to add subnet for a,b,c (number of AZ depends on the region), each subet
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image82.png" width = 800>
 
-Create subnet for all 3 AZ in our Region, use non-virtual zone. 
+Create subnet for all 3 AZ in our Region, use non-virtual zones. 
 
  - **Subnet:** 10.0.0.0/25      **Name:** az-1a-subnet **AZ:** eu-central-1a
  - **Subnet:** 10.0.0.128/25    **Name:** az-1b-subnet **AZ:** eu-central-1b
  - **Subnet:** 10.0.1.0/25      **Name:** az-1c-subnet **AZ:** eu-central-1c
 
-
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image83.png" width = 800>
 
 When done, hit **"Save"** button to save subnet configuration. 
 
-We also want to connect our subnets to Catalys8000V routers, this is done via Hub Network (Transit Gateway in AWS) - check the checkbox for **"Hub Network"**, select **Hub Network** and also all add all **Subnets** created before. 
+We also want to connect our subnets to Catalys8000V Cloud Routers, this is done via Hub Network (Transit Gateway in AWS) - check the checkbox for **"Hub Network"**, select **Hub Network** and also add all **Subnets** created before 
 
  - Hub Network: **TGW-HUB**
  - Subnets: **10.0.0.0/25, 10.0.0.128/25, 10.0.1.0/25** 
@@ -122,9 +123,9 @@ Hit ok to finish configuration for **CNC-AWS-01** fabric.
 
 !!!Info 
 
-    AWS Transit Gateway(TGW) connects Amazon Virtual Private Clouds (VPCs) networks through a central hub. This connection simplifies network and puts an end to complex peering relationships. Transit Gateway acts as a highly scalable cloud router(don't be confused by naming - it's AWS internal cloud service and it's not related to Catalyst8000V routers which we also used call Cloud Routers). 
+    AWS Transit Gateway(TGW) connects Amazon Virtual Private Clouds (VPCs) networks through a central hub. This connection simplifies network and puts an end to complex peering relationships. Transit Gateway acts as a highly scalable cloud router(don't be confused by naming - it's AWS internal cloud service and it's not related to Catalyst8000V Routers which we also used to call Cloud Routers). 
 
-    In our case TGW are used to connect our **User VPC** with **Infrastructure VPC** where the Cloud Routers (Catalyst8000V) resides, this allows traffic flow between User Endpoints and Cloud Routes, so also for communication with another sites and also another AWS Regions. Selection of the subnet for Hub Network means that such subnet will be advertised to TGW, so traffic towards such subnet can flow. 
+    In our case TGW are used to connect our **User VPC** with **Infrastructure VPC** where the Cloud Routers (Catalyst8000V) reside, this allows traffic flow between User Endpoints and Cloud Routers, so also for communication with another sites and also another AWS Regions. Selection of the subnet for Hub Network means that such subnet will be advertised to TGW, so traffic towards such subnet can flow. 
 
 Similar configuration has to be done for **CNC-Azure-01**.
 
@@ -134,7 +135,7 @@ Under **temp-stretch-01** expand **"Tempalate Properties"** and go to **"CNC-Azu
 
 Click on the **"VRF-01"** which opens **Site specific properties** for this **CNC-Azure-01 Site**
 
-Under the **"Tempalate Properties"** hit **"Add Region"** button and select **Region** from the list and then hit  **"Add CIDRs"** button 
+Under the **"Tempalate Properties"** hit **"Add Region"** button and select **Region** from the list and then hit **"Add CIDRs"** button 
 
  - **Region:** francecentral
 
@@ -144,7 +145,7 @@ Under the **"Tempalate Properties"** hit **"Add Region"** button and select **Re
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image86.png" width = 800>
 
-Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select **Availability Zones.** We can add whole CIDR as subnet. When done, hit **"Save"** button to save subnet configuration. 
+Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select **Availability Zones**, in Azure it's done automaticaly. We can add whole CIDR as subnet. When done, hit **"Save"** button to save subnet configuration. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image87.png" width = 800>
 
@@ -152,13 +153,13 @@ In case of Azure cloud, connection to CNC VNET is done via **"VNET Peering"** fe
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image88.png" width = 800>
 
-Hit ok to finish configuration for **CNC-Azure-01** fabric.
+Hit **"Ok"** to finish configuration for **CNC-Azure-01** fabric.
 
 !!!Info 
 
     VNET Peering - Virtual network peering enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
 
-    In our case by enabling Hub Network in Azure, we are acutally peering our User Virtual Network (VRF-01) with Infrastructure Virtual Network(overlay-1) in which Cloud Routers resides to allow communication. 
+    In our case by enabling Hub Network in Azure, we are acutally peering our User Virtual Network (VRF-01) with Infrastructure Virtual Network(overlay-1) in which Cloud Routers reside to allow communication. 
 
 Under **temp-stretch-01** expand **"Template Properties"** and go to **"Template Properties"** main settings. 
 
@@ -195,7 +196,7 @@ You should have 2 VPCs created.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image95.png" width = 800>
 
-Let's check the same in Azure Cloud. Open the Azure Portal and login if needed. 
+Let's check the same in Azure Cloud. Open the Azure Portal and login if session already time-out. 
 
 Search for **"Virtual Networks"** in search bar
 
@@ -214,12 +215,16 @@ As per our topology diagram, EPGs in each Cloud are separate. As current **temp-
 
 Use the **"Add new Template"** and create 2 new templates with following names. Similar to first template from **Actions** menu associate to respective sites. 
 
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image71.png" width = 800>
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800>
+
 **AWS Template:**
 
 - Template name: **temp-AWS-01**
 - Template type: **ACI Multi-Cloud**
 - Template Tenant: **Tenant-01**
-- Site associated: **CNC-AWS-01**
+- Site association: **CNC-AWS-01**
 
 Hit **Save** button to save the template. 
 
@@ -228,7 +233,7 @@ Hit **Save** button to save the template.
 - Template name: **temp-Azure-01**
 - Template type: **ACI Multi-Cloud** 
 - Template Tenant: **Tenant-01**
-- Site associated: **CNC-Azure-01**
+- Site association: **CNC-Azure-01**
 
 Hit **Save** button to save the template. 
 
@@ -263,7 +268,7 @@ Skip the **"On-Premises Properties"** and click on **"Cloud Properties"** and se
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image103.png" width = 500>
 
-We also need to add **Selector**. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under **Site Specific** configuration for each EPG. 
+We also need to add **Selectors**. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under **Site Specific** configuration for each EPG. 
 
 Thare can be different type of selectores: 
 
@@ -408,13 +413,13 @@ It may take 3-5 minutes for instance to be ready - you may jump to next step and
 
 ### 2. AWS EC2 verification 
 
-Go back to EC2 -> Instances and locate your EC2 machine. Click on Instance-ID of you machine to open it. 
+Go back to EC2 -> Instances and locate your EC2 machine. Click on **Instance-ID** of you machine to open it. 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image122.png" width = 800>
 
  - Verify that VPC ID is correct 
  - Verify that subnet is correct 
- - Verify that instance has correct **Private IPv4 addressess"** 
+ - Verify that instance has an **Private IPv4 addressess"** from created subnet range. 
 
  Note down IP address of EC2 instance, we will need it for verification. 
 
@@ -430,7 +435,7 @@ Go back to EC2 -> Instances and locate your EC2 machine. Click on Instance-ID of
  
 !!! Note
 
-    After EC2 instance startup it may take some time for CNC to change security group to correct one. If no selector is matched, EC2 will be assigned to default Cloud Network Controller Secuirty Group will all traffic denied. 
+    After EC2 instance startup it may take some time for CNC to change security group to correct one, corresponding to EPG. If no selector is matched, EC2 will be assigned to default Cloud Network Controller Secuirty Group will all traffic denied. 
 
 ### 3. Azure Virtual Machine creation 
 
@@ -483,6 +488,8 @@ Under the **"Settings"**, go to **"Networking"** and then **"Application Securit
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800>
 
+Correct ASG configuration confirms correct configuration on Azure site. 
+
 ## Cross Cloud traffic verification 
 
 Let's check if our Virtual Machines are able to communicate. For now we have configured that part of our infrastructure. 
@@ -507,7 +514,7 @@ Inside the console try to reach via ping to AWS EC2 IP address we noted earlier.
     7 packets transmitted, 0 received, 100% packet loss, time 6134ms
     student@VM-AZ-01:~$
 
-It doesnt work, what is expected as we didn't connect our two EPGs via contract. So even they are part of the same VRF, they are not able to communicate, as exactly same principles as on ACI applies. 
+It doesnt work, what is expected as we didn't connect our two EPGs via contract. So even they are part of the same VRF, they are not able to communicate, as exactly same principles as on on-premises ACI applies. 
 
 **Let's add contract to allow communication.**
 
@@ -515,7 +522,7 @@ It doesnt work, what is expected as we didn't connect our two EPGs via contract.
 
 ### 1. Filter creation
 
-In order to create Contract, we need to have a filter which defines what type of traffis is allowed or denied under specyfic contract subject. Filter can define what ports and protocols are matched by specyfic rule.
+In order to create Contract, we need to have a filter which defines what type of traffis is allowed or denied under specyfic contract's subject. Filter can define what ports and protocols are matched by specyfic rule.
 
 Open Nexus Dashboard Orchestrator GUI then go to **Application Management -> Schemas -> "Schema-T01"** -> open 
 
@@ -570,7 +577,7 @@ Hit **Save** to finish contract configuration.
 Hit **Deploy to sites** for contracts to be pushed. 
 
 !!! Info 
-    Even the checkbox for "Apply both direction" is enabled, we still need 2 contracts between Cloud EPGs. This configuration is coming from the fact that Consumed Contracts are adding Outbound/Outgoing rules and Provided Contracts are adding Inband/Incoming rules, so with one contract we would only allow for traffic to be initiated from consumer EPG. We could use the same contract in both direction (each EPG would then provide and consume the same contract), but it's not a best practice as may lead to unwanted traffic leaking and complicate troubleshooting. 
+    Even the checkbox for "Apply both direction" is enabled, we still need 2 contracts between Cloud EPGs. This configuration is comming from the fact that Consumed Contracts are adding Outbound/Outgoing rules and Provided Contracts are adding Inband/Incoming rules in Security Groups, so with one contract we would only allow for traffic to be initiated from consumer EPG. We could use the same contract in both direction (each EPG would then provide and consume the same contract), but it's not a best practice as may lead to unwanted traffic leaking and complicate troubleshooting. 
 
 ### 2. Contract assigment to EPGs 
 
@@ -679,7 +686,7 @@ You can see that subnet representing **AWS CIDR space - 10.0.0.0/23** is routed 
 With that configuration, traffic is send to **Azure Cloud Routers** from which via **IPSec tunnels** is send to **AWS Cloud Routers** and towards destination AWS VPC. 
 
 !!! Info 
-    In "Effective routes" output there are quite a few routes with "Default" source. Those were added by Microsoft and typicaly respresenting internal services. Next-hop set to "None" means that traffic towards those subnets is silently dropped. 
+    In "Effective routes" output there are quite a few routes with "Default" source. Those were added by Microsoft and typicaly respresenting internal MS services. Next-hop set to "None" means that traffic towards those subnets is silently dropped. 
 
 ### AWS Cloud verification
 
@@ -697,7 +704,7 @@ On the subnet details page, scroll down and locate **"Route Table"** tab, click 
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image161.png" width = 800>
 
-Notice that there was route added for **Azure VNET space - 10.100.0.0/23** towards **"tgw-*"** which is our Transit Gateway used to communicated with **AWS Cloud Routers**, so traffic can be send to Azure. 
+Notice that there was route added for **Azure VNET space - 10.100.0.0/23** towards **"tgw-*"** which is our Transit Gateway used to communicate with **AWS Cloud Routers**, so traffic can be send to Azure Cloud. 
 
 ### Cloud Routers verification 
 

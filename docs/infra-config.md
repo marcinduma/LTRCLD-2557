@@ -2,6 +2,57 @@
 
 In this section we will find out Public IP addressing of Nexus Dashboard as well as Cloud Network Contollers. Also, will onboard AWS and Azure sites to Nexus Dashboard for further use. 
 
+Before that, let's take a look what Nexus Dashboard is and what function it has in ACI Multicloud Solution. 
+
+## Nexus Dashboard Overview 
+
+**Cisco Nexus Dashboard** is a single launch point to monitor and scale across different sites, whether it is Cisco Application Centric Infrastructure™ (Cisco ACI®) fabric controllers, the Cisco® Application Policy Infrastructure Controller (APIC), Cisco Nexus Dashboard Fabric Controller (NDFC), or a Cloud APIC running in a public cloud provider environment.
+
+Cisco Nexus Dashboard provides a single focal point to unite the disparate views of hybrid-cloud data-center operations, application deployment, and performance.
+
+<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9a.png" width = 800>
+
+**Benefits**
+
+●Easy to use
+
+-      Customizable role-based UI view to provide a focused view on network operator use cases
+
+-      Single Sign-On (SSO) for seamless user experience across operation services
+
+-      Single console for health monitoring and quick service turn-up
+
+●Easy to scale
+
+-      Ensure high availability, scale-out operations from a single dashboard
+
+-      Scale use cases leveraging flexible deployment options
+
+-      Operations that span across on-premises, multicloud, and edge networks
+
+●Easy to maintain
+
+-     Seamless integration and lifecycle management of operational services
+
+-      Onboard and manage operational services across on-premises, cloud, or hybrid environments
+
+-      Single integration point for critical third-party applications and tools
+
+●Flexible deployment options
+
+-      On premises: Run Cisco Nexus Dashboard on the Cisco Nexus Dashboard platform
+
+-      Hybrid: Run Cisco Nexus Dashboard on premises and in the cloud
+
+-      Virtual: Run Cisco Nexus Dashboard on any local compute
+
+-      Cloud: Run Cisco Nexus Dashboard on public cloud of choice
+
+-      SaaS: Deploy, maintain, and support your infrastructure from anywhere*
+
+**Let's now login and start using it! **
+
+
 ## Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS 
 
 ### 1. Open AWS console via browser 
@@ -67,52 +118,6 @@ In this section we will find out Public IP addressing of Nexus Dashboard as well
 
 
 ## Nexus Dashboard site onboarding
-
-**Cisco Nexus Dashboard** is a single launch point to monitor and scale across different sites, whether it is Cisco Application Centric Infrastructure™ (Cisco ACI®) fabric controllers, the Cisco® Application Policy Infrastructure Controller (APIC), Cisco Nexus Dashboard Fabric Controller (NDFC), or a Cloud APIC running in a public cloud provider environment.
-
-Cisco Nexus Dashboard provides a single focal point to unite the disparate views of hybrid-cloud data-center operations, application deployment, and performance.
-
-<img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9a.png" width = 800>
-
-**Benefits**
-
-●Easy to use
-
--      Customizable role-based UI view to provide a focused view on network operator use cases
-
--      Single Sign-On (SSO) for seamless user experience across operation services
-
--      Single console for health monitoring and quick service turn-up
-
-●Easy to scale
-
--      Ensure high availability, scale-out operations from a single dashboard
-
--      Scale use cases leveraging flexible deployment options
-
--      Operations that span across on-premises, multicloud, and edge networks
-
-●Easy to maintain
-
--     Seamless integration and lifecycle management of operational services
-
--      Onboard and manage operational services across on-premises, cloud, or hybrid environments
-
--      Single integration point for critical third-party applications and tools
-
-●Flexible deployment options
-
--      On premises: Run Cisco Nexus Dashboard on the Cisco Nexus Dashboard platform
-
--      Hybrid: Run Cisco Nexus Dashboard on premises and in the cloud
-
--      Virtual: Run Cisco Nexus Dashboard on any local compute
-
--      Cloud: Run Cisco Nexus Dashboard on public cloud of choice
-
--      SaaS: Deploy, maintain, and support your infrastructure from anywhere*
-
-**Let's now login and start using it! **
 
 ### 1. Login to Nexus Dasboard using **"ND1-Master"** Public IPv4 Address
 

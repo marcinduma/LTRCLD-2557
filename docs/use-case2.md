@@ -8,7 +8,7 @@ An internet gateway provides a target VPC route tables for internet-routable tra
 
 ## Internet Gateway as External EPG
 
-As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. 
+As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - **External EPG**. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. 
 
 ### External EPG configuration 
 
@@ -183,4 +183,4 @@ At this point we completed that part of our topology configuration.
 
 <img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800>
 
-In Next Section we will configure additional Tenant and try inter-tenant leaking. 
+In Next Section we will configure additional Tenant and inter-tenant leaking.

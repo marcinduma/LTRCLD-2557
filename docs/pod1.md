@@ -5,7 +5,7 @@
 !!! Warning 
     Make sure to use correct account (Infra or User) as indicated in lab guide!
 
-### **AWS Infrastructure Tenant**
+### **AWS Infrastructure Account**
 
 AWS Infra Account ID: <br> **xxxxxxx**
 
@@ -24,7 +24,7 @@ AWS Infra Account Password:<br> **xxxxx!**
 | csr-[ct_routerp_eu-central-1_1:0] | csradmin | CiscoLive2023! | xxx | AWS Cloud Router 02 | 
 
 
-### **AWS User Tenant** 
+### **AWS User Account** 
 
 AWS User Account ID:<br> **xxx**
 
@@ -35,7 +35,7 @@ AWS User Account Password:<br> **xx!**
 ## **Azure Resources**
 
 !!! Warning 
-    For Azure Cloud shared subscribtion model is used, hence login is the same for Infra and User account!
+    For Azure Cloud shared subscribtion model is used, only one account is neccessary!
 
 Login username:<br> **student@xxxx.com**
 

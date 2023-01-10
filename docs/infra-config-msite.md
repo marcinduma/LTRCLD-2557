@@ -72,6 +72,22 @@ Hit **"Open"** button in order to login
 
 You will be now redirected to **Nexus Dashboard Orchestrator** Dashboard. 
 
+NDO Dashboard is very similar to ND Dashboard. You will see world map with sites located on them. You can change view to *Table* and get such summary on the screen.
+
+<img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-1.png" width = 800>
+
+Similar to ND, Left navigation panel is divided to sections. You can find there:
+
+- Sites - sites enablement under NDO. Sites are configured in ND itself but to be **Managed** by NDO must be explicitly configured in NDO Sites menu.
+
+<img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-2.png" width = 800>
+
+- Application Management - under this section you find all components for Logical deployment of tenants. You will use this section while configuring Use-Cases in a moment.
+- Fabric Management - configuration of Fabric and Access Polices to be apply at sites
+- Operations - Backup/Restore/Updates etc
+- Infrastructure - Site connectivity - definition of overlay-1 VXLAN evpn, OSPF, eBGP - described on next section
+- Integration - Possibile integration with SDWAN or DNAC
+
 ### 2. NDO Sites Onboarding
 
 In order to configure AWS and Azure sites from NDO, added previously on **Nexus Dashboard**, sites have to be **Maneged** and have **Site ID** assigned. 
@@ -254,4 +270,4 @@ Expected output:
 
 Verify that both sessions are Up (O in "State/PfxRcd" column)
 
-**In Next Section we will configure our first Tenant** 
+**In Next Section we will configure our first Tenant and for now on will focus on logical configuration. Before we do that, let's check how ACI created object will be mapped by Cloud Network Controller into native Public Cloud objects.**

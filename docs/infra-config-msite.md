@@ -270,4 +270,4 @@ Expected output:
 
 Verify that both sessions are Up (O in "State/PfxRcd" column)
 
-**In Next Section we will configure our first Tenant and for now on will focus on logical configuration. Before we do that, let's check how ACI created object will be mapped by Cloud Network Controller into native Public Cloud objects.**
+**In Next Section we will configure our first Tenant and from now on we will focus on logical configuration. Before we do that, let's check how ACI created object will be mapped by Cloud Network Controller into native Public Cloud objects.**

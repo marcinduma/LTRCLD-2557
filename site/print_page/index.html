@@ -504,22 +504,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../object-map/" class="md-nav__link">
+        ACI to Public Cloud Object mapping
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_5">
           Tenant configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Tenant configuration" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Tenant configuration
         </label>
@@ -570,18 +585,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_6">
           Use-cases
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Use-cases" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Use-cases
         </label>
@@ -646,36 +661,22 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_7">
           Appendixes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Appendixes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../object-map/" class="md-nav__link">
-        ACI to Public Cloud Object mapping
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -790,6 +791,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#object-map" class="md-nav__link">
+    5. ACI to Public Cloud Object mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#section-tenant-configuration" class="md-nav__link">
     III. Tenant configuration
   </a>
@@ -799,14 +807,14 @@
         
           <li class="md-nav__item">
   <a href="#ndo-tenant" class="md-nav__link">
-    5. NDO Tenant Configuration
+    6. NDO Tenant Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#aws-trust" class="md-nav__link">
-    6. AWS Trust
+    7. AWS Trust
   </a>
   
 </li>
@@ -826,21 +834,21 @@
         
           <li class="md-nav__item">
   <a href="#use-case1" class="md-nav__link">
-    7. Use-case 01 - Stretched VRF
+    8. Use-case 01 - Stretched VRF
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-case2" class="md-nav__link">
-    8. Use-case 02 - Internet Gateway
+    9. Use-case 02 - Internet Gateway
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-case3" class="md-nav__link">
-    9. Use-case 03 - Inter-Tenant routing
+    10. Use-case 03 - Inter-Tenant routing
   </a>
   
 </li>
@@ -857,13 +865,6 @@
   
     <nav class="md-nav" aria-label="V. Appendixes">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#object-map" class="md-nav__link">
-    10. ACI to Public Cloud Object mapping
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
@@ -1038,7 +1039,7 @@
 <p class="admonition-title">Warning</p>
 <p>Make sure to use correct account (Infra or User) as indicated in lab guide!</p>
 </div>
-<h3 id="pod1-aws-infrastructure-tenant"><strong>AWS Infrastructure Tenant</strong></h3>
+<h3 id="pod1-aws-infrastructure-account"><strong>AWS Infrastructure Account</strong></h3>
 <p>AWS Infra Account ID: <br> <strong>xxxxxxx</strong></p>
 <p>AWS Infra Account Username:<br> <strong>xxxx</strong></p>
 <p>AWS Infra Account Password:<br> <strong>xxxxx!</strong></p>
@@ -1084,14 +1085,14 @@
 </tr>
 </tbody>
 </table>
-<h3 id="pod1-aws-user-tenant"><strong>AWS User Tenant</strong></h3>
+<h3 id="pod1-aws-user-account"><strong>AWS User Account</strong></h3>
 <p>AWS User Account ID:<br> <strong>xxx</strong></p>
 <p>AWS User Account Username:<br> <strong>xxx</strong></p>
 <p>AWS User Account Password:<br> <strong>xx!</strong></p>
 <h2 id="pod1-azure-resources"><strong>Azure Resources</strong></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>For Azure Cloud shared subscribtion model is used, hence login is the same for Infra and User account!</p>
+<p>For Azure Cloud shared subscribtion model is used, only one account is neccessary!</p>
 </div>
 <p>Login username:<br> <strong>student@xxxx.com</strong></p>
 <p>Password:<br> <strong>xxx!</strong></p>
@@ -1135,48 +1136,8 @@
                         </h1>
                         <section class="print-page" id="infra-config"><h1 id="infra-config-infrastructure-configuration-site-onboarding">Infrastructure configuration - Site onboarding</h1>
 <p>In this section we will find out Public IP addressing of Nexus Dashboard as well as Cloud Network Contollers. Also, will onboard AWS and Azure sites to Nexus Dashboard for further use. </p>
-<h2 id="infra-config-public-ip-address-of-nexus-dashboard-and-cisco-cloud-network-controller-in-aws">Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS</h2>
-<h3 id="infra-config-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
-<h3 id="infra-config-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user,  provide Account ID and hit "Next"</h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Use Account ID of <strong>AWS Infrastructure Account</strong> from POD Details page. </p>
-</div>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
-<h3 id="infra-config-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
-<h3 id="infra-config-4-in-aws-search-bar-type-ec2-and-select-ec2-services-tab">4. In AWS Search Bar type "EC2" and Select "EC2" Services Tab</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image6.png" width = 800></p>
-<h3 id="infra-config-5-from-resources-select-instances-running">5. From "Resources" select "Instances (Running)"</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800></p>
-<h3 id="infra-config-6-on-the-instances-list-scroll-to-the-right-and-note-down-public-ipv4-address-for">6. On the Instances List scroll to the right and note down "Public IPv4 address" for:</h3>
-<ul>
-<li>
-<p><strong>"ND1-Master"</strong></p>
-</li>
-<li>
-<p><strong>"Cisco Cloud Network Controller"</strong></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image8.png" width = 800></p>
-<h2 id="infra-config-public-ip-address-of-cisco-cloud-network-controller-in-azure">Public IP Address of Cisco Cloud Network Controller in Azure</h2>
-<h3 id="infra-config-1-open-azure-portal-via-browser">1. Open Azure portal via browser</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image14.png" width = 400></p>
-<h3 id="infra-config-2-enter-your-username-along-with-domain-and-hit-next">2. Enter your username along with domain and hit "Next"</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image15.png" width = 400></p>
-<h3 id="infra-config-3-provide-password-and-hit-sign-in">3. Provide password and hit "Sign In"</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image16.png" width = 400></p>
-<h3 id="infra-config-4-use-skip-for-now-option-for-account-protection">4. Use "Skip for now" option for Account Protection</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 300></p>
-<h3 id="infra-config-5-in-search-bar-look-for-virtual-machines-and-select-from-services">5. In Search bar look for "virtual machines" and select from services</h3>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 400></p>
-<h3 id="infra-config-6-on-the-virtual-machines-list-scroll-to-the-right-and-note-down-public-ip-address-for">6. On the Virtual Machines list scroll to the right and note down "Public IP address" for:</h3>
-<ul>
-<li><strong>"CloudNetworkController"</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image19.png" width = 800></p>
-<h2 id="infra-config-nexus-dashboard-site-onboarding">Nexus Dashboard site onboarding</h2>
+<p>Before that, let's take a look what Nexus Dashboard is and what function it has in ACI Multicloud Solution. </p>
+<h2 id="infra-config-nexus-dashboard-overview">Nexus Dashboard Overview</h2>
 <p><strong>Cisco Nexus Dashboard</strong> is a single launch point to monitor and scale across different sites, whether it is Cisco Application Centric Infrastructure™ (Cisco ACI®) fabric controllers, the Cisco® Application Policy Infrastructure Controller (APIC), Cisco Nexus Dashboard Fabric Controller (NDFC), or a Cloud APIC running in a public cloud provider environment.</p>
 <p>Cisco Nexus Dashboard provides a single focal point to unite the disparate views of hybrid-cloud data-center operations, application deployment, and performance.</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9a.png" width = 800></p>
@@ -1236,6 +1197,48 @@
 </li>
 </ul>
 <p><strong>Let's now login and start using it! </strong></p>
+<h2 id="infra-config-public-ip-address-of-nexus-dashboard-and-cisco-cloud-network-controller-in-aws">Public IP Address of Nexus Dashboard and Cisco Cloud Network Controller in AWS</h2>
+<h3 id="infra-config-1-open-aws-console-via-browser">1. Open AWS console via browser</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image3.png" width = 400></p>
+<h3 id="infra-config-2-select-iam-user-provide-account-id-and-hit-next">2. Select IAM user,  provide Account ID and hit "Next"</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use Account ID of <strong>AWS Infrastructure Account</strong> from POD Details page. </p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image4.png" width = 300></p>
+<h3 id="infra-config-3-provide-username-and-password-and-hit-sign-in">3. Provide Username and password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image5.png" width = 300></p>
+<h3 id="infra-config-4-in-aws-search-bar-type-ec2-and-select-ec2-services-tab">4. In AWS Search Bar type "EC2" and Select "EC2" Services Tab</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image6.png" width = 800></p>
+<h3 id="infra-config-5-from-resources-select-instances-running">5. From "Resources" select "Instances (Running)"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image7.png" width = 800></p>
+<h3 id="infra-config-6-on-the-instances-list-scroll-to-the-right-and-note-down-public-ipv4-address-for">6. On the Instances List scroll to the right and note down "Public IPv4 address" for:</h3>
+<ul>
+<li>
+<p><strong>"ND1-Master"</strong></p>
+</li>
+<li>
+<p><strong>"Cisco Cloud Network Controller"</strong></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image8.png" width = 800></p>
+<h2 id="infra-config-public-ip-address-of-cisco-cloud-network-controller-in-azure">Public IP Address of Cisco Cloud Network Controller in Azure</h2>
+<h3 id="infra-config-1-open-azure-portal-via-browser">1. Open Azure portal via browser</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image14.png" width = 400></p>
+<h3 id="infra-config-2-enter-your-username-along-with-domain-and-hit-next">2. Enter your username along with domain and hit "Next"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image15.png" width = 400></p>
+<h3 id="infra-config-3-provide-password-and-hit-sign-in">3. Provide password and hit "Sign In"</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image16.png" width = 400></p>
+<h3 id="infra-config-4-use-skip-for-now-option-for-account-protection">4. Use "Skip for now" option for Account Protection</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image17.png" width = 300></p>
+<h3 id="infra-config-5-in-search-bar-look-for-virtual-machines-and-select-from-services">5. In Search bar look for "virtual machines" and select from services</h3>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image18.png" width = 400></p>
+<h3 id="infra-config-6-on-the-virtual-machines-list-scroll-to-the-right-and-note-down-public-ip-address-for">6. On the Virtual Machines list scroll to the right and note down "Public IP address" for:</h3>
+<ul>
+<li><strong>"CloudNetworkController"</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image19.png" width = 800></p>
+<h2 id="infra-config-nexus-dashboard-site-onboarding">Nexus Dashboard site onboarding</h2>
 <h3 id="infra-config-1-login-to-nexus-dasboard-using-nd1-master-public-ipv4-address">1. Login to Nexus Dasboard using <strong>"ND1-Master"</strong> Public IPv4 Address</h3>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image9.png" width = 800></p>
 <h3 id="infra-config-2-hit-get-started-and-setup-screen-will-pop-up">2. Hit "Get started" and Setup screen will pop-up</h3>
@@ -1341,6 +1344,20 @@
 <p>Hit <strong>"Open"</strong> button in order to login </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width = 300></p>
 <p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
+<p>NDO Dashboard is very similar to ND Dashboard. You will see world map with sites located on them. You can change view to <em>Table</em> and get such summary on the screen.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-1.png" width = 800></p>
+<p>Similar to ND, Left navigation panel is divided to sections. You can find there:</p>
+<ul>
+<li>Sites - sites enablement under NDO. Sites are configured in ND itself but to be <strong>Managed</strong> by NDO must be explicitly configured in NDO Sites menu.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-2.png" width = 800></p>
+<ul>
+<li>Application Management - under this section you find all components for Logical deployment of tenants. You will use this section while configuring Use-Cases in a moment.</li>
+<li>Fabric Management - configuration of Fabric and Access Polices to be apply at sites</li>
+<li>Operations - Backup/Restore/Updates etc</li>
+<li>Infrastructure - Site connectivity - definition of overlay-1 VXLAN evpn, OSPF, eBGP - described on next section</li>
+<li>Integration - Possibile integration with SDWAN or DNAC</li>
+</ul>
 <h3 id="infra-config-msite-2-ndo-sites-onboarding">2. NDO Sites Onboarding</h3>
 <p>In order to configure AWS and Azure sites from NDO, added previously on <strong>Nexus Dashboard</strong>, sites have to be <strong>Maneged</strong> and have <strong>Site ID</strong> assigned. </p>
 <p>Navigate to <strong>Sites</strong>: </p>
@@ -1458,7 +1475,15 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that both sessions are Up (O in "State/PfxRcd" column)</p>
-<p><strong>In Next Section we will configure our first Tenant</strong> </p></section><h1 class='nav-section-title-end'>Ended: Infrastructure configuration</h1>
+<p><strong>In Next Section we will configure our first Tenant and for now on will focus on logical configuration. Before we do that, let's check how ACI created object will be mapped by Cloud Network Controller into native Public Cloud objects.</strong></p></section><h1 class='nav-section-title-end'>Ended: Infrastructure configuration</h1><section class="print-page" id="object-map"><h1 id="object-map-aci-to-public-cloud-object-mapping">ACI to Public Cloud object mapping</h1>
+<p>Cloud Network Controller is using cloud native objects to map ACI polices inside various public clouds. </p>
+<p>Before we go into logical object configuration, let's spend a minute to explore how ACI Policies will be mapped to native Cloud objects. Whenever we push an ACI Policy(directly fron CNC or via NDO), CNC based on the diagrams below will use Public Cloud API and configure respective object in respective clouds. </p>
+<h2 id="object-map-aci-to-aws-object-mapping">ACI to AWS object mapping</h2>
+<p>Below you can find how ACI policy model is mapped to AWS cloud native objects </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/aws_object_mapping.png" width = 1000></p>
+<h2 id="object-map-aci-to-azure-object-mapping">ACI to Azure object mapping</h2>
+<p>Below you can find how ACI policy model is mapped to Azure cloud native objects </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/azure_object_mapping.png" width = 1000></p></section>
                         <h1 class='nav-section-title' id='section-tenant-configuration'>
                             Tenant configuration <a class='headerlink' href='#section-tenant-configuration' title='Permanent link'>↵</a>
                         </h1>
@@ -1559,18 +1584,19 @@ ct_routerp_eu-central-1_0_0#
                             Use-cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="use-case1"><h1 id="use-case1-use-case-01-stretched-vrf-across-public-clouds-with-site-local-epgs">Use-case 01 - Stretched VRF across Public Clouds with site-local EPGs</h1>
-<p><strong>Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and will be working on logical topology.</strong></p>
-<p>First use-case task will focus on:</p>
+<p><strong>Previous tasks were focusing on infrastructure configuration, from now on infrastructure is ready and we will be working on logical topology.</strong></p>
+<p>In the first usecase in this lab we will configure topology with one(1) Tenant, stretched to 2 Public Cloud Sites. On top of it VRF, EPGs, selectors and contracts will be added and veryfication of created polices will be done. Lastly we will configure out Virutal Machines/EC2 instances to test real traffic communication, will also take a look how infrastructure configuration looks under the hood. </p>
+<p>Configuration tasks will focus on:</p>
 <ul>
 <li>Configuration of stretched VRF inside Tenant-01</li>
-<li>VPC CIDR(AWS), VNET(Azure) configuration in respective Clouds</li>
-<li>EPG configuration in both Clouds </li>
-<li>EC2/Virtual Machine creation and EPG assigment </li>
-<li>Contract configuration to allow traffic flow </li>
+<li>VPC CIDR(AWS), VNET(Azure) creation in respective Clouds</li>
+<li>EPG definition in both Providers </li>
+<li>EC2/Virtual Machine deployment and EPG assigment</li>
+<li>Contract configuration to allow traffic </li>
 <li>Communication testing </li>
 </ul>
 <h2 id="use-case1-schema-template-configuration">Schema, Template configuration</h2>
-<p>All logical polices and configuration are done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will also define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. </p>
+<p>All logical polices and configuration are done in Nexus Dashboard via Schemas and Templates. Each Schema can have multiple Templates, but Template can belong to only one Schema. Each Template is also assocaited to one and only one Tenant. Template to site assoction will define to which fabric (on prem or cloud) configration will be pushed, therefore is the smallest logical unit we can decide where changes are deployed. </p>
 <h3 id="use-case1-1-schema-creation">1. Schema creation</h3>
 <p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image70.png" width = 800></p>
@@ -1584,20 +1610,20 @@ ct_routerp_eu-central-1_0_0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image71.png" width = 800></p>
 <p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
-<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<p>On the right side of the template screen, we can customize the <strong>Template Display Name</strong>, and also select <strong>Tenant</strong>. Add Display Name and Select a Tenant. </p>
 <ul>
 <li>Display Name: <strong>temp-stretch-01</strong></li>
 <li>Tenant setting: <strong>Tenant-01</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image73.png" width = 800></p>
 <h3 id="use-case1-3-template-to-site-association">3. Template to site association</h3>
-<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
+<p>To deploy configuration inside template, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
 <p>For <strong>temp-stretch-01</strong>, we want to add both Azure and AWS sites. </p>
 <p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image76.png" width = 800></p>
-<p>Select both site <strong>CNC-AWS-01</strong> and <strong>CNC-Azure-01</strong> and hit <strong>Ok</strong></p>
+<p>Select both sites <strong>CNC-AWS-01</strong> and <strong>CNC-Azure-01</strong> and hit <strong>Ok</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image77.png" width = 800></p>
-<h2 id="use-case1-vrf-epg-selectors-deployment">VRF, EPG, selectors deployment</h2>
+<h2 id="use-case1-vrf-epgs-selectors-deployment">VRF, EPGs, selectors deployment</h2>
 <h3 id="use-case1-1-vrf-configuration">1. VRF Configuration</h3>
 <p>Inside <strong>Schema-T01</strong>, inside <strong>temp-stretch-01</strong> add the VRF with <strong>"Add VRF"</strong> button under <strong>VRFs</strong> box</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image74.png" width = 800></p>
@@ -1608,7 +1634,7 @@ ct_routerp_eu-central-1_0_0#
 </ul>
 <p>Leave other as default. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image75.png" width = 800></p>
-<p>As Tempalte was assocaited to both sites, we need to update details for each cloud, to do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-AWS-01"</strong> </p>
+<p>As Template was associated to both sites, we need to update details for each cloud provider, so ND knows which account/subscribtion should map to the Tenant. To do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-AWS-01"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image78.png" width = 800></p>
 <p>Click on the <strong>"VRF-01"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-AWS-01 Site</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image79.png" width = 800></p>
@@ -1617,7 +1643,7 @@ ct_routerp_eu-central-1_0_0#
 <li><strong>Region:</strong> eu-central-1</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image80.png" width = 800></p>
-<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC. This subnet will be configure as VPC CIDR on AWS cloud and will be used for VM and endpoint addressing. </p>
+<p>Now we need to specify what subnet we would like to use in AWS cloud for that VPC. This subnet will be configured as VPC CIDR on AWS cloud and will be used for EC2 and endpoint addressing. </p>
 <ul>
 <li>CIDR: <strong>10.0.0.0/23</strong> </li>
 </ul>
@@ -1625,7 +1651,7 @@ ct_routerp_eu-central-1_0_0#
 <p>Our CIDR also needs to be divided into subnets for respective <strong>Availability Zones (AZ)</strong> - hit <strong>"Add Subnet"</strong> to configure it. </p>
 <p>We need to add subnet for a,b,c (number of AZ depends on the region), each subet needs to be confirmed with click on <strong>checkbox</strong> button.</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image82.png" width = 800></p>
-<p>Create subnet for all 3 AZ in our Region, use non-virtual zone. </p>
+<p>Create subnet for all 3 AZ in our Region, use non-virtual zones. </p>
 <ul>
 <li><strong>Subnet:</strong> 10.0.0.0/25      <strong>Name:</strong> az-1a-subnet <strong>AZ:</strong> eu-central-1a</li>
 <li><strong>Subnet:</strong> 10.0.0.128/25    <strong>Name:</strong> az-1b-subnet <strong>AZ:</strong> eu-central-1b</li>
@@ -1633,7 +1659,7 @@ ct_routerp_eu-central-1_0_0#
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image83.png" width = 800></p>
 <p>When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
-<p>We also want to connect our subnets to Catalys8000V routers, this is done via Hub Network (Transit Gateway in AWS) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also all add all <strong>Subnets</strong> created before. </p>
+<p>We also want to connect our subnets to Catalys8000V Cloud Routers, this is done via Hub Network (Transit Gateway in AWS) - check the checkbox for <strong>"Hub Network"</strong>, select <strong>Hub Network</strong> and also add all <strong>Subnets</strong> created before </p>
 <ul>
 <li>Hub Network: <strong>TGW-HUB</strong></li>
 <li>Subnets: <strong>10.0.0.0/25, 10.0.0.128/25, 10.0.1.0/25</strong> </li>
@@ -1642,14 +1668,14 @@ ct_routerp_eu-central-1_0_0#
 <p>Hit ok to finish configuration for <strong>CNC-AWS-01</strong> fabric.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>AWS Transit Gateway(TGW) connects Amazon Virtual Private Clouds (VPCs) networks through a central hub. This connection simplifies network and puts an end to complex peering relationships. Transit Gateway acts as a highly scalable cloud router(don't be confused by naming - it's AWS internal cloud service and it's not related to Catalyst8000V routers which we also used call Cloud Routers). </p>
-<p>In our case TGW are used to connect our <strong>User VPC</strong> with <strong>Infrastructure VPC</strong> where the Cloud Routers (Catalyst8000V) resides, this allows traffic flow between User Endpoints and Cloud Routes, so also for communication with another sites and also another AWS Regions. Selection of the subnet for Hub Network means that such subnet will be advertised to TGW, so traffic towards such subnet can flow. </p>
+<p>AWS Transit Gateway(TGW) connects Amazon Virtual Private Clouds (VPCs) networks through a central hub. This connection simplifies network and puts an end to complex peering relationships. Transit Gateway acts as a highly scalable cloud router(don't be confused by naming - it's AWS internal cloud service and it's not related to Catalyst8000V Routers which we also used to call Cloud Routers). </p>
+<p>In our case TGW are used to connect our <strong>User VPC</strong> with <strong>Infrastructure VPC</strong> where the Cloud Routers (Catalyst8000V) reside, this allows traffic flow between User Endpoints and Cloud Routers, so also for communication with another sites and also another AWS Regions. Selection of the subnet for Hub Network means that such subnet will be advertised to TGW, so traffic towards such subnet can flow. </p>
 </div>
 <p>Similar configuration has to be done for <strong>CNC-Azure-01</strong>.</p>
 <p>Under <strong>temp-stretch-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image85.png" width = 800></p>
 <p>Click on the <strong>"VRF-01"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
-<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit  <strong>"Add CIDRs"</strong> button </p>
+<p>Under the <strong>"Tempalate Properties"</strong> hit <strong>"Add Region"</strong> button and select <strong>Region</strong> from the list and then hit <strong>"Add CIDRs"</strong> button </p>
 <ul>
 <li><strong>Region:</strong> francecentral</li>
 </ul>
@@ -1658,15 +1684,15 @@ ct_routerp_eu-central-1_0_0#
 <li>CIDR: <strong>10.100.0.0/23</strong> </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image86.png" width = 800></p>
-<p>Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select <strong>Availability Zones.</strong> We can add whole CIDR as subnet. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
+<p>Similar like for AWS we also needs to add subnet, but in case of Azure we don't need to select <strong>Availability Zones</strong>, in Azure it's done automaticaly. We can add whole CIDR as subnet. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image87.png" width = 800></p>
 <p>In case of Azure cloud, connection to CNC VNET is done via <strong>"VNET Peering"</strong> feature - enable it and select <strong>"Default" Hub Network</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image88.png" width = 800></p>
-<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Hit <strong>"Ok"</strong> to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>VNET Peering - Virtual network peering enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.</p>
-<p>In our case by enabling Hub Network in Azure, we are acutally peering our User Virtual Network (VRF-01) with Infrastructure Virtual Network(overlay-1) in which Cloud Routers resides to allow communication. </p>
+<p>In our case by enabling Hub Network in Azure, we are acutally peering our User Virtual Network (VRF-01) with Infrastructure Virtual Network(overlay-1) in which Cloud Routers reside to allow communication. </p>
 </div>
 <p>Under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"Template Properties"</strong> main settings. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image89.png" width = 800></p>
@@ -1688,7 +1714,7 @@ ct_routerp_eu-central-1_0_0#
 <li>default, without name, created automaticaly by AWS</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image95.png" width = 800></p>
-<p>Let's check the same in Azure Cloud. Open the Azure Portal and login if needed. </p>
+<p>Let's check the same in Azure Cloud. Open the Azure Portal and login if session already time-out. </p>
 <p>Search for <strong>"Virtual Networks"</strong> in search bar</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image96.png" width = 800></p>
 <p>As we are using shared subscribtion in this lab, there will be two(2) <strong>Virtual Networks:</strong> </p>
@@ -1700,12 +1726,14 @@ ct_routerp_eu-central-1_0_0#
 <h3 id="use-case1-3-additional-template-creation">3. Additional Template creation</h3>
 <p>As per our topology diagram, EPGs in each Cloud are separate. As current <strong>temp-stretch-01</strong> is associated with both sites. We need to create two(2) new templates in the <strong>Schema-T01</strong> schema, for Azure and AWS cloud sites respectively. </p>
 <p>Use the <strong>"Add new Template"</strong> and create 2 new templates with following names. Similar to first template from <strong>Actions</strong> menu associate to respective sites. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image71.png" width = 800></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
 <p><strong>AWS Template:</strong></p>
 <ul>
 <li>Template name: <strong>temp-AWS-01</strong></li>
 <li>Template type: <strong>ACI Multi-Cloud</strong></li>
 <li>Template Tenant: <strong>Tenant-01</strong></li>
-<li>Site associated: <strong>CNC-AWS-01</strong></li>
+<li>Site association: <strong>CNC-AWS-01</strong></li>
 </ul>
 <p>Hit <strong>Save</strong> button to save the template. </p>
 <p><strong>Azure Template:</strong></p>
@@ -1713,7 +1741,7 @@ ct_routerp_eu-central-1_0_0#
 <li>Template name: <strong>temp-Azure-01</strong></li>
 <li>Template type: <strong>ACI Multi-Cloud</strong> </li>
 <li>Template Tenant: <strong>Tenant-01</strong></li>
-<li>Site associated: <strong>CNC-Azure-01</strong></li>
+<li>Site association: <strong>CNC-Azure-01</strong></li>
 </ul>
 <p>Hit <strong>Save</strong> button to save the template. </p>
 <h3 id="use-case1-4-application-profile-and-epg-configuration-for-aws">4. Application Profile and EPG Configuration for AWS</h3>
@@ -1737,7 +1765,7 @@ ct_routerp_eu-central-1_0_0#
 </ul>
 <p>Skip the <strong>"On-Premises Properties"</strong> and click on <strong>"Cloud Properties"</strong> and select <strong>"Virtual Routing &amp; Forwarding"</strong> as <strong>"VRF-01"</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image103.png" width = 500></p>
-<p>We also need to add <strong>Selector</strong>. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under <strong>Site Specific</strong> configuration for each EPG. </p>
+<p>We also need to add <strong>Selectors</strong>. Selectors are used in Public Cloud to assign Virtual Machines and Endpoints to correct EPG represented by a Security Group. Selector should be added Under <strong>Site Specific</strong> configuration for each EPG. </p>
 <p>Thare can be different type of selectores: </p>
 <ul>
 <li>IP based </li>
@@ -1850,12 +1878,12 @@ ct_routerp_eu-central-1_0_0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image121.png" width = 400></p>
 <p>It may take 3-5 minutes for instance to be ready - you may jump to next step and deploy instance in Azure, then come back here for verification. </p>
 <h3 id="use-case1-2-aws-ec2-verification">2. AWS EC2 verification</h3>
-<p>Go back to EC2 -&gt; Instances and locate your EC2 machine. Click on Instance-ID of you machine to open it. </p>
+<p>Go back to EC2 -&gt; Instances and locate your EC2 machine. Click on <strong>Instance-ID</strong> of you machine to open it. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image122.png" width = 800></p>
 <ul>
 <li>Verify that VPC ID is correct </li>
 <li>Verify that subnet is correct </li>
-<li>Verify that instance has correct <strong>Private IPv4 addressess"</strong> </li>
+<li>Verify that instance has an <strong>Private IPv4 addressess"</strong> from created subnet range. </li>
 </ul>
 <p>Note down IP address of EC2 instance, we will need it for verification. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image123.png" width = 800></p>
@@ -1867,7 +1895,7 @@ ct_routerp_eu-central-1_0_0#
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>After EC2 instance startup it may take some time for CNC to change security group to correct one. If no selector is matched, EC2 will be assigned to default Cloud Network Controller Secuirty Group will all traffic denied. </p>
+<p>After EC2 instance startup it may take some time for CNC to change security group to correct one, corresponding to EPG. If no selector is matched, EC2 will be assigned to default Cloud Network Controller Secuirty Group will all traffic denied. </p>
 </div>
 <h3 id="use-case1-3-azure-virtual-machine-creation">3. Azure Virtual Machine creation</h3>
 <p>Login to Azure portal via https://portal.azure.com with your account details</p>
@@ -1910,6 +1938,7 @@ ct_routerp_eu-central-1_0_0#
 <p>Go back to <strong>Services -&gt; Virtual machines</strong> and locate your Virtual Machine. Click on the name to open it. </p>
 <p>Under the <strong>"Settings"</strong>, go to <strong>"Networking"</strong> and then <strong>"Application Security groups (ASG)"</strong> and notice that Virtual Machine is assigned to <strong>"EPG-Azure-01_cloudapp-AppProf-Azure-01"</strong> securty group. Similarly like for AWS, this ASG was assigned due to Selector configuration for EPG. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image134.png" width = 800></p>
+<p>Correct ASG configuration confirms correct configuration on Azure site. </p>
 <h2 id="use-case1-cross-cloud-traffic-verification">Cross Cloud traffic verification</h2>
 <p>Let's check if our Virtual Machines are able to communicate. For now we have configured that part of our infrastructure. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image140.png" width = 800></p>
@@ -1928,11 +1957,11 @@ PING 10.0.0.106 (10.0.0.106) 56(84) bytes of data.
 7 packets transmitted, 0 received, 100% packet loss, time 6134ms
 student@VM-AZ-01:~$
 </code></pre></div>
-<p>It doesnt work, what is expected as we didn't connect our two EPGs via contract. So even they are part of the same VRF, they are not able to communicate, as exactly same principles as on ACI applies. </p>
+<p>It doesnt work, what is expected as we didn't connect our two EPGs via contract. So even they are part of the same VRF, they are not able to communicate, as exactly same principles as on on-premises ACI applies. </p>
 <p><strong>Let's add contract to allow communication.</strong></p>
 <h2 id="use-case1-contract-configuration">Contract configuration</h2>
 <h3 id="use-case1-1-filter-creation">1. Filter creation</h3>
-<p>In order to create Contract, we need to have a filter which defines what type of traffis is allowed or denied under specyfic contract subject. Filter can define what ports and protocols are matched by specyfic rule.</p>
+<p>In order to create Contract, we need to have a filter which defines what type of traffis is allowed or denied under specyfic contract's subject. Filter can define what ports and protocols are matched by specyfic rule.</p>
 <p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-stretch-01"</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image143.png" width = 800></p>
@@ -1980,7 +2009,7 @@ student@VM-AZ-01:~$
 <p>Hit <strong>Deploy to sites</strong> for contracts to be pushed. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Even the checkbox for "Apply both direction" is enabled, we still need 2 contracts between Cloud EPGs. This configuration is coming from the fact that Consumed Contracts are adding Outbound/Outgoing rules and Provided Contracts are adding Inband/Incoming rules, so with one contract we would only allow for traffic to be initiated from consumer EPG. We could use the same contract in both direction (each EPG would then provide and consume the same contract), but it's not a best practice as may lead to unwanted traffic leaking and complicate troubleshooting. </p>
+<p>Even the checkbox for "Apply both direction" is enabled, we still need 2 contracts between Cloud EPGs. This configuration is comming from the fact that Consumed Contracts are adding Outbound/Outgoing rules and Provided Contracts are adding Inband/Incoming rules in Security Groups, so with one contract we would only allow for traffic to be initiated from consumer EPG. We could use the same contract in both direction (each EPG would then provide and consume the same contract), but it's not a best practice as may lead to unwanted traffic leaking and complicate troubleshooting. </p>
 </div>
 <h3 id="use-case1-2-contract-assigment-to-epgs">2. Contract assigment to EPGs</h3>
 <p>Just creation of contract doesn't have any impact on the traffic. Contract needs to have at least one Provider EPG and one Consumer EPG to allow communication between them. </p>
@@ -2058,7 +2087,7 @@ student@VM-AZ-01:~$
 <p>With that configuration, traffic is send to <strong>Azure Cloud Routers</strong> from which via <strong>IPSec tunnels</strong> is send to <strong>AWS Cloud Routers</strong> and towards destination AWS VPC. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In "Effective routes" output there are quite a few routes with "Default" source. Those were added by Microsoft and typicaly respresenting internal services. Next-hop set to "None" means that traffic towards those subnets is silently dropped. </p>
+<p>In "Effective routes" output there are quite a few routes with "Default" source. Those were added by Microsoft and typicaly respresenting internal MS services. Next-hop set to "None" means that traffic towards those subnets is silently dropped. </p>
 </div>
 <h3 id="use-case1-aws-cloud-verification">AWS Cloud verification</h3>
 <p>Login to AWS user tenant via https://console.aws.amazon.com and make sure that you have <strong>Frankfurt/eu-central-1</strong> region selected </p>
@@ -2068,7 +2097,7 @@ student@VM-AZ-01:~$
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image160.png" width = 800></p>
 <p>On the subnet details page, scroll down and locate <strong>"Route Table"</strong> tab, click on it </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image161.png" width = 800></p>
-<p>Notice that there was route added for <strong>Azure VNET space - 10.100.0.0/23</strong> towards <strong>"tgw-*"</strong> which is our Transit Gateway used to communicated with <strong>AWS Cloud Routers</strong>, so traffic can be send to Azure. </p>
+<p>Notice that there was route added for <strong>Azure VNET space - 10.100.0.0/23</strong> towards <strong>"tgw-*"</strong> which is our Transit Gateway used to communicate with <strong>AWS Cloud Routers</strong>, so traffic can be send to Azure Cloud. </p>
 <h3 id="use-case1-cloud-routers-verification">Cloud Routers verification</h3>
 <p>Let's check what was configured on Cloud Routers, so traffic can flow, will take a look on one of it as an example. </p>
 <p>Open Putty client from desktop and put IP address of Cloud router from Azure - <strong>ct_routerp_francecentral_0_0</strong> </p>
@@ -2117,7 +2146,7 @@ ct-routerp-francecentral-0-0#
 <p>Instances in AWS can access Internet with help of Internet Gateway. An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between VPC and the internet.</p>
 <p>An internet gateway provides a target VPC route tables for internet-routable traffic. For communication using IPv4, the internet gateway also performs network address translation (NAT).</p>
 <h2 id="use-case2-internet-gateway-as-external-epg">Internet Gateway as External EPG</h2>
-<p>As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - External EPG. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. </p>
+<p>As all routing aspectes of VPC are controlled by Cloud Network Controller, also Internet Gateway(IGW) is configured with it's help. Internet Gateway is represented by well know ACI object - <strong>External EPG</strong>. Cloud Network Controller is fully automating creation and attachemnt of IGW to VPC, contracts are responsible for security rules, so administrators are in full controll of traffic flow. </p>
 <h3 id="use-case2-external-epg-configuration">External EPG configuration</h3>
 <p>Open Nexus Dashboard Orchestrator GUI and navigate to <strong>Application Management -&gt; Schemas -&gt; "Schema-T01"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-AWS-01"</strong> and hit <strong>"Add External EPGs"</strong> under <strong>External EPGs</strong> section. </p>
@@ -2257,8 +2286,8 @@ ct-routerp-francecentral-0-0#
 <p>Communication is successfull now, EC2 instance has access to Internet via AWS Internet Gateway. </p>
 <p>At this point we completed that part of our topology configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image185.png" width = 800></p>
-<p>In Next Section we will configure additional Tenant and try inter-tenant leaking. </p></section><section class="print-page" id="use-case3"><h1 id="use-case3-use-case-03-inter-tenant-routing">Use-case 03 - Inter-Tenant routing</h1>
-<p>In this section we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  </p>
+<p>In Next Section we will configure additional Tenant and inter-tenant leaking.</p></section><section class="print-page" id="use-case3"><h1 id="use-case3-use-case-03-inter-tenant-routing">Use-case 03 - Inter-Tenant routing</h1>
+<p>In this section we will explore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  </p>
 <p>Additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be used in this lab. Later in the lab we will configured inter-tenant leaking, so Virtual Machines from 2 tenants are able to talk to each other. </p>
 <h2 id="use-case3-tenant-creation">Tenant creation</h2>
 <p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
@@ -2272,13 +2301,13 @@ ct-routerp-francecentral-0-0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image200.png" width = 800></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Similar as for first Tenant, we are not able to <strong>Save</strong> this configuration with red marking Site. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
-<p>Additional setting are needed for CNC, so it knows which subscribtion. </p>
+<p>Similar as for first Tenant, we are not able to <strong>Save</strong> this configuration with red marking on Site. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
+<p>Additional setting are needed for CNC, so it knows which subscription to use. </p>
 </div>
 <p><strong>CNC-Azure-01 site configuration</strong></p>
 <p>For Azure site, we will be using the same <strong>Subscription</strong> as previously - select <strong>Mode</strong> as <strong>"Select Shared"</strong> and use existing subscription from drop-down. Leave security domains empty. Hit <strong>Save</strong>. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width = 800></p>
-<p>As configuration will be done for new Tenant, new Schema, Template, VRF and all other logical objects have to be created. </p>
+<p>As configuration will be done for new Tenant thus new Schema, Template, VRF and all other logical objects have to be created. </p>
 <h2 id="use-case3-schema-template-configuration">Schema, Template configuration</h2>
 <h3 id="use-case3-1-schema-creation">1. Schema creation</h3>
 <p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
@@ -2295,15 +2324,15 @@ ct-routerp-francecentral-0-0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image203.png" width = 800></p>
 <p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width = 800></p>
-<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<p>On the right side of the template screen, we can customize the Template Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
 <ul>
 <li>Display Name: <strong>temp-Azure-01</strong></li>
 <li>Tenant setting: <strong>Tenant-02-Azure</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image204.png" width = 800></p>
 <h3 id="use-case3-3-template-to-site-association">3. Template to site association</h3>
-<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
-<p>For <strong>temp-Azure-01</strong>, we want to add both Azure site only. </p>
+<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabrics configuration will be pushed. </p>
+<p>For <strong>temp-Azure-01</strong>, we want to add Azure site only. </p>
 <p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image205.png" width = 800></p>
 <p>Select <strong>CNC-Azure-01</strong> site and hit <strong>Ok</strong></p>
@@ -2319,7 +2348,7 @@ ct-routerp-francecentral-0-0#
 </ul>
 <p>Leave other as default. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image208.png" width = 800></p>
-<p>As Tempalte was assocaited to Azure site, we need to update details for it, to do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
+<p>As Tempalte was assocaited to Azure site, we need to update details for it.</p>
 <p>Under <strong>temp-Azure-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image209.png" width = 800></p>
 <p>Click on the <strong>"T2-VRF-02"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
@@ -2335,9 +2364,9 @@ ct-routerp-francecentral-0-0#
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image211.png" width = 800></p>
 <p>Like previously we need to add subnet, which is whole CIDR. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image212.png" width = 800></p>
-<p>For traffic to flow between the Tenants, <strong>"VNET Peering"</strong> feature with <strong>"Default" Hub Network</strong> needs to be selected as well.</p>
+<p>For traffic to flow between the Tenants, <strong>"VNET Peering"</strong> feature with <strong>"Default" Hub Network</strong> needs to be selected as well. This will allow for traffic routing between two(2) created VRFs, over the Azure Network Backbone. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image213.png" width = 800></p>
-<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Hit <strong>Ok</strong> to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
 <p>Under <strong>temp-Azure-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"Template Properties"</strong> main settings. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image214.png" width = 800></p>
 <p>When done <strong>"Deploy to sites"</strong> button will become active (blue) - click to deploy VRF to respective sites. </p>
@@ -2378,9 +2407,9 @@ ct-routerp-francecentral-0-0#
 </ul>
 <p>Hit checkbox sign to save expression and then <strong>Ok</strong> to finish. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image222.png" width = 500></p>
-<p>Under <strong>Template Properties</strong> swtich back to <strong>Template Properties</strong> and hit <strong>"Deploy to sites"</strong> and <strong>"Deploy"</strong>. </p>
+<p>Under <strong>Template Properties</strong> switch back to <strong>Template Properties</strong> and hit <strong>"Deploy to sites"</strong> and <strong>"Deploy"</strong>. </p>
 <p>Once done confirmation will pop up on the screen. </p>
-<p><strong>At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance.</strong></p>
+<p><strong>At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance inside this Tenant to test configuration.</strong></p>
 <h2 id="use-case3-vm-creation">VM creation</h2>
 <p>Creation of VM for Tenant-Azure-02 in Azure. </p>
 <p>Login to Azure portal via https://portal.azure.com with your account details</p>
@@ -2423,7 +2452,7 @@ ct-routerp-francecentral-0-0#
 <p><strong>Let's add contract to allow communication.</strong></p>
 <h2 id="use-case3-contract-configuration">Contract configuration</h2>
 <h3 id="use-case3-1-filter-creation">1. Filter creation</h3>
-<p>In order to create Contract, we need to have a filter in this template also</p>
+<p>In order to create Contract, we need to have a filter inside this template.</p>
 <p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T02-Azure"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-Azure-01"</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image233.png" width = 800></p>
@@ -2440,16 +2469,16 @@ ct-routerp-francecentral-0-0#
 <h3 id="use-case3-2-contracts-configuration">2. Contracts configuration</h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default <strong>VRF</strong> Scope was enough to cover provider and consumer. </p>
+<p>Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located, we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default <strong>VRF</strong> Scope was enough to cover provider and consumer. </p>
 </div>
 <p>In this Use-case, idea is to connect EPGs from different Tenants, hence scope for contract needs to be set to <strong>"Global"</strong>, as this is the only one which covers EPGs from different tenants. Also placement of contract is imporant.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed in the Tenant were Provider of this contract is configured. </p>
+<p>If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed first in the Tenant were Provider of this contract is configured. </p>
 </div>
 <p>In our case contract where <strong>EPG-Azure-02</strong> from <strong>Tenant-Azure-02</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T02-Azure"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
 <p>Contract in opposite direction where <strong>EPG-Azure-01</strong> from <strong>Tenant-01</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T01"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
-<p><strong>Contracts configuration under Tenant-Azure-02</strong> </p>
+<p><strong>Contracts configuration for Tenant-Azure-02</strong> </p>
 <p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image240.png" width = 800></p>
 <p>Create contracts with following details: </p>
@@ -2466,6 +2495,7 @@ ct-routerp-francecentral-0-0#
 </ul>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image241.png" width = 800></p>
 <p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<p>**Let's now make EPG-Azure-02 as provider of this contract, so we can than consume it in Tenant-01. </p>
 <p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and under <strong>EPG-Azure-02</strong> specific setting locate <strong>Contract</strong> section</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image242.png" width = 800></p>
 <p>Hit <strong>"Add Contract"</strong> button and add the following contract: </p>
@@ -2524,6 +2554,7 @@ ct-routerp-francecentral-0-0#
 <p>Login to Azure portal via https://portal.azure.com with your account details</p>
 <p>Search for <strong>Virtual machine</strong> in search bar and open from Services list </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width = 800></p>
+<p>Open Virtual Machine <strong>VM-AZ-02</strong>.</p>
 <p>On the Azure Virtual Machine <strong>VM-AZ-02</strong>, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image252.png" width = 800></p>
 <p>Hit enter and provide VM login credentials:</p>
@@ -2544,20 +2575,13 @@ PING 10.100.0.4 (10.100.0.4) 56(84) bytes of data.
 rtt min/avg/max/mdev = 3.185/5.147/6.699/1.401 ms
 student@VM-AZ-02:~$
 </code></pre></div>
-<p>Communication is successfull! Well done. </p>
-<p>## Cloud Routers verification </p>
-<h1 id="use-case3-this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-some-new-infromations">This test has completed our lab, hope you enjoyed it and learn some new infromations.</h1></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
+<p>Communication is successfull! Well done! </p>
+<h1 id="use-case3-great-job-this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-something-new">Great job. This test has completed our lab, hope you enjoyed it and learn something new!</h1>
+<p>In Appendixes section you can find links to documentation and resources for futher details. </p></section><h1 class='nav-section-title-end'>Ended: Use-cases</h1>
                         <h1 class='nav-section-title' id='section-appendixes'>
                             Appendixes <a class='headerlink' href='#section-appendixes' title='Permanent link'>↵</a>
                         </h1>
-                        <section class="print-page" id="object-map"><h1 id="object-map-aci-to-public-cloud-object-mapping">ACI to Public Cloud object mapping</h1>
-<p>Cloud Netowrk Controller is using cloud native objects to map ACI constructins into various of public clouds. </p>
-<h2 id="object-map-aci-to-aws-object-mapping">ACI to AWS object mapping</h2>
-<p>Below you can find how ACI policy model is mapped to AWS cloud native objects </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/aws_object_mapping.png" width = 1000></p>
-<h2 id="object-map-aci-to-aws-object-mapping_1">ACI to AWS object mapping</h2>
-<p>Below you can find how ACI policy model is mapped to AWS cloud native objects </p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/azure_object_mapping.png" width = 1000></p></section><h1 class='nav-section-title-end'>Ended: Appendixes</h1></div>
+                        <h1 class='nav-section-title-end'>Ended: Appendixes</h1></div>
 
 
 

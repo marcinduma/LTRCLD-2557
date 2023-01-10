@@ -232,14 +232,19 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-map/">
+        ACI to Public Cloud Object mapping
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
           Tenant configuration
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Tenant configuration" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
+<label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           Tenant configuration
         </label>
@@ -258,13 +263,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
           Use-cases
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Use-cases" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
+<label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
           Use-cases
         </label>
@@ -373,22 +378,17 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
           Appendixes
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Appendixes" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
+<label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
           Appendixes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../object-map/">
-        ACI to Public Cloud Object mapping
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../resources/">
         Resources
@@ -496,7 +496,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="use-case-03-inter-tenant-routing">Use-case 03 - Inter-Tenant routing</h1>
-<p>In this section we will expolore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  </p>
+<p>In this section we will explore possibilites of Inter-tenant traffic flows. It's a very common scenario where multiple accounts/tenants in Public Cloud need to communicate with central one, where common service are deployed.  </p>
 <p>Additional Tenant needs to be created for this ucs-case configuration. Azure only tenant will be used in this lab. Later in the lab we will configured inter-tenant leaking, so Virtual Machines from 2 tenants are able to talk to each other. </p>
 <h2 id="tenant-creation">Tenant creation</h2>
 <p>On the Left navigation page click <strong>"Application Management" -&gt; "Tenant"</strong> and then <strong>"Add Tenant"</strong></p>
@@ -510,13 +510,13 @@
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image200.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image200.png" width="800"/></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Similar as for first Tenant, we are not able to <strong>Save</strong> this configuration with red marking Site. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
-<p>Additional setting are needed for CNC, so it knows which subscribtion. </p>
+<p>Similar as for first Tenant, we are not able to <strong>Save</strong> this configuration with red marking on Site. Click the <strong>Pencil</strong> button at the end of each site line to complete configuration. </p>
+<p>Additional setting are needed for CNC, so it knows which subscription to use. </p>
 </div>
 <p><strong>CNC-Azure-01 site configuration</strong></p>
 <p>For Azure site, we will be using the same <strong>Subscription</strong> as previously - select <strong>Mode</strong> as <strong>"Select Shared"</strong> and use existing subscription from drop-down. Leave security domains empty. Hit <strong>Save</strong>. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image52.png" width="800"/></a></p>
-<p>As configuration will be done for new Tenant, new Schema, Template, VRF and all other logical objects have to be created. </p>
+<p>As configuration will be done for new Tenant thus new Schema, Template, VRF and all other logical objects have to be created. </p>
 <h2 id="schema-template-configuration">Schema, Template configuration</h2>
 <h3 id="1-schema-creation">1. Schema creation</h3>
 <p>Navigate to <strong>Dashboard -&gt; Application Management -&gt; Schemas</strong>, then hit <strong>"Add Schema"</strong> </p>
@@ -533,15 +533,15 @@
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image203.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image203.png" width="800"/></a></p>
 <p>For a Template type select <strong>"ACI Multi-Cloud"</strong> and hit <strong>"Add"</strong></p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image72.png" width="800"/></a></p>
-<p>On the right side of the template screen, we can customize the Tempalte Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
+<p>On the right side of the template screen, we can customize the Template Display Name, and also select Tenant. Add Display Name and Select a Tenant. </p>
 <ul>
 <li>Display Name: <strong>temp-Azure-01</strong></li>
 <li>Tenant setting: <strong>Tenant-02-Azure</strong></li>
 </ul>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image204.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image204.png" width="800"/></a></p>
 <h3 id="3-template-to-site-association">3. Template to site association</h3>
-<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabric configuration will be pushed. </p>
-<p>For <strong>temp-Azure-01</strong>, we want to add both Azure site only. </p>
+<p>For configuration in template to be deployed, appropriate sites need to be added. Sites added will decide to which fabrics configuration will be pushed. </p>
+<p>For <strong>temp-Azure-01</strong>, we want to add Azure site only. </p>
 <p>To do it under the <strong>Template Properties</strong> locate the <strong>Actions</strong> button and hit <strong>Sites Associations</strong></p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image205.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image205.png" width="800"/></a></p>
 <p>Select <strong>CNC-Azure-01</strong> site and hit <strong>Ok</strong></p>
@@ -557,7 +557,7 @@
 </ul>
 <p>Leave other as default. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image208.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image208.png" width="800"/></a></p>
-<p>As Tempalte was assocaited to Azure site, we need to update details for it, to do so under <strong>temp-stretch-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
+<p>As Tempalte was assocaited to Azure site, we need to update details for it.</p>
 <p>Under <strong>temp-Azure-01</strong> expand <strong>"Tempalate Properties"</strong> and go to <strong>"CNC-Azure-01"</strong> </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image209.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image209.png" width="800"/></a></p>
 <p>Click on the <strong>"T2-VRF-02"</strong> which opens <strong>Site specific properties</strong> for this <strong>CNC-Azure-01 Site</strong></p>
@@ -573,9 +573,9 @@
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image211.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image211.png" width="800"/></a></p>
 <p>Like previously we need to add subnet, which is whole CIDR. When done, hit <strong>"Save"</strong> button to save subnet configuration. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image212.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image212.png" width="800"/></a></p>
-<p>For traffic to flow between the Tenants, <strong>"VNET Peering"</strong> feature with <strong>"Default" Hub Network</strong> needs to be selected as well.</p>
+<p>For traffic to flow between the Tenants, <strong>"VNET Peering"</strong> feature with <strong>"Default" Hub Network</strong> needs to be selected as well. This will allow for traffic routing between two(2) created VRFs, over the Azure Network Backbone. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image213.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image213.png" width="800"/></a></p>
-<p>Hit ok to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
+<p>Hit <strong>Ok</strong> to finish configuration for <strong>CNC-Azure-01</strong> fabric.</p>
 <p>Under <strong>temp-Azure-01</strong> expand <strong>"Template Properties"</strong> and go to <strong>"Template Properties"</strong> main settings. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image214.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image214.png" width="800"/></a></p>
 <p>When done <strong>"Deploy to sites"</strong> button will become active (blue) - click to deploy VRF to respective sites. </p>
@@ -616,9 +616,9 @@
 </ul>
 <p>Hit checkbox sign to save expression and then <strong>Ok</strong> to finish. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image222.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image222.png" width="500"/></a></p>
-<p>Under <strong>Template Properties</strong> swtich back to <strong>Template Properties</strong> and hit <strong>"Deploy to sites"</strong> and <strong>"Deploy"</strong>. </p>
+<p>Under <strong>Template Properties</strong> switch back to <strong>Template Properties</strong> and hit <strong>"Deploy to sites"</strong> and <strong>"Deploy"</strong>. </p>
 <p>Once done confirmation will pop up on the screen. </p>
-<p><strong>At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance.</strong></p>
+<p><strong>At this point we have created Tenant, VRF, EPGs and selectors for our second Tenant - let's now add Virtual Machines instance inside this Tenant to test configuration.</strong></p>
 <h2 id="vm-creation">VM creation</h2>
 <p>Creation of VM for Tenant-Azure-02 in Azure. </p>
 <p>Login to Azure portal via https://portal.azure.com with your account details</p>
@@ -661,7 +661,7 @@
 <p><strong>Let's add contract to allow communication.</strong></p>
 <h2 id="contract-configuration">Contract configuration</h2>
 <h3 id="1-filter-creation">1. Filter creation</h3>
-<p>In order to create Contract, we need to have a filter in this template also</p>
+<p>In order to create Contract, we need to have a filter inside this template.</p>
 <p>Open Nexus Dashboard Orchestrator GUI then go to <strong>Application Management -&gt; Schemas -&gt; "Schema-T02-Azure"</strong> -&gt; open </p>
 <p>Under View select <strong>"temp-Azure-01"</strong> and <strong>"Add filter"</strong> under <strong>Filter</strong> section. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image233.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image233.png" width="800"/></a></p>
@@ -678,16 +678,16 @@
 <h3 id="2-contracts-configuration">2. Contracts configuration</h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default <strong>VRF</strong> Scope was enough to cover provider and consumer. </p>
+<p>Contract can have a different scope (Application Profile, VRF, Tenant, Global). Depneds on the use case, where are the providers and consumers located, we should choose appropriate scope. In first two use-case providers and consumer were located in the same VRF, hence default <strong>VRF</strong> Scope was enough to cover provider and consumer. </p>
 </div>
 <p>In this Use-case, idea is to connect EPGs from different Tenants, hence scope for contract needs to be set to <strong>"Global"</strong>, as this is the only one which covers EPGs from different tenants. Also placement of contract is imporant.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed in the Tenant were Provider of this contract is configured. </p>
+<p>If contract is to be used for connection of EPGs from different Tenants/VRFs, contract needs to be deployed first in the Tenant were Provider of this contract is configured. </p>
 </div>
 <p>In our case contract where <strong>EPG-Azure-02</strong> from <strong>Tenant-Azure-02</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T02-Azure"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
 <p>Contract in opposite direction where <strong>EPG-Azure-01</strong> from <strong>Tenant-01</strong> is to be a <strong>Provider</strong> will be created in <strong>"Schema-T01"</strong> and Tempalte <strong>"temp-Azure-01"</strong>. </p>
-<p><strong>Contracts configuration under Tenant-Azure-02</strong> </p>
+<p><strong>Contracts configuration for Tenant-Azure-02</strong> </p>
 <p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and <strong>"Add contract"</strong> under <strong>Contract</strong> section. </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image240.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image240.png" width="800"/></a></p>
 <p>Create contracts with following details: </p>
@@ -704,6 +704,7 @@
 </ul>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image241.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image241.png" width="800"/></a></p>
 <p>Hit <strong>Save</strong> to finish contract configuration. </p>
+<p>**Let's now make EPG-Azure-02 as provider of this contract, so we can than consume it in Tenant-01. </p>
 <p>Under Schema <strong>"Schema-T02-Azure"</strong> navigate to <strong>View</strong> select <strong>"temp-Azure-01"</strong> and under <strong>EPG-Azure-02</strong> specific setting locate <strong>Contract</strong> section</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image242.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image242.png" width="800"/></a></p>
 <p>Hit <strong>"Add Contract"</strong> button and add the following contract: </p>
@@ -762,6 +763,7 @@
 <p>Login to Azure portal via https://portal.azure.com with your account details</p>
 <p>Search for <strong>Virtual machine</strong> in search bar and open from Services list </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image130.png" width="800"/></a></p>
+<p>Open Virtual Machine <strong>VM-AZ-02</strong>.</p>
 <p>On the Azure Virtual Machine <strong>VM-AZ-02</strong>, scroll down to <strong>"Help"</strong> Section and select <strong>"Serial Console"</strong> </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image252.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image252.png" width="800"/></a></p>
 <p>Hit enter and provide VM login credentials:</p>
@@ -782,9 +784,9 @@ PING 10.100.0.4 (10.100.0.4) 56(84) bytes of data.
 rtt min/avg/max/mdev = 3.185/5.147/6.699/1.401 ms
 student@VM-AZ-02:~$
 </code></pre></div>
-<p>Communication is successfull! Well done. </p>
-<p>## Cloud Routers verification </p>
-<h1 id="this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-some-new-infromations">This test has completed our lab, hope you enjoyed it and learn some new infromations.</h1>
+<p>Communication is successfull! Well done! </p>
+<h1 id="great-job-this-test-has-completed-our-lab-hope-you-enjoyed-it-and-learn-something-new">Great job. This test has completed our lab, hope you enjoyed it and learn something new!</h1>
+<p>In Appendixes section you can find links to documentation and resources for futher details. </p>
 </article>
 </div>
 </div>
@@ -804,13 +806,13 @@ student@VM-AZ-02:~$
             </div>
 </div>
 </a>
-<a aria-label="Next: ACI to Public Cloud Object mapping" class="md-footer__link md-footer__link--next" href="../object-map/" rel="next">
+<a aria-label="Next: Resources" class="md-footer__link md-footer__link--next" href="../resources/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              ACI to Public Cloud Object mapping
+              Resources
             </div>
 </div>
 <div class="md-footer__button md-icon">

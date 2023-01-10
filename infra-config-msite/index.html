@@ -307,14 +307,19 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-map/">
+        ACI to Public Cloud Object mapping
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
           Tenant configuration
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Tenant configuration" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
+<label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
           Tenant configuration
         </label>
@@ -333,13 +338,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
           Use-cases
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Use-cases" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
+<label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
           Use-cases
         </label>
@@ -363,22 +368,17 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
           Appendixes
           <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Appendixes" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
+<label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
           Appendixes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../object-map/">
-        ACI to Public Cloud Object mapping
-      </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../resources/">
         Resources
@@ -540,6 +540,20 @@
 <p>Hit <strong>"Open"</strong> button in order to login </p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png"><img src="https://raw.githubusercontent.com/marcinduma/LTRCLD-2557/master/images/image28.png" width="300"/></a></p>
 <p>You will be now redirected to <strong>Nexus Dashboard Orchestrator</strong> Dashboard. </p>
+<p>NDO Dashboard is very similar to ND Dashboard. You will see world map with sites located on them. You can change view to <em>Table</em> and get such summary on the screen.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-1.png"><img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-1.png" width="800"/></a></p>
+<p>Similar to ND, Left navigation panel is divided to sections. You can find there:</p>
+<ul>
+<li>Sites - sites enablement under NDO. Sites are configured in ND itself but to be <strong>Managed</strong> by NDO must be explicitly configured in NDO Sites menu.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-2.png"><img src="https://raw.githubusercontent.com/marcinduma/LABDCN-2542/master/images/ndo-overview-2.png" width="800"/></a></p>
+<ul>
+<li>Application Management - under this section you find all components for Logical deployment of tenants. You will use this section while configuring Use-Cases in a moment.</li>
+<li>Fabric Management - configuration of Fabric and Access Polices to be apply at sites</li>
+<li>Operations - Backup/Restore/Updates etc</li>
+<li>Infrastructure - Site connectivity - definition of overlay-1 VXLAN evpn, OSPF, eBGP - described on next section</li>
+<li>Integration - Possibile integration with SDWAN or DNAC</li>
+</ul>
 <h3 id="2-ndo-sites-onboarding">2. NDO Sites Onboarding</h3>
 <p>In order to configure AWS and Azure sites from NDO, added previously on <strong>Nexus Dashboard</strong>, sites have to be <strong>Maneged</strong> and have <strong>Site ID</strong> assigned. </p>
 <p>Navigate to <strong>Sites</strong>: </p>
@@ -657,7 +671,7 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 ct_routerp_eu-central-1_0_0#
 </code></pre></div>
 <p>Verify that both sessions are Up (O in "State/PfxRcd" column)</p>
-<p><strong>In Next Section we will configure our first Tenant</strong> </p>
+<p><strong>In Next Section we will configure our first Tenant and for now on will focus on logical configuration. Before we do that, let's check how ACI created object will be mapped by Cloud Network Controller into native Public Cloud objects.</strong></p>
 </article>
 </div>
 </div>
@@ -677,13 +691,13 @@ ct_routerp_eu-central-1_0_0#
             </div>
 </div>
 </a>
-<a aria-label="Next: NDO Tenant Configuration" class="md-footer__link md-footer__link--next" href="../ndo-tenant/" rel="next">
+<a aria-label="Next: ACI to Public Cloud Object mapping" class="md-footer__link md-footer__link--next" href="../object-map/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              NDO Tenant Configuration
+              ACI to Public Cloud Object mapping
             </div>
 </div>
 <div class="md-footer__button md-icon">
